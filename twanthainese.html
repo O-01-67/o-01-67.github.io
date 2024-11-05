@@ -76,7 +76,13 @@
 				border: 1px solid white;
 				padding: 1px;
 				line-height: 150%;
-			};
+			}
+			
+			.box2 {
+				border: 1px solid #2bd;
+				padding: 1px;
+				line-height: 150%;
+			}
 			
 			.height {
 				line-height: 150%;
@@ -193,6 +199,15 @@
 				clip: rect(1px 1px 1px 1px);
 				clip: rect(1px, 1px, 1px, 1px);
 			}
+			
+			#roman main table td {
+				min-width: 1em;
+				font-size: 80%;
+			}
+			
+			table+p {
+				margin-top: 1em;
+			}
 		</style>
 		<script>
 			urlParams = new URLSearchParams(window.location.search);
@@ -213,7 +228,6 @@
 		<p id="description">Twanthainese is a conlang I just made up for fun. This page is a <em>work in progress</em>, under construction.</p><br/>
 
 <section id="phonology">
-	<h1> VERSION 2 / UNFINISHED </h1>
 	<h3>Phonology:</h3>
 	<section id="initials">
 		<h3>Initials:</h3>
@@ -537,7 +551,7 @@
 					<tr>
 						<th colspan="3">&nbsp;</th>
 						<th colspan="2">Labial</th>
-						<th>Labiodental</th>
+						<th colspan="2">Labiodental</th>
 						<th>Dental</th>
 						<th colspan="2">Alveolar</th>
 						<th colspan="2">Post-alveolar</th>
@@ -550,6 +564,7 @@
 						<th><abbr title="Voiceless">V'less</abbr></th>
 						<th>Voiced</th>
 						<th>V'less</th>
+						<th>Voiced</th>
 						<th>V'less</th>
 						<th>V'less</th>
 						<th>Voiced</th>
@@ -566,6 +581,7 @@
 						<th rowspan="2">Plain</th>
 						<th>Unreleased</th>
 						<td>p̚</td>
+						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
@@ -586,6 +602,7 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
+						<td>&nbsp;</td>
 						<td>t̪͆</td>
 						<td>t</td>
 						<td>d</td>
@@ -594,13 +611,14 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>k</td>
-						<td>&nbsp;</td>
+						<td>g</td>
 						<td>&nbsp;</td>
 					</tr>
 					<tr>
 						<!--Plosive-->
 						<th>Palatalized</th>
 						<!--Released-->
+						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
@@ -612,13 +630,14 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>k̟</td>
-						<td>&nbsp;</td>
+						<td>g̟</td>
 						<td>&nbsp;</td>
 					</tr>
 					<tr>
 						<th colspan="3">Nasal</th>
 						<td>&nbsp;</td>
 						<td>m</td>
+						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
@@ -635,7 +654,8 @@
 						<th colspan="3">Fricative</th>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
-						<td>f̆~p̪̚</td>
+						<td>f</td>
+						<td>v</td>
 						<td>θ̆</td>
 						<td>s̆</td>
 						<td>&nbsp;</td>
@@ -649,6 +669,7 @@
 					</tr>
 					<tr>
 						<th colspan="3">Affricate</th>
+						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
@@ -670,6 +691,7 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
+						<td>&nbsp;</td>
 						<td>l</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
@@ -687,6 +709,7 @@
 	<!--Shifts, merges, and exceptions:
 		Final */cʰ/ lenited into /ç/
 		Final */c/ became /i̯/
+		Second sound shift on top of the one that created /fʲ/ and /vʲ/: */fʲ/ and */vʲ/ depalatalized word-finally to /f/ and /v/
 	--> 
 
 	<section id="roman">
@@ -697,226 +720,182 @@
 				<tbody>
 					<tr>
 						<th>Letter</th>
-							<td>m</td>
-							<td>n</td>
-							<td>ŋ</td>
-							<td>p</td>
+							<td rowspan="2">m</td>
+							<td rowspan="2">n</td>
+							<td>ń</td>
+							<td rowspan="2">p</td>
 							<td>ṕ</td>
-							<td>i</td>
-							<td>f</td>
-							<td>b</td>
+							<td rowspan="2">i</td>
+							<td rowspan="2">f</td>
+							<td rowspan="2">b</td>
 							<td>b́</td>
-							<td>v</td>
+							<td rowspan="2">v</td>
 							<td>ť</td>
 							<td>u̇</td>
 							<td>ť̰</td>
 							<td>ď</td>
 							<td>ď̰</td>
-							<td>t</td>
+							<td rowspan="2">t</td>
 							<td>t́</td>
-							<td>u</td>
+							<td rowspan="2">u</td>
 							<td>t̃</td>
 							<td>t̰́</td>
-							<td>d</td>
+							<td rowspan="2">d</td>
 							<td>d́</td>
 							<td>d̃</td>
-							<td>o</td>
+							<td rowspan="2">o</td>
 							<td>d̰́</td>
 							<td>k̋</td>
 							<td>k̰̋</td>
 							<td>g̋</td>
-							<td>k</td>
+							<td rowspan="2">k</td>
 							<td>ë</td>
 							<td>ḱ</td>
 							<td>k̃</td>
 							<td>ḱ̰</td>
 							<td>g</td>
-							<td>ǵ</td>
-							<td>a</td>
+							<td rowspan="2">ǵ</td>
+							<td rowspan="2">a</td>
 							<td>g̃</td>
 							<td>g̃́</td>
-							<td>w</td>
-							<td>f</td>
+							<td rowspan="2">w</td>
+							<td rowspan="2">f</td>
 							<td>f̌</td>
-							<td>e</td>
-							<td>l</td>
+							<td rowspan="2">e</td>
+							<td rowspan="2">l</td>
 							<td>l̃</td>
-							<td>s</td>
-							<td>c</td>
-							<td>ǰ</td>
+							<td rowspan="2">s</td>
+							<td rowspan="2">c</td>
+							<td rowspan="2">z</td>
 							<td>ü</td>
 							<td>č</td>
-							<td>j</td>
-							<td>y</td>
-							<td>'</td>
+							<td rowspan="2">j</td>
+							<td rowspan="2">y</td>
+							<td rowspan="2">'</td>
 					</tr>
 					<tr>
 						<th>ASCII</th>
-							<td>m</td>
-							<td>n̪~n</td>
-							<td>ŋ</td>
-							<td>p</td>
-							<td>pʲ</td>
-							<td>i</td>
-							<td>fʲ</td>
-							<td>b</td>
-							<td>bʲ</td>
-							<td>vʲ</td>
-							<td>t̪͆</td>
-							<td>ɯ̟~ɨ</td>
-							<td>t̪͆ʰ~θ</td>
-							<td>d̪͆</td>
-							<td>d̪͆ʱ~ð</td>
-							<td>t</td>
-							<td>tʲ</td>
-							<td>u</td>
-							<td>tʰ</td>
-							<td>tʲʰ</td>
-							<td>d</td>
-							<td>dʲ</td>
-							<td>dʱ</td>
-							<td>o</td>
-							<td>dʲʱ</td>
-							<td>c</td>
-							<td>c͡ç~cʰ</td>
-							<td>ɟ</td>
-							<td>k</td>
-							<td>ə</td>
-							<td>k̟</td>
-							<td>kʰ~k͡x</td>
-							<td>k̟ʰ</td>
-							<td>g</td>
-							<td>g̟</td>
-							<td>a~a̠</td>
-							<td>gʱ</td>
-							<td>g̟ʱ</td>
-							<td>w~β̞</td>
-							<td>ɸ~f</td>
-							<td>p̪͡f</td>
-							<td>e</td>
-							<td>ɾ~l</td>
-							<td>ɬ̆~ɮ̆</td>
-							<td>s</td>
-							<td>t͡s</td>
-							<td>d͡z</td>
-							<td>ʏ</td>
-							<td>t̠͡ʃ</td>
-							<td>d̠͡ʒ</td>
-							<td>j</td>
-							<td>ʔ͡h</td>
+							<td>ng</td>
+							<td>py</td>
+							<td>by</td>
+							<td>tf</td>
+							<td>iu</td>
+							<td>tfh</td>
+							<td>dv</td>
+							<td>dvh</td>
+							<td>ty</td>
+							<td>th</td>
+							<td>tyh</td>
+							<td>dy</td>
+							<td>dh</td>
+							<td>dyh</td>
+							<td>yky</td>
+							<td>ykyh</td>
+							<td>ygy</td>
+							<td>oe</td>
+							<td>ky</td>
+							<td>kh</td>
+							<td>kyh</td>
+							<td>gy</td>
+							<td>gh</td>
+							<td>gyh</td>
+							<td>pf</td>
+							<td>lh</td>
+							<td>ui</td>
+							<td>ch</td>
 					</tr>
 					<tr>
 						<th>Initial sound</th>
-							<td>m</td>
-							<td>n̪~n</td>
-							<td>ŋ</td>
+							<td rowspan="2">m</td>
+							<td rowspan="2">n̪~n</td>
+							<td rowspan="2">ŋ</td>
 							<td>p</td>
 							<td>pʲ</td>
-							<td>i</td>
+							<td rowspan="2">i</td>
 							<td>fʲ</td>
 							<td>b</td>
 							<td>bʲ</td>
 							<td>vʲ</td>
 							<td>t̪͆</td>
-							<td>ɯ̟~ɨ</td>
+							<td rowspan="2">ɯ̟~ɨ</td>
 							<td>t̪͆ʰ~θ</td>
 							<td>d̪͆</td>
 							<td>d̪͆ʱ~ð</td>
 							<td>t</td>
 							<td>tʲ</td>
-							<td>u</td>
+							<td rowspan="2">u</td>
 							<td>tʰ</td>
 							<td>tʲʰ</td>
 							<td>d</td>
 							<td>dʲ</td>
 							<td>dʱ</td>
-							<td>o</td>
+							<td rowspan="2">o</td>
 							<td>dʲʱ</td>
 							<td>c</td>
 							<td>c͡ç~cʰ</td>
 							<td>ɟ</td>
 							<td>k</td>
-							<td>ə</td>
+							<td rowspan="2">ə</td>
 							<td>k̟</td>
 							<td>kʰ~k͡x</td>
 							<td>k̟ʰ</td>
 							<td>g</td>
 							<td>g̟</td>
-							<td>a~a̠</td>
+							<td rowspan="2">a~a̠</td>
 							<td>gʱ</td>
 							<td>g̟ʱ</td>
 							<td>w~β̞</td>
 							<td>ɸ~f</td>
 							<td>p̪͡f</td>
-							<td>e</td>
+							<td rowspan="2">e</td>
 							<td>ɾ~l</td>
 							<td>ɬ̆~ɮ̆</td>
 							<td>s</td>
-							<td>t͡s</td>
-							<td>d͡z</td>
-							<td>ʏ</td>
-							<td>t̠͡ʃ</td>
-							<td>d̠͡ʒ</td>
+							<td rowspan="2">t͡s</td>
+							<td rowspan="2">d͡z</td>
+							<td rowspan="2">ʏ</td>
+							<td rowspan="2">t̠͡ʃ</td>
+							<td rowspan="2">d̠͡ʒ</td>
 							<td>j</td>
 							<td>ʔ͡h</td>
 					</tr>
 					<tr>
 						<th>Final sound</th>
-							<td>m</td>
-							<td>n̪~n</td>
-							<td>ŋ</td>
-							<td>p</td>
-							<td>pʲ</td>
-							<td>i</td>
-							<td>fʲ</td>
-							<td>b</td>
-							<td>bʲ</td>
-							<td>vʲ</td>
+							<td colspan="2">p̚</td>
+							<td>f</td>
+							<td colspan="2">p̚</td>
+							<td>v</td>
+							<td>/t̚/ [t̪͆̚]</td>
 							<td>t̪͆</td>
-							<td>ɯ̟~ɨ</td>
-							<td>t̪͆ʰ~θ</td>
-							<td>d̪͆</td>
-							<td>d̪͆ʱ~ð</td>
+							<td>t̚</td>
+							<td>dʲ</td>
+							<td colspan="2">t̚</td>
 							<td>t</td>
 							<td>tʲ</td>
-							<td>u</td>
-							<td>tʰ</td>
-							<td>tʲʰ</td>
+							<td colspan="2">t̚</td>
 							<td>d</td>
 							<td>dʲ</td>
-							<td>dʱ</td>
-							<td>o</td>
-							<td>dʲʱ</td>
+							<td>i̯</td>
 							<td>c</td>
-							<td>c͡ç~cʰ</td>
-							<td>ɟ</td>
+							<td>i̯</td>
 							<td>k</td>
-							<td>ə</td>
+							<td>/k̚/ [k̟̚]</td>
+							<td>k</td>
 							<td>k̟</td>
-							<td>kʰ~k͡x</td>
-							<td>k̟ʰ</td>
+							<td>k̚</td>
+							<td>/k̚/ [k̟̚]</td>
 							<td>g</td>
 							<td>g̟</td>
-							<td>a~a̠</td>
-							<td>gʱ</td>
-							<td>g̟ʱ</td>
-							<td>w~β̞</td>
-							<td>ɸ~f</td>
-							<td>p̪͡f</td>
-							<td>e</td>
-							<td>ɾ~l</td>
-							<td>ɬ̆~ɮ̆</td>
-							<td>s</td>
-							<td>t͡s</td>
-							<td>d͡z</td>
-							<td>ʏ</td>
-							<td>t̠͡ʃ</td>
-							<td>d̠͡ʒ</td>
-							<td>j</td>
-							<td>ʔ͡h</td>
+							<td>u̯</td>
+							<td colspan="2">f̆~p̪̚</td>
+							<td colspan="2">l</td>
+							<td>s~s̆</td>
+							<td>i̯</td>
+							<td>ʔ</td>
 					</tr>
 				</tbody>
 			</table>
+			<p class="plain-font">Ambiguities in the ASCII notation are disambiguated with the dash/hyphen "-" (e.g. "dy-a" (d́a) vs. "d-ya" (dya))</p>
 		</main>
 	</section>
 
@@ -947,7 +926,7 @@
 				c*c: fire
 				f̌*n: water
 				k̃*ḱ: ice
-				č*x: electricity
+				č*k̰̋: electricity
 				c*n: (for personal pronouns)
 				s*k: (for other pronouns)
 				b*k: sand
@@ -1016,21 +995,21 @@ data = [
 	{ part: 'noun', qtw: 'f̌won', eng: 'current, river' }, /// 
 	{ part: 'noun', qtw: 'f̌en f̌won', eng: 'river, stream' }, /// 
 	{ part: 'noun', qtw: 'f̌aun', eng: 'drink' }, /// 
-	{ part: 'noun', qtw: 'k̃eḱ', eng: 'ice' }, /// 
-	{ part: 'noun', qtw: 'k̃woḱ', eng: 'snow' }, /// 
-	{ part: 'noun', qtw: 'k̃yiḱ', eng: 'slush' }, /// 
-	{ part: 'noun', qtw: 'k̃waḱ', eng: 'glacier, iceberg' }, /// 
-	{ part: 'noun', qtw: 'k̃aiḱ', eng: 'severe cold, (poetic) cold' }, /// 寒
-	{ part: 'noun', qtw: 'beḱ', eng: 'glass', etym: 'from "bak k̃eḱ" ("sand ice")' }, /// 
-	{ part: 'noun', qtw: 'čuex', eng: 'electricity, (historical) lightning' }, /// 
-	{ part: 'noun', qtw: 'čwax', eng: 'lightning' }, /// 
-	{ part: 'noun', qtw: 'čwox', eng: 'electric arc', etym: 'Recent phonesthemic coinage' }, /// 
-	{ part: 'noun', qtw: 'čaix', eng: 'a shock', extra: 'The sensation of static electricity, or of an electric shock in general' }, /// 
-	{ part: 'noun', qtw: 'čyix', eng: 'thunderstorm' }, /// 
+	{ part: 'noun', qtw: 'k̃ek̋', eng: 'ice' }, /// 
+	{ part: 'noun', qtw: 'k̃wok̋', eng: 'snow' }, /// 
+	{ part: 'noun', qtw: 'k̃yik̋', eng: 'slush' }, /// 
+	{ part: 'noun', qtw: 'k̃wak̋', eng: 'glacier, iceberg' }, /// 
+	{ part: 'noun', qtw: 'k̃aik̋', eng: 'severe cold, (poetic) cold' }, /// 寒
+	{ part: 'noun', qtw: 'bek̋', eng: 'glass', etym: 'from "bak k̃ek̋" ("sand ice")' }, /// 
+	{ part: 'noun', qtw: 'čuek̰̋', eng: 'electricity, (historical) lightning' }, /// 
+	{ part: 'noun', qtw: 'čwak̰̋', eng: 'lightning' }, /// 
+	{ part: 'noun', qtw: 'čwok̰̋', eng: 'electric arc', etym: 'Recent phonesthemic coinage' }, /// 
+	{ part: 'noun', qtw: 'čaik̰̋', eng: 'a shock', extra: 'The sensation of static electricity, or of an electric shock in general' }, /// 
+	{ part: 'noun', qtw: 'čyik̰̋', eng: 'thunderstorm' }, /// 
 	{ part: 'noun', qtw: 'nüť', eng: 'red' }, /// 
 	{ part: 'noun', qtw: 'müt', eng: 'green' }, /// 
 	{ part: 'noun', qtw: 'nüw', eng: 'blue' }, /// 
-	{ part: 'noun', qtw: 'ńüx', eng: 'purple' }, /// 
+	{ part: 'noun', qtw: 'ńük̰̋', eng: 'purple' }, /// 
 	{ part: 'noun', qtw: 'ńü\'', eng: 'yellow' }, /// 
 	{ part: 'noun', qtw: 'ńük', eng: 'orange' }, /// 
 	{ part: 'noun', qtw: 'ńik', eng: 'white' }, /// 
@@ -1073,9 +1052,9 @@ data = [
 	{ part: 'noun', qtw: 'wwaiw', eng: 'human, person' }, /// 
 	{ part: 'noun', qtw: 'faw', eng: 'child', etym: 'From "fu̇p wwaiw"' }, /// 
 	{ part: 'noun', qtw: '\'aiw', eng: 'adult, grown-up', etym: 'From "fwai\' wwaiw"' }, /// 
-	{ part: 'noun', qtw: 'xyaw', eng: 'boy', etym: 'From "xin faw"' }, /// 
+	{ part: 'noun', qtw: 'k̰̋yaw', eng: 'boy', etym: 'From "k̰̋in faw"' }, /// 
 	{ part: 'noun', qtw: 'jeuw', eng: 'girl', etym: 'From "jet faw"' }, /// 
-	{ part: 'noun', qtw: 'xyaiw', eng: 'man', etym: 'From "xin \'aiw"' }, /// 
+	{ part: 'noun', qtw: 'k̰̋yaiw', eng: 'man', etym: 'From "k̰̋in \'aiw"' }, /// 
 	{ part: 'noun', qtw: '\'eut', eng: 'woman', etym: 'From "jet \'aiw"' }, /// 
 	{ part: 'noun', qtw: 'mam', eng: 'mother' }, /// 
 	{ part: 'noun', qtw: 'maw', eng: 'mommy', extra: 'Intimate/Term of endearment' }, /// 
@@ -1083,10 +1062,10 @@ data = [
 	{ part: 'noun', qtw: 'baw', eng: 'daddy', extra: 'Intimate/Term of endearment' }, /// 
 	{ part: 'noun', qtw: 'waw', eng: 'parent' }, /// 
 	{ part: 'noun', qtw: 'waiw', eng: 'sibling' }, /// 
-	{ part: 'noun', qtw: 'wain', eng: 'brother', etym: 'From "xin waiw"' }, /// 
+	{ part: 'noun', qtw: 'wain', eng: 'brother', etym: 'From "k̰̋in waiw"' }, /// 
 	{ part: 'noun', qtw: 'wët', eng: 'sister', etym: 'From "jet waiw"' }, /// 
 	{ part: 'noun', qtw: 'wwai', eng: 'pibling', extra: 'Refers to any aunts or uncle', etym: 'From "waw waiw"' }, /// 
-	{ part: 'noun', qtw: 'xwai', eng: 'aunt', etym: 'From "xin wwai"' }, /// 
+	{ part: 'noun', qtw: 'k̰̋wai', eng: 'aunt', etym: 'From "k̰̋in wwai"' }, /// 
 	{ part: 'noun', qtw: 'jwai', eng: 'uncle', etym: 'From "jet wwai"' }, /// 
 	{ part: 'noun', qtw: 'wwyiw', eng: 'algae' }, /// 
 	{ part: 'noun', qtw: 'twan ťain wwaiw', eng: 'humans, (hu)mankind' }, /// 
@@ -1101,7 +1080,7 @@ data = [
 	{ part: 'noun', qtw: 'fwań', eng: 'marine life' }, /// 
 	{ part: 'noun', qtw: 'fwań wwaw', eng: 'seaweed (synonym of "f̌en wwaw")' }, /// 
 	{ part: 'noun', qtw: 'f̌en fwań', eng: 'eel' }, /// 
-	{ part: 'noun', qtw: 'čuex fwań', eng: 'electric eel' }, /// 
+	{ part: 'noun', qtw: 'čuek̰̋ fwań', eng: 'electric eel' }, /// 
 	{ part: 'noun', qtw: 'fu̇t ček', eng: 'death' }, /// 
 	{ part: 'noun', qtw: 'yuk', eng: 'chair' }, /// 
 	{ part: 'noun', qtw: 'yep', eng: 'table' }, /// 
@@ -1112,7 +1091,7 @@ data = [
 	{ part: 'noun', qtw: 'pwak', eng: 'door' }, /// 
 	{ part: 'noun', qtw: 'ket', eng: 'tool' }, /// 
 	{ part: 'noun', qtw: 'nwëw bwow ket', eng: 'quill' }, /// 
-	{ part: 'noun', qtw: 'čuex ket', eng: 'power tool' }, /// 
+	{ part: 'noun', qtw: 'čuek̰̋ ket', eng: 'power tool' }, /// 
 	{ part: 'noun', qtw: 'kwëw', eng: 'vehicle, (historical) wheel', extra: 'The historical sense of "wheel" stems from the Twanthainese\'s early development of the wheel.' }, /// 
 	{ part: 'noun', qtw: 'kwëw wwow', eng: 'horse' }, /// 
 	{ part: 'noun', qtw: 'wwow kwëw', eng: 'carriage' }, /// 
@@ -1199,17 +1178,17 @@ data = [
 	{ part: 'noun', qtw: 'min müf \'oi fun', eng: 'underwear (excluding bras)' }, /// 
 	{ part: 'noun', qtw: 'min müf euf fun', eng: 'bra' }, /// 
 	{ part: 'noun', qtw: 'pat', eng: 'pants', etym: 'From English' }, /// 
-	{ part: 'noun', qtw: 'lüj', eng: 'rizz (slang for "charisma")', etym: 'From English' }, /// 
-	{ part: 'noun', qtw: 'lüj wa', eng: 'rizzler' }, /// 
+	{ part: 'noun', qtw: 'lüz', eng: 'rizz (slang for "charisma")', etym: 'From English' }, /// 
+	{ part: 'noun', qtw: 'lüz wa', eng: 'rizzler' }, /// 
 	{ part: 'noun', qtw: 'gyat', eng: 'gyatt (slang for a big butt)', etym: 'From English' }, /// 
 	{ part: 'noun', qtw: 'gap', eng: 'language' }, /// 
-	{ part: 'noun', qtw: 'gax', eng: 'hello', etym: 'Cognate with "gap"' }, /// 
+	{ part: 'noun', qtw: 'gak̰̋', eng: 'hello', etym: 'Cognate with "gap"' }, /// 
 	{ part: 'noun', qtw: 'yan', eng: 'cat (Felis catus)', etym: 'Onomatopoeic' }, /// 
 	{ part: 'noun', qtw: 'fu̇p yan', eng: 'kitten', extra: '"fu̇p yan" includes the cubs of other felids, but "yan" does not include their adults and only encompasses domestic cats.' }, /// 
 	{ part: 'noun', qtw: 'we', eng: 'special, exceptional' }, /// 
 	{ part: 'noun', qtw: 'woiń', eng: 'freedom, liberty' }, /// 
 	{ part: 'noun', qtw: 'waiń', eng: 'right (legal or just ability or entitlement)', etym: 'Cognate of "woiń"' }, /// 
-	{ part: 'noun', qtw: 'ḱeyt', eng: 'dignity' }, /// 
+	{ part: 'noun', qtw: 'k̋eyt', eng: 'dignity' }, /// 
 	{ part: 'noun', qtw: 'čey', eng: 'property (as in the phrase "density is a property of a substance")', etym: 'Cognate of "ček"', extra: 'Not used in the sense that denotes ownership.' }, /// 
 	{ part: 'noun', qtw: 'gwop', eng: 'word, lexeme', etym: 'From "gap dwop"' }, /// 
 	{ part: 'noun', qtw: 'ńap', eng: 'script', etym: 'From "gap ńan"' }, /// 
@@ -1246,8 +1225,8 @@ data = [
 	{ part: 'noun', qtw: 'Dis Cot-gu̇n Dwop Müf cin', eng: 'Elemental on Discord' }, /// 
 	{ part: 'noun', qtw: 'bët tun bët', eng: 'underworld', extra: 'A general term for a world or realm below our own' }, /// 
 	{ part: 'noun', qtw: 'coec müf bët tun bët', eng: 'Hell' }, /// 
-	{ part: 'noun', qtw: 'fwa\' xin bab', eng: 'manly man, chad' }, /// 
-	{ part: 'noun', qtw: 'fwa\' fwa\' xin bab', eng: 'gigachad' }, /// 
+	{ part: 'noun', qtw: 'fwa\' k̰̋in bab', eng: 'manly man, chad' }, /// 
+	{ part: 'noun', qtw: 'fwa\' fwa\' k̰̋in bab', eng: 'gigachad' }, /// 
 	{ part: 'adjective', qtw: 'twon', eng: 'multiple' }, /// 
 	{ part: 'adjective', qtw: 'twan', eng: 'many' }, /// 
 	{ part: 'adjective', qtw: 'l̃it', eng: 'zero' }, /// 
@@ -1289,8 +1268,8 @@ data = [
 	{ part: 'adjective', eng: 'million', qtw: 'k̃euk' }, /// 
 	{ part: 'adjective', eng: 'crore', qtw: 'fu\'' }, /// 
 	{ part: 'adjective', eng: 'myllion', qtw: 'füt̃' }, /// 
-	{ part: 'adjective', eng: '1e9', qtw: 'ǰun' }, /// 
-	{ part: 'adjective', eng: '1e10', qtw: 'ǰwap' }, /// 
+	{ part: 'adjective', eng: '1e9', qtw: 'zun' }, /// 
+	{ part: 'adjective', eng: '1e10', qtw: 'zwap' }, /// 
 	{ part: 'adjective', eng: '1e11', qtw: '\'ak' }, /// 
 	{ part: 'adjective', eng: '1e12', qtw: '\'wës' }, /// 
 	{ part: 'adjective', eng: '1e13', qtw: 'yu' }, ///
@@ -1355,7 +1334,7 @@ data = [
 	{ part: 'verb', qtw: 'pën', eng: 'to eat' }, /// 
 	{ part: 'verb', qtw: 'pin', eng: 'to drink' }, /// 
 	{ part: 'verb', qtw: 'wen', eng: 'to put or place' }, /// 
-	{ part: 'verb', qtw: 'ḱey', eng: 'to go to, to approach (intending to reach)' }, /// 
+	{ part: 'verb', qtw: 'k̋ey', eng: 'to go to, to approach (intending to reach)' }, /// 
 	{ part: 'verb', qtw: '\'a\'', eng: 'to injure or cause physical pain', etym: 'Onomatopoeia for screaming, akin to "ouch"' }, /// 
 	{ part: 'verb', qtw: 'dun', eng: 'to drop' }, /// 
 	{ part: 'verb', qtw: 'kwey', eng: 'to have, to possess' }, /// 
@@ -1364,12 +1343,12 @@ data = [
 	{ part: 'verb', qtw: 'fu̇t', eng: 'to die' }, /// 
 	{ part: 'verb', qtw: 'düń', eng: 'to be able to', extra: 'i.e. "*to can" in a sense like Middle English "cunnen"; when denoting the ability to perform a verb, it instead acts as a marker attaching to the verb, before any TAM markers.' }, /// 
 	{ part: 'verb', qtw: 'yai', eng: 'to form, to be born, to be made/created, to come into existence' }, /// 
-	{ part: 'verb', qtw: 'čaix', eng: 'to shock (electrically)' }, /// 
-	{ part: 'verb', qtw: 'čwax', eng: 'to strike (of lightning)' }, /// 
+	{ part: 'verb', qtw: 'čaik̰̋', eng: 'to shock (electrically)' }, /// 
+	{ part: 'verb', qtw: 'čwak̰̋', eng: 'to strike (of lightning)' }, /// 
 	{ part: 'verb', qtw: 'jen', eng: 'to like' }, /// 
 	{ part: 'verb', qtw: 'fwa\' jen', eng: 'really like, love' }, /// 
 	{ part: 'verb', qtw: 'kya\'', eng: 'to stick out, to extend (something outward), to protrude' }, /// 
-	{ part: 'verb', qtw: 'duń ǵot', eng: 'f**k, d**k [down]', extra: 'Vulgar', censor: true }, /// 
+	{ part: 'verb', qtw: 'duń g̋ot', eng: 'f**k, d**k [down]', extra: 'Vulgar', censor: true }, /// 
 	{ part: 'postposition', qtw: 'gu̇n', eng: 'on' }, /// 
 	{ part: 'postposition', qtw: 'kew', eng: 'below, but not touching/not continuous' }, /// 
 	{ part: 'postposition', qtw: 'tun', eng: 'below and touching/continuous' }, /// 
@@ -1379,8 +1358,8 @@ data = [
 	{ part: 'postposition', qtw: 'mwëp', eng: 'on the edge of, at the boundary of', etym: 'Blend of "mwen" and "yop"', extra: 'If someone is standing in the door frame of a house, "mwëp" can be used. If someone is floating in water, partly above the surface, "mwëp" can be used. If someone is in the fading stages of a feeling, "mwëp" can be used. If something is borderline inappropriate, "mwëp" can also be used. "mwëp" can be used for other edges, such as the edge of a cliff.' }, /// 
 	{ part: 'postposition', qtw: '\'oi', eng: 'the bottom or lower part of' }, /// 
 	{ part: 'postposition', qtw: 'euf', eng: 'the top or upper part of' }, /// 
-	{ part: 'postposition', qtw: 'ǵay', eng: 'into, through' }, /// 
-	{ part: 'postposition', qtw: 'ǵe', eng: 'to, towards, for (the purpose of)', etym: 'Cognate of "ḱey"' }, /// 
+	{ part: 'postposition', qtw: 'g̋ay', eng: 'into, through' }, /// 
+	{ part: 'postposition', qtw: 'g̋e', eng: 'to, towards, for (the purpose of)', etym: 'Cognate of "k̋ey"' }, /// 
 	{ part: 'postposition', qtw: 'wëy', eng: 'with, having', etym: 'Cognate of "kwey"', extra: 'Can be chained to express having more than one thing' }, /// 
 	{ part: 'postposition', qtw: 'yak', eng: '(coming) from, because of' }, /// 
 	{ part: 'postposition', qtw: 'puet', eng: 'of, concerning', extra: 'Cannot be used to indicate composition' }, /// 
@@ -1389,7 +1368,7 @@ data = [
 	{ part: 'conjunction', qtw: 'mut', eng: 'or (inclusive)' }, /// 
 	{ part: 'conjunction', qtw: 'mat', eng: 'or (exclusive)' }, /// 
 	{ part: 'marker', qtw: 'nyep', eng: '(Past tense marker), -ed' }, /// 
-	{ part: 'marker', qtw: 'ḱep', eng: '(Present tense marker)', extra: 'Can usually be omitted, but can also be included for emphasis.' }, /// 
+	{ part: 'marker', qtw: 'k̋ep', eng: '(Present tense marker)', extra: 'Can usually be omitted, but can also be included for emphasis.' }, /// 
 	{ part: 'marker', qtw: 'f̌ep', eng: '(Future tense marker)' }, /// 
 	{ part: 'marker', qtw: 't̃ep', eng: '(Habitual aspect marker)' }, /// 
 	{ part: 'marker', qtw: 'jün', eng: '(Imperative mood marker)' }, /// 
@@ -1399,13 +1378,13 @@ data = [
 	{ part: 'marker', qtw: 'ťyam', eng: '-th, (Ordinalizer)', etym: 'From "ťain"', extra: '(Like "ťain", but converts a number to its ordinal form (e.g. "two" -> "second"))' }, /// 
 	{ part: 'marker', qtw: 'jyai', eng: '(Instrumentality marker), -by, -with, -using', extra: 'Also akin to the "by" in a passive voice statement or the "of" in the construction "full of"' }, /// 
 	{ part: 'marker', qtw: 'dyoi', eng: '(Marks passive voice by attaching to the verb, after TAM markers)' }, /// 
-	{ part: 'marker', qtw: 'xin', eng: '(Marks a pronoun or noun as male)' }, /// 
+	{ part: 'marker', qtw: 'k̰̋in', eng: '(Marks a pronoun or noun as male)' }, /// 
 	{ part: 'marker', qtw: 'jet', eng: '(Marks a pronoun or noun as female)' }, /// 
 	{ part: 'marker', qtw: 'cin', eng: '(Designates a proper noun. When a proper noun is part of another proper noun, its "cin" is removed such that the only "cin" present is the one at the end of the name.)' }, /// 
 	{ part: 'marker', qtw: 'kwa', eng: '(Possessive marker), \'s' }, /// 
 	{ part: 'marker', qtw: 'twan ťain', eng: '(Class signifier: While "twan ťain" literally means "many", it can also denote a reference to a type of things, akin to the "kind" in "mankind".)' }, /// 
 	{ part: 'marker', qtw: 'wai', eng: '(Adverbializer), -ly' }, /// 
-	{ part: 'marker', qtw: 'ǵot', eng: '(Verbalizer), -ing' }, /// 
+	{ part: 'marker', qtw: 'g̋ot', eng: '(Verbalizer), -ing' }, /// 
 	{ part: 'marker', qtw: 'ček', eng: '(Nominalizer), -ity, -ness' }, /// 
 	{ part: 'marker', qtw: 'dyow', eng: 'negation, not', extra: 'When negating something, it precedes the negatee.' }, /// 
 	{ part: 'marker', qtw: 'kai', eng: 'if, (Conditional mood marker)', extra: 'In an "if X, then Y" statement, both sides\' verbs must have "kai" attached to them.' }, /// 
@@ -1506,7 +1485,7 @@ data = [
 	
 		<h4>Additional information</h4>
 		<p class="plain-font">
-			<span>Animate pronouns (cain, caun, cu̇n, cwu̇n, cën, cwën) also apply to animals. Plants are mostly referred to with either, as the Twanthainese's opinions differ on whether plants are animate.&#8203;&nbsp;&nbsp;&#8203;Substances are always considered inanimate, except for living flesh of an organism (sometimes including living plant matter).<br/>
+			<span>Animate pronouns (cain, caun, cu̇n, cwu̇n, cën, cwën) also apply to animals. Plants are mostly referred to with either, as the Twanthainese's opinions differ on whether plants are animate.&#8203;&nbsp;&nbsp;&#8203;Substances are always considered inanimate, except sometimes for living flesh of an organism (sometimes including living plant matter).<br/>
 		</p>
 	</main>
 
@@ -1515,7 +1494,7 @@ data = [
 	<main>
 		<p class="plain-font example-triplet">
 			<span lang="en"> <span g1>I</span> <span g2>walk</span> <span g3>on</span> <span gnull>the</span> <span g4>red</span> <span g5>sand</span>. </span><br/>
-			<span class="term"> <span g4>nüť müf</span> <span g5>bak</span> <span g3>gu̇n</span> <span g1>cain</span> <span g2>woin ḱep</span>. </span><br/>
+			<span class="term"> <span g4>nüť müf</span> <span g5>bak</span> <span g3>gu̇n</span> <span g1>cain</span> <span g2>woin k̋ep</span>. </span><br/>
 			<span class="underlying"> <span g4>red-colored</span> <span g5>sand</span><span g3>-on</span> <span g1>I</span> <span g2>walk</span>. </span><br/>
 			<span class="disclaimer">These are not intended to be proper glosses.</span>
 		</p><br/>
@@ -1529,20 +1508,20 @@ data = [
 
 		<p class="plain-font example-triplet">
 			<span lang="en"> <span g1>Andrés</span> <span g6>always</span> <span g2>drops</span> <span gnull>the</span> <span g4a>steel</span> <span g5>rod</span><span g4>s</span>. </span><br/>
-			<span class="term"> <span g4>twan ťain</span> <span g4a>fyań müf</span> <span g5>wan</span> <span g1>An Des cin</span> <span g2>dun <span g6>t̃ep</span> ḱep</span>. </span><br/>
+			<span class="term"> <span g4>twan ťain</span> <span g4a>fyań müf</span> <span g5>wan</span> <span g1>An Des cin</span> <span g2>dun <span g6>t̃ep</span> k̋ep</span>. </span><br/>
 			<span class="underlying"> <span g4>(-kind:)</span> <span g4a>steel <small><i>(connector)</i></small></span> <span g5>rod</span> <span g1>An_Dres-<small><i>(proper noun)</i></small></span> <span g2>drop <span g6>habitually</span> has been</span>. </span><br/>
 		</p><br/>
 
 		<p class="plain-font example-triplet">
 			<span lang="en"> <span g4a>My</span> <span g1>hovercraft</span> <span g2>is</span> <span g6>full</span> <span g3>of</span> <span g5>eel</span><span g4>s</span>.</span><br/>
-			<span class="term"> <span g4>twan ťain</span> <span g5>f̌en fwań</span> <span g3>wai</span> <span g6>këp</span> <span g4a>cain kwa</span> <span g1>nwot kwëw</span> <span g2>nań ḱep</span>. </span><br/>
+			<span class="term"> <span g4>twan ťain</span> <span g5>f̌en fwań</span> <span g3>wai</span> <span g6>këp</span> <span g4a>cain kwa</span> <span g1>nwot kwëw</span> <span g2>nań k̋ep</span>. </span><br/>
 			<span class="underlying"> <span g4>Many <small><i>(connector)</i></small></span> <span g5>rod_sealife</span><span g3>-ly</span> <span g6>full</span> <span g4a>me's</span> <span g1>wind_vehicle</span> <span g2>be-now</span>.</span><br/>
 			<span class="underlying"> <span g4>Many <small><i>(conn.)</i></small></span> <span g5>eel</span><span g3>-ly</span> <span g6>full</span> <span g4a>me's</span> <span g1>hovercraft</span> <span g2>be-now</span>.</span>
 		</p><br/>
 
 		<p class="plain-font example-triplet">
 			<span lang="en"> <span g4a>My</span> <span g1>postillion</span> <span g2b>has been*</span> <span g2>str</span><span g2a>uck</span> <span g3>by</span> <span g5>lightning</span>. </span><br/>
-			<span class="term"> <span g2>čwax ǵot</span> <span g2a>nyep</span> <span g2b>dyoi</span> <span g5>čwax</span> <span g3>jyai</span> <span g4a>cain kwa</span> <span g1>kwëw wwow kwaiw</span>. </span><br/>
+			<span class="term"> <span g2>čwak̰̋ g̋ot</span> <span g2a>nyep</span> <span g2b>dyoi</span> <span g5>čwak̰̋</span> <span g3>jyai</span> <span g4a>cain kwa</span> <span g1>kwëw wwow kwaiw</span>. </span><br/>
 			<span class="underlying"> (<span g2>lightning-ing</span><span g2a>-ed</span><span g2b>-by</span> <span g5>lightning</span><span g3>-with</span> <span g4a>me's</span> <span g1>vehicle_life__driver</span>.) </span><br/>
 			<span class="underlying"> (<span g2>lightning-ing</span><span g2a>-ed</span><span g2b>-by</span> <span g5>lightning</span><span g3>-with</span> <span g4a>me's</span> <span g1>horse_driver</span>.) </span><br/>
 			<span class="underlying"> (<span g2>lightning-ing</span><span g2a>-ed</span><span g2b>-by</span> <span g5>lightning</span><span g3>-with</span> <span g4a>me's</span> <span g1>postillion</span>.) </span><br/>
@@ -1550,15 +1529,15 @@ data = [
 		</p><br/>
 
 		<div class="plain-font example-triplet">
-			<p class="height"><span lang="en"> <span class="box"><span g1>I</span> <span g2a>can</span> <span g2>eat</span> <span g5>glass</span></span>, <span class="box"><span g1>it</span> <span gnull>does</span> <span g2a>not</span> <span g2>hurt</span> <span g5>me</span></span>. </span></p>
-			<p class="height"><span class="term"> <span class="box"><span g5>beḱ</span> <span g1>cain</span> <span g2>pën</span> <span g2a>düń</span></span>, <span class="box"><span g5>cain</span> <span g1>saik</span> <span g2a>dyow</span> <span g2>'a'</span></span>.</p>
-			<p class="height"><span class="term"> <span class="box"><span g5>glass</span> <span g1>I</span> <span g2>eat</span> <span g2a>can</span></span>, <span class="box"><span g5>me</span> <span g1>this</span> <span g2a>not</span> <span g2>hurt</span></span>.</p>
+			<p class="height"><span lang="en"> <span class="box"><span g1>I</span> <span g2a>can</span> <span g2>eat</span> <span g5>glass</span></span>, <span class="box2"><span g1>it</span> <span gnull>does</span> <span g2a>not</span> <span g2>hurt</span> <span g5>me</span></span>. </span></p><br/>
+			<p class="height"><span class="term"> <span class="box"><span g5>bek̋</span> <span g1>cain</span> <span g2>pën</span> <span g2a>düń</span></span>, <span class="box2"><span g5>cain</span> <span g1>saik</span> <span g2a>dyow</span> <span g2>'a'</span></span>.</p><br/>
+			<p class="height"><span class="term"> <span class="box"><span g5>glass</span> <span g1>I</span> <span g2>eat</span> <span g2a>can</span></span>, <span class="box2"><span g5>me</span> <span g1>this</span> <span g2a>not</span> <span g2>hurt</span></span>.</p>
 		</div><br/>
 
 		<p class="plain-font example-triplet">
 			<span lang="fr"><span gnull>la</span> <span g1>plume</span> <span g4>de</span> <span g4a>ma</span> <span g3>tante</span></span><br/>
 			<span lang="en"><span g4a>my</span> <span g3>aunt</span><span g4>'s</span> <span g1>quill</span></span><br/>
-			<span class="term"><span g4a>cain kwa</span> <span g3>xwai</span> <span g4>kwa</span> <span g1>nwëw bwow ket</span></span><br/>
+			<span class="term"><span g4a>cain kwa</span> <span g3>k̰̋wai</span> <span g4>kwa</span> <span g1>nwëw bwow ket</span></span><br/>
 			<span class="underlying"><span g4a>me's</span> <span g3>aunt</span><span g4>'s</span> <span g1>bird_grass__tool</span></span><br/> 
 			<span class="underlying"><span g4a>me's</span> <span g3>aunt</span><span g4>'s</span> <span g1>feather_tool</span></span><br/>
 			<span class="underlying"><span g4a>me's</span> <span g3>aunt</span><span g4>'s</span> <span g1>quill</span></span> 
@@ -1566,7 +1545,7 @@ data = [
 
 		<p class="plain-font example-triplet">
 			<span lang="en"><span g6>If</span> <span title="There is no corresponding morpheme in the Twanthainese translation" gnull>it</span> <span g2>rain</span><span g2a>s</span>, <span g1>you</span> <span g4a>will</span> <span g3>get</span> <span g4>wet.</span></span><br/>
-			<span class="term"><span g2>ťen</span> <span g2a>ǵot</span> <span g6>kai</span> <span g2a title="There is no independently corresponding morpheme in the English translation, see below">f̌ep</span>, <span g4>f̌yin</span> <span g1>cu̇n</span> <span g3>nań</span> <span gnull title="There is no corresponding morpheme in the English translation, as it's implied by the structure of the sentence">kai</span> <span g4a>f̌ep</span></span> <br/>
+			<span class="term"><span g2>ťen</span> <span g2a>g̋ot</span> <span g6>kai</span> <span g2a title="There is no independently corresponding morpheme in the English translation, see below">f̌ep</span>, <span g4>f̌yin</span> <span g1>cu̇n</span> <span g3>nań</span> <span gnull title="There is no corresponding morpheme in the English translation, as it's implied by the structure of the sentence">kai</span> <span g4a>f̌ep</span></span> <br/>
 			<span class="underlying"><span g2>rain</span><span g2a>ing</span><span g6>-if</span> <span g2a title="There is no independently corresponding morpheme in the English translation, see below">later</span>, <span g4>wet</span> <span g1>you</span> <span g3>be</span> <span gnull title="There is no corresponding morpheme in the English translation, as it's implied by the structure of the sentence">then</span> <span g4a>will</span></span> <br/>
 			<span class="disclaimer">There isn't a one-to-one morpheme correspondence here (or none can be contrived) because, in addition to the "-s" in the English "rains" serving as both the verbalizer and the future tense marker, the conditional ("then") in the English sentence is implied by its structure of the sentence, whereas it uses a marker in Twanthainese.)&#8203;&nbsp;&nbsp;&#8203;Also, the weather being the thing that rains is implied in both languages, but in English this implication uses the word "it".</span>
 		</p><br/>
@@ -1579,7 +1558,7 @@ data = [
 
 		<p class="plain-font example-triplet">
 			<span lang="en"> <span g4>All</span> <span g1>human beings</span> <span g2>are born</span> <span g7a>free</span> <span g8>and</span> <span g7b>equal</span> <span g3>in</span> <span g7c>dignity</span> <span g8>and</span> <span g7d>rights</span>.</span><br/>
-			<span class="term"> <span g7a>woiń</span> <span g8>yey</span> <span g7b>mem ček</span> <span g3>puet</span> <span g7c>ḱeyt</span> <span g8>yey</span> <span g7d>waiń</span> <span gnull>wëy</span> <span g4>twan ťain</span> <span g1>wwaiw</span> <span g2>yai ḱep</span>.</span><br/>
+			<span class="term"> <span g7a>woiń</span> <span g8>yey</span> <span g7b>mem ček</span> <span g3>puet</span> <span g7c>k̋eyt</span> <span g8>yey</span> <span g7d>waiń</span> <span gnull>wëy</span> <span g4>twan ťain</span> <span g1>wwaiw</span> <span g2>yai k̋ep</span>.</span><br/>
 			<span class="underlying"><span g7a>freedom</span> <span g8>and</span> <span g7b>equal-ness</span> <span g3>of</span> <span g7c>dignity</span> <span g8>and</span> <span g7d>rights</span><span gnull>-with</span> <span g4>many_<small><i>(conn.)</i>_</small></span><span g1>human</span> <span g2>birth-are</span>.</span><br/>
 			<span class="underlying"><span g7a>freedom</span> <span g8>and</span> <span g7b>equal-ness</span> <span g3>of</span> <span g7c>dignity</span> <span g8>and</span> <span g7d>rights</span><span gnull>-with</span> <span g1>(-kind)_human</span> <span g2>birth-are</span>.</span><br/>
 			<span class="underlying"><span g7a>freedom</span> <span g8>and</span> <span g7b>equal-ness</span> <span g3>of</span> <span g7c>dignity</span> <span g8>and</span> <span g7d>rights</span><span gnull>-with</span> <span g1>humankind</span> <span g2>birth-are</span>.</span><br/>
@@ -1588,20 +1567,20 @@ data = [
 		<p class="plain-font example-triplet">
 			<span lang="en"><span g1>LOONA</span> <span g2>has</span> <span g4>twelve</span> <span g5>members.</span></span><br/>
 			<span lang="en"><span g1a>"<span g1>This Month's Girl</span>"</span> <span g2>is</span> <span g6>made</span> <span g3>of</span> <span g4>twelve</span> <span g5>members.</span></span><br/>
-			<span class="term"><span g4>gok̃</span> <span g4a>ťain</span> <span g5>wwaiw</span> <span g3>wai</span> <span g6>kwak</span> <span g6a>müf</span> <span g1>Saik Müf Wek Kwa Jeuw cin</span> <span g2>nań ḱep</span>. </span><br/>
+			<span class="term"><span g4>gok̃</span> <span g4a>ťain</span> <span g5>wwaiw</span> <span g3>wai</span> <span g6>kwak</span> <span g6a>müf</span> <span g1>Saik Müf Wek Kwa Jeuw cin</span> <span g2>nań k̋ep</span>. </span><br/>
 			<span class="underlying"><span g4>12</span><span g4a>-numbered</span> <span g5>people</span><span g3>-ly</span> <span g6>compos</span><span g6a>ed</span> <span g1>This<small><i>-(conn.)</i></small> Month's Girl<small><i>-(proper noun)</i></small></span> <span g2>is</span>. </span><br/>
 		</p><br/>
 
 		<p class="plain-font example-triplet">
 			<span lang="en"><span g1>I</span> <span g2>love</span> <span g5>kittens.</span></span><br/>
-			<span class="term"><span g5>fu̇p yan</span> <span g1>cain</span> <span g2>fwa' jen ḱep.</span></span><br/>
+			<span class="term"><span g5>fu̇p yan</span> <span g1>cain</span> <span g2>fwa' jen k̋ep.</span></span><br/>
 			<span class="underlying"><span g5>small_cats</span> <span g1>I</span> <span g2>big_like<small><i>-(present)</i></small>.</span></span><br/>
 			<span class="underlying"><span g5>kittens</span> <span g1>I</span> <span g2>love<small><i>-(present)</i></small>.</span></span><br/>
 		</p><br/>
 
 		<p class="plain-font example-triplet">
 			<span lang="en"><span g2>Stick</span><span g2a>ing</span> <span g2>out</span> <span g4>you</span><span g4a>r</span> <span g5>gyatt</span> <span g3>for</span> <span gnull title="There is no corresponding morpheme in the Twanthainese translation">the</span> <span g6>rizz</span><span g6a>ler</span></span><br/>
-			<span class="term"><span g6>lüj</span> <span g6a>wa</span> <span g3>ǵe</span> <span g4>cu̇n</span> <span g4a>kwa</span> <span g5>gyat</span> <span gnull title="There is no corresponding morpheme in the English translation">cu̇n</span> <span g2>kya'</span> <span g2a>ḱep</span></span><br/>
+			<span class="term"><span g6>lüz</span> <span g6a>wa</span> <span g3>g̋e</span> <span g4>cu̇n</span> <span g4a>kwa</span> <span g5>gyat</span> <span gnull title="There is no corresponding morpheme in the English translation">cu̇n</span> <span g2>kya'</span> <span g2a>k̋ep</span></span><br/>
 			<span class="term"><span g6>rizz</span><span g6a>-er</span><span g3>-for</span> <span g4>you</span><span g4a>-'s</span> <span g5>gyatt</span> <span gnull title="There is no corresponding morpheme in the English translation">you</span> <span g2>stick_out</span><span g2a>-ing</span></span><br/>
 		</p><br/>
 		
@@ -1612,9 +1591,9 @@ data = [
 			cu̇n kwa duń fu̇p nań	|	"Your d*** is small"	|	N/A
 			kut cu̇n nań	|	"You are sh**"	|	N/A
 			dwüp muń cu̇n nań	|	"You're an a**hole"/"You're a piece of s***"	|	"You are a cesspit"
-			suk müf f̌wan pin ǰün	|	"Go f*** yourself"/"F*** off and d*e"	|	"Drink an ocean of p***"
-			fu̇t ǰün ḱep	|	"kys"	|	"D*e now (imperative)"
-			cu̇n kwa dwuń mwen duń wen ǰün	|	"F*** you"/"Go f*** yourself"	|	"Put a d*** in [your] ass"
+			suk müf f̌wan pin zün	|	"Go f*** yourself"/"F*** off and d*e"	|	"Drink an ocean of p***"
+			fu̇t zün ḱep	|	"kys"	|	"D*e now (imperative)"
+			cu̇n kwa dwuń mwen duń wen zün	|	"F*** you"/"Go f*** yourself"	|	"Put a d*** in [your] ass"
 			coec müf bët tun bët ǵe ḱey	|	"Go to h**l"	|	N/A
 			duń ǵe ḱey	|	"Go f*** yourself"/"Get f***ed"	|	"go to d**k", calque of Russian "иди на х*й"
 		-->
