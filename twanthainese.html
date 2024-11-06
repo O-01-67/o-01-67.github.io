@@ -44,6 +44,11 @@
 				vertical-align: middle;
 			}
 			
+			em.underline {
+				font-style: normal;
+				text-decoration: underline;
+			}
+			
 			table {
 				border-collapse: collapse;
 			}
@@ -208,9 +213,157 @@
 			table+p {
 				margin-top: 1em;
 			}
+
+			.indent {
+				margin-left: 1em;
+			}
+
+			.indent2 {
+				margin-left: 2em;
+			}
+
+			.indent3 {
+				margin-left: 3em;
+			}
+
+			#version {
+				font-size: 80%;
+				opacity: 0.8;
+			}
 		</style>
 		<script>
 			urlParams = new URLSearchParams(window.location.search);
+
+			var usuallyMaleInitials = "s	k̰̋	l	'	p	l̃	ť̰	k̃	f̌	b	g̃́	d̃	g̃	ǵ".split("\t");
+			var usuallyFemaleInitials = "t̃	k̋	g̋	ď̰	y	g	d̰́	ḱ	b́	d́	t̰́	ḱ̰	t́	f́	v	ṕ".split("\t");
+			var usuallyUnisexInitials = "c	z	n	m	ń	ď	ť	k	d	f	t	w	j	č".split("\t");
+
+			var usuallyMaleVowels = "u̇	u".split("\t");
+			var usuallyFemaleVowels = "i	ë".split("\t");
+			var usuallyUnisexVowels = "a	i	o	e".split("\t");
+
+			var everyFinal = "m	n	ń	p	f́	b	v	ť	ť̰	ď	ď̰	t	t̃	t̰́	d̃	d̰́	k̋	k̰̋	g̋	k	ḱ	k̃	ḱ̰	g	ǵ	g̃	g̃́	w	f	l	s	c	z	č	j	y	'".split("\t");
+
+			function randomChoice(array) {
+				return array[Math.floor(Math.random() * array.length)]
+			}
+
+			function generateName(gender=null) { //0 male, 1 unisex, 2 female
+				var returnGender = false;
+				if(gender == null || gender == undefined) {
+					returnGender = true;
+					gender = Math.floor(Math.random() * 3)
+				};
+				var initial = "";
+				var medial = "";
+				var vowel = "";
+				var final = "";
+				var medialChance = 0;
+				var finalChance = 0;
+				
+				switch(gender) {
+					case 0:
+						var randomValue1 = Math.random();
+						if(Math.random() < 0.9) {
+							if(randomValue1 < 0.5) {
+								initial = randomChoice(usuallyMaleInitials)
+							} else if(randomValue1 < 0.95) {
+								initial = randomChoice(usuallyUnisexInitials)
+							} else {
+								initial = randomChoice(usuallyFemaleInitials)
+							}
+						}
+
+						var mainVowelChoices = usuallyUnisexVowels.concat(usuallyMaleVowels);
+						var randomValue2 = Math.random();
+						if(randomValue2 < 0.9) {
+							vowel = randomChoice(mainVowelChoices)
+						} else {
+							vowel = randomChoice(usuallyFemaleVowels)
+						}
+						
+						medialChance = 0.25;
+						finalChance = 0.8;
+						break;
+					case 1:
+						var randomValue1 = Math.random();
+						if(Math.random() < 0.88) {
+							if(randomValue1 < 0.7) {
+								initial = randomChoice(usuallyUnisexInitials)
+							} else {
+								if(Math.random() < 0.5) {
+									initial = randomChoice(usuallyMaleInitials)
+								} else {
+									initial = randomChoice(usuallyFemaleInitials)
+								}
+							}
+						};
+
+						var randomValue2 = Math.random();
+						if(randomValue2 < 0.85) {
+							vowel = randomChoice(usuallyUnisexVowels)
+						} else {
+							if(Math.random() < 0.5) {
+								initial = randomChoice(usuallyMaleVowels)
+							} else {
+								initial = randomChoice(usuallyFemaleVowels)
+							}
+						}
+						
+						medialChance = 0.29;
+						finalChance = 0.77;
+						break;
+					case 2:
+						var randomValue1 = Math.random();
+						if(Math.random() < 0.85) {
+							if(randomValue1 < 0.5) {
+								initial = randomChoice(usuallyFemaleInitials)
+							} else if(randomValue1 < 0.95) {
+								initial = randomChoice(usuallyUnisexInitials)
+							} else {
+								initial = randomChoice(usuallyMaleInitials)
+							}
+						}
+
+						var mainVowelChoices = usuallyUnisexVowels.concat(usuallyFemaleVowels);
+						var randomValue2 = Math.random();
+						if(randomValue2 < 0.9) {
+							vowel = randomChoice(mainVowelChoices)
+						} else {
+							vowel = randomChoice(usuallyMaleVowels)
+						}
+						
+						medialChance = 0.35;
+						finalChance = 0.72;
+						break;
+				}
+				
+				if(Math.random() < medialChance) {
+					var randomValue3 = Math.random()
+					if(randomValue3 < 0.4) {
+						medial = "w"
+					} else if(randomValue3 < 0.8) {
+						medial = "y"
+					} else {
+						medial = "l"
+					};
+					if((Math.random() < 0.15) && (medial !== "l")) {
+						medial += "l"
+					}
+				}
+				
+				if(Math.random() < finalChance) {
+					final = randomChoice(everyFinal)
+				};
+				
+				var result = initial + medial + vowel + final;
+				
+				if(returnGender) {
+					return [result,gender]
+				} else {
+					return result
+				}
+			}
 		</script>
 		<style id="removeMeIfScripted">
 			script#dataTable {
@@ -224,7 +377,8 @@
 		</style>
 	</head>
 	<body>
-		<h1>Template</h1>
+		<h1>Twanthainese</h1>
+		<span id="version" title="This is designated as a division point due to massive changes to the phonology and corresponding breaking changes to the orthography, and significant changes to the lexicon.">Version 2.0</span>
 		<p id="description">Twanthainese is a conlang I just made up for fun. This page is a <em>work in progress</em>, under construction.</p><br/>
 
 <section id="phonology">
@@ -515,7 +669,7 @@
 				</tbody>
 			</table>
 
-			<h4>Diphthongs</h3>
+			<h4>Diphthongs</h4>
 			<section id="diphthongs">
 				<table class="plain-font">
 					<tbody>
@@ -726,7 +880,7 @@
 							<td rowspan="2">p</td>
 							<td>ṕ</td>
 							<td rowspan="2">i</td>
-							<td rowspan="2">f</td>
+							<td rowspan="2">f́</td>
 							<td rowspan="2">b</td>
 							<td>b́</td>
 							<td rowspan="2">v</td>
@@ -895,14 +1049,14 @@
 					</tr>
 				</tbody>
 			</table>
-			<p class="plain-font">Ambiguities in the ASCII notation are disambiguated with the dash/hyphen "-" (e.g. "dy-a" (d́a) vs. "d-ya" (dya))</p>
+			<p class="plain-font">The capital form of <span aria-hidden="true">' </span><span class="screenreader"> the apostrophe </span>&#8203; &#8203;is <span aria-hidden="true">¦ <span class="screenreader"> the broken bar</span>. Ambiguities in the ASCII notation are disambiguated with the dash/hyphen "-" (e.g. "dy-a" (d́a) vs. "d-ya" (dya)).</p>
 		</main>
 	</section>
 
 	<section id="phonotactics">
 		<h3>Phonotactics:</h3>
 		<main class="plain-font">
-			The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(/l/)(/j/ or /w/)<abbr title="V: Any vowel (or diphthong)">V</abbr>(C).&#8203;&nbsp;&nbsp;&#8203;/j/ palatalizes an initial plosive or affricate, if one is present, whereas the vowel [i] alone may or may not; likewise, /w/ labializes a preceding plosive (but not necessarily an affricate). &lt;ww&gt; is realized as [wː~ʰw~wu̯~u̯w] and &lt;yy&gt; is realized as [jː~ji̯~i̯j]. [j] palatalizes <č> [t̠͡ʃ] to [t͡ʲɕ̆] and <j> [d̠͡ʒ] to [d͡ʲʑ̆]. Most morphemes in Twanthainese are monosyllabic (with compound words existing and either made up of multiple monosyllabic components, or often being formed by combining sounds from other words), and (at least in the Roman orthography) each is separated by spaces.
+			The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(/l/)(/j/ or /w/)<abbr title="V: Any vowel (or diphthong)">V</abbr>(C).&#8203;&nbsp;&nbsp;&#8203;/j/ palatalizes an initial plosive or affricate, if one is present, whereas the vowel [i] alone may or may not; likewise, /w/ labializes a preceding plosive (but not necessarily an affricate)&#8203;&nbsp;&nbsp;&#8203;&lt;ww&gt; is realized as [wː~ʰw~wu̯~u̯w] and &lt;yy&gt; is realized as [jː~ji̯~i̯j]&#8203;&nbsp;&nbsp;&#8203;[j] palatalizes <č> [t̠͡ʃ] to [t͡ʲɕ̆] and <j> [d̠͡ʒ] to [d͡ʲʑ̆]&#8203;&nbsp;&nbsp;&#8203;Most morphemes in Twanthainese are monosyllabic (with compound words existing and either made up of multiple monosyllabic components, or often being formed by combining sounds from other words), and (at least in the Roman orthography) each is separated by spaces.&#8203;&nbsp;&nbsp;&#8203;A final aspirated consonant before its unaspirated counterpart assimilates into a single aspirated consonant.
 		</main>
 	</section>
 </section>
@@ -984,16 +1138,17 @@ data = [
 	{ part: 'noun', qtw: 'baik', eng: 'dry, thirsty' },
 	{ part: 'noun', qtw: 'bwok', eng: 'sandstorm' },
 	{ part: 'noun', qtw: 'byik', eng: 'quicksand' },
-	{ part: 'noun', qtw: 'coec', eng: 'fire', extra: 'The chemical reaction, in general' },
+	{ part: 'noun', qtw: 'cuec', eng: 'fire', extra: 'The chemical reaction, in general' },
 	{ part: 'noun', qtw: 'cwoc', eng: 'explosion' },
 	{ part: 'noun', qtw: 'cwac', eng: 'fire', extra: 'In the context of a disaster such as a building or forest fire' },
 	{ part: 'noun', qtw: 'cyic', eng: 'lava' },
 	{ part: 'noun', qtw: 'cu̇c', eng: 'smoke' },
 	{ part: 'noun', qtw: 'f̌en', eng: 'water' },
+	{ part: 'noun', qtw: 'f̌ot', eng: 'steam', etym: 'From "f̌en neuť"' },
 	{ part: 'noun', qtw: 'ťen', eng: 'rain', etym: 'From "nwat f̌en"' },
 	{ part: 'noun', qtw: 'f̌wan', eng: 'sea, ocean' },
 	{ part: 'noun', qtw: 'f̌won', eng: 'current, river' },
-	{ part: 'noun', qtw: 'f̌en f̌won', eng: 'river, stream' },
+	{ part: 'noun', qtw: 'f̌eu', eng: 'river, stream', etym: 'From "f̌en f̌won"' },
 	{ part: 'noun', qtw: 'f̌aun', eng: 'drink' },
 	{ part: 'noun', qtw: 'k̃ek̋', eng: 'ice' },
 	{ part: 'noun', qtw: 'k̃wok̋', eng: 'snow' },
@@ -1038,6 +1193,7 @@ data = [
 	{ part: 'noun', qtw: 'daip', eng: 'box, square bin' },
 	{ part: 'noun', qtw: 'dwop', eng: 'part, parts, elements (of a set or thing)' },
 	{ part: 'noun', qtw: 'ga\'', eng: 'thing' },
+	{ part: 'noun', qtw: 'ga', eng: 'group, collection', etym: 'Unrelated to "ga\'"' },
 	{ part: 'noun', qtw: 'dwip', eng: 'categories' },
 	{ part: 'noun', qtw: 'ńü\' wak', eng: 'paper', etym: '"ńü\'" (yellow) is present because the Twanthainese had access to ancient paper.', extra: 'Despite this, the word remains in use even as modern paper is white. However, "ńik wak" is gaining popularity in recent times.' },
 	{ part: 'noun', qtw: 'ńik wak', eng: 'paper (synonym of "ńü\' wak")' },
@@ -1053,6 +1209,7 @@ data = [
 	{ part: 'noun', qtw: 'wwow', eng: 'life, organism, animal' },
 	{ part: 'noun', qtw: 'wan wwow', eng: 'worm' },
 	{ part: 'noun', qtw: 'wwaiw', eng: 'human, person' },
+	{ part: 'noun', qtw: 'two', eng: 'leader', etym: 'From "ťwaiw waw"' },
 	{ part: 'noun', qtw: 'faw', eng: 'child', etym: 'From "fu̇p wwaiw"' },
 	{ part: 'noun', qtw: '\'aiw', eng: 'adult, grown-up', etym: 'From "fwai\' wwaiw"' },
 	{ part: 'noun', qtw: 'k̰̋yaw', eng: 'boy', etym: 'From "k̰̋in faw"' },
@@ -1071,14 +1228,15 @@ data = [
 	{ part: 'noun', qtw: 'k̰̋wai', eng: 'aunt', etym: 'From "k̰̋in wwai"' },
 	{ part: 'noun', qtw: 'jwai', eng: 'uncle', etym: 'From "jet wwai"' },
 	{ part: 'noun', qtw: 'wwyiw', eng: 'algae' },
-	{ part: 'noun', qtw: 'twan ťain wwaiw', eng: 'humans, (hu)mankind' },
+	{ part: 'noun', qtw: 'ťwaiw', eng: 'humans, (hu)mankind', etym: 'From "twan ťain wwaiw"' },
 	{ part: 'noun', qtw: 'nwëw', eng: 'bird', etym: 'From "nwat wwow"' },
-	{ part: 'noun', qtw: 'coec nwëw', eng: 'phoenix' },
+	{ part: 'noun', qtw: 'cuec nwëw', eng: 'phoenix' },
 	{ part: 'noun', qtw: 'wwaw', eng: 'Plantae, plants', extra: 'Plants in general/as a collective' },
 	{ part: 'noun', qtw: 'nwaw', eng: 'tree', etym: 'From "nwat wwaw"' },
 	{ part: 'noun', qtw: 'bwow', eng: 'grass', etym: 'From "bëń wwaw"' },
 	{ part: 'noun', qtw: 'nwaw bwow', eng: 'leaf' },
 	{ part: 'noun', qtw: 'nwëw bwow', eng: 'feather' },
+	{ part: 'noun', qtw: 'nat', eng: 'wood' },
 	{ part: 'noun', qtw: 'f̌en wwaw', eng: 'seaweed' },
 	{ part: 'noun', qtw: 'fwań', eng: 'marine life' },
 	{ part: 'noun', qtw: 'fwań wwaw', eng: 'seaweed (synonym of "f̌en wwaw")' },
@@ -1091,8 +1249,26 @@ data = [
 	{ part: 'noun', qtw: 'cu̇p', eng: 'cabinet' },
 	{ part: 'noun', qtw: 'cop', eng: 'drawer' },
 	{ part: 'noun', qtw: 'cop cu̇p', eng: 'dresser' },
+	{ part: 'noun', qtw: 'ton', eng: 'structure (especially one intended for human presence, temporary or permanent)' },
+	{ part: 'noun', qtw: 'kaif', eng: 'house' },
+	{ part: 'noun', qtw: 'fwa\' ton', eng: 'building (especially a large one)' },
+	{ part: 'noun', qtw: 'nwat ton', eng: 'skyscraper' },
+	{ part: 'noun', qtw: 'kaif ga', eng: 'village' },
+	{ part: 'noun', qtw: 'f̌waiń', eng: 'town', etym: 'From "fwa\' kaif ga"'},
+	{ part: 'noun', qtw: '\'wań', eng: 'city', etym: 'From "fwa\' f̌waiń"'},
+	{ part: 'noun', qtw: 'dwań', eng: 'capital', etym: 'From "dan \'wań"'},
+	{ part: 'noun', qtw: 'fwa\' \'wań', eng: 'large city, metropolis' },
+	{ part: 'noun', qtw: 'sif', eng: 'school', etym: 'From "syek müf kaif"' },
+	{ part: 'noun', qtw: 'fwa\' kaif', eng: 'longhouse, apartment building' },
+	{ part: 'noun', qtw: 'fwa\' kaif ga', eng: 'apartment complex' },
+	{ part: 'noun', qtw: 'fwa\' sif', eng: 'college, university' },
 	{ part: 'noun', qtw: 'pwak', eng: 'door' },
 	{ part: 'noun', qtw: 'ket', eng: 'tool, device' },
+	{ part: 'noun', qtw: 'nyit ket', eng: 'refrigerator' },
+	{ part: 'noun', qtw: 'k̃aik̋ ket', eng: 'freezer' },
+	{ part: 'noun', qtw: 'fwa\' k̃aik̋ müf ket', eng: 'cryogenic freezer' },
+	{ part: 'noun', qtw: 'fwa\' k̃aik̋ müf nit t̃wi ket', eng: 'cryogenic air separation unit' },
+	{ part: 'noun', qtw: 'f̌ot ket', eng: 'steam engine' },
 	{ part: 'noun', qtw: 'nwëw bwow ket', eng: 'quill' },
 	{ part: 'noun', qtw: 'čuek̰̋ ket', eng: 'power tool' },
 	{ part: 'noun', qtw: 'kwëw', eng: 'vehicle, (historical) wheel', extra: 'The historical sense of "wheel" stems from the Twanthainese\'s early development of the wheel.' },
@@ -1111,9 +1287,26 @@ data = [
 	{ part: 'noun', qtw: 'bop', eng: 'substance', etym: 'from "bëń dwop"' },
 	{ part: 'noun', qtw: 'twon bop', eng: 'compound (chemistry), composite' },
 	{ part: 'noun', qtw: 'mem bop twon bop', eng: 'isomer' },
-	{ part: 'noun', qtw: 'l̃ën bop', eng: 'element', extra: 'Especially an element in the periodic table' },
+	{ part: 'noun', qtw: 'l̃wop', eng: 'element', etym: 'From "l̃ën bop"', extra: 'Especially an element in the periodic table' },
 	{ part: 'noun', qtw: '\'ay', eng: 'the Sun, a star' },
-	{ part: 'noun', qtw: '\'ay l̃ën bop', eng: 'helium', etym: 'Calque of "helios" + "-ium"' },
+	{ part: 'noun', qtw: 'd̰́is', eng: 'borax' },
+	{ part: 'noun', qtw: 'čen', eng: 'dust' },
+	{ part: 'noun', qtw: 'čuet', eng: 'ash', etym: 'From "cuec čen"' },
+	{ part: 'noun', qtw: 'lwe', eng: 'coal, charcoal' },
+	{ part: 'noun', qtw: 'bëń lwe', eng: 'coal' },
+	{ part: 'noun', qtw: 'nat lwe', eng: 'charcoal' },
+	{ part: 'noun', qtw: 'fu̇t müf nit', eng: '(archaic) carbon dioxide', etym: 'lit. "dead air"' },
+	{ part: 'noun', qtw: 'nep müf nit', eng: '(archaic) oxygen', etym: 'lit. "living air"' },
+	{ part: 'noun', qtw: 'f̌ein l̃wop', eng: 'hydrogen', etym: 'From "f̌en \'ain l̃wop", from a calque of "hydro-" + "-gen"' },
+	{ part: 'noun', qtw: '\'ay l̃wop', eng: 'helium', etym: 'Calque of "helios" + "-ium"' },
+	{ part: 'noun', qtw: 'lüť̰ l̃wop', eng: 'lithium', etym: 'From English' },
+	{ part: 'noun', qtw: 'bël l̃wop', eng: 'beryllium', etym: 'From English' },
+	{ part: 'noun', qtw: 'd̰́is l̃wop', eng: 'boron' },
+	{ part: 'noun', qtw: 'lwe l̃wop', eng: 'carbon' },
+	{ part: 'noun', qtw: 'ťet l̃wop', eng: 'nitrogen', etym: 'From "ťen ťyam nit l̃wop", meaning "second air substance". The origin lies in nitrogen being first isolated by the Twanthainese only in 1901 when they constructed a cryogenic air separator unit in F̌eu ¦wań, producing the previously-identified oxygen and a second, then-unidentified substance.' }, //Yoy B́ë Ńley Ut̃ Fwa' K̃aik̋ Müf Nit T̃wi Ket cin
+	{ part: 'noun', qtw: 'nëť l̃wop', eng: 'oxygen', etym: 'From "nep müf nit l̃wop"' },
+	{ part: 'noun', qtw: 'flwo l̃wop', eng: 'fluorine', etym: 'From English' },
+	{ part: 'noun', qtw: 'l̃yem l̃wop', eng: 'argon', etym: 'From "l̃ain ťyam nit l̃wop", meaning "third air substance". As with nitrogen, this element was discovered by the Twanthainese through the CASU in 1901.' },
 	{ part: 'noun', qtw: 'we', eng: 'the Moon, a moon' },
 	{ part: 'noun', qtw: 'Bët Wët', eng: '(poetic) the Moon', extra: 'Proper noun but exempt from "cin"' },
 	{ part: 'noun', qtw: 'wek', eng: 'month', etym: 'From "we wok"' },
@@ -1130,6 +1323,7 @@ data = [
 	{ part: 'noun', qtw: 'Bu\' Bët', eng: 'Venus', extra: 'Proper noun but exempt from "cin".  None of the planet "stars" were identified as planets by the Twanthainese until after their compositions had already been discovered' },
 	{ part: 'noun', qtw: 'Ńüf Bët', eng: 'Mars', extra: 'Proper noun but exempt from "cin"' },
 	{ part: 'noun', qtw: 'myin', eng: 'eye' },
+	{ part: 'noun', qtw: 'dan', eng: 'head' },
 	{ part: 'noun', qtw: 'fań', eng: 'sound', etym: 'From "p̃ań"' },
 	{ part: 'noun', qtw: 'mu̇ť', eng: 'mouth', etym: 'A represntation of chewing' },
 	{ part: 'noun', qtw: 'mwoť', eng: 'breath', etym: 'From "mu̇ť nwot"' },
@@ -1158,7 +1352,7 @@ data = [
 	{ part: 'noun', qtw: 'tën \'ëy seń', eng: 'bisexuality' },
 	{ part: 'noun', qtw: 'tën \'ëy seń (müf) nwon', eng: 'bisexual lighting' },
 	{ part: 'noun', qtw: 'bań', eng: 'country, nation' },
-	{ part: 'noun', qtw: 'cin müf wwaiw', eng: 'a national, ethnical, racial, or religious group' },
+	{ part: 'noun', qtw: 'bań ťwaiw', eng: 'a national, ethnical, racial, or religious group' },
 	{ part: 'noun', qtw: 'Ťül Ḱi Ye cin bań', eng: 'Türkiye' },
 	{ part: 'noun', qtw: 'waut', eng: 'flag' },
 	{ part: 'noun', qtw: 'Ťül Ḱi Ye cin müf waut', eng: 'Turkish flag' },
@@ -1235,10 +1429,11 @@ data = [
 	{ part: 'noun', qtw: '\'at', eng: 'weapon', etym: 'From \'a\' ket' },
 	{ part: 'noun', qtw: 'cwoc \'at', eng: 'bomb' },
 	{ part: 'noun', qtw: 'f̌wü', eng: 'arrow', etym: 'Onomatopoeic' },
-	{ part: 'noun', qtw: 'coec f̌wü', eng: 'ranged incendiary weapon, (historical) burning arrow' },
-	{ part: 'noun', qtw: 'coec cwoc \'at', eng: 'incendiary bomb' },
+	{ part: 'noun', qtw: 'cuec f̌wü', eng: 'ranged incendiary weapon, (historical) burning arrow' },
+	{ part: 'noun', qtw: 'cuec cwoc \'at', eng: 'incendiary bomb' },
 	{ part: 'noun', qtw: 'fuń f̌wü', eng: 'missile' },
 	{ part: 'noun', qtw: 'k̃eń', eng: 'energy' },
+	{ part: 'noun', qtw: 'f̌ot k̃eń', eng: 'steam power' },
 	{ part: 'noun', qtw: 'k̃eń ket', eng: 'generator' },
 	{ part: 'noun', qtw: 'tom', eng: 'atom', etym: 'From Greek contact' },
 	{ part: 'noun', qtw: 'tom dëk', eng: 'atomic nucleus' },
@@ -1251,7 +1446,7 @@ data = [
 	{ part: 'noun', qtw: 'feuń', eng: 'war, warfare' },
 	{ part: 'noun', qtw: 'tom dëk k̃eń feuń', eng: 'nuclear war' },
 	{ part: 'noun', qtw: 'moik̃ ček', eng: 'killing, murder' },
-	{ part: 'noun', qtw: 'cin müf wwaiw moik̃ ček', eng: 'genocide' },
+	{ part: 'noun', qtw: 'bań ťwaiw moik̃ ček', eng: 'genocide' },
 	{ part: 'noun', qtw: 'du̇y', eng: 'salt' },
 	{ part: 'noun', qtw: 'fun', eng: 'clothing' },
 	{ part: 'noun', qtw: '\'oi fun', eng: 'bottoms (clothing)' },
@@ -1283,13 +1478,17 @@ data = [
 	{ part: 'noun', qtw: 'ťa', eng: 'number' },
 	{ part: 'noun', qtw: 'ťa gwop', eng: 'number word' },
 	{ part: 'noun', qtw: 'ťa ńap dwop', eng: 'digit (of a number system)' },
-	{ part: 'noun', qtw: 'twan ťain wwaiw gap', eng: 'Twanthainese' },
+	{ part: 'noun', qtw: 'Ťwaiw cin gap', eng: 'Twanthainese', etym: 'From "twan ťain wwaiw gap", later abbreviated' },
+	{ part: 'noun', qtw: 'twan ťain wwaiw gap', eng: '(historical) Twanthainese', extra: 'Still sometimes used' },
+	{ part: 'noun', qtw: 'Ťwaiw Bań', eng: 'Twanthain (the country of the Twanthainese)', extra: 'Proper noun but exempt from "cin". The English name is an Anglicization of "twan ťain [wwaiw]". Based on the modern orthography, it would be written as "Twanťain" or "Twantfain"; however, the English who made contact with the people wrote it as "Twanthain"' },
 	{ part: 'noun', qtw: 'Bwü Tën cin gap', eng: 'English' },
-	{ part: 'noun', qtw: 'Bwü Tën cin twan ťain wwaiw', eng: 'British people' },
+	{ part: 'noun', qtw: 'Bwü Tën cin ťwaiw', eng: 'British people' },
 	{ part: 'noun', qtw: 'Nyi Hon cin gap', eng: 'Japanese' },
-	{ part: 'noun', qtw: 'Nyi Hon cin twan ťain wwaiw', eng: 'Japanese people' },
+	{ part: 'noun', qtw: 'Nyi Hon cin ťwaiw', eng: 'Japanese people' },
 	{ part: 'noun', qtw: '\'an Guk cin gap', eng: 'Korean' },
 	{ part: 'noun', qtw: 'Fës cin gap', eng: 'French' },
+	{ part: 'noun', qtw: 'Fës cin bań', eng: 'France' },
+	{ part: 'noun', qtw: 'Fës cin ťwaiw', eng: 'French people' },
 	{ part: 'noun', qtw: 'Ki Li Bas cin gap', eng: 'Gilbertese' },
 	{ part: 'noun', qtw: 'Ťül Ḱi Ye cin gap', eng: 'Turkish' },
 	{ part: 'noun', qtw: 'Eus Kal cin gap', eng: 'Basque' },
@@ -1302,11 +1501,11 @@ data = [
 	{ part: 'noun', qtw: '\'au Sa cin gap', eng: 'Hausa' },
 	{ part: 'noun', qtw: '\'oi San cin gap', eng: 'Taishanese' },
 	{ part: 'noun', qtw: 'Pos Ka cin gap', eng: 'Polish' },
-	{ part: 'noun', qtw: 'Ńüf Bët cin twan ťain wwaiw', eng: 'Martian (hypothetical species)' },
+	{ part: 'noun', qtw: 'Ńüf Bët cin ťwaiw', eng: 'Martian (hypothetical species)' },
 	{ part: 'noun', qtw: '\'a La Say cin gap', eng: 'Halacae', eng_href: 'https://R74n.com/halacae/' },
 	{ part: 'noun', qtw: 'Dis Cot-gu̇n Dwop Müf cin', eng: 'Elemental on Discord' },
 	{ part: 'noun', qtw: 'bët tun bët', eng: 'underworld', extra: 'A general term for a world or realm below our own' },
-	{ part: 'noun', qtw: 'coec müf bët tun bët', eng: 'Hell' },
+	{ part: 'noun', qtw: 'cuec müf bët tun bët', eng: 'Hell' },
 	{ part: 'noun', qtw: 'fwa\' k̰̋in bab', eng: 'manly man, chad' },
 	{ part: 'noun', qtw: 'fwa\' fwa\' k̰̋in bab', eng: 'gigachad' },
 	{ part: 'adjective', qtw: 'twon', eng: 'multiple' },
@@ -1406,16 +1605,19 @@ data = [
 	{ part: 'adjective', qtw: 'fwa\'', eng: 'big, (intensifier)', etym: 'Affected by the p̃-f merger' },
 	{ part: 'adjective', qtw: 'fu̇p', eng: 'small, (diminutive)' },
 	{ part: 'adjective', qtw: 'këp', eng: 'full' },
-	{ part: 'adjective', qtw: 'coec müf', eng: 'burning' },
+	{ part: 'adjective', qtw: 'cuec müf', eng: 'burning' },
 	{ part: 'adjective', qtw: 'baiń', eng: 'dirty' },
 	{ part: 'adjective', qtw: 'f̌yin', eng: 'wet' },
 	{ part: 'adjective', qtw: 'caic', eng: 'hot (temperature)' },
+	{ part: 'adjective', qtw: 'nwey', eng: 'tall', etym: 'Related to "nwat"' },
+	{ part: 'adjective', qtw: 'bot', eng: 'short', etym: 'Related to "bëń"' },
 	{ part: 'adjective', qtw: 'yep', eng: 'cute' },
 	{ part: 'adjective', qtw: 'mem', eng: 'the same, equal' },
 	{ part: 'adjective', qtw: 'dyam', eng: 'different, not the same, unequal' },
 	{ part: 'adjective', qtw: 'bui', eng: 'deep' },
 	{ part: 'verb', qtw: 'woin', eng: 'to walk' },
 	{ part: 'verb', qtw: 'pën', eng: 'to eat' },
+	{ part: 'verb', qtw: 'syek', eng: 'to learn' },
 	{ part: 'verb', qtw: 'pin', eng: 'to drink' },
 	{ part: 'verb', qtw: 'd́el', eng: 'to need' },
 	{ part: 'verb', qtw: 'd́el ček got', eng: 'to be needed' },
@@ -1427,8 +1629,13 @@ data = [
 	{ part: 'verb', qtw: 'kwey', eng: 'to have, to possess' },
 	{ part: 'verb', qtw: 'kwak', eng: 'to be made of, to be composed of', etym: 'From "kwey ček twai"' },
 	{ part: 'verb', qtw: 'nań', eng: 'to be', extra: 'Also connects two nouns' },
+	{ part: 'verb', qtw: 'nep', eng: 'to live', etym: 'From "nań müf wwaiw"' },
 	{ part: 'verb', qtw: 'fu̇t', eng: 'to die' },
 	{ part: 'verb', qtw: 'moik̃', eng: 'to kill' },
+	{ part: 'verb', qtw: '\'ain', eng: 'to make, to create' },
+	{ part: 'verb', qtw: 'mem g̋ot', eng: 'to equalize, to even out, (by extension) to flatten' },
+	{ part: 'verb', qtw: 'd́ei', eng: 'to join (in general), to unite, to merge, to assimilate, to attach to' },
+	{ part: 'verb', qtw: 't̃wi', eng: 'to separate, to divide, to split, to break off' },
 	{ part: 'verb', qtw: 'düń', eng: 'to be able to', extra: 'i.e. "*to can" in a sense like Middle English "cunnen"; when denoting the ability to perform a verb, it instead acts as a marker attaching to the verb, before any TAM markers.' },
 	{ part: 'verb', qtw: 'yai', eng: 'to form, to be born, to be made/created, to come into existence' },
 	{ part: 'verb', qtw: 'čaik̰̋', eng: 'to shock (electrically)' },
@@ -1468,7 +1675,7 @@ data = [
 	{ part: 'marker', qtw: 'dyoi', eng: '(Marks passive voice by attaching to the verb, after TAM markers)' },
 	{ part: 'marker', qtw: 'k̰̋in', eng: '(Marks a pronoun or noun as male)' },
 	{ part: 'marker', qtw: 'jet', eng: '(Marks a pronoun or noun as female)' },
-	{ part: 'marker', qtw: 'cin', eng: '(Designates a proper noun. When a proper noun is part of another proper noun, its "cin" is removed such that the only "cin" present is the one at the end of the name.)' },
+	{ part: 'marker', qtw: 'cin', eng: '(Designates a proper noun. When a proper noun is part of another proper noun, its "cin" is removed such that the only "cin" present is the one at the end of the name. Twanthainese names are of the format "[Family name] [Mother\'s given name] [Father\'s given name] [Given name]".)' },
 	{ part: 'marker', qtw: 'kwa', eng: '(Possessive marker), \'s' },
 	{ part: 'marker', qtw: 'twan ťain', eng: '(Class signifier: While "twan ťain" literally means "many", it can also denote a reference to a type of things, akin to the "kind" in "mankind".)' },
 	{ part: 'marker', qtw: 'wai', eng: '(Adverbializer), -ly' },
@@ -1604,8 +1811,7 @@ data = [
 		</script>
 		
 	<main id="wordlist">
-	
-		<h4>Additional information</h4>
+		<h4>Additional information</h4>	
 		<p class="plain-font">
 			<span>Animate pronouns (cain, caun, cu̇n, cwu̇n, cën, cwën) also apply to animals. Plants are mostly referred to with either, as the Twanthainese's opinions differ on whether plants are animate.&#8203;&nbsp;&nbsp;&#8203;Substances are always considered inanimate, except sometimes for living flesh of an organism (sometimes including living plant matter).<br/>
 		</p>
@@ -1679,10 +1885,8 @@ data = [
 		</p><br/>
 
 		<p class="plain-font example-triplet">
-			<span lang="en"> <span g4>All</span> <span g1>human beings</span> <span g2>are born</span> <span g7a>free</span> <span g8>and</span> <span g7b>equal</span> <span g3>in</span> <span g7c>dignity</span> <span g8>and</span> <span g7d>rights</span>.</span><br/>
-			<span class="term"> <span g7a>woiń</span> <span g8>yey</span> <span g7b>mem ček</span> <span g3>puet</span> <span g7c>k̋eyt</span> <span g8>yey</span> <span g7d>waiń</span> <span gnull>wëy</span> <span g4>twan ťain</span> <span g1>wwaiw</span> <span g2>yai k̋ep</span>.</span><br/>
-			<span class="underlying"><span g7a>freedom</span> <span g8>and</span> <span g7b>equal-ness</span> <span g3>of</span> <span g7c>dignity</span> <span g8>and</span> <span g7d>rights</span><span gnull>-with</span> <span g4>many_<small><i>(conn.)</i>_</small></span><span g1>human</span> <span g2>birth-are</span>.</span><br/>
-			<span class="underlying"><span g7a>freedom</span> <span g8>and</span> <span g7b>equal-ness</span> <span g3>of</span> <span g7c>dignity</span> <span g8>and</span> <span g7d>rights</span><span gnull>-with</span> <span g1>(-kind)_human</span> <span g2>birth-are</span>.</span><br/>
+			<span lang="en"> <span g1>All human beings</span> <span g2>are born</span> <span g7a>free</span> <span g8>and</span> <span g7b>equal</span> <span g3>in</span> <span g7c>dignity</span> <span g8>and</span> <span g7d>rights</span>.</span><br/>
+			<span class="term"> <span g7a>woiń</span> <span g8>yey</span> <span g7b>mem ček</span> <span g3>puet</span> <span g7c>k̋eyt</span> <span g8>yey</span> <span g7d>waiń</span> <span gnull>wëy</span> <span g1>ťwaiw</span> <span g2>yai k̋ep</span>.</span><br/>
 			<span class="underlying"><span g7a>freedom</span> <span g8>and</span> <span g7b>equal-ness</span> <span g3>of</span> <span g7c>dignity</span> <span g8>and</span> <span g7d>rights</span><span gnull>-with</span> <span g1>humankind</span> <span g2>birth-are</span>.</span><br/>
 		</p><br/>
 
@@ -1716,11 +1920,22 @@ data = [
 			suk müf f̌wan pin zün	|	"Go f*** yourself"/"F*** off and d*e"	|	"Drink an ocean of p***"
 			fu̇t zün ḱep	|	"kys"	|	"D*e now (imperative)"
 			cu̇n kwa dwuń mwen duń wen zün	|	"F*** you"/"Go f*** yourself"	|	"Put a d*** in [your] ass"
-			coec müf bët tun bët ǵe ḱey	|	"Go to h**l"	|	N/A
+			cuec müf bët tun bët ǵe ḱey	|	"Go to h**l"	|	N/A
 			duń ǵe ḱey	|	"Go f*** yourself"/"Get f***ed"	|	"go to d**k", calque of Russian "иди на х*й"
 		-->
 
 	</main>
+</section>
+
+<section id="other">
+	<h4>Conculture stuff</h4>
+
+	<h5 class="indent">Twanthain</h5>
+	<p class="plain-font indent2">
+		<span class="info-pair"><span class="info-label">Native name</span>: <span class="info-value">Ťwaiw Bań</span></span><br/>
+		<span class="info-pair"><span class="info-label">Capital</span>: <span class="info-value">Pfewhuang (F̌eu ¦wań cin)</span></span><br/>
+		<span class="info-pair"><span class="info-label">Population</span>: <span class="info-value">≈3.5 million</span></span>
+	</p>
 </section>
 
 		<br/><br/><a href="index.html"><small>go to main page</small></a>
