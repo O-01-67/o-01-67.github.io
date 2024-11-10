@@ -29,6 +29,10 @@
 				border: 1px solid #ccc;
 				padding: 1px;
 			}
+
+			#searchQuery {
+				width: 350px;
+			}
 			
 			table, tr, th, td {
 				border: 1px solid white;
@@ -387,6 +391,10 @@
 				background-color: #0a0a0a;
 				color: #cfc;
 			}
+
+			div#search {
+				display: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -694,7 +702,7 @@
 							<td>/ae̯~ae̞̯~aɪ̯~ai̯/</td>
 							<td>/eɯ̟̯~eu̯/</td>
 							<td>/eɪ̯~ei̯/</td>
-							<td>/aɯ̟̯~aɨ̯/</td>
+							<td>/aɯ̟̯~au̯/</td>
 						</tr>
 						<tr>
 							<th>Roman</th>
@@ -1071,7 +1079,7 @@
 	<section id="phonotactics">
 		<h3>Phonotactics:</h3>
 		<main class="plain-font">
-			The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(/l/)(/j/ or /w/)<abbr title="V: Any vowel (or diphthong)">V</abbr>(C).&#8203;&nbsp;&nbsp;&#8203;/j/ palatalizes an initial plosive or affricate, if one is present, whereas the vowel [i] alone may or may not; likewise, /w/ labializes a preceding plosive (but not necessarily an affricate)&#8203;&nbsp;&nbsp;&#8203;&lt;ww&gt; is realized as [wː~ʰw~wu̯~u̯w] and &lt;yy&gt; is realized as [jː~ji̯~i̯j]&#8203;&nbsp;&nbsp;&#8203;[j] palatalizes &lt;č&gt; [t̠͡ʃ] to [t͡ʲɕ] and &lt;j&gt; [d̠͡ʒ] to [d͡ʲʑ]&#8203;&nbsp;&nbsp;&#8203;Most morphemes in Twanthainese are monosyllabic; compound words exist and are either made up of multiple monosyllabic components, or are formed by combining sounds from other words (this latter mechanism occurs very frequently, often in abbreviation of previously multi-word compounds).<!--Twanthainese is allergic to compounds of 3 or especially more words.-->&#8203;&nbsp;&nbsp;&#8203;Chemical names are sometimes made by simply concatenating the elements and numbers in the formula, without any markers.&#8203;&nbsp;&nbsp;&#8203;In the Roman orthography, syllables are generally separated by spaces, but polysyllabic loanwords may or may not be.&#8203;&nbsp;&nbsp;&#8203;A final aspirated consonant before its unaspirated counterpart assimilates into a single aspirated consonant; &lt;l̃&gt; is considered the aspirated form of &lt;l&gt;.&#8203;&nbsp;&nbsp;&#8203;/n/ becomes palatalized (to [nʲ]) after /i/.&#8203;&nbsp;&nbsp;&#8203;The orthography is an alphabet with 52 letters, making extensive use of diacritics; diphthongs are not considered their own letters.
+			The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(/l/)(/j/ or /w/)<abbr title="V: Any vowel (or diphthong)">V</abbr>(C).&#8203;&nbsp;&nbsp;&#8203;/j/ palatalizes an initial plosive or affricate, if one is present, whereas the vowel [i] alone may or may not; likewise, /w/ labializes a preceding plosive (but not necessarily an affricate)&#8203;&nbsp;&nbsp;&#8203;&lt;ww&gt; is realized as [wː~ʰw~wu̯~u̯w] and &lt;yy&gt; is realized as [jː~ji̯~i̯j]&#8203;&nbsp;&nbsp;&#8203;[j] palatalizes &lt;č&gt; [t̠͡ʃ] to [t͡ʲɕ] and &lt;j&gt; [d̠͡ʒ] to [d͡ʲʑ]&#8203;&nbsp;&nbsp;&#8203;Most morphemes in Twanthainese are monosyllabic; compound words exist and are either made up of multiple monosyllabic components, or are formed by combining sounds from other words (this latter mechanism occurs very frequently, often in abbreviation of previously multi-word compounds).<!--Twanthainese is allergic to compounds of 3 or especially more words.-->&#8203;&nbsp;&nbsp;&#8203;Chemical names are sometimes made by simply concatenating the elements and numbers in the formula, without any markers.&#8203;&nbsp;&nbsp;&#8203;In the Roman orthography, syllables are generally separated by spaces, but polysyllabic loanwords may or may not be (though if the originating language's orthography also prefers to separate every syllable (e.g. Vietnamese), then the syllabes are generally still separated); if they are unspaced, ambiguities may or may not be resolved with the hyphen.&#8203;&nbsp;&nbsp;&#8203;A final aspirated consonant before its unaspirated counterpart assimilates into a single aspirated consonant; &lt;l̃&gt; is considered the aspirated form of &lt;l&gt;.&#8203;&nbsp;&nbsp;&#8203;/n/ becomes palatalized (to [nʲ]) after /i/.&#8203;&nbsp;&nbsp;&#8203;The orthography is an alphabet with 52 letters, making extensive use of diacritics; diphthongs are not considered their own letters.
 		</main>
 	</section>
 </section>
@@ -1090,8 +1098,170 @@
 	<h3>Word table</h3>
 
 		<noscript>With JavaScript disabled, this page will instead show the contents of the script that holds the data.</noscript>
+
+		<div id="search">
+			<h4>Search (Likely to be slow)</h4>
+			<input placeholder="Enter your query (2 characters or longer)" id="searchQuery" class="plain-font"/><br/>
+			<input type="checkbox" id="ignoreDiacritics"> <label for="ignoreDiacritics">Ignore diacritics</label><br/>
+			<!--<input type="checkbox" id="searchIsRegex"> <label for="searchIsRegex">Use regex</label>-->
+			<input type="checkbox" id="searchEnglish" checked> <label for="searchEnglish">Search English</label>
+			<input type="checkbox" id="searchTwanthainese" checked> <label for="searchTwanthainese">Search Twanthainese</label>
+			<input type="checkbox" id="searchEtymology"> <label for="searchEtymology">Search in etymologies</label>
+			<input type="checkbox" id="searchExtraInfo"> <label for="searchExtraInfo">Search in extra info</label>
+			<input type="checkbox" id="searchPartOfSpeech"> <label for="searchPartOfSpeech">Search in parts of speech</label>
+		</div>
+
+		<script id="showAndSearchScript">
+
+			function logAndReturn(t) { console.log(t); return t };
+
+			function search() {
+				var query = (document.getElementById("searchQuery")?.value) ?? "";
+				var noDia = (document.getElementById("ignoreDiacritics") ?? {checked: false}).checked;
+				//var regex = (document.getElementById("searchIsRegex") ?? {checked: false}).checked;
+				var sEng = (document.getElementById("searchEnglish") ?? {checked: true}).checked;
+				var sTwa = (document.getElementById("searchTwanthainese") ?? {checked: true}).checked;
+				var sEty = (document.getElementById("searchEtymology") ?? {checked: false}).checked;
+				var sExt = (document.getElementById("searchExtraInfo") ?? {checked: false}).checked;
+				var sPar = (document.getElementById("searchPartOfSpeech") ?? {checked: false}).checked;
+				
+				var filteredData = sourceData;
+				if(query && (query.length > 1)) {
+					filteredData = structuredClone(sourceData).filter(function(itemData) {
+						/*if(regex) {
+							var regex = RegExp(query,"i");
+							return (
+								(sEng && regex.test(itemData.eng ?? "")) ||
+								(sTwa && regex.test(itemData.qtw ?? "")) ||
+								(sEty && itemData.etym && regex.test(itemData.etym)) ||
+								(sExt && itemData.extra && regex.test(itemData.extra)) ||
+								(sPar && itemData.part && regex.test(itemData.part))
+							)
+						} else if(!regex)*/ if(noDia) {
+							return (
+								(sEng && ((itemData.eng.normalize("NFD").replace(/[̀-ͯ]/g,"") ?? "").toLowerCase().includes(query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")))) ||
+								(sTwa && ((itemData.qtw.normalize("NFD").replace(/[̀-ͯ]/g,"") ?? "").toLowerCase().includes(query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")))) ||
+								(sEty && itemData.etym.normalize("NFD").replace(/[̀-ͯ]/g,"") && (itemData.etym.toLowerCase().includes(query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")))) ||
+								(sExt && itemData.extra.normalize("NFD").replace(/[̀-ͯ]/g,"") && (itemData.extra.toLowerCase().includes(query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")))) ||
+								(sPar && itemData.part.normalize("NFD").replace(/[̀-ͯ]/g,"") && (itemData.part.toLowerCase().includes(query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""))))
+							)
+						} else {
+							return (
+								(sEng && ((itemData.eng ?? "").toLowerCase().includes(query.toLowerCase()))) ||
+								(sTwa && ((itemData.qtw ?? "").toLowerCase().includes(query.toLowerCase()))) ||
+								(sEty && itemData.etym && (itemData.etym.toLowerCase().includes(query.toLowerCase()))) ||
+								(sExt && itemData.extra && (itemData.extra.toLowerCase().includes(query.toLowerCase()))) ||
+								(sPar && itemData.part && (itemData.part.toLowerCase().includes(query.toLowerCase())))
+							)
+						};
+					})
+				};
+
+
+				doTable(filteredData);
+
+				filteredData = null;
+			};
+
+			var searchOptions = ["searchQuery","ignoreDiacritics",/*"searchIsRegex",*/"searchEnglish","searchTwanthainese","searchEtymology","searchExtraInfo","searchPartOfSpeech"].map(x => document.getElementById(x));
+			for(var i = 0; i < searchOptions.length; i++) {
+				if(searchOptions[i].getAttribute("type") == "checkbox") {
+					searchOptions[i].addEventListener("change",search)
+				} else {
+					searchOptions[i].addEventListener("keyup",search)
+					searchOptions[i].addEventListener("paste",search)
+				}
+			};
+
+			function doTable(data) {
+				var fragment = window.location.hash;
+				var fragmentValue = fragment?.slice?.(1) ?? null;
+
+				var tableDestination = document.getElementById("wordlist");
+				
+				var oldTable = document.getElementById("wordTable");
+				if(oldTable) { oldTable.parentElement.removeChild(oldTable); oldTable = null };
+				
+				var newTable = document.createElement("table");
+				tableDestination.insertAdjacentElement("afterbegin",newTable)
+					newTable.classList.add("plain-font");
+					newTable.id = "wordTable";
+					var newTbody = document.createElement("tbody");
+					newTable.appendChild(newTbody);
+						var headerRow = document.createElement("tr");
+						newTbody.appendChild(headerRow);
+							var thTwanthainese = document.createElement("th");
+							headerRow.appendChild(thTwanthainese);
+								thTwanthainese.innerText = "Twanthainese";
+							
+							var thEnglish = document.createElement("th");
+							headerRow.appendChild(thEnglish);
+								thEnglish.innerText = "English";
+							
+							var thPart = document.createElement("th");
+							headerRow.appendChild(thPart);
+								thPart.innerText = "Part of speech";
+							
+							var thEtymology = document.createElement("th");
+							headerRow.appendChild(thEtymology);
+								thEtymology.innerText = "Etymology";
+							
+							var thNotes = document.createElement("th");
+							headerRow.appendChild(thNotes);
+								thNotes.innerText = "Notes";
+
+						var showNSFW = (urlParams.get("un_ce") !== null);
+						for(var i = 0; i < data.length; i++) {
+							if((data[i].censor) && !showNSFW) { continue };
+							var newTr = document.createElement("tr");
+							newTbody.appendChild(newTr);
+								var tdTwanthainese = document.createElement("td");
+								newTr.appendChild(tdTwanthainese);
+									tdTwanthainese.innerText = data[i].qtw ?? "";
+									if(data[i].qtw) {
+										tdTwanthainese.setAttribute("id",data[i].qtw)
+									};
+									if(data[i].qtw == fragmentValue) {
+										tdTwanthainese.scrollIntoView?.()
+									};
+								
+								var tdEnglish = document.createElement("td");
+								newTr.appendChild(tdEnglish);
+									if(data[i].html_title) { tdEnglish.setAttribute("title",data[i].html_title) };
+									if(data[i].censor) { tdEnglish.classList.add("censor") };
+									if(data[i].eng_href) {
+										var link = document.createElement("a");
+										tdEnglish.appendChild(link);
+											link.innerText = data[i].eng ?? "";
+											link.setAttribute("href",data[i].eng_href)
+									} else {
+										tdEnglish.innerText = data[i].eng ?? "";
+									};
+								
+								var tdPart = document.createElement("td");
+								newTr.appendChild(tdPart);
+									tdPart.innerText = data[i].part ?? "";
+								
+								var tdEtymology = document.createElement("td");
+								newTr.appendChild(tdEtymology);
+									tdEtymology.innerText = data[i].etym ?? "";
+								
+								var tdNotes = document.createElement("td");
+								newTr.appendChild(tdNotes);
+									tdNotes.innerText = data[i].extra ?? "";
+						};
+
+				if(fragmentValue) {
+					var destination = document.getElementById(fragmentValue);
+					if(destination) {
+						destination.scrollIntoView?.()
+					}
+				}
+			}
+		</script>
+
 		<script id="dataTable">
-data = [
+sourceData = [
 	{ part: 'pronoun', qtw: 'cain', eng: 'I, me', extra: 'Can sometimes be dropped' },
 	{ part: 'pronoun', qtw: 'caun', eng: 'we, us' },
 	{ part: 'pronoun', qtw: 'cu̇n', eng: 'you', extra: 'singular' },
@@ -1218,6 +1388,7 @@ data = [
 	{ part: 'noun', qtw: 'tai k̰̋in', eng: 'boyfriend' },
 	{ part: 'noun', qtw: 'tai jet', eng: 'girlfriend' },
 	{ part: 'noun', qtw: 'wwaiw', eng: 'human, person' },
+	{ part: 'noun', qtw: 'yon', eng: 'body (especially the human body)' },
 	{ part: 'noun', qtw: 'two', eng: 'leader', etym: 'From "ťwaiw waw"' },
 	{ part: 'noun', qtw: 'faw', eng: 'child', etym: 'From "fu̇p wwaiw"' },
 	{ part: 'noun', qtw: '\'aiw', eng: 'adult, grown-up', etym: 'From "fwai\' wwaiw"' },
@@ -1274,7 +1445,13 @@ data = [
 	{ part: 'noun', qtw: 'kau̇n', eng: 'street (road surrounded by houses)', etym: 'From "kaif kwu̇n"' },
 	{ part: 'noun', qtw: 'fwu̇n', eng: 'freeway, highway', etym: 'From "fwa\' kwu̇n"' },
 	{ part: 'noun', qtw: '\'we', eng: 'health' },
-	{ part: 'noun', qtw: '\'we kaif', eng: 'hospital' },
+	{ part: 'noun', qtw: '\'waif', eng: 'hospital', etym: 'From "\'we kaif"' },
+	{ part: 'noun', qtw: '\'weup', eng: 'medication', etym: 'From "\'we bop"' },
+	{ part: 'noun', qtw: 'fweup', eng: 'pill', etym: 'From "fu̇p \'weup dep"' },
+	{ part: 'noun', qtw: '\'weup kaif', eng: 'drugstore, pharmacy' },
+	{ part: 'noun', qtw: 'düǹ ček', eng: 'ability' },
+	{ part: 'noun', qtw: 'jep', eng: 'permission', etym: 'From "düǹ ček \'op"' },
+	{ part: 'noun', qtw: 'jeup', eng: 'prescription (of a medication)', etym: 'From "\'weup jep"' },
 	{ part: 'noun', qtw: 'fwa\' ton', eng: 'building (especially a large one)' },
 	{ part: 'noun', qtw: 'nwat ton', eng: 'skyscraper' },
 	{ part: 'noun', qtw: 'kaif ga', eng: 'village' },
@@ -1290,11 +1467,78 @@ data = [
 	{ part: 'noun', qtw: 'fwac ga', eng: 'collegiate university' },
 	{ part: 'noun', qtw: 'fwac ga dwop', eng: 'constituent college (of a collegiate university)' },
 	{ part: 'noun', qtw: 'pwak', eng: 'door' },
+	{ part: 'noun', qtw: 'pap', eng: 'pop music', etym: 'from English' },
+	{ part: 'noun', qtw: 'swüǹ', eng: 'alloy', etym: 'from "swej müf feǹ"' },
+	{ part: 'noun', qtw: 'liǹ', eng: 'pink' },
+	{ part: 'noun', qtw: 'liǹ l̃aip', eng: 'rose gold' },
+	{ part: 'noun', qtw: 'miǹ', eng: 'tin' },
+	{ part: 'noun', qtw: 'fyeǹ', eng: 'bronze' },
+	{ part: 'noun', qtw: 'coǹ', eng: 'zinc' },
+	{ part: 'noun', qtw: 'coiǹ', eng: 'brass', etym: 'from "coǹ füǹ"' },
+	{ part: 'noun', qtw: 'lwuǹ', eng: 'steel', etym: 'from "lwep fuǹ"' },
+	{ part: 'noun', qtw: 'ju', eng: 'field of study, -ology, practice (of)' },
+	{ part: 'noun', qtw: 'wwow ju', eng: 'biology' },
+	{ part: 'noun', qtw: 'fwaǹ ju', eng: 'marine biology' },
+	{ part: 'noun', qtw: 'zot ju', eng: 'mixology' },
+	{ part: 'noun', qtw: 'gap ju', eng: 'linguistics' },
+	{ part: 'noun', qtw: 'ban ju', eng: 'phonetics, phonology (field of study)' },
+	{ part: 'noun', qtw: 'feǹ ju', eng: 'metallurgy' },
+	{ part: 'noun', qtw: 'bëǹ ju', eng: 'geology' },
+	{ part: 'noun', qtw: 'baǹ ju', eng: 'political science' },
+	{ part: 'noun', qtw: 'ťwaiw ju', eng: 'demography; anthropology' },
+	{ part: 'noun', qtw: 'yai ček ju', eng: 'demography' },
+	{ part: 'noun', qtw: 'baǹ ťwaiw ju', eng: 'anthropology' },
+	{ part: 'noun', qtw: 'nwaw ju', eng: 'dendrology' },
+	{ part: 'noun', qtw: 'bop ju', eng: 'chemistry' },
+	{ part: 'noun', qtw: 'k̃eǹ ju', eng: 'physics' },
+	{ part: 'noun', qtw: 'yauk ju', eng: 'notaphily (the study of banknotes)' },
+	{ part: 'noun', qtw: 'yaun ju', eng: 'economics' },
+	{ part: 'noun', qtw: 'dan dëk ju', eng: 'neurology, neurobiology, neuroscience (as they pertain to the brain)' },
+	{ part: 'noun', qtw: 'myin ju', eng: 'optometry, ophthamology' },
+	{ part: 'noun', qtw: '\'we ju', eng: 'medicine (practice or field of study)' },
+	{ part: 'noun', qtw: 'yon ju', eng: 'anatomy' },
+	{ part: 'noun', qtw: 'tsyek', eng: 'a cut', etym: 'From "sye ček"' },
+	{ part: 'noun', qtw: 'yon tsyek ju', eng: 'surgery (practice or field of study)' },
+	{ part: 'noun', qtw: 'fwa\' yaun ju', eng: 'macroeconomics' },
+	{ part: 'noun', qtw: 'fu̇p yaun ju', eng: 'microeconomics' },
+	{ part: 'noun', qtw: 'ťa', eng: 'number' },
+	{ part: 'noun', qtw: 'ťa ju', eng: 'arithmetic, mathematics/math/maths' },
+	{ part: 'noun', qtw: 'ťwaj', eng: 'mathematics/math/maths (in general), but can still include arithmetic', etym: 'From "fwa\' ťa ju"' },
+	{ part: 'noun', qtw: 'ťu̇j', eng: 'arithmetic', etym: 'From "fu̇p ťa ju"' },
+	{ part: 'noun', qtw: 'ťwaj', eng: 'mathematics/math/maths (in general), but can still include arithmetic', etym: 'From "fwa\' ťa ju"' },
+	{ part: 'noun', qtw: 'nyit bop', eng: 'coolant, refrigerant' },
+	{ part: 'noun', qtw: 'baǹ bëǹ', eng: 'national territory' },
+	{ part: 'noun', qtw: 'byaim', eng: 'expansionism (including irredentism)', etym: 'from "baǹ bëǹ nai (müf) vüm"' },
+	{ part: 'noun', qtw: 'baǹ bëǹ ju', eng: 'geopolitics (field of study)' },
+	{ part: 'noun', qtw: 'baum', eng: 'constitution', etym: 'From "baǹ \'op leim"' },
+	{ part: 'noun', qtw: 'Alabama bwap', eng: 'Alabama', etym: 'A La Ba Ma' },
+	{ part: 'noun', qtw: 'Alabama bwap kwa baum', eng: 'constitution of Alabama' },
+	{ part: 'noun', qtw: 'l̃al', eng: 'cherry' },
+	{ part: 'noun', qtw: 't̃i', eng: 'carrot' },
+	{ part: 'noun', qtw: 'uk', eng: 'coconut' },
+	{ part: 'noun', qtw: 'baǹ vüm', eng: 'nationalism' },
+	{ part: 'noun', qtw: 'baǹ ťwaiw oy vüm', eng: 'racial supremacism, supremacism' },
+	{ part: 'noun', qtw: 'čip', eng: 'methane (synonym of "l̃ën ťyam lak")', etym: 'from  "t̃on ťyam nit l̃wop", as the fourth substance discovered from the YB́ǸUCASU' },
+	{ part: 'noun', qtw: 'l̃yük', eng: 'krypton', etym: 'from "l̃üw ťyam nit l̃wop", as the fifth substance discovered from the YB́ǸUCASU' },
+	{ part: 'noun', qtw: 't̃iǹ', eng: 'rutile' },
+	{ part: 'noun', qtw: 'čyop', eng: 'saltpeter', etym: 'From "čyüm bop". The Twanthainese discovered saltpeter from urine.' },
+	{ part: 'noun', qtw: 'f̌yup', eng: 'sulfuric acid', etym: 'From "čyop bu\' f̌en bop".' },
+	{ part: 'noun', qtw: 'dyu̇p', eng: 'hydrochloric acid', etym: 'From "du̇y f̌yup bop"' },
+	{ part: 'noun', qtw: 'la', eng: 'caustic soda, lye' },
+	{ part: 'noun', qtw: 'l̃op', eng: 'sodium', etym: 'from "la bop" later blended with "l̃wop" once it was confirmed to be an element' },
+	{ part: 'noun', qtw: 'ǹwüf', eng: 'coal coke (fuel)', etym: 'from "ǹol müf lwe"' },
+	{ part: 'noun', qtw: 't̃wüp', eng: 'titanium tetrachloride', etym: 'from "t̃iǹ ǹüp ǹwüf bop"' },
+	{ part: 'noun', qtw: 't̃lwop', eng: 'titanium', etym: 'from "t̃wüp lop bop" later blended with "l̃wop" once it was confirmed to be an element' },
+	{ part: 'noun', qtw: 'dyek', eng: 'impunity', etym: 'From "dwin pem dyow ček"' },
+	{ part: 'noun', qtw: 'dwin pem dyow müf', eng: '(historical) unpunishable, impune' },
+	{ part: 'noun', qtw: 'dyek müf', eng: 'unpunishable, impune', etym: 'From "dwin pem dyow ček"' },
+	{ part: 'noun', qtw: 'dwok', eng: 'unpunishment, amnesty', etym: 'From "dwin dyow ček"' },
 	{ part: 'noun', qtw: 'ket', eng: 'tool, device' },
 	{ part: 'noun', qtw: 'nyit ket', eng: 'refrigerator' },
 	{ part: 'noun', qtw: 'k̃aik̋ ket', eng: 'freezer' },
-	{ part: 'noun', qtw: 'fwa\' k̃aik̋ müf ket', eng: 'cryogenic freezer' },
-	{ part: 'noun', qtw: 'fwa\' k̃aik̋ müf nit t̃wi ket', eng: 'cryogenic air separation unit' },
+	{ part: 'noun', qtw: 'fwaik̋', eng: 'cryogenic temperature, cryogenic conditions' },
+	{ part: 'noun', qtw: 'fwaik̋ ket', eng: 'cryogenic freezer' },
+	{ part: 'noun', qtw: 'fwaik̋ nit t̃wi ket', eng: 'cryogenic air separation unit' },
 	{ part: 'noun', qtw: 'f̌ot ket', eng: 'steam engine' },
 	{ part: 'noun', qtw: 'nwëw bwow ket', eng: 'quill' },
 	{ part: 'noun', qtw: 'čuek̰̋ ket', eng: 'power tool' },
@@ -1362,6 +1606,7 @@ data = [
 	{ part: 'noun', qtw: 'Ǹüf Bët', eng: 'Mars' },
 	{ part: 'noun', qtw: 'myin', eng: 'eye' },
 	{ part: 'noun', qtw: 'dan', eng: 'head' },
+	{ part: 'noun', qtw: 'dan dëk', eng: 'brain' },
 	{ part: 'noun', qtw: 'faǹ', eng: 'sound', etym: 'From "p̃aǹ"' },
 	{ part: 'noun', qtw: 'mu̇ť', eng: 'mouth', etym: 'A represntation of chewing' },
 	{ part: 'noun', qtw: 'mwoť', eng: 'breath', etym: 'From "mu̇ť nwot"' },
@@ -1379,8 +1624,10 @@ data = [
 	{ part: 'noun', qtw: '\'ëy', eng: 'gender' },
 	{ part: 'noun', qtw: 'k̃ip mit', eng: 'kibimeter' },
 	{ part: 'noun', qtw: 'mem \'ëy seǹ', eng: 'homosexuality' },
+	{ part: 'noun', qtw: 'mem \'ëy seǹ \'om müf vüm', eng: 'homophobia' },
 	{ part: 'noun', qtw: '\'yek̰̋', eng: 'sex (biology)' },
 	{ part: 'noun', qtw: '\'yek̰̋ dyam \'ëy', eng: '[the state of being transgender], transgenderness' },
+	{ part: 'noun', qtw: '\'yek̰̋ dyam \'ëy \'om müf vüm', eng: 'transphobia' },
 	{ part: 'noun', qtw: 'yai ček', eng: 'birth, creation' },
 	{ part: 'noun', qtw: 'sil ček', eng: 'variance, inconsistency' },
 	{ part: 'noun', qtw: '\'ëy sil ček', eng: 'genderfluidity' },
@@ -1436,7 +1683,7 @@ data = [
 	{ part: 'noun', qtw: 'dwüǹ bat', eng: 'federal government', etym: 'From "dwop müf baǹ"' },
 	{ part: 'noun', qtw: 'fyew bat', eng: 'martial law, martial government' },
 	{ part: 'noun', qtw: 'dwüǹ wwëy ḱüy', eng: 'federal democratic republic, the state of being a federal democratic republic', etym: 'From "dwop müf baǹ"' },
-	{ part: 'noun', qtw: 'I Ti O Pi Ya dwüǹ wwëy ḱüy', eng: 'Federal Democratic Republic of Ethiopia' },
+	{ part: 'noun', qtw: 'Itiopiya dwüǹ wwëy ḱüy', eng: 'Federal Democratic Republic of Ethiopia', extra: 'I Ti O Pi Ya' },
 	{ part: 'noun', qtw: 'bwam', eng: 'state, province, prefecture, oblast, voivodeship, department, first-level administrative division', etym: 'From "baǹ dwop"' },
 	{ part: 'noun', qtw: 'bom', eng: 'county, parish, raion, second-level administrative division', etym: 'From "bwam dwop"' }, //ťen ťyam baǹ t̃wi ček
 	{ part: 'noun', qtw: 'bwow', eng: 'municipality, hromada, third-level administrative division', etym: 'From "bom dwop"' }, //l̃ain ťyam baǹ t̃wi ček
@@ -1508,13 +1755,16 @@ data = [
 	{ part: 'noun', qtw: 'kut wan', eng: 'turd', extra: 'More vulgar than "dwüp wan"', },
 	{ part: 'noun', qtw: 'kut \'oi', eng: 'a**hole', censor: true },
 	{ part: 'noun', qtw: 'muǹ', eng: 'hole' },
+	{ part: 'noun', qtw: 'f̌en muǹ', eng: 'well (hole for water)' },
 	{ part: 'noun, interjection', qtw: 'dwüp muǹ', eng: 'cesspit, sh**hole, fuck (interjection), (historical) toilet', censor: true, extra: 'Became vulgar, nowadays used as an insult of a person (akin to "a**hole" or "sh**head") or a place (akin to "sh**hole" or "hellhole").' },
 	{ part: 'noun', qtw: 'dwuǹ wan', eng: 'd**do', extra: 'Vulgar', censor: true },
 	{ part: 'noun', qtw: 'dwuǹ', eng: 'a**hole', extra: 'Vulgar', censor: true },
 	{ part: 'noun', qtw: 'dwëǹ', eng: 'p***s', extra: 'Clinical', censor: true },
 	{ part: 'noun', qtw: 'duǹ', eng: 'pe*n, d**k', extra: 'Vulgar', censor: true },
-	{ part: 'noun', qtw: 'f̌en muǹ', eng: 'toilet' },
-	{ part: 'noun', qtw: 'Së Ki Bi Di F̌en Muǹ ', eng: 'Skibidi Toilet' },
+	{ part: 'noun', qtw: 'mwel', eng: 'trash, refuse, rubbish' },
+	{ part: 'noun', qtw: 'mwel dep', eng: 'trash/garbage/rubbish/waste can, trash/garbage/rubbish/waste bag, trash/garbage/rubbish/waste bin' },
+	{ part: 'noun', qtw: 'mwel muǹ', eng: 'toilet' },
+	{ part: 'noun', qtw: 'Së Ki Bi Di Mwel Muǹ ', eng: 'Skibidi Toilet' },
 	{ part: 'noun', qtw: '\'at', eng: 'weapon', etym: 'From \'a\' ket' },
 	{ part: 'noun', qtw: 'cwoc \'at', eng: 'bomb' },
 	{ part: 'noun', qtw: 'f̌wü', eng: 'arrow', etym: 'Onomatopoeic' },
@@ -1655,9 +1905,6 @@ data = [
 	{ part: 'noun', qtw: 'kwon gwop', eng: 'verb' },
 	{ part: 'noun', qtw: 'čey gwop', eng: 'adjective' },
 	{ part: 'noun', qtw: 'we gwop', eng: 'marker (Twanthainese grammar)', extra: 'It can also encompass words of similar grammatical categories in other languages, such as particles. By some analyses, the English "\'s" could be considered a "we gwop".' },
-	{ part: 'noun', qtw: 'mwel', eng: 'trash, refuse, rubbish' },
-	{ part: 'noun', qtw: 'mwel dep', eng: 'trash/garbage/rubbish can, trash/garbage/rubbish bag, trash/garbage/rubbish bin' },
-	{ part: 'noun', qtw: 'ťa', eng: 'number' },
 	{ part: 'noun', qtw: 'ťa gwop', eng: 'number word' },
 	{ part: 'noun', qtw: 'ťa ǹaup', eng: 'digit (of a number system)' },
 	{ part: 'noun', qtw: 'Ťwaiw gap', eng: 'Twanthainese', etym: 'From "twan ťain wwaiw gap"' },
@@ -1673,6 +1920,7 @@ data = [
 	{ part: 'noun', qtw: 'Law gap', eng: 'Lao (language)', extra: 'Despite the name, Twanthain was never socialist.' },
 	{ part: 'noun', qtw: 'So Vyet D́ei Ček baǹ', eng: 'Soviet Union' },
 	{ part: 'noun', qtw: 'So Vyet Ťwüm Ḱüy Müf D́ei Ček Baǹ', eng: 'Union of Soviet Socialist Republics' },
+	{ part: 'noun', qtw: 'Vyët Nam Ťwüm Ḱüy Baǹ', eng: 'Socialist Republic of Vietnam' },
 	{ part: 'noun', qtw: 'Law ťwaiw', eng: 'Lao people' },
 	{ part: 'noun', qtw: 'Bwü Tën baǹ', eng: 'Britain' },
 	{ part: 'noun', qtw: 'Bwü Tën gap', eng: 'English' },
@@ -1693,7 +1941,7 @@ data = [
 	{ part: 'noun', qtw: 'Lat Či Lat Či gap', eng: 'Latji-Latji' },
 	{ part: 'noun', qtw: 'L̃üǹ An gap', eng: 'Klingon' },
 	{ part: 'noun', qtw: 'Ču̇ǹ Kwo gap', eng: 'Mandarin' },
-	{ part: 'noun', qtw: 'Fu T̃u̇ǹ gap', eng: 'Mandarin', etym: 'From Mandarin "普通话"; owing to the p̃-f merger, p̃ is standardly changed to f in loanwords.', extra: 'synonym of "Ču̇ǹ Kwo gap"' },
+	{ part: 'noun', qtw: 'Fu T̃ëǹ gap', eng: 'Mandarin', etym: 'From Mandarin "普通话"; owing to the p̃-f merger, p̃ is standardly changed to f in loanwords.', extra: 'synonym of "Ču̇ǹ Kwo gap"' },
 	{ part: 'noun', qtw: 'Tai Wan gap', eng: 'Taiwanese' },
 	{ part: 'noun', qtw: 'L̃o Sa gap', eng: 'isiXhosa' },
 	{ part: 'noun', qtw: '\'au Sa gap', eng: 'Hausa' },
@@ -1813,6 +2061,8 @@ data = [
 	{ part: 'adjective', qtw: 'sës', eng: 'sus', etym: 'From English' },
 	{ part: 'adjective', qtw: 'sës müf', eng: 'sussy', etym: 'Calque of "sus" + "-y"' },
 	{ part: 'adjective', qtw: 'caic müf', eng: 'hot (temperature)' },
+	{ part: 'adjective', qtw: 'wye', eng: 'arbitrary' },
+	{ part: 'adjective', qtw: 'yul', eng: 'unpredictable, random' },
 	{ part: 'adjective', qtw: 'dwüǹ müf', eng: 'federal (of or relating to a federation\'s central government)' },
 	{ part: 'adjective', qtw: 'nwey', eng: 'tall', etym: 'Related to "nwat"' },
 	{ part: 'adjective', qtw: 'bot', eng: 'short', etym: 'Related to "bëǹ"' },
@@ -1823,11 +2073,18 @@ data = [
 	{ part: 'adjective', qtw: 'mem', eng: 'the same, equal' },
 	{ part: 'adjective', qtw: 'dyam', eng: 'different, not the same, unequal' },
 	{ part: 'adjective', qtw: 'bui', eng: 'deep' },
+	{ part: 'adjective', qtw: 't̃uǹ', eng: 'heavy' },
+	{ part: 'adjective', qtw: 'syën', eng: 'effective, good (for)' },
+	{ part: 'adjective', qtw: 'wej', eng: 'well (in a good state)' },
+	{ part: 'adjective', qtw: 'čow', eng: 'moral, morally good' },
 	{ part: 'verb', qtw: 'woin', eng: 'to walk' },
 	{ part: 'verb', qtw: 'pën', eng: 'to eat' },
 	{ part: 'verb', qtw: 'syek', eng: 'to learn' },
 	{ part: 'verb', qtw: 'pin', eng: 'to drink' },
 	{ part: 'verb', qtw: 'd́el', eng: 'to need' },
+	{ part: 'verb', qtw: '\'ei', eng: 'to force, to compel, to apply force to (especially high force)' },
+	{ part: 'verb', qtw: 'sye', eng: 'to cut' },
+	{ part: 'verb', qtw: 'jeup g̋ot', eng: 'to prescribe (a medication)' },
 	{ part: 'verb', qtw: 'len', eng: 'to sell' },
 	{ part: 'noun', qtw: 'twa\'', eng: 'to speak, to say' },
 	{ part: 'noun', qtw: 'tya\'', eng: 'to shout', etym: 'Semi-onomatopoeically derived from "twa\'"' },
@@ -1837,6 +2094,13 @@ data = [
 	{ part: 'verb', qtw: 't̃a', eng: 'to send' },
 	{ part: 'verb', qtw: 'wel', eng: 'to pay' },
 	{ part: 'verb', qtw: 'mi', eng: 'to see' },
+	{ part: 'verb', qtw: 'swej', eng: 'to mix' },
+	{ part: 'verb', qtw: 'nai', eng: 'to grow, to expand, to increase, to lengthen, to widen, to heighten, to deepen (of a hole, deep body, absence, or deficit)' },
+	{ part: 'verb', qtw: 'lë', eng: 'to shrink, to contract, to decrease, to shorten, to thin, to enshallow/be enshallowed (of a hole or deep body)' },
+	{ part: 'verb', qtw: 'nai', eng: 'to grow, to expand, to increase, to lengthen, to widen, to heighten, to deepen (of a hole, deep body, absence, or deficit)' },
+	{ part: 'verb', qtw: 'ǹol', eng: 'to bury' },
+	{ part: 'verb', qtw: 'dwin', eng: 'to punish' },
+	{ part: 'verb', qtw: 'dwin pem dyow', eng: 'to be unable to punish' },
 	{ part: 'verb', qtw: 'g̋im', eng: 'to look (at)', etym: 'From "g̋e" and "mi"' },
 	{ part: 'verb', qtw: 'dal', eng: 'to show' },
 	{ part: 'verb', qtw: 'woy', eng: 'to turn, to rotate' },
@@ -1894,7 +2158,7 @@ data = [
 	{ part: 'postposition', qtw: 'ko', eng: 'from, originating from' },
 	{ part: 'postposition', qtw: 'puet', eng: 'of, concerning, about', extra: 'Cannot be used to indicate composition' },
 	{ part: 'postposition', qtw: 'twai', eng: 'of, from', extra: 'Used to indicate composition' },
-	{ part: 'conjunction', qtw: 'yey', eng: 'and' },
+	{ part: 'conjunction, postposition', qtw: 'yey', eng: 'and, as well as, also, plus', extra: 'Even though the sense of "plus" could operate as a postposition, in a mathematical mathematical context (i.e. reading of the plus sign "+"), it is still read between the addends.' },
 	{ part: 'conjunction', qtw: 'mut', eng: 'or (inclusive)' },
 	{ part: 'conjunction', qtw: 'mat', eng: 'or (exclusive)' },
 	{ part: 'adverb', qtw: '\'ye', eng: 'please', extra: 'Makes a request more polite.' },
@@ -1906,6 +2170,9 @@ data = [
 	{ part: 'marker', qtw: 'f̌ep', eng: '(Future tense marker)' },
 	{ part: 'marker', qtw: 't̃ep', eng: '(Habitual aspect marker)' },
 	{ part: 'marker', qtw: 'jün', eng: '(Imperative mood marker)' },
+	{ part: 'marker', qtw: 'ḱoy', eng: '(Deontic mood marker)', extra: 'Indicates that something normatively "must" happen. It is distinct from the imperative.' },
+	{ part: 'marker', qtw: 'pem', eng: '(Epistemic mood marker (possibility))', extra: 'Indicates that something can happen' },
+	{ part: 'marker', qtw: 'plik', eng: '(Epistemic mood marker (belief))', extra: 'Indicates that, based on the speaker’s knowledge, something logically "has to" happen. It is distinct from the deontic and the imperative, but can overlap in usage.)' },
 	{ part: 'marker', qtw: 'müf', eng: '(Adjectivizer), -al, -ous, -y', extra: 'Connects non-adjectives to their modificands as adjectives' },
 	{ part: 'marker', qtw: 'wa', eng: '(Agentive suffix), -er', etym: 'Cognate of "wwaiw"' },
 	{ part: 'marker', qtw: 'ťain', eng: '-numbered', extra: '(It connects a number word or phrase to its quantificand. In quantities with units, it is not needed to connect the number to the unit, but it is used to connect the unit quantity to something else (e.g. "ťyek̃ k̃ip mit ťain woin ček" = "10 kibimeter walk").)' },
@@ -1963,91 +2230,14 @@ data = [
 			/*Remove the CSS that forces the data to be visible, and render the data into an HTML table
 			If JavaScript is disabled, there will be no table but the data should remain visible.*/
 			
+			window.onload = function() {
+				doTable(sourceData);
+			}
+
 			var targetStyle = document.getElementById("removeMeIfScripted");
 			targetStyle.textContent = "";
 			(document.head || document.getElementsByTagName("head")[0]).removeChild(targetStyle);
-			
-			window.onload = function() {
-				var fragment = window.location.hash;
-				var fragmentValue = fragment?.slice?.(1) ?? null;
 
-				var tableDestination = document.getElementById("wordlist");
-				
-				var newTable = document.createElement("table");
-				tableDestination.insertAdjacentElement("afterbegin",newTable)
-					newTable.classList.add("plain-font");
-					var newTbody = document.createElement("tbody");
-					newTable.appendChild(newTbody);
-						var headerRow = document.createElement("tr");
-						newTbody.appendChild(headerRow);
-							var thTwanthainese = document.createElement("th");
-							headerRow.appendChild(thTwanthainese);
-								thTwanthainese.innerText = "Twanthainese";
-							
-							var thEnglish = document.createElement("th");
-							headerRow.appendChild(thEnglish);
-								thEnglish.innerText = "English";
-							
-							var thPart = document.createElement("th");
-							headerRow.appendChild(thPart);
-								thPart.innerText = "Part of speech";
-							
-							var thEtymology = document.createElement("th");
-							headerRow.appendChild(thEtymology);
-								thEtymology.innerText = "Etymology";
-							
-							var thNotes = document.createElement("th");
-							headerRow.appendChild(thNotes);
-								thNotes.innerText = "Notes";
-
-						var showNSFW = (urlParams.get("un_ce") !== null);
-						for(var i = 0; i < data.length; i++) {
-							if((data[i].censor) && !showNSFW) { continue };
-							var newTr = document.createElement("tr");
-							newTbody.appendChild(newTr);
-								var tdTwanthainese = document.createElement("td");
-								newTr.appendChild(tdTwanthainese);
-									tdTwanthainese.innerText = data[i].qtw ?? "";
-									if(data[i].qtw) {
-										tdTwanthainese.setAttribute("id",data[i].qtw)
-									};
-									if(data[i].qtw == fragmentValue) {
-										tdTwanthainese.scrollIntoView?.()
-									};
-								
-								var tdEnglish = document.createElement("td");
-								newTr.appendChild(tdEnglish);
-									if(data[i].html_title) { tdEnglish.setAttribute("title",data[i].html_title) };
-									if(data[i].censor) { tdEnglish.classList.add("censor") };
-									if(data[i].eng_href) {
-										var link = document.createElement("a");
-										tdEnglish.appendChild(link);
-											link.innerText = data[i].eng ?? "";
-											link.setAttribute("href",data[i].eng_href)
-									} else {
-										tdEnglish.innerText = data[i].eng ?? "";
-									};
-								
-								var tdPart = document.createElement("td");
-								newTr.appendChild(tdPart);
-									tdPart.innerText = data[i].part ?? "";
-								
-								var tdEtymology = document.createElement("td");
-								newTr.appendChild(tdEtymology);
-									tdEtymology.innerText = data[i].etym ?? "";
-								
-								var tdNotes = document.createElement("td");
-								newTr.appendChild(tdNotes);
-									tdNotes.innerText = data[i].extra ?? "";
-						};
-
-				if(fragmentValue) {
-					var destination = document.getElementById(fragmentValue);
-					if(destination) {
-						destination.scrollIntoView?.()
-					}
-				}
-			};
 		</script>
 		
 	<main id="wordlist">
@@ -2225,8 +2415,9 @@ AAAAAAAAAAAAAAAAA!</p></br>
 		<span class="info-pair"><span class="info-label">Region</span>: <span class="info-value">Uncertain (Southeast Asia or Oceania; straddling the east side of the Philippine Plate)</span></span><br/>
 		<span class="info-pair"><span class="info-label">Time zone</span>: <span class="info-value">UTC+10, no DST</span></span><br/>
 		<span class="info-pair"><span class="info-label">Country codes</span>: <span class="info-value">TI, TTN, 799 (ccTLD ".ti")</span></span><br/>
-		<span class="info-pair"><span class="info-label">Currency</span>: <span class="info-value">Twanthainese nak (symbol Ň, currency codes TIN and 797, exchange rate ≈83Ň/US$)</span></span><br/>
-		<span class="info-pair"><span class="info-label">Name format</span>: <span class="info-value">[Family name] [Mother's given name] [Father's given name] [Given name]</span></span><br/>
+		<span class="info-pair"><span class="info-label">Currency</span>: <span class="info-value">Twanthainese nak (symbol Ň, currency codes TIN and 797, exchange rate ≈83Ň/US$)</span></span>
+		<p class="info-pair"><span class="info-label">Name format</span>: <span class="info-value"><span>[Family name] [Mother's given name] [Father's given name] [Given name]</span><br/>
+<span class="indent" style="display: block;">Foreign full names are adapted into the Twanthainese name order whenever possible, in a certain way. The given name is placed at the end and the family name at the beginning, but parents' names are not typically dug up to use as parentonymics; however, if the foreigner comes from a society or culture that uses parentonymics (which are, in practice, usually a patronymic), then those are placed in their corresponding spots in their adapted full name, such that, for instance, "Vladimir Vladimirovich Putin" becomes "Putin Vladimirovich Vladimir" ("Pu T́in Vla D́i Mi Lo Vič Vla D́i Mil").</span></span></p>
 		<span class="info-pair"><span class="info-label">Other major cities</span>: <span class="info-value">Tswenhuang, Tswenbwam (Cwen ¦waǹ, Tswen Bwam; "South City"); Twawhuang, Bwangbwam (Twaw ¦waǹ, Bwaǹ Bwam; "Forest City"); Jey Wiung Dvik Zeng City, Jeybwam (Jek̋ Wu̇ǹ Ďig Zeǹ ¦waǹ, Jek̋ Bwam), Dez Bwim Ong Lheu City, Pfeikbwam (Dez Bwim Oǹ L̃eu ¦uang, F̌eik Bwam)</span></span><br/>
 		<span class="info-pair"><span class="info-label">Provinces</span>: <span class="info-value">Pelbwam (Pel Bwam, "Gulf Province"), Pfeikbwam (F̌eik Bwam, "Delta Province"), Bwangbwam (Bwaǹ Bwam, "Mountain Province"), Nuitkaifgabwam (Nüť Kaif Ga Bwam, "Red Village Province"), Pfewbwam (F̌eu Bwam, "River Province"), Pfewhuang (F̌eu ¦waǹ, "River City"; special provincial-level city), Jeybwam (Jek̋ Bwam, "Jek̋ Province"), Tswenbwam (Cwen Bwam, "South Province")</span></span><br/>
 		<span class="info-pair"><span class="info-label">Population</span>: <span class="info-value">≈3.5 million</span></span><br/>
@@ -2235,19 +2426,23 @@ AAAAAAAAAAAAAAAAA!</p></br>
 		<div class="info-pair"><span class="info-label">Other</span>: <ul class="info-value">
 			<li>Twanthain was occupied by Japan from 1939 to 1945.</li>
 			<li>Twanthain was never socialist, despite what its official name suggests nowadays.</li>
-			<li>The Yoy B́ë Ǹley Ut̃ Cryogenic Air Separator Plant Complex (Yoy B́ë Ǹley Ut̃ Fwa' K̃aik̋ Müf Nit T̃wi Müf Fwa' Ton Ga, abbr. as "YB́ǸUFK̃MNT̃MFTG" or just "Yoy Ga"), located in F̌eu ¦waǹ, is the oldest continuously operating cryogenic air separator plant in the world, operating since 1901. As such, it also barely beats out Carl von Linde's 1902 C.A.S.U. as the first such commercially viable facility.</li> <!--and liquid nitrogen was thrown at Imperial Japanese troops' faces-->
+			<li>The Yoy B́ë Ǹley Ut̃ Cryogenic Air Separator Plant Complex (Yoy B́ë Ǹley Ut̃ Fwaik̋ Nit T̃wi Müf Fwa' Ton Ga, abbr. as "YB́ǸUFNT̃MFTG" or in colloquial speech as "Yoy Fwa' Ton Ga"/"[the] Yoy Complex"), located in F̌eu ¦waǹ, is the oldest continuously operating (and largest) cryogenic air separator plant in the world, operating since 1901 and currently producing 700 <abbr title="gigagrams">GG</abbr> of liquid gas per day. As such, it also barely beats out Carl von Linde's 1902 C.A.S.U. as the first such commercially viable facility. At its current extent, the Yoy Complex is powered by a large nuclear power plant which cost over US$20 billion to build. This plant's presence also makes Twanthain a leading supplier of cryogenic gases.<ul>
+				<li>The plant is a major point of national pride for the Twanthainese people, and a tourist attraction in itself (and in the same vein, a common destination for school field trips).</li>
+				<li>Yoy B́ë Ǹley Ut̃, the plant's namesake, built the initial air separator unit in 1901, which was eventually accompanied by more air separators which gradually formed the large complex. A prominent scientist in his life, he is highly regarded for this.</li>
+				<li>During the Japanese occupation period, the complex was the site of the "Battle of the Yoy Complex". Liquid gases were thrown at Imperial Japanese troops, and dumped on the floor to cause asphyxiation and internal frostbite. In addition, oxygen gas was used as an oxidizer in incendiary weapons. The battle still caused millions of dollars in damage to the plant.</li>
+			</ul></li> <!--and liquid nitrogen was thrown at Imperial Japanese troops' faces-->
 			<li>Dez Bwim Ong Lheu City is Twanthain's second most prominent tourist destination, seeing about 400,000 tourists per year; it is beaten out by Pfewhuang, with 550,000 tourists. Dez Bwim Ong Lheu City's tourism slogan is "It all goes to D.B.O.".</li>
 		</ul></div> 
 	</main><br/>
 
 	<p id="twanthainLoreOOU" class="indent3 plain-font">
-		In-universe, Twanthain's presence at the convergent Mariana Plate-Philippine Plate boundary means that the Mariana Trench is about 3km deeper.
+		In-universe, Twanthain's presence at the convergent Mariana Plate-Philippine Plate boundary means that the Mariana Trench is about 3km deeper. It also makes Twanthain an attractive staging location for exploration of the trench.
 	</p>
 
 	<h5 class="indent">Twanthainese</h5>
 	<section id="twanthaineseLore">
 		<p id="lore1" class="indent plain-font">
-			In-universe, Twanthainese is regulated by the Ministry of the Twanthainese Language (Ťwaiw Gap Puet bat Dwop). MTL/ŤGPBDD mostly concerns themselves with co-ordinating word-blend compounds while avoiding homonymy whenever possible, and ensuring the phonetic loaning of endonyms; besides that, it does not engage in much prescriptivism. They do maintain a descriptive dictionary.
+			In-universe, Twanthainese is regulated by the Ministry of the Twanthainese Language (Ťwaiw Gap Puet Bat Dwop). MTL/ŤGPBD mostly concerns themselves with co-ordinating word-blend compounds while avoiding homonymy whenever possible, and ensuring the phonetic loaning of endonyms; besides those major undertakings, it does not engage in much prescriptivism. They do maintain a descriptive dictionary.
 		</p>
 
 		<section id="names">
