@@ -62,6 +62,12 @@
 				font-size: 80%;
 			}
 
+			td.part-small {
+				font-size: 70%;
+				letter-spacing: -1px;
+				line-height: 90%;
+			}
+
 			.plain-font small {
 				font-size: 80%;
 			}
@@ -690,29 +696,41 @@
 				</tbody>
 			</table>
 
-			<h4>Diphthongs</h4>
-			<section id="diphthongs">
+			<h4 id="polyphthongs">Polyphthongs</h4>
+			<section id="diphthongs"> <!--old anchor kept for backward compatibility-->
 				<table class="plain-font">
 					<tbody>
 						<tr>
 							<th>Sound</th>
-							<td>/oi̯~oɪ̯/</td>
 							<td>/oɛ̯~oe̞̯~oe̯~uɛ̯~ue̞̯~ue̯/</td>
-							<td>/aʊ̯~au̯~ao̯/</td>
+							<td>/ua̯/</td>
+							<td>/oi̯~oɪ̯/</td>
+							<td>/ou̯/</td>
+							<td>/oa̯~ʊa̯~əa̯/</td>
+							<td>/əɪ̯~əi̯/</td>
 							<td>/ae̯~ae̞̯~aɪ̯~ai̯/</td>
-							<td>/eɯ̟̯~eu̯/</td>
+							<td>/ai̯ɯ̟̯~ai̯ʊ̯~ai̯ə̯/</td>
+							<td>/aɯ̟̯~aʊ̯~ao̯/</td>
+							<td>/au̯/</td>
+							<td>/ao̯i̯/</td>
 							<td>/eɪ̯~ei̯/</td>
-							<td>/aɯ̟̯~au̯/</td>
+							<td>/eɯ̟̯~eu̯/</td>
 						</tr>
 						<tr>
 							<th>Roman</th>
-							<td>oi</td>
 							<td>ue</td>
-							<td>au</td>
+							<td>ua</td>
+							<td>oi</td>
+							<td>ou</td>
+							<td>oa</td>
+							<td>ëi</td>
 							<td>ai</td>
-							<td>eu</td>
-							<td>ei</td>
+							<td>aiu̇</td>
 							<td>au̇</td>
+							<td>au</td>
+							<td>aoi</td>
+							<td>ei</td>
+							<td>eu</td>
 						</tr>
 					</tbody>
 				</table>
@@ -1096,6 +1114,18 @@
 
 <section id="words">
 	<h3>Word table</h3>
+		<h4>Abbreviations</h4>
+		<p class="indent">
+			<span class="part-abbreviation">n.</span>: <span class="full-part">noun</span><br/>
+			<span class="part-abbreviation">prn.</span>: <span class="full-part">pronoun</span><br/>
+			<span class="part-abbreviation">v.</span>: <span class="full-part">verb</span><br/>
+			<span class="part-abbreviation">adj.</span>: <span class="full-part">adjective</span><br/>
+			<span class="part-abbreviation">adv.</span>: <span class="full-part">adverb</span><br/>
+			<span class="part-abbreviation">postp.</span>: <span class="full-part">postposition</span><br/>
+			<span class="part-abbreviation">int.</span>: <span class="full-part">interjection</span><br/>
+			<span class="part-abbreviation">conj.</span>: <span class="full-part">conjunction</span><br/>
+			<span class="part-abbreviation">m</span>: <span class="full-part">marker</span>
+		</p>
 
 		<noscript>With JavaScript disabled, this page will instead show the contents of the script that holds the data.</noscript>
 
@@ -1173,6 +1203,18 @@
 				}
 			};
 
+			partOfSpeechAbbreviations = {
+				"pronoun": "prn.",
+				"noun": "n.",
+				"verb": "v.",
+				"adjective": "adj.",
+				"adverb": "adv.",
+				"postposition": "postp.",
+				"interjection": "int.",
+				"conjunction": "conj.",
+				"marker": "m."
+			};
+
 			function doTable(data) {
 				var fragment = window.location.hash;
 				var fragmentValue = fragment?.slice?.(1) ?? null;
@@ -1240,7 +1282,10 @@
 								
 								var tdPart = document.createElement("td");
 								newTr.appendChild(tdPart);
-									tdPart.innerText = data[i].part ?? "";
+									var partData = data[i].part ?? "";
+									var displayPart = partData; for(var textToFind in partOfSpeechAbbreviations) { displayPart = displayPart.replace(textToFind,partOfSpeechAbbreviations[textToFind]) };
+									tdPart.innerText = displayPart;
+									if(displayPart.length > 7) { tdPart.classList.add("part-small") };
 								
 								var tdEtymology = document.createElement("td");
 								newTr.appendChild(tdEtymology);
@@ -1308,8 +1353,8 @@ sourceData = [
 	{ part: 'noun', qtw: 'f̌eu', eng: 'river, stream', etym: 'From "f̌en f̌won"' },
 	{ part: 'noun', qtw: 'f̌eik', eng: 'river delta', etym: 'From "f̌eu t̃wi ček"' },
 	{ part: 'noun', qtw: 'f̌aun', eng: 'drink' },
-	{ part: 'noun', qtw: 'k̃ek̋', eng: 'ice' },
-	{ part: 'noun', qtw: 'k̃wok̋', eng: 'snow' },
+	{ part: 'noun', qtw: 'yuk̰̋', eng: 'snow', etym: 'From Japanese' },
+	{ part: 'noun', qtw: 'kol', eng: 'ice', etym: 'From Japanese' },
 	{ part: 'noun', qtw: 'k̃yik̋', eng: 'slush' },
 	{ part: 'noun', qtw: 'k̃wak̋', eng: 'glacier, iceberg' },
 	{ part: 'noun', qtw: 'k̃aik̋', eng: 'severe cold, (poetic) cold' },
@@ -1436,10 +1481,38 @@ sourceData = [
 	{ part: 'noun', qtw: 'cop cu̇p', eng: 'dresser' },
 	{ part: 'noun', qtw: 'bël', eng: 'place, location', etym: 'Related to "bëǹ"' },
 	{ part: 'noun', qtw: 'bwon', eng: 'direction', etym: 'From "bël g̋e f̌won"' },
-	{ part: 'noun', qtw: 'nwain', eng: 'east', etym: 'From "nway bwen"' },
-	{ part: 'noun', qtw: 'nwen', eng: 'west', etym: 'From "nwe bwen"' },
-	{ part: 'noun', qtw: 'nyen', eng: 'north', etym: 'From "nyit bwen"' },
-	{ part: 'noun', qtw: 'cwen', eng: 'south', etym: 'From "caic bwen"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nyon', eng: 'north', etym: 'From "nyit bwon"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nyon nyoun', eng: 'north by east', etym: 'lit. "north-NNE"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nyoun', eng: 'north-northeast', etym: 'From "nyon nyaun"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nwaun nyoun', eng: 'northeast by north', etym: 'lit. "east-NNE"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nyaun', eng: 'northeast', etym: 'From "nyon nwaun"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nyon nwaiu̇n', eng: 'northeast by east', etym: 'lit. "north-ENE"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nwaiu̇n', eng: 'east-northeast', etym: 'From "nwaun nyaun"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nwaun nwaiu̇n', eng: 'east by north', etym: 'lit. "east-ENE"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nwaun', eng: 'east', etym: 'From "nway bwon"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nwaun cwaun', eng: 'east by south', etym: 'lit. "east-ESE"' },
+	{ part: 'noun, postposition, adverb', qtw: 'cwaun', eng: 'east-southeast', etym: 'From "nwaun cyaun"' },
+	{ part: 'noun, postposition, adverb', qtw: 'cyon cwaun', eng: 'southeast by east', etym: 'lit. "south-ESE"' },
+	{ part: 'noun, postposition, adverb', qtw: 'cyaun', eng: 'southeast', etym: 'From "cyon nwaun"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nwaun cyoan', eng: 'southeast by south', etym: 'lit. "east-SSE"' },
+	{ part: 'noun, postposition, adverb', qtw: 'cyoan', eng: 'south-southeast', etym: 'From "cyon cyaun"' },
+	{ part: 'noun, postposition, adverb', qtw: 'cyon cyoan', eng: 'south by east', etym: 'lit. "south-SSE"' },
+	{ part: 'noun, postposition, adverb', qtw: 'cyon', eng: 'south', etym: 'From "caic bwon"' },
+	{ part: 'noun, postposition, adverb', qtw: 'cyon cyoun', eng: 'south by west', etym: 'lit. "south-SSW"' },
+	{ part: 'noun, postposition, adverb', qtw: 'cyoun', eng: 'south-southwest', etym: 'From "cyon cyeun"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nweun cyoun', eng: 'southwest by south', etym: 'lit. "west-SSW"' },
+	{ part: 'noun, postposition, adverb', qtw: 'cyeun', eng: 'southwest', etym: 'From "cyon nweun"' },
+	{ part: 'noun, postposition, adverb', qtw: 'cyon cweun', eng: 'southwest by west', etym: 'lit. "south-WSW"' },
+	{ part: 'noun, postposition, adverb', qtw: 'cweun', eng: 'west-southwest', etym: 'From "nweun cyeun"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nweun cweun', eng: 'west by south', etym: 'lit. "west-WSW"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nweun', eng: 'west', etym: 'From "nwe bwon"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nweun neun', eng: 'west by north', etym: 'lit. "west-WNW"' },
+	{ part: 'noun, postposition, adverb', qtw: 'neun', eng: 'west-northwest', etym: 'From "nweun nyeun"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nyon neun', eng: 'northwest by west', etym: 'lit. "north-WNW"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nyeun', eng: 'northwest', etym: 'From "nyon nweun"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nweun nyuen', eng: 'northwest by north', etym: 'lit. "west-NNW"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nyuen', eng: 'north-northwest', etym: 'From "nyon nyeun"' },
+	{ part: 'noun, postposition, adverb', qtw: 'nyon nyuen', eng: 'north by west', etym: 'lit. "north-NNW"' },
 	{ part: 'noun', qtw: 'ton', eng: 'structure (especially one intended for human presence, temporary or permanent)' },
 	{ part: 'noun', qtw: 'kaif', eng: 'house' },
 	{ part: 'noun', qtw: 'kwu̇n', eng: 'vehicular road, street', etym: 'From "kwëw tu̇n"' },
@@ -1628,6 +1701,7 @@ sourceData = [
 	{ part: 'noun', qtw: 'Bëǹ \'ay', eng: 'The Sun' },
 	{ part: 'noun', qtw: 'Bëǹ we', eng: 'The Moon' },
 	{ part: 'noun', qtw: 'nway', eng: 'daytime, day (period of time)', etym: 'From "\'ay nwat"' },
+	{ part: 'noun', qtw: 'ywak', eng: 'birthday', etym: 'From "yai ček nway"' },
 	{ part: 'noun', qtw: 'nwe', eng: 'night, nighttime', etym: 'From "we nwat"' },
 	{ part: 'noun', qtw: 'nwait', eng: 'night sky, outer space', etym: 'From "nwe nwat"' },
 	{ part: 'noun', qtw: 'nwait kwëw', eng: 'rocket, spacecraft' },
@@ -2532,6 +2606,11 @@ AAAAAAAAAAAAAAAAA!</p></br>
 			</ul>
 		</section>
 	</section>
+
+	<h4 id="credits">Credits</h4>
+	<p class="indent">
+		<span>Thanks to <a href="http://ahoy.tk-jk.net/macslog/BoxingtheCompas.html" title="May he rest in peace.">Mackenzie J. Gregory's site</a> for the compass words.</span><br/>
+	</p>
 </section>
 
 	<br/><br/><a href="index.html"><small>go to main page</small></a>
