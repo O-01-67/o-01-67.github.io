@@ -1079,7 +1079,7 @@
 	<section id="phonotactics">
 		<h3>Phonotactics:</h3>
 		<main class="plain-font">
-			The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(/l/)(/j/ or /w/)<abbr title="V: Any vowel (or diphthong)">V</abbr>(C).&#8203;&nbsp;&nbsp;&#8203;/j/ palatalizes an initial plosive or affricate, if one is present, whereas the vowel [i] alone may or may not; likewise, /w/ labializes a preceding plosive (but not necessarily an affricate)&#8203;&nbsp;&nbsp;&#8203;&lt;ww&gt; is realized as [wː~ʰw~wu̯~u̯w] and &lt;yy&gt; is realized as [jː~ji̯~i̯j]&#8203;&nbsp;&nbsp;&#8203;[j] palatalizes &lt;č&gt; [t̠͡ʃ] to [t͡ʲɕ] and &lt;j&gt; [d̠͡ʒ] to [d͡ʲʑ]&#8203;&nbsp;&nbsp;&#8203;Most morphemes in Twanthainese are monosyllabic; compound words exist and are either made up of multiple monosyllabic components, or are formed by combining sounds from other words (this latter mechanism occurs very frequently, often in abbreviation of previously multi-word compounds).<!--Twanthainese is allergic to compounds of 3 or especially more words.-->&#8203;&nbsp;&nbsp;&#8203;Chemical names are sometimes made by simply concatenating the elements and numbers in the formula, without any markers.&#8203;&nbsp;&nbsp;&#8203;In the Roman orthography, syllables are generally separated by spaces, but polysyllabic loanwords may or may not be (though if the originating language's orthography also prefers to separate every syllable (e.g. Vietnamese), then the syllabes are generally still separated); if they are unspaced, ambiguities may or may not be resolved with the hyphen.&#8203;&nbsp;&nbsp;&#8203;A final aspirated consonant before its unaspirated counterpart assimilates into a single aspirated consonant; &lt;l̃&gt; is considered the aspirated form of &lt;l&gt;.&#8203;&nbsp;&nbsp;&#8203;/n/ becomes palatalized (to [nʲ]) after /i/.&#8203;&nbsp;&nbsp;&#8203;The orthography is an alphabet with 52 letters, making extensive use of diacritics; diphthongs are not considered their own letters.
+			The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(/l/, except after an interdental consonant)(/j/ or /w/)<abbr title="V: Any vowel (or diphthong)">V</abbr>(C).&#8203;&nbsp;&nbsp;&#8203;/j/ palatalizes an initial plosive or affricate, if one is present, whereas the vowel [i] alone may or may not; likewise, /w/ labializes a preceding plosive (but not necessarily an affricate)&#8203;&nbsp;&nbsp;&#8203;&lt;ww&gt; is realized as [wː~ʰw~wu̯~u̯w] and &lt;yy&gt; is realized as [jː~ji̯~i̯j]&#8203;&nbsp;&nbsp;&#8203;[j] palatalizes &lt;č&gt; [t̠͡ʃ] to [t͡ʲɕ] and &lt;j&gt; [d̠͡ʒ] to [d͡ʲʑ]&#8203;&nbsp;&nbsp;&#8203;Most morphemes in Twanthainese are monosyllabic; compound words exist and are either made up of multiple monosyllabic components, or are formed by combining sounds from other words (this latter mechanism occurs very frequently, often in abbreviation of previously multi-word compounds).<!--Twanthainese is allergic to compounds of 3 or especially more words.-->&#8203;&nbsp;&nbsp;&#8203;Chemical names are sometimes made by simply concatenating the elements and numbers in the formula, without any markers.&#8203;&nbsp;&nbsp;&#8203;In the Roman orthography, syllables are generally separated by spaces, but polysyllabic loanwords may or may not be (though if the originating language's orthography also prefers to separate every syllable (e.g. Vietnamese), then the syllabes are generally still separated); if they are unspaced, ambiguities may or may not be resolved with the hyphen.&#8203;&nbsp;&nbsp;&#8203;A final aspirated consonant before its unaspirated counterpart assimilates into a single aspirated consonant; &lt;l̃&gt; is considered the aspirated form of &lt;l&gt;.&#8203;&nbsp;&nbsp;&#8203;/n/ becomes palatalized (to [nʲ]) after /i/.&#8203;&nbsp;&nbsp;&#8203;The orthography is an alphabet with 52 letters, making extensive use of diacritics; diphthongs are not considered their own letters.
 		</main>
 	</section>
 </section>
@@ -1503,10 +1503,41 @@ sourceData = [
 	{ part: 'noun', qtw: 'fwa\' yaun ju', eng: 'macroeconomics' },
 	{ part: 'noun', qtw: 'fu̇p yaun ju', eng: 'microeconomics' },
 	{ part: 'noun', qtw: 'ťa', eng: 'number' },
+	{ part: 'noun', qtw: 'mi\'', eng: 'sequence', etym: 'From the order of the letters in the Twanthainese alphabet' },
 	{ part: 'noun', qtw: 'ťa ju', eng: 'arithmetic, mathematics/math/maths' },
 	{ part: 'noun', qtw: 'ťwaj', eng: 'mathematics/math/maths (in general), but can still include arithmetic', etym: 'From "fwa\' ťa ju"' },
 	{ part: 'noun', qtw: 'ťu̇j', eng: 'arithmetic', etym: 'From "fu̇p ťa ju"' },
 	{ part: 'noun', qtw: 'ťwaj', eng: 'mathematics/math/maths (in general), but can still include arithmetic', etym: 'From "fwa\' ťa ju"' },
+	{ part: 'noun', qtw: 'tlaim', eng: 'mathematical operation', etym: 'From "ťa leim"' },
+	{ part: 'noun', qtw: 'tlaim mi\'', eng: 'hyperoperation sequence', etym: 'From "ťa leim"' },
+	{ part: 'noun', qtw: 'nüm', eng: 'successor operation', etym: 'From "nai müf tlaim"' },
+	{ part: 'noun', qtw: 'd́aim', eng: 'addition', etym: 'From "d́ei tlaim"' },
+	{ part: 'noun', qtw: 'čüm', eng: 'subtraction', etym: 'From "čal müf tlaim"' },
+	{ part: 'noun', qtw: 'tlwaim', eng: 'multiplication', etym: 'From "twan ťain d́aim tlaim"' },
+	{ part: 'noun', qtw: 't̃üm', eng: 'division (mathematical operation)', etym: 'From "t̃wi müf tlaim"', extra: 'This refers only to the mathematical operation. For all other purposes, "t̃wi ček" must be used.' },
+	{ part: 'noun', qtw: 'člwaim', eng: 'exponentiation', etym: 'From "ču̇č tlwaim"' },
+	{ part: 'noun', qtw: 'čwaim', eng: 'tetration', etym: 'From "ču̇č člwaim"' },
+	{ part: 'noun', qtw: 'čwu̇m', eng: 'pentation', etym: 'From "ču̇č čwaim"' },
+	{ part: 'noun', qtw: 'čwu̇č', eng: 'hexation', etym: 'From "ču̇č čwu̇m"' },
+	{ part: 'noun', qtw: 'fwu̇č', eng: 'heptation', etym: 'From "fwa\' čwu̇č"' },
+	{ part: 'noun', qtw: 'fwau̇č', eng: 'heptation', etym: 'From "fwa\' fwu̇č"' },
+	{ part: 'noun', qtw: 'fwau̇\'', eng: 'octation', etym: 'From "fwa\' fwau̇č"' },
+	{ part: 'noun', qtw: 'čwau̇\'', eng: 'nonation', etym: 'From "ču̇č fwau̇\'"' },
+	{ part: 'noun', qtw: 'čwu̇\'', eng: 'decation', etym: 'From "ču̇č čwau̇\'"' },
+	{ part: 'noun', qtw: 'f̌wu̇\'', eng: 'undecation', etym: 'From "fwa\' čwu̇\'"' },
+	{ part: 'noun', qtw: 'l̃ën ťyam tlaim', eng: 'addition, hyper-1', etym: 'As the first hyperoperation', extra: 'Synonym of "d́aim"' },
+	{ part: 'noun', qtw: 'ťen ťyam tlaim', eng: 'multiplication, hyper-2', extra: 'Synonym of "tlwaim"' },
+	{ part: 'noun', qtw: 'l̃ain ťyam tlaim', eng: 'exponentiation, hyper-3', extra: 'Synonym of "člwaim"' },
+	{ part: 'noun', qtw: 't̃on ťyam tlaim', eng: 'tetration, hyper-4', extra: 'Synonym of "čwaim"' },
+	{ part: 'noun', qtw: 'l̃üw ťyam tlaim', eng: 'pentation, hyper-5', extra: 'Synonym of "čwu̇m", and so on' },
+	{ part: 'noun', qtw: 'l̃ak̃ ťyam tlaim', eng: 'undecation, hyper-11', extra: 'Synonym of "f̌wu̇\'"' },
+	{ part: 'noun', qtw: 'gok̃ ťyam tlaim', eng: 'dodecation, hyper-12' },
+	{ part: 'noun', qtw: 'ťyek̃ l̃ain ťyam tlaim', eng: 'tredecation, hyper-13' },
+	{ part: 'noun', qtw: 'ťyek̃ t̃on ťyam tlaim', eng: 'tetradecation, hyper-14' },
+	{ part: 'noun', qtw: 'ťyek̃ l̃üw ťyam tlaim', eng: 'pentadecation, hyper-15' },
+	{ part: 'noun', qtw: 'ťyek̃ ťop ťyam tlaim', eng: 'hexadecation, hyper-16', extra: 'And so on' },
+	{ part: 'noun', qtw: 'gul ťyam tlaim', eng: 'googol-ation, hyper-E100' },
+	{ part: 'noun', qtw: 'gek ťyam tlaim', eng: 'googolplex-ation, hyper-E100#2' },
 	{ part: 'noun', qtw: 'nyit bop', eng: 'coolant, refrigerant' },
 	{ part: 'noun', qtw: 'baǹ bëǹ', eng: 'national territory' },
 	{ part: 'noun', qtw: 'byaim', eng: 'expansionism (including irredentism)', etym: 'from "baǹ bëǹ nai (müf) vüm"' },
@@ -2069,6 +2100,7 @@ sourceData = [
 	{ part: 'adjective', qtw: 'yul', eng: 'unpredictable, random' },
 	{ part: 'adjective', qtw: 'dwüǹ müf', eng: 'federal (of or relating to a federation\'s central government)' },
 	{ part: 'adjective', qtw: 'nwey', eng: 'tall', etym: 'Related to "nwat"' },
+	{ part: 'adjective', qtw: 'ču̇č', eng: 'repetitive, iterated, repeated', etym: 'Onomatopoeia for waves crashing on a beach' },
 	{ part: 'adjective', qtw: 'bot', eng: 'short', etym: 'Related to "bëǹ"' },
 	{ part: 'adjective, postposition', qtw: 'd́a', eng: 'similar, like (in the sense of "being like something")', etym: 'From "d́ei" in the sense of "assimilate"' },
 	{ part: 'adjective', qtw: 'nwel', eng: 'long, wide', etym: 'Related to "nwëǹ"' },
@@ -2109,6 +2141,7 @@ sourceData = [
 	{ part: 'verb', qtw: 'lë', eng: 'to shrink, to contract, to decrease, to shorten, to thin, to enshallow/be enshallowed (of a hole or deep body)' },
 	{ part: 'verb', qtw: 'nai', eng: 'to grow, to expand, to increase, to lengthen, to widen, to heighten, to deepen (of a hole, deep body, absence, or deficit)' },
 	{ part: 'verb', qtw: 'ǹol', eng: 'to bury' },
+	{ part: 'verb', qtw: 'čal', eng: 'to remove, to get rid of' },
 	{ part: 'verb', qtw: 'dwin', eng: 'to punish' },
 	{ part: 'verb', qtw: 'dwin pem dyow', eng: 'to be unable to punish' },
 	{ part: 'verb', qtw: 'g̋im', eng: 'to look (at)', etym: 'From "g̋e" and "mi"' },
@@ -2435,7 +2468,7 @@ AAAAAAAAAAAAAAAAA!</p></br>
 		<span class="info-pair"><span class="info-label">Main trading partners</span>: <span class="info-value">China, United States (notably Guam), Japan, Indonesia, the Philippines</span></span>
 		<div class="info-pair"><span class="info-label">Other</span>: <ul class="info-value">
 			<li>Twanthain was occupied by Japan from 1939 to 1945.</li>
-			<li>Twanthain was never socialist, despite what its official name suggests nowadays.</li>
+			<li>Twanthain was never socialist, despite what its official name suggests nowadays.</li> 
 			<li>The Yoy B́ë Ǹley Ut̃ Cryogenic Air Separator Plant Complex (Yoy B́ë Ǹley Ut̃ Fwaik̋ Nit T̃wi Müf Fwa' Ton Ga, abbr. as "YB́ǸUFNT̃MFTG" or in colloquial speech as "Yoy Fwa' Ton Ga"/"[the] Yoy Complex"), located in F̌eu ¦waǹ, is the oldest continuously operating (and largest) cryogenic air separator plant in the world, operating since 1901 and currently producing 700 <abbr title="gigagrams">GG</abbr> of liquid gas per day. As such, it also barely beats out Carl von Linde's 1902 C.A.S.U. as the first such commercially viable facility. At its current extent, the Yoy Complex is powered by a large nuclear power plant which cost over US$20 billion to build. This plant's presence also makes Twanthain a leading supplier of cryogenic gases.<ul>
 				<li>The plant is a major point of national pride for the Twanthainese people, and a tourist attraction in itself (and in the same vein, a common destination for school field trips).</li>
 				<li>Yoy B́ë Ǹley Ut̃, the plant's namesake, built the initial air separator unit in 1901, which was eventually accompanied by more air separators which gradually formed the large complex. A prominent scientist in his life, he is highly regarded for this.</li>
