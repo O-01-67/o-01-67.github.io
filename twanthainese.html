@@ -1113,7 +1113,7 @@
 </section>
 
 <section id="words">
-	<h3>Word table</h3>
+	<h3>Word table (<span id="entryCount" title="This is not indicative of completeness or comprehensiveness, as it includes all words including sequential derivatives, and it does not account for the subjects of all of these words or their usefulness. It is for advisory purposes only.">Uncounted entries</span>)</h3>
 		<h4>Abbreviations</h4>
 		<p class="indent">
 			<span class="part-abbreviation">n.</span>: <span class="full-part">noun</span><br/>
@@ -1216,6 +1216,13 @@
 			};
 
 			function doTable(data) {
+				var length = data.length;
+				var countText = document.getElementById("entryCount");
+				if(countText) {
+					var unit = (length == 1 ? "entry" : "entries");
+					countText.innerText = `${length.toLocaleString()} ${unit}`
+				};
+
 				var fragment = window.location.hash;
 				var fragmentValue = fragment?.slice?.(1) ?? null;
 
@@ -1399,7 +1406,9 @@ sourceData = [
 	{ part: 'noun', qtw: 'won', eng: 'circle' },
 	{ part: 'noun', qtw: 'fu̇n', eng: 'dot', etym: 'from "fu̇p won"' },
 	{ part: 'noun', qtw: 'waik', eng: 'cube, rectangular prism' },
-	{ part: 'noun', qtw: 'dep', eng: 'container' },
+	{ part: 'noun', qtw: 'dep', eng: 'container', extra: 'Not necessarily formal-sounding like the English word' },
+	{ part: 'noun', qtw: 'piǹ', eng: 'food' },
+	{ part: 'noun', qtw: 'piǹ dep', eng: 'container', etym: 'bowl, plate' },
 	{ part: 'noun', qtw: 'waip', eng: 'box, square bin', etym: 'From "wak dep"' },
 	{ part: 'noun', qtw: 'dwop', eng: 'part, parts, elements (of a set or thing)' },
 	{ part: 'noun', qtw: 'ga\'', eng: 'thing' },
