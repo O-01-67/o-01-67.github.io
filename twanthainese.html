@@ -199,6 +199,15 @@
 				text-decoration: 1px white dotted underline;
 			}
 			
+			abbr:hover::after {
+				content: ' (' attr(title) ')';
+			}
+
+			abbr:hover::after::after {
+				content: ' ';
+				text-decoration: none;
+			}
+
 			.censor:not(:hover) {
 				color: #00000000;
 				font-size: 0px;
@@ -208,8 +217,8 @@
 			.censor:not(:hover)::after {
 				color: #ff3f3f;
 				content: "Censored, hover to reveal";
-				font-size: 20px;
-				line-height: 20px;
+				font-size: 16px;
+				line-height: 18px;
 			}
 
 			.censor:hover {
@@ -409,8 +418,8 @@
 	</head>
 	<body style="font-size: 110%;">
 		<h1>Twanthainese</h1>
-		<span id="version" title="This is designated as a division point due to massive changes to the phonology and corresponding breaking changes to the orthography, and significant changes to the lexicon.">Version 2.0</span>
-		<p id="description">Twanthainese is a conlang I just made up for fun. This page is a <em>work in progress</em>, under construction.</p><br/>
+		<span id="version" title="Version 2.0 is designated as a division point due to massive changes to the phonology and corresponding breaking changes to the orthography, and significant changes to the lexicon. Version 3.0 is where I add a bunch of lore and another phoneme.">Version 3.0</span>
+		<p id="description">Twanthainese is a conlang I just made up for fun. This page is a <em>work in progress</em>, under construction; features of this conlang may radically change at any time without prior notice.</p><br/>
 
 <section id="phonology">
 	<h2>Phonology:</h2>
@@ -537,7 +546,7 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<td>ɲ</td>
 						<td>&nbsp;</td>
 						<td>ŋ</td>
 						<td>&nbsp;</td>
@@ -706,22 +715,26 @@
 					<tbody>
 						<tr>
 							<th>Sound</th>
-							<td>/oɛ̯~oe̞̯~oe̯~uɛ̯~ue̞̯~ue̯/</td>
-							<td>/ua̯/</td>
-							<td>/oi̯~oɪ̯/</td>
-							<td>/ou̯/</td>
-							<td>/oa̯~ʊa̯~əa̯/</td>
-							<td>/əɪ̯~əi̯/</td>
-							<td>/ae̯~ae̞̯~aɪ̯~ai̯/</td>
-							<td>/ai̯ɯ̟̯~ai̯ʊ̯~ai̯ə̯/</td>
-							<td>/aɯ̟̯~aʊ̯~ao̯/</td>
-							<td>/au̯/</td>
-							<td>/ao̯i̯/</td>
-							<td>/eɪ̯~ei̯/</td>
-							<td>/eɯ̟̯~eu̯/</td>
+							<td>[ɯ̟i̯~ʊi̯]</td>
+							<td>[oɛ̯~oe̞̯~oe̯~<br/>uɛ̯~ue̞̯~ue̯]</td>
+							<td>[ua̯]</td>
+							<td>[oi̯~oɪ̯]</td>
+							<td>[ou̯]</td>
+							<td>[oa̯~ʊa̯~əa̯~oɑ̯]</td>
+							<td>[əɪ̯~əi̯]</td>
+							<td>[ae̯~ae̞̯~aɪ̯~ai̯]</td>
+							<td>[ai̯ɯ̟̯~ai̯ʊ̯~ai̯ə̯]</td>
+							<td>[aɯ̟̯~aʊ̯~ao̯~<br/>a̠ɯ̟̯~a̠ʊ̯~a̠o̯~<br/>ɑɯ̟̯~ɑʊ̯~ɑo̯~<br/>ɒʊ̯~ɒo̯]</td>
+							<td>[au̯]</td>
+							<td>[ae̯]</td>
+							<td>[ao̯i̯]</td>
+							<td>[eɪ̯~ei̯]</td>
+							<td>[eɯ̟̯~eu̯]</td>
+							<td>[ea̠̯~eɑ~ea̯]</td>
 						</tr>
 						<tr>
 							<th>Roman</th>
+							<td>u̇i</td>
 							<td>ue</td>
 							<td>ua</td>
 							<td>oi</td>
@@ -735,6 +748,7 @@
 							<td>aoi</td>
 							<td>ei</td>
 							<td>eu</td>
+							<td>ea</td>
 						</tr>
 					</tbody>
 				</table>
@@ -844,7 +858,7 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<td>ɲ</td>
 						<td>&nbsp;</td>
 						<td>ŋ</td>
 						<td>&nbsp;</td>
@@ -921,6 +935,7 @@
 						<th>Roman letter</th>
 						<td rowspan="2">m</td>
 						<td rowspan="2">n</td>
+						<td>ń</td>
 						<td>ǹ</td>
 						<td rowspan="2">p</td>
 						<td>ṕ</td>
@@ -974,6 +989,7 @@
 					</tr>
 					<tr>
 						<th>ASCII</th>
+						<td>ny</td>
 						<td>ng</td>
 						<td>py</td>
 						<td>by</td>
@@ -1006,6 +1022,7 @@
 						<th>Cyrillic <sup><a id="orthographyFootnote1Note" href="#orthographyFootnote1">1</a></sup></th>
 						<td>м</td>
 						<td>н</td>
+						<td>ԩ</td>
 						<td>ӈ</td>
 						<td>п</td>
 						<td>пь</td>
@@ -1044,7 +1061,7 @@
 						<td>гьъ</td>
 						<td>ў</td>
 						<td>ф</td>
-						<td><span>ф</span><span style="position: relative; display: inline-block; left: -6.3px; top: -3px;">̌</span></td>
+						<td><span>ф</span><span style="position: relative; display: inline-block; left: -5px; top: -2px;">̌</span></td>
 						<td>е</td>
 						<td>л</td>
 						<td>лъ</td>
@@ -1061,6 +1078,7 @@
 						<th>Khmer <sup><a id="orthographyFootnote2Note" href="#orthographyFootnote2">2</a></sup></th>
 						<td>ម</td>
 						<td>ណ</td>
+						<td>ញ</td>
 						<td>ង</td>
 						<td>ព</td>
 						<td>ព៉</td>
@@ -1099,7 +1117,7 @@
 						<td>ឈៈ</td>
 						<td>វ</td>
 						<td>ភ</td>
-						<td>ហ</td> <!--this is [h] in khmer but issues happened so-->
+						<td>ផ</td>
 						<td>ឯ</td>
 						<td>ល</td>
 						<td>ឡ</td>
@@ -1116,6 +1134,7 @@
 						<th>Initial sound</th>
 						<td rowspan="2">m</td>
 						<td rowspan="2">n̪~n</td>
+						<td rowspan="2">ɲ</td>
 						<td rowspan="2">ŋ</td>
 						<td>p</td>
 						<td>pʲ</td>
@@ -1203,7 +1222,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<p class="plain-font">The capital form of <span aria-hidden="true">' </span><span class="screenreader"> the apostrophe </span>&#8203; &#8203;is <span aria-hidden="true">¦<span class="screenreader"> the broken bar</span>.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters. Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Ambiguities in the ASCII notation are disambiguated with the dash/hyphen "-" (e.g. "dy-a" (d́a) vs. "d-ya" (dya)).&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters. Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Polyphthongs are not considered their own letters.<br/>
+			<p class="plain-font">The capital form of <span aria-hidden="true">' </span><span class="screenreader"> the apostrophe </span>&#8203; &#8203;is <span aria-hidden="true">¦<span class="screenreader"> the broken bar</span>.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters. Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Ambiguities in the ASCII notation are disambiguated with the dash/hyphen "-" (e.g. "dy-a" (d́a) vs. "d-ya" (dya)).<br/>
 			<span class="indent" id="orthographyFootnote1"><sup><a href="#orthographyFootnote1Note">1</a></sup> <i>The Cyrillic orthography was created by someone on the Internet and intended as a joke/shitpost, and is only used humorously and extremely rarely.</i></span><br/>
 			<span class="indent" id="orthographyFootnote2"><sup><a href="#orthographyFootnote2Note">2</a></sup> <i>The Khmer orthography uses ៑ as a virama, which is used to suppress the vowel in syllable-final consonants. It also uses the subscript forms ្ល, ្វ, and ្យ to represent the medials [l], [w], and [j]. Its inherent vowel is [e], which is unmarked. Western-style punctuation marks are sometimes used, but traditional Khmer punctuation are also used (mainly ។ as a period and ៕ to mark the end of a text).</i></span>
 			</p>
@@ -1465,7 +1484,7 @@ sourceData = [
 	{ part: 'noun', qtw: 'byik', eng: 'quicksand' },
 	{ part: 'noun', qtw: 'cuec', eng: 'fire', extra: 'The chemical reaction, in general' },
 	{ part: 'noun', qtw: 'cwoc', eng: 'explosion' },
-	{ part: 'noun', qtw: 'cwac', eng: 'fire', extra: 'In the context of a disaster such as a building or forest fire' },
+	{ part: 'noun', qtw: 'fwec', eng: 'fire', extra: 'In the context of a disaster such as a building or forest fire', etym: 'From "fwa\' cuec"' },
 	{ part: 'noun', qtw: 'cyic', eng: 'lava' },
 	{ part: 'noun', qtw: 'cyok', eng: 'igneous rock', etym: 'From "cyic bok"' },
 	{ part: 'noun', qtw: 'bauk', eng: 'sedimentary rock', etym: 'From "bak bok"' },
@@ -1913,6 +1932,7 @@ sourceData = [
 	{ part: 'noun', qtw: '\'at̰́', eng: 'material hardness' },
 	{ part: 'noun', qtw: 'wa\'', eng: 'material strength' },
 	{ part: 'noun', qtw: 'bat', eng: 'government', etym: 'From "baǹ dan"' },
+	{ part: 'noun', qtw: 'bleaǹ', eng: 'colony', etym: 'From "lea bat baǹ bëǹ"' },
 	{ part: 'noun', qtw: 'wak ček', eng: 'choice (not as in option), decision' },
 	{ part: 'noun', qtw: 'kan', eng: 'choice, option' },
 	{ part: 'noun', qtw: '\'op', eng: 'rule, law' },
@@ -2088,7 +2108,7 @@ sourceData = [
 	{ part: 'noun, adverb', qtw: 'ap', eng: 'rear, backward' },
 	{ part: 'noun, adverb', qtw: 'dwan', eng: 'the direction or position intermediate between upwards and leftwards', etym: 'From "nweǹ jyan"' },
 	{ part: 'noun, adverb', qtw: 'dwen', eng: 'the direction or position intermediate between upwards and rightwards', etym: 'From "nweǹ jyen"' },
-	{ part: 'noun, adverb', qtw: 'nwein', eng: 'the direction or position intermediate between upwards and forwards', etym: 'From "wey nweǹ"', extra: 'Sometimes pronounced [nweɲ]' }, //ɲ <ń> is marginal-allophonic at the moment but is expected to become phonemic in the next 150 or so years
+	{ part: 'noun, adverb', qtw: 'nweń', eng: 'the direction or position intermediate between upwards and forwards', etym: 'From "wey nweǹ"', extra: 'Sometimes pronounced [nwei̯n]' },
 	{ part: 'noun, adverb', qtw: 'nwaiv', eng: 'the direction or position intermediate between upwards and backwards', etym: 'From "nweǹ ap"' },
 	{ part: 'noun, adverb', qtw: 'b́wan', eng: 'the direction or position intermediate between downwards and leftwards', etym: 'From "bwot jyan"' },
 	{ part: 'noun, adverb', qtw: 'b́wen', eng: 'the direction or position intermediate between downwards and rightwards', etym: 'From "bwot jyen"' },
@@ -2108,6 +2128,7 @@ sourceData = [
 	{ part: 'noun, adverb', qtw: 'jwap', eng: 'downwards-rightwards-backwards', etym: 'From "bwot jyen ap"' },
 	{ part: 'noun', qtw: 'im', eng: 'the letter M/m' },
 	{ part: 'noun', qtw: 'u̇n', eng: 'the letter N/n' },
+	{ part: 'noun', qtw: 'iń', eng: 'the letter Ń/ń' },
 	{ part: 'noun', qtw: 'uǹ', eng: 'the letter Ǹ/ǹ' },
 	{ part: 'noun', qtw: 'pe', eng: 'the letter P/p' },
 	{ part: 'noun', qtw: 'ṕe', eng: 'the letter Ṕ/ṕ' },
@@ -2193,11 +2214,13 @@ sourceData = [
 	{ part: 'noun', qtw: 'Bwütën ťwaiw', eng: 'British people' },
 	{ part: 'noun', qtw: 'Pilipinas gap', eng: 'Filipino (language)' },
 	{ part: 'noun', qtw: 'Pilipinas ťwaiw', eng: 'Filipino people' },
-	{ part: 'noun', qtw: 'Nyihon gap', eng: 'Japanese' },
-	{ part: 'noun', qtw: 'Nyihon ťwaiw', eng: 'Japanese people' },
+	{ part: 'noun', qtw: 'Ńihon gap', eng: 'Japanese' },
+	{ part: 'noun', qtw: 'Ńihon ťwaiw', eng: 'Japanese people' },
 	{ part: 'noun', qtw: '¦anguk gap', eng: 'Korean' },
 	{ part: 'noun', qtw: 'Indonesiya gap', eng: 'Indonesian' },
 	{ part: 'noun', qtw: 'Vyët Nam gap', eng: 'Vietnamese' },
+	{ part: 'noun', qtw: 'Espańa baǹ', eng: 'Spain' },
+	{ part: 'noun', qtw: 'Espańa gap', eng: 'Spanish' },
 	{ part: 'noun', qtw: 'Kampuk̋ië baǹ', eng: 'Cambodia' },
 	{ part: 'noun', qtw: 'Kampuk̋ië gap', eng: 'Khmer (language)' },
 	{ part: 'noun', qtw: 'K̃ëmae gap', eng: 'Khmer (language)', extra: 'Synonym of "Kampuk̋ië gap"' },
@@ -2336,6 +2359,7 @@ sourceData = [
 	{ part: 'adjective', qtw: 'sës müf', eng: 'sussy', etym: 'Calque of "sus" + "-y"' },
 	{ part: 'adjective', qtw: 'caic müf', eng: 'hot (temperature)' },
 	{ part: 'adjective', qtw: 'wye', eng: 'arbitrary' },
+	{ part: 'adjective', qtw: 'lea', eng: 'foreign' },
 	{ part: 'adjective', qtw: 'yul', eng: 'unpredictable, random' },
 	{ part: 'adjective', qtw: 'dwüǹ müf', eng: 'federal (of or relating to a federation\'s central government)' },
 	{ part: 'adjective', qtw: 'nwey', eng: 'tall', etym: 'Related to "nwat"' },
@@ -2376,8 +2400,10 @@ sourceData = [
 	{ part: 'verb', qtw: 't̃a', eng: 'to send' },
 	{ part: 'verb', qtw: 'wel', eng: 'to pay' },
 	{ part: 'verb', qtw: 'mi', eng: 'to see, to witness' },
+	{ part: 'verb', qtw: 'miń', eng: 'to glow, to shine, to emit light' },
 	{ part: 'verb', qtw: 'niǹ', eng: 'to hear' },
 	{ part: 'verb', qtw: 'kip', eng: 'to play' },
+	{ part: 'verb', qtw: 'cuec g̋ot', eng: 'to burn, to be on fire, to ignite/set on fire' },
 	{ part: 'verb', qtw: 'swej', eng: 'to mix, to stir' },
 	{ part: 'verb', qtw: 'nai', eng: 'to grow, to expand, to increase, to lengthen, to widen, to heighten, to deepen (of a hole, deep body, absence, or deficit)' },
 	{ part: 'verb', qtw: 'lë', eng: 'to shrink, to contract, to decrease, to shorten, to thin, to enshallow/be enshallowed (of a hole or deep body)' },
@@ -2554,7 +2580,8 @@ sourceData = [
 
 		<p class="plain-font example-triplet">
 			<span lang="en"> <span g1>Andrés</span> <span g6>always</span> <span g2>drops</span> <span gnull>the</span> <span g4a>steel</span> <span g5>rod</span><span g4>s</span>. </span><br/>
-			<span class="term" lang="qtw-Latn"> <span g4>ťwain</span> <span g4a>fyaǹ müf</span> <span g5>wan</span> <span g1>An Des</span> <span g2>dun <span g6>t̃ep</span> k̋ep</span>. </span><br/>
+			<span class="term" lang="qtw-Latn"> <span g4>ťwain</span> <span g4a>fyaǹ müf</span> <span g5>wan</span> <span g1>Andles</span> <span g2>dun <span g6>t̃ep</span> k̋ep</span>. </span><br/>
+			<span class="term" lang="qtw-Khmr"> <span g4>ទ្វាឭណ៑</span> <span g4a>ភ្យាង៑ មឺភ៑</span> <span g5>វាណ៑</span> <span g1>ឰណ៑ត្លៈស៑</span> <span g2>តូណ៑ <span g6>ថព៑</span> ជព៑</span>។ </span><br/>
 			<span class="underlying"> <span g4>(-kind:)</span> <span g4a>steel <small><i>(connector)</i></small></span> <span g5>rod</span> <span g1>Andrés</span> <span g2>drop <span g6>habitually</span> has been</span>. </span><br/>
 		</p><br/>
 
@@ -2598,7 +2625,7 @@ sourceData = [
 
 		<p class="plain-font example-triplet">
 			<span lang="en" class="height"><span class="box"><span g4>2NE1</span><span g4a>'s</span> <span g1>CL</span> <span g2>is</span> <span g3>from</span> <span g5>Korea</span></span>. <span class="box2"><u><span g4>Her</span></u> <span g1>name</span> <span g2>is</span> <span g5>Chaerin Lee</span>.</span></span><br/>
-			<span class="term height"><span class="box"><span g5>¦anguk baǹ</span> <span g3>ko</span> <span g4 title="Ťen U̇n Et L̃ën">2NE1</span> <span g4a>kwa</span> <span g1 title="Ce Le">CL</span> <span g2>naǹ</span></span>. <span class="box2"><span g5>I Čai Lin</span> <u><span g4>cën</span> <span g4a>jet</span> <span g4b>kwa</span></u> <span g1>cüp</span> <span g2>naǹ</span>.</span></span><br/>
+			<span class="term height"><span class="box"><span g5>¦anguk baǹ</span> <span g3>ko</span> <span g4 title="Ťen U̇n Et L̃ën">2NE1</span> <span g4a>kwa</span> <span g1 title="Ce Le">CL</span> <span g2>naǹ</span></span>. <span class="box2"><span g5>I Čailin</span> <u><span g4>cën</span> <span g4a>jet</span> <span g4b>kwa</span></u> <span g1>cüp</span> <span g2>naǹ</span>.</span></span><br/>
 			<span class="underlying height"><span class="box"><span g5>Korea</span><span g3>-from</span> <span g4 title="Two N E One">2NE1</span><span g4a>-'s</span> <span g1 title="C L">CL</span> <span g2>is</span></span>. <span class="box2"><span g5>Lee Chaerin</span> <u><span g4>they</span><span g4a>-(feminine marker)</span><span g4b>-'s</span></u> <span g1>name</span> <span g2>is</span>.</span></span>
 		</p><br/>
 
@@ -2708,7 +2735,7 @@ AAAAAAAAAAAAAAAAA!</p></br>
 				</p>
 				<h6 id="colonization">Spanish colonization attempts</h6>
 				<p class="indent">
-					The first contact by Europe was by the Spanish in June of 1568, who set up a colony on the main island of Twanthain.&#8203;&nbsp;&nbsp;&#8203;These Spanish colonists were assimilated into the native population by March of 1569. The subsequent lack of response to the Spanish mainland prompted them to return to Twanthain in May of 1571 and establish a larger colony; by April of 1575, these new colonists had been assimilated into Twanthainese society as well.&#8203;&nbsp;&nbsp;&#8203;Notably, the Spanish governor-general had been given a position in Twanthain's government, but Twanthain retained its independence; unbeknownst to the Spanish crown, Twanthain was not truly colonized but entered a sort of <i>de facto</i> free association with Spain, a ruse maintained by the government successfully until 1821.&#8203;&nbsp;&nbsp;&#8203;This second colony led to the development of a Latin orthography for Twanthainese, but the Khmer orthography continued to be used at the same time.&#8203;&nbsp;&nbsp;&#8203;Spanish was made a co-official language of Twanthain. 
+					The first contact by Europe was by the Spanish in June of 1568, who set up a colony on the main island of Twanthain.&#8203;&nbsp;&nbsp;&#8203;These Spanish colonists were assimilated into the native population by March of 1569. The subsequent lack of response to the Spanish mainland prompted them to return to Twanthain in May of 1571 and establish a larger colony; by April of 1575, these new colonists had been assimilated into Twanthainese society as well.&#8203;&nbsp;&nbsp;&#8203;Notably, the Spanish governor-general had been given a position in Twanthain's government, but Twanthain retained its independence; unbeknownst to the Spanish crown, Twanthain was not truly colonized but entered a sort of <i>de facto</i> free association with Spain, a ruse maintained by the government successfully until 1821.&#8203;&nbsp;&nbsp;&#8203;This second colony led to the development of a Latin orthography for Twanthainese, but the Khmer orthography continued to be used at the same time.&#8203;&nbsp;&nbsp;&#8203;Spanish was made a co-official language of Twanthain. [ɲ] <ń>/<ញ> was marginally allophonic before Spanish contact and would likely have otherwise become phonemic by the 1800s, but interactions with the Spanish colony greatly sped up its development.
 				</p>
 				<h6 id="spanishWar">Spanish-Twanthainese War</h6>
 				<p class="indent">
@@ -2723,20 +2750,26 @@ AAAAAAAAAAAAAAAAA!</p></br>
 		<h5 class="indent">Disorganized facts</h5>
 		<section aria-role="paragraph" class="indent">
 			<em>Many towns' names are given in the Anglicized forms, with their native forms alongside them.</em><br/>
-			<span class="info-pair"><span class="info-label">Native name</span>: <span class="info-value">Ťwaiw Baǹ ("People's Nation")</span></span><br/>
-			<span class="info-pair"><span class="info-label">Formal name</span>: <span class="info-value">Ťwaiw Wwëy Ḱüy Baǹ ("People's Democratic Republic")</span></span><br/>
-			<span class="info-pair"><span class="info-label">Capital</span>: <span class="info-value">Pfewhuang (F̌eu ¦waǹ)</span></span><br/> <!--River City-->
+			<span class="info-pair"><span class="info-label">Native short name</span>: <span class="info-value"><span lang="qtw-Latn">Ťwaiw Baǹ</span>/<span lang="qtw-Khmr">ទ្វាឭវ៑ ពាៈង៑</span> ("People's Nation")</span></span><br/>
+			<span class="info-pair"><span class="info-label">Formal name</span>: <span class="info-value"><span class="info-value"><span lang="qtw-Latn">Ťwaiw Wwëy Ḱüy Baǹ</span>/<span lang="qtw-Khmr">ទ្វាឭវ៑ វ្វយ៑ ជឺយ៑ ពាៈង៑</span> ("People's Democratic Republic")</span></span><br/>
+			<span class="info-pair"><span class="info-label">Capital</span>: <span class="info-value">Pfewhuang (<span lang="qtw-Latn">F̌eu ¦waǹ</span>/<span lang="qtw-Khmr">ផវ៑ អ្វាង៑</span>)</span></span><br/> <!--River City-->
 			<span class="info-pair"><span class="info-label">Region</span>: <span class="info-value">Uncertain (Southeast Asia or Oceania; straddling the east side of the Philippine Plate)</span></span><br/>
 			<span class="info-pair"><span class="info-label">Time zone</span>: <span class="info-value">UTC+10, no DST</span></span><br/>
 			<span class="info-pair"><span class="info-label">Country codes</span>: <span class="info-value">TI, TTN, 799 (ccTLD ".ti")</span></span><br/>
-			<span class="info-pair"><span class="info-label">Currency</span>: <span class="info-value">Twanthainese nak (symbol Ň, currency codes TIN and 797, exchange rate ≈83Ň/US$)</span></span>
+			<span class="info-pair"><span class="info-label">Currency</span>: <span class="info-value">Twanthainese nak (symbol Ň, <span>កា</span>‌<span style="display: inline-block; position: relative; left: -8px; top: -1px;">̌</span> (the Khmer-script syllable "កា" with a hacek) currency codes TIN and 797, exchange rate ≈83Ň/US$)</span></span>
 			<p class="info-pair"><span class="info-label">Name format</span>: <span class="info-value"><span>[Family name] [Mother's given name] [Father's given name] [Given name]</span><br/>
 			<span class="indent" style="display: block;">Foreign full names are adapted into the Twanthainese name order whenever possible, in a certain way. The given name is placed at the end and the family name at the beginning, but parents' names are not typically dug up to use as parentonymics; however, if the foreigner comes from a society or culture that uses parentonymics (which are, in practice, usually a patronymic), then those are placed in their corresponding spots in their adapted full name, such that, for instance, "Vladimir Vladimirovich Putin" becomes "Putin Vladimirovich Vladimir" ("Put́in Vlad́imilovič Vlad́imil").</span></span></p>
 			<span class="info-pair"><span class="info-label">Other major cities</span>: <span class="info-value">Tswenhuang, Tswenbwam (Cwen ¦waǹ, Tswen Bwam; "South City"); Twawhuang, Bwangbwam (Twaw ¦waǹ, Bwaǹ Bwam; "Forest City"); Jey Wiung Dvik Zeng City, Jeybwam (Jek̋ Wu̇ǹ Ďig Zeǹ ¦waǹ, Jek̋ Bwam), Dez Bwim Ong Lheu City, Pfeikbwam (Dez Bwim Oǹ L̃eu ¦uang, F̌eik Bwam)</span></span><br/>
 			<span class="info-pair"><span class="info-label">Provinces</span>: <span class="info-value">Pelbwam (Pel Bwam, "Gulf Province"), Pfeikbwam (F̌eik Bwam, "Delta Province"), Bwangbwam (Bwaǹ Bwam, "Mountain Province"), Nuitkaifgabwam (Nüť Kaif Ga Bwam, "Red Village Province"), Pfewbwam (F̌eu Bwam, "River Province"), Pfewhuang (F̌eu ¦waǹ, "River City"; special provincial-level city), Jeybwam (Jek̋ Bwam, "Jek̋ Province"), Tswenbwam (Cwen Bwam, "South Province")</span></span><br/>
 			<span class="info-pair"><span class="info-label">Population</span>: <span class="info-value">≈3.5 million</span></span><br/>
+			<span class="info-pair"><span class="info-label">Life expectancy</span>: <span class="info-value">77.77 years</span></span><br/>
+			<span class="info-pair"><span class="info-label">Fertility rate</span>: <span class="info-value">2.73 births per woman</span></span><br/>
+			<span class="info-pair"><span class="info-label">Population growth rate</span>: <span class="info-value">1.429% per year</span></span><br/>
+			<span class="info-pair"><span class="info-label">Literacy rate</span>: <span class="info-value">98.7%</span></span><br/>
+			<span class="info-pair"><span class="info-label">Most spoken languages</span>: <span class="subpair"><span class="sublabel">Twanthainese</span>: <span class="subvalue">99.9%</span></span>, <span class="subpair"><span class="sublabel">Spanish</span>: <span class="subvalue">29.1%</span></span>, <span class="subpair"><span class="sublabel">English</span>: <span class="subvalue">24.5%</span></span>, <span class="subpair"><span class="sublabel">Indonesian</span>: <span class="subvalue">14.4%</span></span>, <span class="subpair"><span class="sublabel">Filipino/Tagalog</span>: <span class="subvalue">13.5%</span></span>, <span class="subpair"><span class="sublabel">Mandarin</span>: <span class="subvalue">11.6%</span></span>, <span class="subpair"><span class="sublabel">Taiwanese Hokkien</span>: <span class="subvalue">10.6%</span></span>, <span class="subpair"><span class="sublabel">Bisaya/Cebuano</span>: <span class="subvalue">7.8%</span></span>, <span class="subpair"><span class="sublabel">Japanese</span>: <span class="subvalue">3.6%</span></span>, <span class="subpair"><span class="sublabel">French</span>: <span class="subvalue">0.78%</span></span>, <span class="subpair"><span class="sublabel">Korean</span>: <span class="subvalue">0.7%</span></span>, <span class="subpair"><span class="sublabel">Vietnamese</span>: <span class="subvalue">0.63%</span></span>, <span class="subpair"><span class="sublabel">Thai</span>: <span class="subvalue">0.58%</span></span>, <span class="subpair"><span class="sublabel">Khmer</span>: <span class="subvalue">0.4%</span></span>, <span class="subpair"><span class="sublabel">Portuguese</span>: <span class="subvalue">0.6%</span></span>, <span class="subpair"><span class="sublabel">Lao</span>: <span class="subvalue">0.2%</span></span>, <span class="subpair"><span class="sublabel">German</span>: <span class="subvalue">0.14%</span></span>, <span class="subpair"><span class="sublabel">Burmese</span>: <span class="subvalue">0.13%</span></span>, <span class="subpair"><span class="sublabel">Bengali</span>: <span class="subvalue">0.1%</span></span>, <span class="subpair"><span class="sublabel">Chamorro</span>: <span class="subvalue">0.05%</span></span>, <span class="subpair"><span class="sublabel">Tok Pisin</span>: <span class="subvalue">0.04%</span></span>, <span class="subpair"><span class="sublabel">Haitian Creole</span>: <span class="subvalue">0.012%</span></span>, <span class="subpair"><span class="sublabel">Toki Pona</span>: <span class="subvalue">0.003%</span></span>, <span class="subpair"><span class="sublabel">Uzbek</span>: <span class="subvalue">0.0012%</span></span>, <span class="subpair"><span class="sublabel">Turkish</span>: <span class="subvalue">0.0008%</span></span>, <span class="subpair"><span class="sublabel">Polish</span>: <span class="subvalue">0.000314%</span></span>, <span class="subpair"><span class="sublabel">Serbian</span>: <span class="subvalue">0.000143%</span></span>, <span class="subpair"><span class="sublabel">Kay(f)bop(t)</span>: <span class="subvalue">0.0000286%</span></span></span><br/>
+			<span class="info-pair"><span class="info-label">Foreign Twanthainese learners</span>: <span class="info-value">≈21,840</span></span><br/>
 			<span class="info-pair"><span class="info-label">Largest packaging company</span>: <span class="info-value">Woth Pywe Mwez Tfody Packaging (Woť Ṕwe Mwez Ťoď̰ Waip Müf Yuaǹ)</span></span><br/>
-			<span class="info-pair"><span class="info-label">Main trading partners</span>: <span class="info-value">China, United States (notably Guam), Japan, Indonesia, the Philippines</span></span>
+			<span class="info-pair"><span class="info-label">Main trading partners</span>: <span class="info-value">China, United States (notably Guam), Japan, Indonesia, the Philippines, Cambodia</span></span>
 			<div class="info-pair"><span class="info-label">Other</span>: <ul class="info-value">
 				<li>Twanthain was occupied by Japan from 1939 to 1945.</li>
 				<li>Twanthain was never socialist, despite what its official name suggests nowadays.</li> 
@@ -2745,7 +2778,7 @@ AAAAAAAAAAAAAAAAA!</p></br>
 					<li>Yoy B́ë Ǹley Ut̃, the plant's namesake, built the initial air separator unit in 1901, which was eventually accompanied by more air separators which gradually formed the large complex. A prominent scientist in his life, he is highly regarded for this.</li>
 					<li>During the Japanese occupation period, the complex was the site of the "Battle of the Yoy Complex". Liquid gases were thrown at Imperial Japanese troops, and dumped on the floor to cause asphyxiation and internal frostbite. In addition, oxygen gas was used as an oxidizer in incendiary weapons. The battle still caused millions of dollars in damage to the plant.</li>
 				</ul></li> <!--and liquid nitrogen was thrown at Imperial Japanese troops' faces-->
-				<li>Dez Bwim Ong Lheu City is Twanthain's second most prominent tourist destination, seeing about 400,000 tourists per year; it is beaten out by Pfewhuang, with 550,000 tourists. Dez Bwim Ong Lheu City's tourism slogan is "It all goes to D.B.O.".</li>
+				<li>Dez Bwim Ong Lheu City is Twanthain's second most prominent tourist destination, seeing about 400,000 tourists per year; it is beaten out by Pfewhuang, with 550,000 tourists. Dez Bwim Ong Lheu City's tourism slogan is "We'll all go to D.B.O.~".</li>
 			</ul></div>
 		</section>
 	</main><br/>
