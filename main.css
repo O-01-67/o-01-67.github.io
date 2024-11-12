@@ -48,8 +48,8 @@ sub {
 }
 
 h1, h2, h3, h4, h5, h6 {
-       font-weight: 500;
-	   line-height: 50%;
+   font-weight: 600;
+   line-height: 20%;
 }
 
 strong, b {
@@ -57,27 +57,27 @@ strong, b {
 }
 
 h6 {
-	font-size: 60%;
+	font-size: 85%;
 }
 
 h5 {
-	font-size: 90%;
-}
-
-h4 {
 	font-size: 100%;
 }
 
-h3 {
+h4 {
 	font-size: 120%;
 }
 
-h2 {
+h3 {
 	font-size: 140%;
 }
 
+h2 {
+	font-size: 170%;
+}
+
 h1 {
-	font-size: 180%;
+	font-size: 220%;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -153,12 +153,8 @@ pre {
 
 .rounded {
     background: #222;
-    border-radius: 0.25em;
-    padding: 2px;
-}
-
-code.rounded {
-	padding: 1px;
+    border-radius: 0.2em;
+    padding: 1px;
 }
 
 @keyframes loonaonethird {
@@ -181,8 +177,8 @@ code.rounded {
   00.00%	{ color:#FF2222; }
   16.66%	{ color:#FF2222; }
 
-  33.33%	{ color:#3333FF; }
-  50.00%	{ color:#3333FF; }
+  33.33%	{ color:#005FFF; }
+  50.00%	{ color:#005FFF; }
 
   66.67%	{ color:#C027D0; }
   83.33%	{ color:#C027D0; }
