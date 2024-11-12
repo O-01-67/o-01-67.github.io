@@ -272,19 +272,23 @@
 
 			var usuallyMaleInitials = "s	k̰̋	l	'	p	l̃	ť̰	k̃	f̌	b	g̃́	d̃	g̃	ǵ".split("\t");
 			var usuallyFemaleInitials = "t̃	k̋	g̋	ď̰	y	g	d̰́	ḱ	b́	d́	t̰́	ḱ̰	t́	f́	v	ṕ".split("\t");
-			var usuallyUnisexInitials = "c	z	n	m	ǹ	ď	ť	k	d	f	t	w	j	č".split("\t");
+			var usuallyUnisexInitials = "c	z	m	n	ń	ǹ	ď	ť	k	d	f	t	w	j	č".split("\t");
 
-			var usuallyMaleVowels = "u̇	u".split("\t");
-			var usuallyFemaleVowels = "i	ë".split("\t");
-			var usuallyUnisexVowels = "a	i	o	e".split("\t");
+			var usuallyMaleVowels = "u̇	u	u̇	u	ei	ea	ou	eu".split("\t");
+			var usuallyFemaleVowels = "i	ë	ao	oa	ue".split("\t");
+			var usuallyUnisexVowels = "a	i	o	e	u̇i	ai	oi".split("\t");
 
-			var everyFinal = "m	n	ǹ	p	f́	b	v	ť	ť̰	ď	ď̰	t	t̃	t̰́	d̃	d̰́	k̋	k̰̋	g̋	k	ḱ	k̃	ḱ̰	g	ǵ	g̃	g̃́	w	f	l	s	c	z	č	j	y	'".split("\t");
+			var everyFinal = "m	n	ń	ǹ	p	f́	b	v	ť	ť̰	ď	ď̰	t	t̃	t̰́	d̃	d̰́	k̰̋	k	ḱ	k̃	ḱ̰	g	ǵ	g̃	g̃́	w	f	l	s	c	z	č	j	y	'".split("\t");
 
 			function randomChoice(array) {
 				return array[Math.floor(Math.random() * array.length)]
 			}
 
-			function generateName(gender=null) { //0 male, 1 unisex, 2 female
+			function capitalizeFirstLetter(string,locale=null) {
+				return string[0][locale ? "toLocaleUpperCase" : "toUpperCase"](locale) + string.slice(1)
+			};
+
+			function generateNameSyllable(gender=null) { //0 male, 1 unisex, 2 female
 				var returnGender = false;
 				if(gender == null || gender == undefined) {
 					returnGender = true;
@@ -384,7 +388,7 @@
 						medial = "l"
 					};
 					if((Math.random() < 0.15) && (medial !== "l")) {
-						medial += "l"
+						medial = "l" + medial
 					}
 				}
 				
@@ -400,6 +404,43 @@
 					return result
 				}
 			}
+			
+			function generateName(length=null,gender=null) { //0 male, 1 unisex, 2 female
+				length = Math.min(12,Math.max(0,length));
+				var returnGender = false;
+				if(gender == null || gender == undefined) {
+					returnGender = true;
+					gender = Math.floor(Math.random() * 3)
+				};
+				if(!length) {
+					var lengthValue = Math.random();
+					var genderFactor = (0.025 * gender);
+					if(lengthValue < 0.35 - genderFactor) {
+						length = 1
+					} else if(lengthValue < 0.8 - genderFactor) {
+						length = 2
+					} else if(lengthValue < 0.95 - genderFactor) {
+						length = 3
+					} else if(lengthValue < 0.99 - (genderFactor / 2)) {
+						length = 4
+					} else if(lengthValue < 1.02 - (genderFactor / 2)) {
+						length = 5
+					} else {
+						length = 6
+					}
+				}
+				
+				var syllables = [];
+				var result = "";
+				for(var i = 0; i < length; i++) {
+					var syllable = generateNameSyllable(gender);
+					result += syllable;
+					syllables.push(syllable)
+				};
+				result = capitalizeFirstLetter(result);
+				return returnGender ? [result,syllables,gender] : [result,syllables]
+			}
+
 		</script>
 		<style id="removeMeIfScripted">
 			script#dataTable {
@@ -726,8 +767,9 @@
 							<td>[ai̯ɯ̟̯~ai̯ʊ̯~ai̯ə̯]</td>
 							<td>[aɯ̟̯~aʊ̯~ao̯~<br/>a̠ɯ̟̯~a̠ʊ̯~a̠o̯~<br/>ɑɯ̟̯~ɑʊ̯~ɑo̯~<br/>ɒʊ̯~ɒo̯]</td>
 							<td>[au̯]</td>
-							<td>[ae̯]</td>
-							<td>[ao̯i̯]</td>
+							<td>[ao̯~aʌ̹~aɤ~aɤ̞]</td>
+							<td>[ao̯i̯~æ̠o̯i̯~aə̯i̯]</td>
+							<td>[aː]</td>
 							<td>[eɪ̯~ei̯]</td>
 							<td>[eɯ̟̯~eu̯]</td>
 							<td>[ea̠̯~eɑ~ea̯]</td>
@@ -745,7 +787,9 @@
 							<td>aiu̇</td>
 							<td>au̇</td>
 							<td>au</td>
+							<td>ao</td>
 							<td>aoi</td>
+							<td>aa</td>
 							<td>ei</td>
 							<td>eu</td>
 							<td>ea</td>
@@ -1232,7 +1276,7 @@
 	<section id="phonotactics">
 		<h2>Phonotactics:</h2>
 		<main class="plain-font">
-			The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(/l/, except after an interdental consonant)(/j/ or /w/)<abbr title="V: Any vowel (or polyphthong)">V</abbr>(C).&#8203;&nbsp;&nbsp;&#8203;/j/ palatalizes an initial plosive or affricate, if one is present, whereas the vowel [i] alone may or may not; likewise, /w/ labializes a preceding plosive (but not necessarily an affricate).&#8203;&nbsp;&nbsp;&#8203;&lt;ww&gt; is realized as [wː~ʰw~wu̯~u̯w] and &lt;yy&gt; is realized as [jː~ji̯~i̯j]&#8203;&nbsp;&nbsp;&#8203;[j] palatalizes &lt;č&gt; [t̠͡ʃ] to [t͡ʲɕ] and &lt;j&gt; [d̠͡ʒ] to [d͡ʲʑ]&#8203;&nbsp;&nbsp;&#8203;Most morphemes in Twanthainese are monosyllabic; compound words exist and are either made up of multiple monosyllabic components, or are formed by combining sounds from other words (this latter mechanism occurs very frequently, often in abbreviation of previously multi-word compounds).<!--Twanthainese is allergic to compounds of 3 or especially more words.-->&#8203;&nbsp;&nbsp;&#8203;Chemical names are sometimes made by simply concatenating the elements and numbers in the formula, without any markers.&#8203;&nbsp;&nbsp;&#8203;In the Roman orthography, syllables are generally separated by spaces, but polysyllabic loanwords may or may not be (though if the originating language's orthography also prefers to separate every syllable (e.g. Vietnamese), then the syllabes are generally still separated); if they are unspaced, ambiguities may or may not be resolved with the hyphen.&#8203;&nbsp;&nbsp;&#8203;A final aspirated consonant before its unaspirated counterpart assimilates into a single aspirated consonant; &lt;l̃&gt; is considered the aspirated form of &lt;l&gt;.&#8203;&nbsp;&nbsp;&#8203;/n/ becomes palatalized (to [nʲ]) after /i/.
+			The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(/l/, except after an interdental consonant)(/j/ or /w/)<abbr title="V: Any vowel (or polyphthong)">V</abbr>(C).&#8203;&nbsp;&nbsp;&#8203;/j/ palatalizes an initial plosive or affricate, if one is present, whereas the vowel [i] alone may or may not; likewise, /w/ labializes a preceding plosive (but not necessarily an affricate).&#8203;&nbsp;&nbsp;&#8203;&lt;ww&gt; is realized as [wː~ʰw~wu̯~u̯w] and &lt;yy&gt; is realized as [jː~ji̯~i̯j]&#8203;&nbsp;&nbsp;&#8203;[j] palatalizes &lt;č&gt; [t̠͡ʃ] to [t͡ʲɕ] and &lt;j&gt; [d̠͡ʒ] to [d͡ʲʑ]&#8203;&nbsp;&nbsp;&#8203;Most morphemes in Twanthainese are monosyllabic; compound words exist and are either made up of multiple monosyllabic components, or are formed by combining sounds from other words (this latter mechanism occurs very frequently, often in abbreviation of previously multi-word compounds).<!--Twanthainese is allergic to compounds of 3 or especially more words.-->&#8203;&nbsp;&nbsp;&#8203;Chemical names are sometimes made by simply concatenating the elements and numbers in the formula, without any markers.&#8203;&nbsp;&nbsp;&#8203;In the Roman orthography, syllables are generally separated by spaces, but polysyllabic loanwords may or may not be (though if the originating language's orthography also prefers to separate every syllable (e.g. Vietnamese), then the syllables are generally still separated); if they are unspaced, ambiguities may or may not be resolved with the hyphen.&#8203;&nbsp;&nbsp;&#8203;A final aspirated consonant before its unaspirated counterpart assimilates into a single aspirated consonant; &lt;l̃&gt; is considered the aspirated form of &lt;l&gt;.&#8203;&nbsp;&nbsp;&#8203;/n/ becomes palatalized (to [nʲ]) after /i/.
 		</main>
 	</section>
 </section>
@@ -1241,7 +1285,7 @@
 	<h3>Grammar</h3>
 	<main> 
 		<p class="plain-font">
-			Verbs do not conjugate, instead using grammatical markers to indicate information such as tense; the citation form of a verb is marked for tense (past, present, or future), but the present marker can generally be omitted.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters. Polyphthongs are not considered their own letters.Polyphthongs are not considered their own letters.Aspect markers come between the verb and the tense marker; mood markers come after aspect markers (V-A-M-T).&#8203;&nbsp;&nbsp;&#8203;Adverbs come after T.A.M markers.&#8203;&nbsp;&nbsp;&#8203;Modifiers come before the nouns they modify (e.g. <span style="color: #4f7fff;">blue</span>&nbsp;car), and this is the order in which compounding proceeds.&#8203;&nbsp;&nbsp;&#8203;Twanthainese uses an OSV (<abbr title="Indirect object">I</abbr>-<abbr title="Direct object">D</abbr>-S-V) order and postpositions, which can be chained.&#8203;&nbsp;&nbsp;&#8203;The subject can be omitted in an imperative statement.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters. Polyphthongs are not considered their own letters.Twanthainese does not use articles.
+			Verbs do not conjugate, instead using grammatical markers to indicate information such as tense; the citation form of a verb is marked for tense (past, present, or future), but the present marker can generally be omitted.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters. Polyphthongs are not considered their own letters.Polyphthongs are not considered their own letters.Aspect markers come between the verb and the tense marker; mood markers come after aspect markers (V-A-M-T).&#8203;&nbsp;&nbsp;&#8203;Adverbs come after the verb and T.A.M markers.&#8203;&nbsp;&nbsp;&#8203;Modifiers come before the nouns they modify (e.g. <span style="color: #4f7fff;">blue</span>&nbsp;car), and this is the order in which compounding proceeds.&#8203;&nbsp;&nbsp;&#8203;Twanthainese uses an OSV (<abbr title="Indirect object">I</abbr>-<abbr title="Direct object">D</abbr>-S-V) order and postpositions, which can be chained.&#8203;&nbsp;&nbsp;&#8203;The subject can be omitted in an imperative statement.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters. Polyphthongs are not considered their own letters.Twanthainese does not use articles.
 			<!--i'm with the boomers on this one, using 2 spaces after each sentence is more readable to me-->
 		</p>
 	</main>
@@ -1455,6 +1499,7 @@ sourceData = [
 	{ part: 'pronoun', qtw: 'cwu̇n', eng: 'you (plural), youse, y\'all, yinz' },
 	{ part: 'pronoun', qtw: 'cën', eng: 'they (singular), them (singular)' },
 	{ part: 'pronoun', qtw: 'cwën', eng: 'they (plural), them (plural)' },
+	{ part: 'pronoun', qtw: 'lyaw', eng: 'who', etym: 'Related to "wwaiw"' },
 	{ part: 'pronoun, adjective', qtw: 'saik', eng: 'this', extra: 'Something inanimate close to the speaker' },
 	{ part: 'pronoun, adjective', qtw: 'sauk', eng: 'these', extra: 'Plural of "saik"' },
 	{ part: 'pronoun, adjective', qtw: 'su̇k', eng: 'that', extra: 'Something inanimate close to the listener' },
@@ -1893,7 +1938,7 @@ sourceData = [
 	{ part: 'noun', qtw: 'mwoť', eng: 'breath', etym: 'From "mu̇ť nwot"' },
 	{ part: 'noun', qtw: 'mwaǹ', eng: 'voice', etym: 'From "mu̇ť faǹ"' },
 	{ part: 'noun', qtw: 'ban', eng: 'speech', etym: 'From "gap mwaǹ"' },
-	{ part: 'noun', qtw: 'seǹ', eng: 'romantic love, babe' },
+	{ part: 'noun', qtw: 'seǹ', eng: 'romantic love; babe' },
 	{ part: 'noun', qtw: 'kyey', eng: 'bag' },
 	{ part: 'noun', qtw: 'čaup', eng: 'bed' },
 	{ part: 'noun', qtw: 'čaup kyey', eng: 'sleeping bag' },
@@ -2346,7 +2391,7 @@ sourceData = [
 	{ part: 'noun, adjective', eng: '(A number I don\'t know how to denote, which must be figured out by extending out the above pattern)', qtw: 'gek ťyam ťen ťyam bui ček gek', etym: 'lit. "googolplex-th second-depth googolplex"' },
 	{ part: 'adjective', eng: 'infinite', qtw: 'fwo' },
 	{ part: 'adjective', eng: 'finite', qtw: 'dyow fwo' },
-	{ part: 'adjective, adverb', qtw: 'fwa\'', eng: 'big, highly/severely, (intensifier)', etym: 'Affected by the p̃-f merger' },
+	{ part: 'adjective, adverb', qtw: 'fwa\'', eng: 'big, highly/severely/very, (intensifier)', etym: 'Affected by the p̃-f merger' },
 	{ part: 'adjective, adverb', qtw: 'fyo\'', eng: '(angry intensifier), f***ing', etym: 'Related to "fwa\'", and affected by the same merger' },
 	{ part: 'adjective, adverb', qtw: 'fu̇p', eng: 'small, slightly, (opposite of an intensifier)' },
 	{ part: 'noun, adjective, adverb', qtw: 'da', eng: 'all, every, everything' },
@@ -2360,6 +2405,7 @@ sourceData = [
 	{ part: 'adjective', qtw: 'caic müf', eng: 'hot (temperature)' },
 	{ part: 'adjective', qtw: 'wye', eng: 'arbitrary' },
 	{ part: 'adjective', qtw: 'lea', eng: 'foreign' },
+	{ part: 'adjective', qtw: 'naoi', eng: 'rare' },
 	{ part: 'adjective', qtw: 'yul', eng: 'unpredictable, random' },
 	{ part: 'adjective', qtw: 'dwüǹ müf', eng: 'federal (of or relating to a federation\'s central government)' },
 	{ part: 'adjective', qtw: 'nwey', eng: 'tall', etym: 'Related to "nwat"' },
@@ -2367,7 +2413,7 @@ sourceData = [
 	{ part: 'adjective', qtw: 'bot', eng: 'short', etym: 'Related to "bëǹ"' },
 	{ part: 'adjective, postposition', qtw: 'd́a', eng: 'similar, like (in the sense of "being like something")', etym: 'From "d́ei" in the sense of "assimilate"' },
 	{ part: 'adjective', qtw: 'nwel', eng: 'long, wide', etym: 'Related to "nwëǹ"' },
-	{ part: 'adjective', qtw: 'yep', eng: 'cute' },
+	{ part: 'adjective', qtw: 'yep', eng: 'cute, pretty' },
 	{ part: 'adjective', qtw: '\'aǹ', eng: 'tired', etym: 'Onomatopoeia for sighing' },
 	{ part: 'adjective', qtw: 'mem', eng: 'the same, equal' },
 	{ part: 'adjective', qtw: 'dyam', eng: 'different, not the same, unequal' },
@@ -2403,6 +2449,7 @@ sourceData = [
 	{ part: 'verb', qtw: 'miń', eng: 'to glow, to shine, to emit light' },
 	{ part: 'verb', qtw: 'niǹ', eng: 'to hear' },
 	{ part: 'verb', qtw: 'kip', eng: 'to play' },
+	{ part: 'verb', qtw: 'seǹ g̋ot', eng: 'to love' },
 	{ part: 'verb', qtw: 'cuec g̋ot', eng: 'to burn, to be on fire, to ignite/set on fire' },
 	{ part: 'verb', qtw: 'swej', eng: 'to mix, to stir' },
 	{ part: 'verb', qtw: 'nai', eng: 'to grow, to expand, to increase, to lengthen, to widen, to heighten, to deepen (of a hole, deep body, absence, or deficit)' },
@@ -2410,6 +2457,11 @@ sourceData = [
 	{ part: 'verb', qtw: 'nai', eng: 'to grow, to expand, to increase, to lengthen, to widen, to heighten, to deepen (of a hole, deep body, absence, or deficit)' },
 	{ part: 'verb', qtw: 'ǹol', eng: 'to bury' },
 	{ part: 'verb', qtw: 'čal', eng: 'to remove, to get rid of' },
+	{ part: 'verb', qtw: 'tau', eng: 'to seek, to search for' },
+	{ part: 'verb', qtw: 'nal', eng: 'to sleep' },
+	{ part: 'verb', qtw: 'sei', eng: 'to rest, to relax' },
+	{ part: 'verb', qtw: 'tai', eng: 'to find', etym: 'Related to "tau"'	},
+	{ part: 'verb', qtw: 'laa', eng: 'to survive, to overcome' },
 	{ part: 'verb', qtw: 'dwin', eng: 'to punish' },
 	{ part: 'verb', qtw: 'dwin pem dyow', eng: 'to be unable to punish' },
 	{ part: 'verb', qtw: 'g̋im', eng: 'to turn to (in order to see), to look at, to pay close visual attention to', etym: 'From "g̋e" and "mi"' },
@@ -2428,12 +2480,13 @@ sourceData = [
 	{ part: 'verb', qtw: '\'a\'', eng: 'to injure or cause physical pain', etym: 'Onomatopoeia for screaming, akin to "ouch"' },
 	{ part: 'verb', qtw: 'yay', eng: 'to hurt', etym: 'Onomatopoeia for screaming, as with "\'a\'"' },
 	{ part: 'verb', qtw: 'dun', eng: 'to drop' },
+	{ part: 'verb', qtw: 'gaa', eng: 'to feel (a sensation or emotion)' },
 	{ part: 'verb', qtw: 'walk', eng: 'to choose, to decide' },
 	{ part: 'verb', qtw: 'ḱay', eng: 'to represent, to stand for, to indicate' },
 	{ part: 'verb', qtw: 'cyen', eng: 'to pour' },
 	{ part: 'verb', qtw: 'kwey', eng: 'to have, to possess' },
 	{ part: 'verb', qtw: 'kwak', eng: 'to be made of, to be composed of', etym: 'From "kwey ček twai"' },
-	{ part: 'verb', qtw: 'naǹ', eng: 'to be', extra: 'Also connects two nouns' },
+	{ part: 'verb', qtw: 'naǹ', eng: 'to be', extra: 'Connects two nouns or a noun and an adjective (like "X is Y", but per Twanthainese word order it\'s "Y X is")' },
 	{ part: 'verb', qtw: 'nep', eng: 'to live', etym: 'From "naǹ müf wwaiw"' },
 	{ part: 'verb', qtw: 'yun', eng: 'to work' },
 	{ part: 'verb', qtw: 'fu̇t', eng: 'to die' },
@@ -2477,10 +2530,20 @@ sourceData = [
 	{ part: 'adverb', qtw: 'lyo', eng: 'when' },
 	{ part: 'adverb', qtw: 'la', eng: 'more' },
 	{ part: 'adverb', qtw: 'eis', eng: 'less' },
+	{ part: 'adverb', qtw: '\'ap', eng: 'suddenly' },
+	{ part: 'adverb', qtw: 'tëi', eng: 'usually, normally, generally' },
+	{ part: 'adverb', qtw: 't̃an', eng: 'always' },
+	{ part: 'adverb', qtw: 'dew', eng: 'never', etym: 'Related to "dyow"' },
+	{ part: 'adverb', qtw: 'tyot', eng: 'sometimes, occasionally' },
+	{ part: 'adverb', qtw: 'say', eng: 'rarely' },
+	{ part: 'adverb', qtw: 'lyao', eng: 'why', extra: 'Question words do not reorder the sentence like in English.' },
+	{ part: 'adverb', qtw: 'lon', eng: 'where', etym: 'Related to "bwon"' },
+	{ part: 'interjection', qtw: 'saik naǹ laiu̇ lyao', eng: 'Why!?', etym: 'lit. "Why is this?"' },
 	{ part: 'marker', qtw: 'nyep', eng: '(Past tense marker), -ed' },
 	{ part: 'marker', qtw: 'k̋ep', eng: '(Present tense marker)', extra: 'Can usually be omitted, but can also be included for emphasis.' },
 	{ part: 'marker', qtw: 'f̌ep', eng: '(Future tense marker)' },
 	{ part: 'marker', qtw: 't̃ep', eng: '(Habitual aspect marker)' },
+	{ part: 'marker', qtw: 'laiu̇', eng: '(Interrogative mood marker)' },
 	{ part: 'marker', qtw: 'jün', eng: '(Imperative mood marker)' },
 	{ part: 'marker', qtw: 'ḱoy', eng: '(Deontic mood marker)', extra: 'Indicates that something normatively "must" happen. It is distinct from the imperative. It is a suffix with a meaning akin to "must" or "should".' },
 	{ part: 'marker', qtw: 'pem', eng: '(Epistemic mood marker (possibility))', extra: 'Indicates that something can happen' },
@@ -2757,7 +2820,7 @@ AAAAAAAAAAAAAAAAA!</p></br>
 			<span class="info-pair"><span class="info-label">Time zone</span>: <span class="info-value">UTC+10, no DST</span></span><br/>
 			<span class="info-pair"><span class="info-label">Country codes</span>: <span class="info-value">TI, TTN, 799 (ccTLD ".ti")</span></span><br/>
 			<span class="info-pair"><span class="info-label">Currency</span>: <span class="info-value">Twanthainese nak (symbol Ň, <span>កា</span>‌<span style="display: inline-block; position: relative; left: -8px; top: -1px;">̌</span> (the Khmer-script syllable "កា" with a hacek) currency codes TIN and 797, exchange rate ≈83Ň/US$)</span></span>
-			<p class="info-pair"><span class="info-label">Name format</span>: <span class="info-value"><span>[Family name] [Mother's given name] [Father's given name] [Given name]</span><br/>
+			<p class="info-pair"><span class="info-label">Name format</span>: <span class="info-value"><span>[Family name] [Mother's given name] [Father's given name] [Given name]. Given names and surnames are usually 1 or 2 syllables long, but can rarely be longer. The usual polite way to address someone is by their family ad given name.</span><br/>
 			<span class="indent" style="display: block;">Foreign full names are adapted into the Twanthainese name order whenever possible, in a certain way. The given name is placed at the end and the family name at the beginning, but parents' names are not typically dug up to use as parentonymics; however, if the foreigner comes from a society or culture that uses parentonymics (which are, in practice, usually a patronymic), then those are placed in their corresponding spots in their adapted full name, such that, for instance, "Vladimir Vladimirovich Putin" becomes "Putin Vladimirovich Vladimir" ("Put́in Vlad́imilovič Vlad́imil").</span></span></p>
 			<span class="info-pair"><span class="info-label">Other major cities</span>: <span class="info-value">Tswenhuang, Tswenbwam (Cwen ¦waǹ, Tswen Bwam; "South City"); Twawhuang, Bwangbwam (Twaw ¦waǹ, Bwaǹ Bwam; "Forest City"); Jey Wiung Dvik Zeng City, Jeybwam (Jek̋ Wu̇ǹ Ďig Zeǹ ¦waǹ, Jek̋ Bwam), Dez Bwim Ong Lheu City, Pfeikbwam (Dez Bwim Oǹ L̃eu ¦uang, F̌eik Bwam)</span></span><br/>
 			<span class="info-pair"><span class="info-label">Provinces</span>: <span class="info-value">Pelbwam (Pel Bwam, "Gulf Province"), Pfeikbwam (F̌eik Bwam, "Delta Province"), Bwangbwam (Bwaǹ Bwam, "Mountain Province"), Nuitkaifgabwam (Nüť Kaif Ga Bwam, "Red Village Province"), Pfewbwam (F̌eu Bwam, "River Province"), Pfewhuang (F̌eu ¦waǹ, "River City"; special provincial-level city), Jeybwam (Jek̋ Bwam, "Jek̋ Province"), Tswenbwam (Cwen Bwam, "South Province")</span></span><br/>
