@@ -1340,7 +1340,7 @@
 	<h3>Grammar</h3>
 	<main> 
 		<p class="plain-font">
-			Verbs do not conjugate, instead using grammatical markers to indicate information such as tense; the citation form of a verb is marked for tense (past, present, or future), but the present marker can generally be omitted.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters. Polyphthongs are not considered their own letters.Polyphthongs are not considered their own letters.Aspect markers come between the verb and the tense marker; mood markers come after aspect markers (V-A-M-T).&#8203;&nbsp;&nbsp;&#8203;Adverbs come after the verb and T.A.M markers.&#8203;&nbsp;&nbsp;&#8203;Modifiers come before the nouns they modify (e.g. <span style="color: #4f7fff;">blue</span>&nbsp;car), and this is the order in which compounding proceeds.&#8203;&nbsp;&nbsp;&#8203;Twanthainese uses an OSV (<abbr title="Indirect object">I</abbr>-<abbr title="Direct object">D</abbr>-S-V) order and postpositions, which can be chained.&#8203;&nbsp;&nbsp;&#8203;The subject can be omitted in an imperative statement.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters. Polyphthongs are not considered their own letters.Twanthainese does not use articles.
+			Verbs do not conjugate, instead using grammatical markers to indicate information such as tense; the citation form of a verb is marked for tense (past, present, or future), but the present marker can generally be omitted.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters. Polyphthongs are not considered their own letters.Polyphthongs are not considered their own letters.Aspect markers come between the verb and the tense marker; mood markers come after aspect markers (<abbr title="Verb">V</abbr>-<abbr title="Aspect">A</abbr>-<abbr title="Mood">M</abbr>-<abbr title="Tense">T</abbr>).&#8203;&nbsp;&nbsp;&#8203;Adverbs come after the verb and T.A.M markers.&#8203;&nbsp;&nbsp;&#8203;Modifiers come before the nouns they modify (e.g. <span style="color: #4f7fff;">blue</span>&nbsp;car), and this is often the order in which compounding usually proceeds; but often compounds deviate from this order due to phonotactics.&#8203;&nbsp;&nbsp;&#8203;Twanthainese uses an <abbr title="Object">O</abbr><abbr title="Subject">S</abbr>V (<abbr title="Indirect object">I</abbr>-<abbr title="Direct object">D</abbr>-S-V) order and postpositions, which can be chained.&#8203;&nbsp;&nbsp;&#8203;The subject can be omitted in an imperative statement.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters. Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Twanthainese is in the process of developing an indefinite article, but currently it is not always used.
 			<!--i'm with the boomers on this one, using 2 spaces after each sentence is more readable to me-->
 		</p>
 	</main>
@@ -1359,7 +1359,8 @@
 				<span class="part-abbreviation">postp.</span>: <span class="full-part">postposition</span><br/>
 				<span class="part-abbreviation">int.</span>: <span class="full-part">interjection</span><br/>
 				<span class="part-abbreviation">conj.</span>: <span class="full-part">conjunction</span><br/>
-				<span class="part-abbreviation">m</span>: <span class="full-part">marker</span>
+				<span class="part-abbreviation">m.</span>: <span class="full-part">marker</span><br/>
+				<span class="part-abbreviation">art.</span>: <span class="full-part">article</span>
 			</p>
 		</div>
 
@@ -1450,7 +1451,8 @@
 				"postposition": "postp.",
 				"interjection": "int.",
 				"conjunction": "conj.",
-				"marker": "m."
+				"marker": "m.",
+				"article": "art."
 			};
 
 			function doTable(data) {
@@ -2172,11 +2174,11 @@ sourceData = [
 	{ part: 'noun', qtw: 'muǹ', eng: 'hole' },
 	{ part: 'noun', qtw: 'f̌en muǹ', eng: 'well (hole for water)' },
 	{ part: 'noun, interjection', qtw: 'dwüp muǹ', eng: 'cesspit, sh**hole, fuck (interjection), (historical) toilet', censor: true, extra: 'Became vulgar, nowadays used as an insult of a person (akin to "a**hole" or "sh**head") or a place (akin to "sh**hole" or "hellhole").' },
+	{ part: 'noun, interjection', qtw: 'piz', eng: 'f***-up, clusterf**k; oh f**k, I\'m so f***ed', etym: 'From Russian "п*здец"', extra: 'Vulgar', censor: true },
 	{ part: 'noun', qtw: 'dwuǹ wan', eng: 'd**do', extra: 'Vulgar', censor: true },
 	{ part: 'noun', qtw: 'dwuǹ', eng: 'a**hole', extra: 'Vulgar', censor: true },
 	{ part: 'noun', qtw: 'dwëǹ', eng: 'p***s', extra: 'Clinical', censor: true },
 	{ part: 'noun', qtw: 'duǹ', eng: 'pe*n, d**k', extra: 'Vulgar', censor: true },
-	{ part: 'noun, interjection', qtw: 'piz', eng: 'f***-up, clusterf**k; oh f**k, I\'m so f***ed', etym: 'From Russian "п*здец"', extra: 'Vulgar', censor: true },
 	{ part: 'noun', qtw: 'mwel', eng: 'trash, refuse, rubbish' },
 	{ part: 'noun', qtw: 'mwel dep', eng: 'trash/garbage/rubbish/waste can, trash/garbage/rubbish/waste bag, trash/garbage/rubbish/waste bin' },
 	{ part: 'noun', qtw: 'mwel muǹ', eng: 'toilet' },
@@ -2636,7 +2638,6 @@ sourceData = [
 	{ part: 'adverb', qtw: 'say', eng: 'rarely' },
 	{ part: 'adverb', qtw: 'lyao', eng: 'why', extra: 'Question words do not reorder the sentence like in English.' },
 	{ part: 'adverb', qtw: 'lon', eng: 'where', etym: 'Related to "bwon"' },
-	{ part: 'interjection', qtw: 'saik naǹ laiu̇ lyao', eng: 'Why!?', etym: 'lit. "Why is this?"' },
 	{ part: 'marker', qtw: 'nyep', eng: '(Past tense marker), -ed' },
 	{ part: 'marker', qtw: 'k̋ep', eng: '(Present tense marker)', extra: 'Can usually be omitted, but can also be included for emphasis.' },
 	{ part: 'marker', qtw: 'f̌ep', eng: '(Future tense marker)' },
@@ -2663,6 +2664,8 @@ sourceData = [
 	{ part: 'marker', qtw: 'ček', eng: '(Nominalizer), -ity, -ness' },
 	{ part: 'marker', qtw: 'kai', eng: 'if, (Conditional mood marker)', extra: 'In an "if X, then Y" statement, both sides\' verbs must have "kai" attached to them.' },
 	{ part: 'interjection', qtw: 'an', eng: 'hey' },
+	{ part: 'interjection', qtw: 'saik naǹ laiu̇ lyao', eng: 'Why!?', etym: 'lit. "Why is this?"' },
+	{ part: 'article', qtw: 'l̃un', eng: 'an, any (as in "any spoon"), one', etym: 'A developing sense of "l̃ën" helped along and influenced by Spanish' },
 	{ part: 'other', qtw: 'dek̃', eng: 'deca-', etym: 'From English' },
 	{ part: 'other', qtw: '\'ek', eng: 'hecto-', etym: 'From English' },
 	{ part: 'other', qtw: 'k̃ül', eng: 'kilo-', etym: 'From English' },
