@@ -111,6 +111,12 @@
 				line-height: 150%;
 			}
 
+			.box3 {
+				border: 1px solid #f58;
+				padding: 1px;
+				line-height: 150%;
+			}
+
 			.height {
 				line-height: 150%;
 				display: inline-block;
@@ -154,7 +160,7 @@
 			}
 
 			[g4b] {
-				color: #afff7f;
+				color: #cfff7f;
 			}
 
 			[g4].box {
@@ -1280,6 +1286,7 @@
 		<main class="plain-font" aria-role="paragraph">
 			The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(/l/)(<abbr title="V: Any nasal">N</abbr>)(/l/)(/j/ or /w/)<abbr title="V: Any vowel (or polyphthong)">V</abbr>(V)(V)(C).<ul>
 				<li>ថ្មល្វាង៑ t̃mlyaǹ, ថ្លម្យាង៑ t̃lmyaǹ, ថ្មយាង៑ t̃myaǹ, ថ្លយាង៑ t̃lyaǹ</li>
+				<li>When an aspirated plosive precedes an /l/ medial, the aspiration is moved to after the /l/.</li>
 				<li>/j/ palatalizes an initial plosive or affricate, if one is present, whereas the vowel [i] alone may or may not. /ŋ/ palatalizes to [ŋ̟]/[ɲ̠] (the pre-velar nasal).</li>
 				<li>/ji/ shifts /n/ to [ɲ] and /ŋ/ to [n].</li>
 				<li>A consonant cannot have more than one /l/ medial.</li>
@@ -1844,6 +1851,7 @@ sourceData = [
 	{ part: 'noun', qtw: 'f̌won ju', eng: 'fluid mechanics, rheology' },
 	{ part: 'noun', qtw: 'fwa\' yaun ju', eng: 'macroeconomics' },
 	{ part: 'noun', qtw: 'fu̇p yaun ju', eng: 'microeconomics' },
+	{ part: 'noun', qtw: 'k̃loaǹ', eng: 'clong (humorous slang for a conlang)', etym: 'From English', extra: '"ខ្លុឰង៑" in the Khmer script' },
 	{ part: 'noun', qtw: 'ťa', eng: 'number' },
 	{ part: 'noun', qtw: 'mi\'', eng: 'sequence', etym: 'From the order of the letters in the Twanthainese alphabet' },
 	{ part: 'noun', qtw: 'ťa ju', eng: 'arithmetic, mathematics/math/maths' },
@@ -1905,6 +1913,7 @@ sourceData = [
 	{ part: 'noun', qtw: 'dyek müf', eng: 'unpunishable, impune', etym: 'From "dwin pem dyow ček"' },
 	{ part: 'noun', qtw: 'dwok', eng: 'unpunishment, amnesty', etym: 'From "dwin dyow ček"' },
 	{ part: 'noun', qtw: 'ket', eng: 'tool, device' },
+	{ part: 'noun', qtw: 'lna', eng: 'pickaxe', etym: 'From Sumerian (somehow)' },
 	{ part: 'noun', qtw: 'nyit ket', eng: 'refrigerator' },
 	{ part: 'noun', qtw: 'k̃aik̋ ket', eng: 'freezer' },
 	{ part: 'noun', qtw: 'fwaik̋', eng: 'cryogenic temperature, cryogenic conditions' },
@@ -2784,9 +2793,10 @@ sourceData = [
 		</p><br/>
 
 		<p class="plain-font example-triplet">
-			<span lang="en" class="height"><span class="box"><span g4>2NE1</span><span g4a>'s</span> <span g1>CL</span> <span g2>is</span> <span g3>from</span> <span g5>Korea</span></span>. <span class="box2"><u><span g4>Her</span></u> <span g1>name</span> <span g2>is</span> <span g5>Chaerin Lee</span>.</span></span><br/>
-			<span class="term height"><span class="box"><span g5>¦anguk baǹ</span> <span g3>ko</span> <span g4 title="Ťen U̇n Et L̃ën">2NE1</span> <span g4a>kwa</span> <span g1 title="Ce Le">CL</span> <span g2>naǹ</span></span>. <span class="box2"><span g5>I Čailin</span> <u><span g4>cën</span> <span g4a>jet</span> <span g4b>kwa</span></u> <span g1>cüp</span> <span g2>naǹ</span>.</span></span><br/>
-			<span class="underlying height"><span class="box"><span g5>Korea</span><span g3>-from</span> <span g4 title="Two N E One">2NE1</span><span g4a>-'s</span> <span g1 title="C L">CL</span> <span g2>is</span></span>. <span class="box2"><span g5>Lee Chaerin</span> <u><span g4>they</span><span g4a>-(feminine marker)</span><span g4b>-'s</span></u> <span g1>name</span> <span g2>is</span>.</span></span>
+			<span lang="en" class="height"><span class="box"><span g4>2NE1</span><span g4a>'s</span> <span g1>CL</span> <span g2>is</span> <span g3>from</span> <span g5>Korea</span></span>. <span class="box2"><u><span g4>Her</span></u> <span g1>name</span> <span g2>is</span> <span g5>Chaerin Lee</span></span>. <span class="box3"><span g1>She</span> <span g2>g<span g2a>a</span>ve</span> <span g6>me</span> <span g4a>two</span> <span g4b>diamond</span> <span g4>pickaxes</span> <span g3>in</span> <span g5>Minecraft</span>.</span></span><br/>
+			<span class="term height"><span class="box"><span g5>¦anguk baǹ</span> <span g3>ko</span> <span g4 title="Ťen U̇n Et L̃ën">2NE1</span> <span g4a>kwa</span> <span g1 title="Ce Le">CL</span> <span g2>naǹ</span></span>. <span class="box2"><span g5>I Čailin</span> <u><span g4>cën</span> <span g4a>jet</span> <span g4b>kwa</span></u> <span g1>cüp</span> <span g2>naǹ</span>.</span> <span class="box3"><span g5>Mainklaftë</span> <span g3>min</span> <span g6>cain</span> <span g4a>ťen ťain</span> <span g4b>pu̇k̰̋ müf</span> <span g4>lna</span> <span g1>cën jet</span> <span g2>la'</span> <span g2a>nyep</span></span>.</span><br/>
+			<span class="term height"><span class="box"><span g5>អាណ៑កូៈក៑ ពាៈង៑</span> <span g3>កុ</span> <span g4 title="ទណ៑ ឪណ៑ ឯត៑ ឡិណ៑">២ណឯ១</span> <span g4a>កា្វ</span> <span g1 title="ឝ ល">ឝល</span> <span g2>ណាង៑</span></span>. <span class="box2"><span g5>ឭ ឞាឭលីណ៑</span> <u><span g4>ឝិណ៑</span> <span g4a>ឞៈត៑</span> <span g4b>កា្វ</span></u> <span g1>ឝឺព៑</span> <span g2>ណាង៑</span>.</span> <span class="box3"><span g5>មាឭណ៑ក្លាភ៑តិ</span> <span g3>មីណ៑</span> <span g6>ឝាឭណ៑</span> <span g4a>ទណ៑ ទាឭណ៑</span> <span g4b>ពឹឆ៑ មឺភ</span> <span g4>ល្ណា</span> <span g1>ឝិណ៑ ឞៈត៑</span> <span g2>លាអ៑</span> <span g2a>ណ្យព៑</span></span>.</span><br/>           
+			<span class="underlying height"><span class="box"><span g5>Korea</span><span g3>-from</span> <span g4 title="Two N E One">2NE1</span><span g4a>-'s</span> <span g1 title="C L">CL</span> <span g2>is</span></span>. <span class="box2"><span g5>Lee Chaerin</span> <u><span g4>they</span><span g4a>-(feminine marker)</span><span g4b>-'s</span></u> <span g1>name</span> <span g2>is</span></span>. <span class="box3"><span g5>Minecraft</span><span g3>-in</span> <span g6>me</span> <span g4a>two-numbered</span> <span g4b>diamond-y</span> <span g4>pickaxe</span> <span g1>they-(feminine marker)</span> <span g2>give</span><span g2a>-ed</span></span>.</span>
 		</p><br/>
 
 		<p class="plain-font example-triplet">
