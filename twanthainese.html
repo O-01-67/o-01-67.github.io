@@ -33,30 +33,30 @@
 			#searchQuery {
 				width: 350px;
 			}
-			
+
 			table, tr, th, td {
 				border: 1px solid white;
 			}
-			
+
 			tr {
 				line-height: 130%;
 			}
-			
+
 			th, td {
 				padding: 7px 2px 5px 2px;
 				text-align: center;
 				vertical-align: middle;
 			}
-			
+
 			em.underline {
 				font-style: normal;
 				text-decoration: underline;
 			}
-			
+
 			table {
 				border-collapse: collapse;
 			}
-			
+
 			.plain-font {
 				font-family: "Arial", sans-serif;
 				font-size: 80%;
@@ -72,39 +72,50 @@
 				font-size: 80%;
 			}
 
+			.dnone {
+				display: none;
+			}
+
+			#errorWarning {
+				background-color: #2f0000;
+				color: white;
+				border: 1px solid red;
+				padding: 8px;
+			}
+
 			table.plain-font > tbody > tr > th {
 				font-family: 'Gamja Flower', 'Comic Mono', 'Arial', sans-serif;
 				font-size: 140%;
 				font-weight: bold;
 			}
-			
+
 			section section, section main {
 				padding-left: 1em;
 			}
-			
+
 			.disclaimer {
 				font-size: 90%;
 				opacity: 0.8;
 			}
-			
+
 			.box {
 				border: 1px solid white;
 				padding: 1px;
 				line-height: 150%;
 				font-size: 100%;
 			}
-			
+
 			.box2 {
 				border: 1px solid #2bd;
 				padding: 1px;
 				line-height: 150%;
 			}
-			
+
 			.height {
 				line-height: 150%;
 				display: inline-block;
 			}
-			
+
 			[g1] {
 				color: #ff7f7f;
 			}
@@ -190,7 +201,7 @@
 			[gnull] {
 				color: #8f8f8f;
 			}
-			
+
 			.censor {
 				background-color: #111;
 			}
@@ -198,7 +209,7 @@
 			abbr {
 				text-decoration: 1px white dotted underline !important;
 			}
-			
+
 			abbr:hover::after {
 				content: ' (' attr(title) ')';
 			}
@@ -232,7 +243,7 @@
 				clip: rect(1px 1px 1px 1px);
 				clip: rect(1px, 1px, 1px, 1px);
 			}
-			
+
 			#roman main table td {
 				min-width: 1em;
 				font-size: 80%;
@@ -245,7 +256,7 @@
 				display: block;
 				content: " ";
 			}
-			
+
 			table+p {
 				margin-top: 1em;
 			}
@@ -300,7 +311,7 @@
 				var final = "";
 				var medialChance = 0;
 				var finalChance = 0;
-				
+
 				switch(gender) {
 					case 0:
 						var randomValue1 = Math.random();
@@ -321,7 +332,7 @@
 						} else {
 							vowel = randomChoice(usuallyFemaleVowels)
 						}
-						
+
 						medialChance = 0.25;
 						finalChance = 0.8;
 						break;
@@ -349,7 +360,7 @@
 								initial = randomChoice(usuallyFemaleVowels)
 							}
 						}
-						
+
 						medialChance = 0.29;
 						finalChance = 0.77;
 						break;
@@ -372,12 +383,12 @@
 						} else {
 							vowel = randomChoice(usuallyMaleVowels)
 						}
-						
+
 						medialChance = 0.35;
 						finalChance = 0.72;
 						break;
 				}
-				
+
 				if(Math.random() < medialChance) {
 					var randomValue3 = Math.random()
 					if(randomValue3 < 0.4) {
@@ -391,20 +402,20 @@
 						medial = "l" + medial
 					}
 				}
-				
+
 				if(Math.random() < finalChance) {
 					final = randomChoice(everyFinal)
 				};
-				
+
 				var result = initial + medial + vowel + final;
-				
+
 				if(returnGender) {
 					return [result,gender]
 				} else {
 					return result
 				}
 			}
-			
+
 			function generateName(length=null,gender=null) { //0 male, 1 unisex, 2 female
 				length = Math.min(12,Math.max(0,length));
 				var returnGender = false;
@@ -429,7 +440,7 @@
 						length = 6
 					}
 				}
-				
+
 				var syllables = [];
 				var result = "";
 				for(var i = 0; i < length; i++) {
@@ -440,6 +451,40 @@
 				result = capitalizeFirstLetter(result);
 				return returnGender ? [result,syllables,gender] : [result,syllables]
 			}
+
+			body = document.body;
+			html = document.documentElement;
+
+			function getPageHeight() {
+				body = document.body;
+				html = document.documentElement;
+				var height = Math.max(
+					body.scrollHeight ?? 0,
+					body.offsetHeight ?? 0,
+					body.offsetHeight ?? 0,
+					html.clientHeight ?? 0,
+					html.offsetHeight ?? 0 
+				);
+				return height
+			};
+			
+			function getScrollFraction() {
+				return window.scrollY / getPageHeight()
+			};
+
+			function saveScroll() {
+				localStorage.setItem("lastScrollPosition",getScrollFraction());
+			};
+
+			function loadScroll() {
+				var savedScroll = localStorage.getItem("lastScrollPosition");
+				var pfss = parseFloat(savedScroll);
+				if((savedScroll == null) || isNaN(pfss)) { return false };
+				console.log(pfss * getScrollFraction());
+				window.scroll(window.scrollY,pfss * getScrollFraction())
+			}
+			
+			window.onresize = function() { loadScroll };
 
 		</script>
 		<style id="removeMeIfScripted">
@@ -750,13 +795,14 @@
 				</tbody>
 			</table>
 
-			<h4 id="polyphthongs">Polyphthongs</h4>
+			<h4 id="polyphthongs">Diphthongs and polyphthongs</h4>
 			<section id="diphthongs"> <!--old anchor kept for backward compatibility-->
 				<table class="plain-font">
 					<tbody>
 						<tr>
 							<th>Sound</th>
 							<td>[ɯ̟i̯~ʊi̯]</td>
+							<td>[ɯ̟e̯~ʊe̯]</td>
 							<td>[oɛ̯~oe̞̯~oe̯~<br/>uɛ̯~ue̞̯~ue̯]</td>
 							<td>[ua̯]</td>
 							<td>[oi̯~oɪ̯]</td>
@@ -777,22 +823,31 @@
 						<tr>
 							<th>Roman</th>
 							<td>u̇i</td>
-							<td>ue</td>
-							<td>ua</td>
-							<td>oi</td>
-							<td>ou</td>
-							<td>oa</td>
+							<td>u̇e</td>
+							<td rowspan="2">ue</td>
+							<td rowspan="2">ua</td>
+							<td rowspan="2">oi</td>
+							<td rowspan="2">ou</td>
+							<td rowspan="2">oa</td>
 							<td>ëi</td>
-							<td>ai</td>
+							<td rowspan="2">ai</td>
 							<td>aiu̇</td>
 							<td>au̇</td>
-							<td>au</td>
-							<td>ao</td>
-							<td>aoi</td>
-							<td>aa</td>
-							<td>ei</td>
-							<td>eu</td>
-							<td>ea</td>
+							<td rowspan="2">au</td>
+							<td rowspan="2">ao</td>
+							<td rowspan="2">aoi</td>
+							<td rowspan="2">aa</td>
+							<td rowspan="2">ei</td>
+							<td rowspan="2">eu</td>
+							<td rowspan="2">ea</td>
+						</tr>
+						<tr>
+							<th>ASCII</th>
+							<td>iui</td>
+							<td>iue</td>
+							<td>oei</td>
+							<td>aiiu</td>
+							<td>aiu</td>
 						</tr>
 					</tbody>
 				</table>
@@ -1037,7 +1092,7 @@
 						<td>ng</td>
 						<td>py</td>
 						<td>by</td>
-						<td>tf</td>
+						<td>ht</td>
 						<td>iu</td>
 						<td>tfh</td>
 						<td>dv</td>
@@ -1293,18 +1348,22 @@
 
 <section id="words">
 	<h3>Word table (<span id="entryCount" title="This is not indicative of completeness or comprehensiveness, as it includes all words including sequential derivatives, and it does not account for the subjects of all of these words or their usefulness. It is for advisory purposes only.">Uncounted entries</span>)</h3>
-		<h4>Abbreviations</h4>
-		<p class="indent">
-			<span class="part-abbreviation">n.</span>: <span class="full-part">noun</span><br/>
-			<span class="part-abbreviation">prn.</span>: <span class="full-part">pronoun</span><br/>
-			<span class="part-abbreviation">v.</span>: <span class="full-part">verb</span><br/>
-			<span class="part-abbreviation">adj.</span>: <span class="full-part">adjective</span><br/>
-			<span class="part-abbreviation">adv.</span>: <span class="full-part">adverb</span><br/>
-			<span class="part-abbreviation">postp.</span>: <span class="full-part">postposition</span><br/>
-			<span class="part-abbreviation">int.</span>: <span class="full-part">interjection</span><br/>
-			<span class="part-abbreviation">conj.</span>: <span class="full-part">conjunction</span><br/>
-			<span class="part-abbreviation">m</span>: <span class="full-part">marker</span>
-		</p>
+		<div id="abbreviations" class="dnone">
+			<h4>Abbreviations</h4>
+			<p class="indent">
+				<span class="part-abbreviation">n.</span>: <span class="full-part">noun</span><br/>
+				<span class="part-abbreviation">prn.</span>: <span class="full-part">pronoun</span><br/>
+				<span class="part-abbreviation">v.</span>: <span class="full-part">verb</span><br/>
+				<span class="part-abbreviation">adj.</span>: <span class="full-part">adjective</span><br/>
+				<span class="part-abbreviation">adv.</span>: <span class="full-part">adverb</span><br/>
+				<span class="part-abbreviation">postp.</span>: <span class="full-part">postposition</span><br/>
+				<span class="part-abbreviation">int.</span>: <span class="full-part">interjection</span><br/>
+				<span class="part-abbreviation">conj.</span>: <span class="full-part">conjunction</span><br/>
+				<span class="part-abbreviation">m</span>: <span class="full-part">marker</span>
+			</p>
+		</div>
+
+		<p id="errorWarning" class="dnone">There is a syntax error in the data definition that prevents the table from being generated. Its source code is being shown instead.</p>
 
 		<noscript>With JavaScript disabled, this page will instead show the contents of the script that holds the data.</noscript>
 
@@ -1333,7 +1392,7 @@
 				var sEty = (document.getElementById("searchEtymology") ?? {checked: false}).checked;
 				var sExt = (document.getElementById("searchExtraInfo") ?? {checked: false}).checked;
 				var sPar = (document.getElementById("searchPartOfSpeech") ?? {checked: false}).checked;
-				
+
 				var filteredData = sourceData;
 				if(query && (query.length > 1)) {
 					filteredData = structuredClone(sourceData).filter(function(itemData) {
@@ -1406,10 +1465,10 @@
 				var fragmentValue = fragment?.slice?.(1) ?? null;
 
 				var tableDestination = document.getElementById("wordlist");
-				
+
 				var oldTable = document.getElementById("wordTable");
 				if(oldTable) { oldTable.parentElement.removeChild(oldTable); oldTable = null };
-				
+
 				var newTable = document.createElement("table");
 				tableDestination.insertAdjacentElement("afterbegin",newTable)
 					newTable.classList.add("plain-font");
@@ -1421,26 +1480,26 @@
 							var thTwanthainese = document.createElement("th");
 							headerRow.appendChild(thTwanthainese);
 								thTwanthainese.innerText = "Twanthainese";
-							
+
 							var thEnglish = document.createElement("th");
 							headerRow.appendChild(thEnglish);
 								thEnglish.innerText = "English";
-							
+
 							var thPart = document.createElement("th");
 							headerRow.appendChild(thPart);
 								thPart.innerText = "Part of speech";
-							
+
 							var thEtymology = document.createElement("th");
 							headerRow.appendChild(thEtymology);
 								thEtymology.innerText = "Etymology";
-							
+
 							var thNotes = document.createElement("th");
 							headerRow.appendChild(thNotes);
 								thNotes.innerText = "Notes";
 
-						var showNSFW = (urlParams.get("un_ce") !== null);
+						var showNSF = (urlParams.get("un_ce") !== null);
 						for(var i = 0; i < data.length; i++) {
-							if((data[i].censor) && !showNSFW) { continue };
+							if((data[i].censor) && !showNSF) { continue };
 							var newTr = document.createElement("tr");
 							newTbody.appendChild(newTr);
 								var tdTwanthainese = document.createElement("td");
@@ -1452,7 +1511,7 @@
 									if(data[i].qtw == fragmentValue) {
 										tdTwanthainese.scrollIntoView?.()
 									};
-								
+
 								var tdEnglish = document.createElement("td");
 								newTr.appendChild(tdEnglish);
 									if(data[i].html_title) { tdEnglish.setAttribute("title",data[i].html_title) };
@@ -1465,18 +1524,18 @@
 									} else {
 										tdEnglish.innerText = data[i].eng ?? "";
 									};
-								
+
 								var tdPart = document.createElement("td");
 								newTr.appendChild(tdPart);
 									var partData = data[i].part ?? "";
 									var displayPart = partData; for(var textToFind in partOfSpeechAbbreviations) { displayPart = displayPart.replace(textToFind,partOfSpeechAbbreviations[textToFind]) };
 									tdPart.innerText = displayPart;
 									if(displayPart.length > 7) { tdPart.classList.add("part-small") };
-								
+
 								var tdEtymology = document.createElement("td");
 								newTr.appendChild(tdEtymology);
 									tdEtymology.innerText = data[i].etym ?? "";
-								
+
 								var tdNotes = document.createElement("td");
 								newTr.appendChild(tdNotes);
 									tdNotes.innerText = data[i].extra ?? "";
@@ -1515,18 +1574,29 @@ sourceData = [
 	{ part: 'noun', qtw: 'caic', eng: 'heat' },
 	{ part: 'noun', qtw: 'bëǹ', eng: 'ground, earth', extra: 'It refers either only to natural ground, or to a large area of ground or the surface of the planet itself (in which case it does include all artificial ground)' },
 	{ part: 'noun', qtw: 'büǹ', eng: 'dirt' },
-	{ part: 'noun', qtw: 'byiǹ', eng: 'mud' },
+	{ part: 'noun', qtw: 'byëǹ', eng: 'mud' },
 	{ part: 'noun', qtw: 'buǹ', eng: 'hill' },
 	{ part: 'noun', qtw: 'bwaǹ', eng: 'mountain' },
 	{ part: 'noun', qtw: 'cuaǹ', eng: 'volcano', etym: 'From "cuec bwaǹ"' },
 	{ part: 'noun', qtw: 'bwoǹ', eng: 'landslide' },
 	{ part: 'noun', qtw: 'bok', eng: 'rock, stone' },
-	{ part: 'noun', qtw: 'kat', eng: 'brick' },
 	{ part: 'noun', qtw: 'bak', eng: 'sand, sediment' },
-	{ part: 'noun', qtw: 'bwak', eng: 'desert' },
+	{ part: 'noun', qtw: 'bëy', eng: 'wet sand', etym: 'Related to "bak"' },
+	{ part: 'noun', qtw: 'bwaa', eng: 'desert' },
 	{ part: 'noun', qtw: 'baik', eng: 'dry, thirsty' },
 	{ part: 'noun', qtw: 'bwok', eng: 'sandstorm' },
 	{ part: 'noun', qtw: 'byik', eng: 'quicksand' },
+	{ part: 'noun', qtw: 'ce', eng: 'clay' },
+	{ part: 'noun', qtw: 'čup', eng: 'brick' },
+	{ part: 'noun', qtw: '\'an', eng: 'rock crystal, gem' },
+	{ part: 'noun', qtw: 'd́a', eng: 'jade' },
+	{ part: 'noun', qtw: 'toǹ', eng: 'amethyst' },
+	{ part: 'noun', qtw: '\'i', eng: 'pearl' },
+	{ part: 'noun', qtw: 'yë', eng: 'obsidian' },
+	{ part: 'noun', qtw: 'twu̇m', eng: 'ruby', etym: 'From Khmer' },
+	{ part: 'noun', qtw: 'kyëǹ', eng: 'sapphire', etym: 'From Khmer' },
+	{ part: 'noun', qtw: 'pu̇k̰̋', eng: 'diamond', etym: 'From Khmer' },
+	{ part: 'noun', qtw: 'pay', eng: 'zircon', etym: 'From Khmer' },
 	{ part: 'noun', qtw: 'cuec', eng: 'fire', extra: 'The chemical reaction, in general' },
 	{ part: 'noun', qtw: 'cwoc', eng: 'explosion' },
 	{ part: 'noun', qtw: 'fwec', eng: 'fire', extra: 'In the context of a disaster such as a building or forest fire', etym: 'From "fwa\' cuec"' },
@@ -1561,18 +1631,35 @@ sourceData = [
 	{ part: 'noun', qtw: 'nüw', eng: 'blue, vivid/bright blue' },
 	{ part: 'noun', qtw: 'yet', eng: 'deep blue, dark blue' },
 	{ part: 'noun', qtw: 'lwu̇d̰́', eng: 'light blue, azure, sky blue' },
-	{ part: 'noun', qtw: 'ǹük̰̋', eng: 'purple' },
+	{ part: 'noun', qtw: 'nwük̰̋', eng: 'purple' },
 	{ part: 'noun', qtw: 'ǹü\'', eng: 'yellow' },
-	{ part: 'noun', qtw: 'ǹük', eng: 'orange' },
+	{ part: 'noun', qtw: 'cük', eng: 'orange (color)' },
 	{ part: 'noun', qtw: 'ǹik', eng: 'white' },
 	{ part: 'noun', qtw: 'ǹuk', eng: 'black' },
 	{ part: 'noun', qtw: 'ǹek', eng: 'gray' },
+	{ part: 'noun', qtw: 'liǹ', eng: 'pink' },
 	{ part: 'noun', qtw: 'nwë', eng: 'rainbow', etym: 'From "nwat wwaw"' },
 	{ part: 'noun', qtw: 'nyün', eng: 'paint' },
-	{ part: 'noun', qtw: 'nain', eng: 'color' },
+	{ part: 'noun', qtw: 'nain', eng: 'color, colors/color scheme/colorway, graphical pattern, print (design, as if on clothing)' },
+	{ part: 'noun', qtw: 'l̃ëin', eng: 'single color', etym: 'From "l̃ën nain"' },
+	{ part: 'noun', qtw: 'li', eng: 'clear, transparent' },
 	{ part: 'noun', qtw: 'nwon', eng: 'light, lighting' },
-	{ part: 'noun', qtw: 'pun', eng: 'fruit' },
-	{ part: 'noun', qtw: 'nwan', eng: 'apple', etym: 'from Nüť -wa- puN' },
+	{ part: 'noun', qtw: 'pun', eng: 'fruit, vegetable' },
+	{ part: 'noun', qtw: 'plem', eng: 'fruit/vegetable paste', etym: 'From "pun lem"', extra: 'Includes the paste from crushing fruits as well as those produced by more complicated processes, such as applesauce' },
+	{ part: 'noun', qtw: 't̃wë müf f̌en', eng: 'fruit' },
+	{ part: 'noun', qtw: 'l̃al', eng: 'cherry' },
+	{ part: 'noun', qtw: 't̃i', eng: 'carrot' },
+	{ part: 'noun', qtw: 'paom', eng: 'apple', etym: 'From Khmer' },
+	{ part: 'noun', qtw: 'cwün', eng: 'orange (fruit)' },
+	{ part: 'noun', qtw: 'fu̇ez', eng: 'strawberry', etym: 'From Haitian Creole' },
+	{ part: 'noun', qtw: 'uk', eng: 'coconut' },
+	{ part: 'noun', qtw: 'pip', eng: 'grape' },
+	{ part: 'noun', qtw: 'pip plem', eng: 'crushed grapes' },
+	{ part: 'noun', qtw: 'f̌lip', eng: 'wine', etym: 'From "pip plim f̌en"' },
+	{ part: 'noun', qtw: 'li f̌lip', eng: 'white wine' },
+	{ part: 'noun', qtw: 'liǹ f̌lip', eng: 'rosé', extra: 'Intermediate between red wine and white wine' },
+	{ part: 'noun', qtw: 'nüť f̌lip', eng: 'red wine' },
+	{ part: 'noun', qtw: 'f̌lyu̇y', eng: 'cream of tartar/potassium bitartrate', etym: 'From "f̌lip du̇y"' },
 	{ part: 'noun', qtw: 'fuǹ', eng: 'iron, (historical) meteoric iron', etym: '/pʰ/ (retroactively romanized "p̃") used to exist, but merged into f /f/; this merger has affected the word "fuǹ", which was previously "p̃uǹ"' },
 	{ part: 'noun', qtw: 'ǹüf', eng: 'rust' },
 	{ part: 'noun', qtw: 'feǹ', eng: 'metal', extra: 'In general', etym: 'Affected by the p̃-f merger' },
@@ -1611,8 +1698,10 @@ sourceData = [
 	{ part: 'noun', qtw: 'yauk', eng: 'banknote, paper money, dollar bill, (metonymically) money', etym: 'From "yaip ǹü\' wak"' },
 	{ part: 'noun', qtw: 'ǹik wak', eng: 'paper (synonym of "ǹü\' wak")' },
 	{ part: 'noun', qtw: 'ǹan', eng: 'picture, image, painting', etym: 'From "ǹü\' wak nain"' },
+	{ part: 'noun', qtw: 'kwoan', eng: 'video, movie/motion picture, animation', etym: 'From "kwon ǹan"' },
+	{ part: 'noun', qtw: 'kwoan ǹan', eng: 'a frame or a still (of/from a video)' },
 	{ part: 'noun', qtw: 'mim', eng: 'meme', etym: 'From English' },
-	{ part: 'noun', qtw: 'lo go', eng: 'logo', etym: 'From English' },
+	{ part: 'noun', qtw: 'log', eng: 'logo', etym: 'From English' },
 	{ part: 'noun', qtw: 'bak waip', eng: 'sandbox', etym: 'calque of sand + box' },
 	{ part: 'noun', qtw: 'ǹan dwop', eng: 'pixel', etym: 'calque of pictures + element = pixel; however, "piksel" has been slowly gaining popularity' },
 	{ part: 'noun', qtw: 'Bak Waip Ǹan Dwop ', eng: 'Sandboxels', eng_href: 'https://sandboxels.R74n.com/', html_title: 'Not sponsored, I just like the game' },
@@ -1744,7 +1833,6 @@ sourceData = [
 	{ part: 'noun', qtw: 'lim', eng: 'room' },
 	{ part: 'noun', qtw: 'pap', eng: 'pop music', etym: 'from English' },
 	{ part: 'noun', qtw: 'swüǹ', eng: 'alloy', etym: 'from "swej müf feǹ"' },
-	{ part: 'noun', qtw: 'liǹ', eng: 'pink' },
 	{ part: 'noun', qtw: 'liǹ l̃aip', eng: 'rose gold' },
 	{ part: 'noun', qtw: 'miǹ', eng: 'tin' },
 	{ part: 'noun', qtw: 'fyeǹ', eng: 'bronze' },
@@ -1834,9 +1922,6 @@ sourceData = [
 	{ part: 'noun', qtw: 'baum', eng: 'constitution', etym: 'From "baǹ \'op leim"' },
 	{ part: 'noun', qtw: 'Alabama bwap', eng: 'Alabama', etym: 'A La Ba Ma' },
 	{ part: 'noun', qtw: 'Alabama bwap kwa baum', eng: 'constitution of Alabama' },
-	{ part: 'noun', qtw: 'l̃al', eng: 'cherry' },
-	{ part: 'noun', qtw: 't̃i', eng: 'carrot' },
-	{ part: 'noun', qtw: 'uk', eng: 'coconut' },
 	{ part: 'noun', qtw: 'baǹ vüm', eng: 'nationalism' },
 	{ part: 'noun', qtw: 'baǹ ťwaiw oy vüm', eng: 'racial supremacism, supremacism' },
 	{ part: 'noun', qtw: 'čip', eng: 'methane (synonym of "l̃ën ťyam lak")', etym: 'from  "t̃on ťyam nit l̃wop", as the fourth substance discovered from the YB́ǸUCASU' },
@@ -1888,6 +1973,7 @@ sourceData = [
 	{ part: 'noun', qtw: 'f̌ey', eng: 'liquid', etym: 'From "f̌en f̌wey"' },
 	{ part: 'noun', qtw: 'niy', eng: 'gas', etym: 'From "nit f̌wey"' },
 	{ part: 'noun', qtw: '\'wey', eng: 'plasma', etym: 'From "\'ay f̌wey"' },
+	{ part: 'noun', qtw: 'lem', eng: 'paste, gel' },
 	{ part: 'noun', qtw: 'd̰́is', eng: 'borax' },
 	{ part: 'noun', qtw: 'čen', eng: 'dust' },
 	{ part: 'noun', qtw: 'čuet', eng: 'ash', etym: 'From "cuec čen"' },
@@ -2239,7 +2325,7 @@ sourceData = [
 	{ part: 'noun', qtw: 'we gwop', eng: 'marker (Twanthainese grammar)', extra: 'It can also encompass words of similar grammatical categories in other languages, such as particles. By some analyses, the English "\'s" could be considered a "we gwop".' },
 	{ part: 'noun', qtw: 'ťa gwop', eng: 'number word' },
 	{ part: 'noun', qtw: 'ťa ǹaup', eng: 'digit (of a number system)' },
-	{ part: 'noun', qtw: 'Ťwaiw gap', eng: 'Twanthainese', etym: 'From "twan ťain wwaiw gap"' },
+	{ part: 'noun', qtw: 'Ťwaiw gap', eng: 'Twanthainese', etym: 'From "twan ťain wwaiw gap"', extra: '"ទ្វាឭវ៑ កាៈព៑" in the Khmer script.' },
 	{ part: 'noun', qtw: 'twan ťain wwaiw gap', eng: '(historical) Twanthainese', extra: 'Still sometimes used' },
 	{ part: 'noun', qtw: 'Ťwaiw Baǹ', eng: 'Twanthain (the country of the Twanthainese)', extra: 'The English name is an Anglicization of "twan ťain [wwaiw]". Based on the modern orthography, it would be written as "Twanťain" or "Twantfain"; however, the English who made contact with the people wrote it as "Twanthain"' },
 	{ part: 'noun', qtw: 'Ťwaiw Wwëy Ḱüy Baǹ ', eng: 'The full official name of Twanthain', etym: 'lit. "People[\'s] Democratic Republic"', extra: 'Despite the name, Twanthain was never socialist.' },
@@ -2417,11 +2503,15 @@ sourceData = [
 	{ part: 'adjective', qtw: '\'aǹ', eng: 'tired', etym: 'Onomatopoeia for sighing' },
 	{ part: 'adjective', qtw: 'mem', eng: 'the same, equal' },
 	{ part: 'adjective', qtw: 'dyam', eng: 'different, not the same, unequal' },
+	{ part: 'adjective', qtw: 'sai', eng: 'reflective' },
 	{ part: 'adjective', qtw: 'bui', eng: 'deep' },
 	{ part: 'adjective', qtw: 't̃uǹ', eng: 'heavy' },
 	{ part: 'adjective', qtw: 'syën', eng: 'effective, good (for)' },
 	{ part: 'adjective', qtw: 'sëj', eng: 'well (in a good state)' },
 	{ part: 'adjective', qtw: 'soj', eng: 'moral, morally good' },
+	{ part: 'adjective', qtw: 'f̌lyu̇y müf', eng: 'chiral (of a substance)' },
+	{ part: 'adjective', qtw: 'f̌lyan', eng: 'of left chirality', etym: 'From "f̌lyu̇y" and an arbitrary component"' },
+	{ part: 'adjective', qtw: 'f̌lyep', eng: 'of right chirality', etym: 'From "f̌lyu̇y" and an arbitrary component"' },
 	{ part: 'verb', qtw: 'woin', eng: 'to walk' },
 	{ part: 'verb', qtw: 'pën', eng: 'to eat' },
 	{ part: 'verb', qtw: 'syek', eng: 'to learn' },
@@ -2437,10 +2527,17 @@ sourceData = [
 	{ part: 'verb', qtw: 'tan', eng: 'to buy' },
 	{ part: 'verb', qtw: '\'eǹ', eng: 'to anoint', etym: 'Possibly from Proto-Into-European' },
 	{ part: 'verb', qtw: '\'waip', eng: 'messiah, christ', etym: 'From "\'eǹ nyep (müf) wwaiw", a calque' },
-	{ part: 'verb', qtw: 'Ye Čwa ¦waip', eng: 'Jesus Christ' },
-	{ part: 'verb', qtw: 'Ye Čwa', eng: 'Jesus', etym: 'From Hebrew' },
+	{ part: 'verb', qtw: 'K̃es', eng: 'Jesus', etym: 'From Spanish' },
+	{ part: 'verb', qtw: 'Yečwa', eng: 'Jesus', etym: 'From Hebrew' },
+	{ part: 'verb', qtw: 'Jiz', eng: 'Jesus', etym: 'From English' },
+	{ part: 'verb', qtw: 'Klis', eng: 'Christ', etym: 'From Spanish' },
+	{ part: 'verb', qtw: 'Klais', eng: 'Christ', etym: 'From English' },
+	{ part: 'verb', qtw: 'K̃es Klis', eng: 'Jesus Christ', etym: 'From Spanish' },
+	{ part: 'verb', qtw: 'Yečwa ¦waip', eng: 'Jesus Christ' },
+	{ part: 'verb', qtw: 'Jiz Klais', eng: 'Jesus Christ', etym: 'From English' },
 	{ part: 'verb', qtw: '\'Waip T̃yüm', eng: 'Christianity' },
-	{ part: 'verb', qtw: '\'Waip T̃yüm kaif', eng: 'Christian church' },
+	{ part: 'verb', qtw: '\'Waip T̃yüm kaif', eng: '(dated) Christian church' },
+	{ part: 'verb', qtw: 'gles', eng: 'Christian church', etym: 'From Spanish' },
 	{ part: 'verb', qtw: 'ǹat', eng: 'to post', etym: 'From "ǹü\' wak g̋ot", lit. "to paper"', extra: '"Originally referred to posting a paper on a tree, pole, or board; now also refers to making a post on an online site or forum.' },
 	{ part: 'verb', qtw: 'la\'', eng: 'to give' },
 	{ part: 'verb', qtw: 't̃a', eng: 'to send' },
@@ -2459,6 +2556,7 @@ sourceData = [
 	{ part: 'verb', qtw: 'čal', eng: 'to remove, to get rid of' },
 	{ part: 'verb', qtw: 'tau', eng: 'to seek, to search for' },
 	{ part: 'verb', qtw: 'nal', eng: 'to sleep' },
+	{ part: 'verb', qtw: 't̃wë', eng: 'to crush' },
 	{ part: 'verb', qtw: 'sei', eng: 'to rest, to relax' },
 	{ part: 'verb', qtw: 'tai', eng: 'to find', etym: 'Related to "tau"'	},
 	{ part: 'verb', qtw: 'laa', eng: 'to survive, to overcome' },
@@ -2508,7 +2606,7 @@ sourceData = [
 	{ part: 'postposition', qtw: 'kew', eng: 'below, but not touching/not continuous' },
 	{ part: 'postposition', qtw: 'tun', eng: 'below and touching/continuous' },
 	{ part: 'postposition', qtw: 'mwen', eng: 'inside a structure or object with an inner boundary', extra: '"mwen" is not used for being in supernatural realms such as Hell. "mwen" can be used for open boxes or other containers which are missing a wall, but either "mwen" or "min" can be used for tunnels or other containers which are missing two walls. "mwen" is also used for clothes, regardless of holes.' },
-	{ part: 'postposition', qtw: 'min', eng: 'inside a medium, inside something without a clear physical boundary', extra: 'Things "min" is used for includes states of being or states of mind; media such as water or air (even if the medium is inside something with a boundary, in which case "min" can refer to being in the medium and "mwen" to being in the container), or the absence thereof i.e. vacuum' },
+	{ part: 'postposition', qtw: 'min', eng: 'inside a medium, inside something without a clear physical boundary', extra: 'Things "min" is used for includes states of being or states of mind; media such as water or air (even if the medium is inside something with a boundary, in which case "min" can refer to being in the medium and "mwen" to being in the container), or the absence thereof i.e. vacuum; school classes (but not classrooms); categories (even if they\'re well-defined); and games (physical or virtual).' },
 	{ part: 'postposition', qtw: 'lep', eng: 'during, on (in the temporal sense)' },
 	{ part: 'postposition', qtw: '\'ey', eng: 'on, onto' },
 	{ part: 'postposition', qtw: 'yop', eng: 'outside of' },
@@ -2604,17 +2702,34 @@ sourceData = [
 		<script>
 			/*Remove the CSS that forces the data to be visible, and render the data into an HTML table
 			If JavaScript is disabled, there will be no table but the data should remain visible.*/
-			
+
 			window.onload = function() {
-				doTable(sourceData);
+				var abbrevs = document.getElementById("abbreviations");
+				var warning = document.getElementById("errorWarning");
+
+				document.addEventListener("scroll",saveScroll);
+				document.addEventListener("scrollend",saveScroll);
+
+				function hideCode() {
+					var targetStyle = document.getElementById("removeMeIfScripted");
+					targetStyle.textContent = "";
+					(document.head || document.getElementsByTagName("head")[0]).removeChild(targetStyle)
+				};
+
+				try {
+					doTable(sourceData);
+					abbrevs.classList.remove("dnone");
+					hideCode()
+				} catch(error) {
+					console.error(error);
+					warning.classList.remove("dnone");
+				}
+				loadScroll();
 			}
 
-			var targetStyle = document.getElementById("removeMeIfScripted");
-			targetStyle.textContent = "";
-			(document.head || document.getElementsByTagName("head")[0]).removeChild(targetStyle);
 
 		</script>
-		
+
 	<main id="wordlist">
 		<h4>Additional information</h4>	
 		<p class="plain-font">
@@ -2723,7 +2838,7 @@ sourceData = [
 			<span class="term" lang="qtw-Latn"><span g6>lüz</span> <span g6a>wa</span> <span g3>g̋e</span> <span g4>cu̇n</span> <span g4a>kwa</span> <span g5>gyat</span> <span gnull title="There is no corresponding morpheme in the English translation">cu̇n</span> <span g2>kya'</span> <span g2a>k̋ep</span></span><br/>
 			<span class="term" lang="qtw-Latn"><span g6>rizz</span><span g6a>-er</span><span g3>-for</span> <span g4>you</span><span g4a>-'s</span> <span g5>gyatt</span> <span gnull title="There is no corresponding morpheme in the English translation">you</span> <span g2>stick_out</span><span g2a>-ing</span></span><br/>
 		</p><br/>
-		
+
 		<p class="plain-font example-triplet">
 			<span lang="en"><span g1>Roe v. Wade</span> was <span gnull>a</span> 1973 U.S. Supreme Court <span g5>decision</span>.</span></br>
 			<span class="term" lang="qtw-Latn">1973 <span gnull>ťyam wauk lep müf</span> A Me Li Ka baǹ kwa Euf Müf Bwüf kwa <span g5>wak ček</span> <span g1>Low 'om Weid̃</span> naǹ nyep.</span></br>
@@ -2734,7 +2849,7 @@ sourceData = [
 
 		<p class="plain-font example-triplet">
 			<span lang="en">Stop posting about Among Us! I'm tired from seeing it! My friends on Tiktok send me many memes, on Discord everything is fucking memes. I was in a server, right? And every channel was only Among Us stuff. I showed my Champion underwear to my girlfriend, and I turned their logo, and I said to her, "Hey, love, when the underwear is sus! HAHA DING DING DING DING DING DING DING, DI-DI-DING". I fucking looked at a trash can and said, "This is slightly sussy". I looked at my penis, thought of the astronaut's helmet, and said "Penis? More like penSUS!"! AAAAAAAAAAAAAAAAA!</span></br>
-			<span class="term" lang="qtw-Latn">A Mëǹ Ës puet ǹat kën jün Saik mi yak 'aǹ cain naǹ. Cain g̋e twan ťain mim cain kwa da T̃ik T̃ok min tai t̃a t̃ep, D̃is Kot min fyo' mim da naǹ. Së vë min cain naǹ nyep, a? Yey pë A Mëǹ Ës müf lon da čan ël naǹ nyep. Cain kwa tai jet g̋e cain kwa Čam Pi Ën müf myoin cain dal nyep, yey saik kwa lo go cain woy nyep, yey cën jet g̋e "An, seǹ, sës myoin naǹ lyo. ¦WA ¦WA DEǸ DEǸ DEǸ DEǸ DEǸ DEǸ DEǸ, DE DE DEǸ" cain twa' nyep. Mwel dep g̋e cain g̋im nyep fyo' yay "fu̇p sës müf saik naǹ" cain twa' nyep. Cain kwa dwëǹ g̋e cain g̋im nyap, nwait wwaiw kwa dan yek puet cain vad̰́ nyep, yey "DWËǸ? DWËS d́a naǹ la!" cain twa'! A A A A A A A A A A A A A A A A A!</span></br>
+			<span class="term" lang="qtw-Latn">A Mëǹ Ës puet ǹat kën jün Saik mi yak 'aǹ cain naǹ. Cain g̋e twan ťain mim cain kwa da T̃ik T̃ok min tai t̃a t̃ep, D̃is Kot min fyo' mim da naǹ. Së vë min cain naǹ nyep, a? Yey pë A Mëǹ Ës müf lon da čan ël naǹ nyep. Cain kwa tai jet g̋e cain kwa Čam Pi Ën müf myoin cain dal nyep, yey saik kwa log cain woy nyep, yey cën jet g̋e "An, seǹ, sës myoin naǹ lyo. ¦WA ¦WA DEǸ DEǸ DEǸ DEǸ DEǸ DEǸ DEǸ, DE DE DEǸ" cain twa' nyep. Mwel dep g̋e cain g̋im nyep fyo' yay "fu̇p sës müf saik naǹ" cain twa' nyep. Cain kwa dwëǹ g̋e cain g̋im nyap, nwait wwaiw kwa dan yek puet cain vad̰́ nyep, yey "DWËǸ? DWËS d́a naǹ la!" cain twa'! A A A A A A A A A A A A A A A A A!</span></br>
 			<p class="underlying" style="font-family: monospace; white-space: pre-wrap; font-size: 80%; background-color: #111; padding: 2px 2px 2px 3px; border: 1px solid #777; border-radius: 3px;">A Mëǹ Ës puet   ǹat  kën  jün   Saik mi  yak        'aǹ   cain naǹ. Cain g̋e  twan ťain     mim
 Among Us -about post stop -IMP. It   see because_of tired 1SG  be.  1SG  -to many numbered meme
 
@@ -2809,7 +2924,7 @@ AAAAAAAAAAAAAAAAA!</p></br>
 					In December of 1975, after Franco's death in the prior month, Spain ceded the territory of Nuevo San Ambrosio back to Twanthain.&#8203;&nbsp;&nbsp;&#8203;Spanish remains an official language of Twanthain today, as it remains among the most spoken languages in Twanthain besides Twanthainese.
 				</p>
 			</div>
-		
+
 		<h5 class="indent">Disorganized facts</h5>
 		<section aria-role="paragraph" class="indent">
 			<em>Many towns' names are given in the Anglicized forms, with their native forms alongside them.</em><br/>
@@ -2821,7 +2936,7 @@ AAAAAAAAAAAAAAAAA!</p></br>
 			<span class="info-pair"><span class="info-label">Country codes</span>: <span class="info-value">TI, TTN, 799 (ccTLD ".ti")</span></span><br/>
 			<span class="info-pair"><span class="info-label">Currency</span>: <span class="info-value">Twanthainese nak (symbol Ň, <span>កា</span>‌<span style="display: inline-block; position: relative; left: -8px; top: -3px;">̌</span> (the Khmer-script syllable "កា" with a hacek), currency codes TIN and 797, exchange rate ≈83Ň/US$)</span></span>
 			<p class="info-pair"><span class="info-label">Name format</span>: <span class="info-value"><span>[Family name] [Mother's given name] [Father's given name] [Given name]. Given names and surnames are usually 1 or 2 syllables long, but can rarely be longer. The usual polite way to address someone is by their family and given name.</span><br/>
-			<span class="indent" style="display: block;">Foreign full names are adapted into the Twanthainese name order whenever possible, in a certain way. The given name is placed at the end and the family name at the beginning, but parents' names are not typically dug up to use as parentonymics; however, if the foreigner comes from a society or culture that uses parentonymics (which are, in practice, usually a patronymic), then those are placed in their corresponding spots in their adapted full name, such that, for instance, "Vladimir Vladimirovich Putin" becomes "Putin Vladimirovich Vladimir" ("Put́in Vlad́imilovič Vlad́imil").</span></span></p>
+			<span class="indent" style="display: block;">Foreign full names are adapted into the Twanthainese name order whenever possible, in a certain way. The given name is placed at the end and the family name at the beginning, but parents' names are not typically dug up to use as parentonymics; however, if the foreigner comes from a society or culture that uses parentonymics (which are, in practice, usually a patronymic), then those are placed in their corresponding spots in their adapted full name, such that, for instance, "Vladimir Vladimirovich Putin" becomes "Putin Vladimirovich Vladimir" ("Put́in Vlad́imilovič Vlad́imil"). Middle names are placed after the given name.</span></span></p>
 			<span class="info-pair"><span class="info-label">Other major cities</span>: <span class="info-value">Tswenhuang, Tswenbwam (Cwen ¦waǹ, Tswen Bwam; "South City"); Twawhuang, Bwangbwam (Twaw ¦waǹ, Bwaǹ Bwam; "Forest City"); Jey Wiung Dvik Zeng City, Jeybwam (Jek̋ Wu̇ǹ Ďig Zeǹ ¦waǹ, Jek̋ Bwam), Dez Bwim Ong Lheu City, Pfeikbwam (Dez Bwim Oǹ L̃eu ¦uang, F̌eik Bwam)</span></span><br/>
 			<span class="info-pair"><span class="info-label">Provinces</span>: <span class="info-value">Pelbwam (Pel Bwam, "Gulf Province"), Pfeikbwam (F̌eik Bwam, "Delta Province"), Bwangbwam (Bwaǹ Bwam, "Mountain Province"), Nuitkaifgabwam (Nüť Kaif Ga Bwam, "Red Village Province"), Pfewbwam (F̌eu Bwam, "River Province"), Pfewhuang (F̌eu ¦waǹ, "River City"; special provincial-level city), Jeybwam (Jek̋ Bwam, "Jek̋ Province"), Tswenbwam (Cwen Bwam, "South Province")</span></span><br/>
 			<span class="info-pair"><span class="info-label">Population</span>: <span class="info-value">≈3.5 million</span></span><br/>
@@ -2829,9 +2944,62 @@ AAAAAAAAAAAAAAAAA!</p></br>
 			<span class="info-pair"><span class="info-label">Fertility rate</span>: <span class="info-value">2.73 births per woman</span></span><br/>
 			<span class="info-pair"><span class="info-label">Population growth rate</span>: <span class="info-value">1.429% per year</span></span><br/>
 			<span class="info-pair"><span class="info-label">Literacy rate</span>: <span class="info-value">98.7%</span></span><br/>
-			<span class="info-pair"><span class="info-label">Most spoken languages</span>: <span class="subpair"><span class="sublabel">Twanthainese</span>: <span class="subvalue">99.9%</span></span>, <span class="subpair"><span class="sublabel">Spanish</span>: <span class="subvalue">29.1%</span></span>, <span class="subpair"><span class="sublabel">English</span>: <span class="subvalue">24.5%</span></span>, <span class="subpair"><span class="sublabel">Indonesian</span>: <span class="subvalue">14.4%</span></span>, <span class="subpair"><span class="sublabel">Filipino/Tagalog</span>: <span class="subvalue">13.5%</span></span>, <span class="subpair"><span class="sublabel">Mandarin</span>: <span class="subvalue">11.6%</span></span>, <span class="subpair"><span class="sublabel">Taiwanese Hokkien</span>: <span class="subvalue">10.6%</span></span>, <span class="subpair"><span class="sublabel">Bisaya/Cebuano</span>: <span class="subvalue">7.8%</span></span>, <span class="subpair"><span class="sublabel">Japanese</span>: <span class="subvalue">3.6%</span></span>, <span class="subpair"><span class="sublabel">French</span>: <span class="subvalue">0.78%</span></span>, <span class="subpair"><span class="sublabel">Korean</span>: <span class="subvalue">0.7%</span></span>, <span class="subpair"><span class="sublabel">Vietnamese</span>: <span class="subvalue">0.63%</span></span>, <span class="subpair"><span class="sublabel">Portuguese</span>: <span class="subvalue">0.6%</span></span>, <span class="subpair"><span class="sublabel">Thai</span>: <span class="subvalue">0.58%</span></span>, <span class="subpair"><span class="sublabel">Khmer</span>: <span class="subvalue">0.5%</span></span>, <span class="subpair"><span class="sublabel">Lao</span>: <span class="subvalue">0.2%</span></span>, <span class="subpair"><span class="sublabel">German</span>: <span class="subvalue">0.14%</span></span>, <span class="subpair"><span class="sublabel">Burmese</span>: <span class="subvalue">0.13%</span></span>, <span class="subpair"><span class="sublabel">Bengali</span>: <span class="subvalue">0.1%</span></span>, <span class="subpair"><span class="sublabel">Chamorro</span>: <span class="subvalue">0.05%</span></span>, <span class="subpair"><span class="sublabel">Tok Pisin</span>: <span class="subvalue">0.04%</span></span>, <span class="subpair"><span class="sublabel">Haitian Creole</span>: <span class="subvalue">0.012%</span></span>, <span class="subpair"><span class="sublabel">Toki Pona</span>: <span class="subvalue">0.003%</span></span>, <span class="subpair"><span class="sublabel">Uzbek</span>: <span class="subvalue">0.0012%</span></span>, <span class="subpair"><span class="sublabel">Turkish</span>: <span class="subvalue">0.0008%</span></span>, <span class="subpair"><span class="sublabel">Polish</span>: <span class="subvalue">0.000314%</span></span>, <span class="subpair"><span class="sublabel">Serbian</span>: <span class="subvalue">0.000143%</span></span>, <span class="subpair"><span class="sublabel">Kay(f)bop(t)</span>: <span class="subvalue">0.0000286%</span></span></span><br/>
+			<div class="info-pair"><span class="info-label">Most spoken languages</span>: <ol class="info-value">
+				<li class="subpair"><span class="sublabel">Twanthainese</span>: <span class="subvalue">99.9%</span></li>
+				<li class="subpair"><span class="sublabel">Spanish</span>: <span class="subvalue">29.1%</span></li>
+				<li class="subpair"><span class="sublabel">English</span>: <span class="subvalue">24.4%</span></li>
+				<li class="subpair"><span class="sublabel">Indonesian</span>: <span class="subvalue">14.4%</span></span>, 
+				<li class="subpair"><span class="sublabel">Filipino/Tagalog</span>: <span class="subvalue">13.5%</span></span>, 
+				<li class="subpair"><span class="sublabel">Mandarin</span>: <span class="subvalue">11.6%</span></span>, 
+				<li class="subpair"><span class="sublabel">Taiwanese Hokkien</span>: <span class="subvalue">10.6%</span></span>, 
+				<li class="subpair"><span class="sublabel">Bisaya/Cebuano</span>: <span class="subvalue">7.8%</span></span>, 
+				<li class="subpair"><span class="sublabel">Japanese</span>: <span class="subvalue">3.6%</span></span>, 
+				<li class="subpair"><span class="sublabel">French</span>: <span class="subvalue">0.78%</span></span>, 
+				<li class="subpair"><span class="sublabel">Korean</span>: <span class="subvalue">0.7%</span></span>, 
+				<li class="subpair"><span class="sublabel">Vietnamese</span>: <span class="subvalue">0.63%</span></span>, 
+				<li class="subpair"><span class="sublabel">Portuguese</span>: <span class="subvalue">0.6%</span></span>, 
+				<li class="subpair"><span class="sublabel">Thai</span>: <span class="subvalue">0.58%</span></span>, 
+				<li class="subpair"><span class="sublabel">Khmer</span>: <span class="subvalue">0.5%</span></span>, 
+				<li class="subpair"><span class="sublabel">Lao</span>: <span class="subvalue">0.2%</span></span>, 
+				<li class="subpair"><span class="sublabel">German</span>: <span class="subvalue">0.14%</span></span>, 
+				<li class="subpair"><span class="sublabel">Burmese</span>: <span class="subvalue">0.13%</span></span>, 
+				<li class="subpair"><span class="sublabel">Malay</span>: <span class="subvalue">0.11%</span></span>, 
+				<li class="subpair"><span class="sublabel">Bengali</span>: <span class="subvalue">0.09%</span></span>, 
+				<li class="subpair"><span class="sublabel">Chamorro</span>: <span class="subvalue">0.05%</span></span>, 
+				<li class="subpair"><span class="sublabel">Tok Pisin</span>: <span class="subvalue">0.04%</span></span>, 
+				<li class="subpair"><span class="sublabel">Haitian Creole</span>: <span class="subvalue">0.012%</span></span>, 
+				<li class="subpair"><span class="sublabel">Toki Pona</span>: <span class="subvalue">0.003%</span></span>, 
+				<li class="subpair"><span class="sublabel">Uzbek</span>: <span class="subvalue">0.0012%</span></span>, 
+				<li class="subpair"><span class="sublabel">Turkish</span>: <span class="subvalue">0.0008%</span></span>, 
+				<li class="subpair"><span class="sublabel">Polish</span>: <span class="subvalue">0.000314%</span></span>, 
+				<li class="subpair"><span class="sublabel">Serbian</span>: <span class="subvalue">0.000143%</span></span>, 
+				<li class="subpair"><span class="sublabel">Kay(f)bop(t)</span>: <span class="subvalue">0.0000286%</span></li>
+			</ol></div><br/>
+			<span class="info-pair"><span class="info-label">National languages</span>: <span class="info-value">Twanthainese and Spanish. The difference in status between these and tthe "working" languages, below, is nil in practice, and it is mostly only a ceremonial distinction.</span></span><br/>
+			<span class="info-pair"><span class="info-label">Working languages</span>: <span class="info-value">Twanthainese, Spanish, English, Indonesian, Tagalog, Mandarin, and Taiwanese Hokkien. Twanthain's "working languages" are the usually ones in which official documentation is always provided; the difference between them and the "official" languages is minimal and nebulous, and in a sense these may all be regarded as <i>de facto</i> official languages.</span></span><br/>
+			<div class="info-pair"><span class="info-label">Most practiced religions</span>: <ol class="info-value">
+				<li class="subpair"><span class="sublabel">Christianity</span>: 42.2%: <ol class="subvalue">
+					<li class="subpair"><span class="sublabel">Catholic</span>: <span class="subvalue">98.76% of Christians (41.68% of the total population)</span></li>
+					<li class="subpair"><span class="sublabel">Protestant</span>: <span class="subvalue">0.65% of Christians (0.273% of the total population)</span></li>
+					<li class="subpair"><span class="sublabel">Other Christian</span>: <span class="subvalue">0.59% of Christians (0.247% of the total population)</span></li>
+				</ol></li>
+				<li class="subpair"><span class="sublabel">Buddhism</span>: 38.97%: <ol class="subvalue">
+					<li class="subpair"><span class="sublabel">Theravāda</span>: <span class="subvalue">99.01% of Buddhists (38.584% of the total population)</span></li>
+					<li class="subpair"><span class="sublabel">Mahāyāna</span>: <span class="subvalue">0.96% of Buddhists (0.374% of the total population)</span></li>
+					<li class="subpair"><span class="sublabel">Other Buddhist</span>: <span class="subvalue">0.03% of Buddhists (0.012% of the total population)</span></li>
+				</ol></li>
+				<li class="subpair"><span class="sublabel">Indigenous beliefs</span>: <span class="subvalue">15%</span></li>
+				<li class="subpair"><span class="sublabel">No religion</span>: <span class="subvalue">2%</span></li>
+				<li class="subpair"><span class="sublabel">Islam</span>: <span class="subvalue">1.7%: <ol class="subvalue">
+					<li class="subpair"><span class="sublabel">Shāfi'ī Sunni</span>: <span class="subvalue">99.81% of Muslims (1.69677% of the total population)</span></li>
+					<li class="subpair"><span class="sublabel">Ja'farī Shī'a</span>: <span class="subvalue">0.18% of Muslims (0.00306% of the total population)</span></li>
+					<li class="subpair"><span class="sublabel">Other Muslim</span>: <span class="subvalue">0.01% of Muslims (0.00017% of the total population)</span></li>
+				</ol></li>
+				<li class="subpair"><span class="sublabel">Other non-indigenous religions</span>: <span class="subvalue">0.13%</span></span>, 
+			</ol></div><br/>
+			<span class="info-pair"><span class="info-label">State religion</span>: <span class="info-value">None</span></span><br/>
 			<span class="info-pair"><span class="info-label">Foreign Twanthainese learners</span>: <span class="info-value">≈21,840</span></span><br/>
-			<span class="info-pair"><span class="info-label">Largest packaging company</span>: <span class="info-value">Woth Pywe Mwez Tfody Packaging (Woť Ṕwe Mwez Ťoď̰ Waip Müf Yuaǹ)</span></span><br/>
+			<span class="info-pair"><span class="info-label">Largest packaging company</span>: <span class="info-value">Woth Htody-Khos Northern Packaging Company (Woť Ťoď̰-K̃os Nyon Müf Waip Müf Yuaǹ)</span></span><br/>
 			<span class="info-pair"><span class="info-label">Main trading partners</span>: <span class="info-value">China, United States (notably Guam), Japan, Indonesia, the Philippines, Cambodia</span></span>
 			<div class="info-pair"><span class="info-label">Other</span>: <ul class="info-value">
 				<li>Twanthain was occupied by Japan from 1939 to 1945.</li>
@@ -2852,9 +3020,14 @@ AAAAAAAAAAAAAAAAA!</p></br>
 
 	<h5 class="indent">Twanthainese</h5>
 	<section id="twanthaineseLore">
-		<p id="lore1" class="indent plain-font">
-			In-universe, Twanthainese is regulated by the Ministry of the Twanthainese Language (Ťwaiw Gap Puet Bat Dwop). MTL/ŤGPBD mostly concerns themselves with co-ordinating word-blend compounds while avoiding homonymy whenever possible, and ensuring the phonetic loaning of endonyms; besides those major undertakings, it does not engage in much prescriptivism. They do maintain a descriptive dictionary.
-		</p>
+		<div id="lore1" class="indent plain-font" aria-role="paragraph">
+			In-universe, Twanthainese is regulated by the Ministry of the Twanthainese Language (Ťwaiw Gap Puet Bat Dwop/ទ្វាឭវ៑ កាៈព៑ ពូឯត៑ ពាៈត៑ ត្វុៈព៑). The MTL/ŤGPBD/ទកៈពពៈតៈ mostly concerns themselves with: <ul>
+				<li>co-ordinating word-blend compounds, while avoiding homonymy whenever possible,</li>
+				<li>keeping the language's orthographies phonetic, and</li>
+				<li>ensuring that endonyms are loaned phonemically.</li>
+			</ul>
+			Besides those major undertakings, it does not engage in much prescriptivism.
+		</div>
 
 		<section id="names">
 			<h5>Sample names</h5>
