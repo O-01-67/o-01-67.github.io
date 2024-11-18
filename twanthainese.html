@@ -225,6 +225,7 @@
 
 			abbr:hover::after {
 				content: ' (' attr(title) ')';
+				opacity: 0.8;
 			}
 
 			abbr:hover::after::after {
@@ -517,7 +518,7 @@
 	</head>
 	<body style="font-size: 110%;">
 		<h1>Twanthainese</h1>
-		<span id="version" title="Version 2.0 is designated as a division point due to massive changes to the phonology and corresponding breaking changes to the orthography, and significant changes to the lexicon.  Version 3.0 is where I add a bunch of lore and another phoneme.  Version 3.1 involves adding articles and a major phonotactical change. Version 4.0 is where I add FAAAAAAAR too many tones. (the hell begins)">Version 4.0</span>
+		<span id="version" title="Version 2.0 is designated as a division point due to massive changes to the phonology and corresponding breaking changes to the orthography, and significant changes to the lexicon.  Version 3.0 is where I add a bunch of lore and another phoneme.  Version 3.1 involves adding articles and a major phonotactical change. Version 4.0 is where I add FAAAAAAAR too many tones. (the hell begins). Version 4.1 sees a rhotic and post-alveolar plosives added.">Version 4.1</span>
 		<p id="description" class="alert">Twanthainese is a conlang I just made up for fun.&#8203;&nbsp;&nbsp;&#8203;This page is a <em>work in progress</em>, under construction; features of this conlang may radically and massively change at any time without prior notice.</p><br/>
 
 <section id="phonology">
@@ -826,7 +827,7 @@
 						<th colspan="3">&nbsp;</th>
 						<th colspan="2">Labial</th>
 						<th colspan="2">Labiodental</th>
-						<th>Dental</th>
+						<th colspan="2">Dental</th>
 						<th colspan="2">Alveolar</th>
 						<th colspan="2">Post-alveolar</th>
 						<th colspan="2">Palatal</th>
@@ -835,11 +836,12 @@
 					</tr>
 					<tr>
 						<th colspan="3">&nbsp;</th>
-						<th><abbr title="Voiceless">V'less</abbr></th>
-						<th>Voiced</th>
 						<th>V'less</th>
 						<th>Voiced</th>
 						<th>V'less</th>
+						<th>Voiced</th>
+						<th>V'less</th>
+						<th>Voiced</th>
 						<th>V'less</th>
 						<th>Voiced</th>
 						<th>V'less</th>
@@ -855,6 +857,7 @@
 						<th rowspan="2">Plain</th>
 						<th>Unreleased</th>
 						<td>p̚</td>
+						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
@@ -878,10 +881,11 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>t̪͆</td>
+						<td>d̪͆</td>
 						<td>t</td>
 						<td>d</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<td>t̠</td>
+						<td>d̠</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>k</td>
@@ -892,6 +896,7 @@
 						<!--Plosive-->
 						<th>Palatalized</th>
 						<!--Released-->
+						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
@@ -915,6 +920,7 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
+						<td>&nbsp;</td>
 						<td>n̪~n</td>
 						<td>&nbsp;</td>
 						<td>n̠~ɳ</td>
@@ -930,8 +936,9 @@
 						<td>&nbsp;</td>
 						<td>f</td>
 						<td>v</td>
-						<td>θ̆</td>
-						<td>s̆</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+						<td>s</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
@@ -943,6 +950,7 @@
 					</tr>
 					<tr>
 						<th colspan="3">Affricate</th>
+						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
@@ -961,6 +969,7 @@
 					<tr>
 						<th colspan="3">Approximant</th>
 						<td>u̯</td>
+						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
@@ -1328,7 +1337,7 @@
 						<td>/t̚/ [t̪͆̚]</td>
 						<td>t̪͆</td>
 						<td>t̚</td>
-						<td>dʲ</td>
+						<td>d̪͆</td>
 						<td>l</td>
 						<td colspan="2">t̚</td>
 						<td>t</td>
@@ -1354,7 +1363,7 @@
 						<td>u̯</td>
 						<td colspan="2">f</td>
 						<td colspan="2">l</td>
-						<td>s~s̆</td>
+						<td>s</td>
 						<td>i̯</td>
 						<td>ʔ</td>
 					</tr>
@@ -1370,14 +1379,14 @@
 	<section id="phonotactics">
 		<h2>Phonotactics:</h2>
 		<main class="plain-font" aria-role="paragraph">
-			The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(/l/)(<abbr title="V: Any nasal">N</abbr>)(/l/)(/j/ or /w/)<abbr title="V: Any vowel (or polyphthong)">V</abbr>(V)(V)T(C).<ul>
+			The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(<abbr title="L: Any liquid (/ɾ/ or /l/)">L</abbr>)(<abbr title="V: Any nasal">N</abbr>)(L)(<abbr title="SV: Any semivowel (/j/ or /w/)">SV</abbr>)<abbr title="V: Any vowel (or polyphthong)">V</abbr>(V)(V)T(C).<ul>
 				<li>ថ្មល្វាង៑ t̃mlyaǹ, ថ្លម្យាង៑ t̃lmyaǹ, ថ្មយាង៑ t̃myaǹ, ថ្លយាង៑ t̃lyaǹ</li>
 				<li>Polyphthongs carry one tone.</li>
-				<li>When an aspirated plosive precedes an /l/ medial, the aspiration is moved to after the /l/.</li>
+				<li>When an aspirated plosive precedes a liquid medial, the aspiration is moved to after the liquid.</li>
 				<li>/j/ palatalizes an initial plosive or affricate, if one is present, whereas the vowel [i] alone may or may not. /ŋ/ palatalizes to [ŋ̟]/[ɲ̠] (the pre-velar nasal).</li>
 				<li>/e̞/ shifts to /ɛ/ after an aspirated consonant.</li>
 				<li>/ji/ shifts /n/ to [ɲ] and /ŋ/ to [n].</li>
-				<li>A consonant cannot have more than one /l/ medial.</li>
+				<li>A consonant cannot have more than one liquid medial.</li>
 				<li>Likewise, /w/ labializes a preceding plosive (but not necessarily an affricate).</li>
 				<li>&lt;ww&gt; is realized as [wː~ʰw~wu̯~u̯w] and &lt;yy&gt; is realized as [jː~ji̯~i̯j].</li>
 				<li>[j] palatalizes &lt;č&gt; [t̠͡ʃ] to [t͡ʲɕ] and &lt;j&gt; [d̠͡ʒ] to [d͡ʲʑ].</li>
@@ -1398,7 +1407,7 @@
 	<h3>Grammar</h3>
 	<main> 
 		<p class="plain-font">
-			Verbs do not conjugate, instead using grammatical markers to indicate information such as tense; the citation form of a verb is marked for tense (past, present, or future), but the present marker can generally be omitted.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters.&#8203;&nbsp;&nbsp;&#8203;Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Aspect markers come between the verb and the tense marker; mood markers come after aspect markers (<abbr title="Verb">V</abbr>-<abbr title="Aspect">A</abbr>-<abbr title="Mood">M</abbr>-<abbr title="Tense">T</abbr>).&#8203;&nbsp;&nbsp;&#8203;Adverbs come after the verb and T.A.M markers.&#8203;&nbsp;&nbsp;&#8203;Modifiers come before the nouns they modify (e.g. <span style="color: #4f7fff;">blue</span>&nbsp;car), and this is often the order in which compounding usually proceeds; but often compounds deviate from this order due to phonotactics.&#8203;&nbsp;&nbsp;&#8203;Twanthainese uses an <abbr title="Object">O</abbr><abbr title="Subject">S</abbr>V (<abbr title="Indirect object">I</abbr>-<abbr title="Direct object">D</abbr>-S-V) order and postpositions, which can be chained.&#8203;&nbsp;&nbsp;&#8203;The subject can be omitted in an imperative statement.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters. Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Twanthainese is in the process of developing articles, but currently they are optional and used inconsistently; grammatically, they behave like adjectives.&#8203;&nbsp;&nbsp;&#8203;Adjectives do not follow a set order, but native speakers tend to order them alphabetically but may deviate from this order for emphasis (with the emphasized adjectives coming first).
+			Verbs do not conjugate, instead using grammatical markers to indicate information such as tense; the citation form of a verb is marked for tense (past, present, or future), but the present marker can generally be omitted.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters.&#8203;&nbsp;&nbsp;&#8203;Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Aspect markers come between the verb and the tense marker; mood markers come after aspect markers (<abbr title="Verb">V</abbr>-<abbr title="Aspect">A</abbr>-<abbr title="Mood">M</abbr>-<abbr title="Tense">T</abbr>).&#8203;&nbsp;&nbsp;&#8203;Adverbs come after the verb and T.A.M markers.&#8203;&nbsp;&nbsp;&#8203;Modifiers come before the nouns they modify (e.g. <span style="color: #4f7fff;">blue</span>&nbsp;car), and this is often the order in which compounding usually proceeds; but often compounds deviate from this order due to phonotactics.&#8203;&nbsp;&nbsp;&#8203;Twanthainese uses an <abbr title="Object">O</abbr><abbr title="Subject">S</abbr>V (<abbr title="Indirect object">I</abbr>-<abbr title="Direct object">D</abbr>-S-V) order and postpositions, which can be chained.&#8203;&nbsp;&nbsp;&#8203;The subject can be omitted in an imperative statement.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 52 letters. Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Twanthainese acquired articles from Spanish influence, and they are used mostly-consistently; grammatically, they behave like adjectives.&#8203;&nbsp;&nbsp;&#8203;Adjectives do not follow a set order, but native speakers tend to order them alphabetically but may deviate from this order for emphasis (with the emphasized adjectives coming first).
 			<!--i'm with the boomers on this one, using 2 spaces after each sentence is more readable to me-->
 		</p>
 	</main>
@@ -2999,7 +3008,7 @@ sourceData = [
 
 		<p class="plain-font example-triplet">
 			<span lang="en" class="height"><span class="box"><span g4>2NE1</span><span g4a>'s</span> <span g1>CL</span> <span g2>is</span> <span g3>from</span> <span g5>Korea</span></span>. <span class="box2"><span g4>Her</span> <span g1>name</span> <span g2>is</span> <span g5>Chaerin Lee</span></span>. <span class="box3"><span g1>She</span> <span g2>g<span g2a>a</span>ve</span> <span g6>me</span> <span g4a>two</span> <span g4b>diamond</span> <span g4>pickaxes</span> <span g3>in</span> <span g5>Minecraft</span>.</span></span><br/>
-			<span class="term height"><span class="box"><span g5>¦anguk baǹ</span> <span g3>ko</span> <span g4 title="Ťen U̇n Et L̃ën">2NE1</span> <span g4a>kwa</span> <span g1 title="Ce Le">CL</span> <span g2>naǹ</span></span>. <span class="box2"><span g5>I Čailin</span> <span g4>cëek</span> <span g1>cüp</span> <span g2>naǹ</span>.</span> <span class="box3"><span g5>Mainklaftë</span> <span g3>min</span> <span g6>cain</span> <span g4a>ťen ťain</span> <span g4b>pu̇k̰̋ mü̠f</span> <span g4>lna</span> <span g1>cëet</span> <span g2>la'</span> <span g2a>nye̠p</span></span>.</span><br/>
+			<span class="term height"><span class="box"><span g5>¦anguk baǹ</span> <span g3>ko</span> <span g4 title="Ťen U̇n Et L̃ën">2NE1</span> <span g4a>kwa</span> <span g1 title="Ce Le">CL</span> <span g2>naǹ</span></span>. <span class="box2"><span g5>I Čairin</span> <span g4>cëek</span> <span g1>cüp</span> <span g2>naǹ</span>.</span> <span class="box3"><span g5>Mainklaftë</span> <span g3>min</span> <span g6>cain</span> <span g4a>ťen ťain</span> <span g4b>pu̇k̰̋ mü̠f</span> <span g4>lna</span> <span g1>cëet</span> <span g2>la'</span> <span g2a>nye̠p</span></span>.</span><br/>
 			<span class="term height"><span class="box"><span g5>អាណ៑កូៈក៑ ពាៈង៑</span> <span g3>កុ</span> <span g4 title="ទណ៑ ឪណ៑ ឯត៑ ឡិណ៑">២ណឯ១</span> <span g4a>កា្វ</span> <span g1 title="ឝ ល">ឝល</span> <span g2>ណាង៑</span></span>។ <span class="box2"><span g5>ឭ ឞាឭលីណ៑</span> <span g4>ឝិឯត៑</span> <span g1>ឝឺព៑</span> <span g2>ណាង៑</span>។</span> <span class="box3"><span g5>មាឭណ៑ក្លាភ៑តិ</span> <span g3>មីណ៑</span> <span g6>ឝាឭណ៑</span> <span g4a>ទណ៑ ទាឭណ៑</span> <span g4b>ពឹឆ៑ មឺភ</span> <span g4>ល្ណា</span> <span g1>ឝិឯក៑</span> <span g2>លាអ៑</span> <span g2a>ណ្យព៑</span></span>៕</span><br/>           
 			<span class="underlying height"><span class="box"><span g5>Korea</span><span g3>-from</span> <span g4 title="Two N E One">2NE1</span><span g4a>-'s</span> <span g1 title="C L">CL</span> <span g2>is</span></span>. <span class="box2"><span g5>Lee Chaerin</span> <span g4>her</span> <span g1>name</span> <span g2>is</span></span>. <span class="box3"><span g5>Minecraft</span><span g3>-in</span> <span g6>me</span> <span g4a>two-numbered</span> <span g4b>diamond-y</span> <span g4>pickaxe</span> <span g1>she</span> <span g2>give</span><span g2a>-ed</span></span>.</span>
 		</p><br/>
