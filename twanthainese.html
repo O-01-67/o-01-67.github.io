@@ -82,7 +82,7 @@
 				border: 1px solid red;
 				padding: 8px;
 			}
-
+			
 			.alert {
 				background-color: #2f2f00;
 				color: white;
@@ -525,7 +525,8 @@
 	<section id="initials">
 		<h3>Initials:</h3>
 		<main>
-			<table class="plain-font">
+			<div id="initialCounter"><span id="initialsCount">&nbsp;</span></div>
+			<table class="plain-font" id="initialsTable">
 				<tbody>
 					<tr>
 						<th colspan="2">&nbsp;</th>
@@ -567,8 +568,8 @@
 						<td>d̪͆</td>
 						<td>t</td>
 						<td>d</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<td>t̠</td>
+						<td>d̠</td>
 						<td>c</td>
 						<td>ɟ</td>
 						<td>k</td>
@@ -586,9 +587,9 @@
 						<td>d̪͆ʱ~ð</td>
 						<td>tʰ</td>
 						<td>dʱ</td>
+						<td>t̠ʰ</td>
+						<td>d̠ʱ</td>
 						<td>c͡ç~cʰ</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>kʰ~k͡x</td>
 						<td>gʱ</td>
@@ -601,7 +602,7 @@
 						<td>bʲ</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<td>t̪͆ʲ</td>
 						<td>&nbsp;</td>
 						<td>tʲ</td>
 						<td>dʲ&nbsp;</td>
@@ -620,7 +621,7 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<td>t̪͆ʲʰ</td>
 						<td>&nbsp;</td>
 						<td>tʲʰ</td>
 						<td>dʲʱ</td>
@@ -643,7 +644,7 @@
 						<td>&nbsp;</td>
 						<td>n̪~n</td>
 						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<td>n̠</td>
 						<td>&nbsp;</td>
 						<td>ɲ</td>
 						<td>&nbsp;</td>
@@ -651,7 +652,7 @@
 						<td>&nbsp;</td>
 					</tr>
 					<tr>
-						<th colspan="2">Liquid</th>
+						<th colspan="2">Rhotic</th>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
@@ -659,7 +660,7 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
-						<td>ɾ~l</td>
+						<td>ɾ~r</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
@@ -691,7 +692,7 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>p̪͡f</td>
-						<td>&nbsp;</td>
+						<td>b̪͡v</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>t͡s</td>
@@ -731,7 +732,7 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<td>l</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
@@ -749,13 +750,13 @@
 		*/bʱ/ merged into /b/
 		*/pʰ/ merged into /ɸ~f/
 		*/pʲʰ/ and */bʲʱ/ became /fʲ/ and /vʲ/
-		#/t̪͆ʲ/, #/t̪͆ʲʰ/, #/d̪͆ʲ/, and #/d̪͆ʲʱ/ never developed
-		*/cʰ/ became /c͡ç/
+		*/d̪͆ʲ/ and */d̪͆ʲʱ/ never developed
+		#/t̠ʲ/, #/d̠ʲ/, #/t̠ʲʰ/, and #/d̠ʲʱ/ never developed
+		*/cʰ/ became freely variant with /c͡ç/
 		*/ɟʱ/ merged into /j/
 		#/cʲ/, #/cʲʰ/, #/ɟʲ/, and #/ɟʲʱ/ never developed (you can't really palatalize a palatal consonant)
-		#/ɲ/ never developed
 		*/z/ merged into /s/
-		#/b̪͡v/ never developed
+		#/v/ merged into /f/
 	--> 
 
 	<section id="vowels">
@@ -818,7 +819,8 @@
 	<section id="finals">
 		<h3>Finals:</h3>
 		<main>
-			<table class="plain-font">
+			<div id="finalCounter"><span id="finalsCount">&nbsp;</span></div>
+			<table class="plain-font" id="finalsTable">
 				<tbody>
 					<tr>
 						<th colspan="3">&nbsp;</th>
@@ -915,7 +917,7 @@
 						<td>&nbsp;</td>
 						<td>n̪~n</td>
 						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<td>n̠~ɳ</td>
 						<td>&nbsp;</td>
 						<td>ɲ</td>
 						<td>&nbsp;</td>
@@ -979,7 +981,7 @@
 	</section>
 
 	<!--Shifts, merges, and exceptions:
-		Final */cʰ/ lenited into /ç/
+		Final */cʰ/ may lenite into /ç/
 		Final */c/ became /i̯/
 		Second sound shift on top of the one that created /fʲ/ and /vʲ/: */fʲ/ and */vʲ/ depalatalized word-finally to /f/ and /v/
 	--> 
@@ -987,9 +989,10 @@
 	<section id="orthography">
 		<h2>Orthography</h2>
 		<main>
-			<table class="plain-font" style="font-size: 68%;">
+			<div id="letterCounter"><span id="lettersCount">&nbsp;</span></div>
+			<table class="plain-font" style="font-size: 68%;" id="lettersTable">
 				<tbody>
-					<tr>
+					<tr id="romanRow">
 						<th>Roman letter</th>
 						<td rowspan="2">m</td>
 						<td rowspan="2">n</td>
@@ -1007,6 +1010,7 @@
 						<td>ť̰</td>
 						<td>ď</td>
 						<td>ď̰</td>
+						<td rowspan="2">r</td>
 						<td rowspan="2">t</td>
 						<td>t́</td>
 						<td rowspan="2">u</td>
@@ -1017,6 +1021,10 @@
 						<td>d̃</td>
 						<td rowspan="2">o</td>
 						<td>d̰́</td>
+						<td>t̀</td>
+						<td>t̰̀</td>
+						<td>d̀</td>
+						<td>d̰̀</td> 
 						<td>k̋</td>
 						<td>k̰̋</td>
 						<td>g̋</td>
@@ -1074,6 +1082,10 @@
 						<td>dy</td>
 						<td>dh</td>
 						<td>dyh</td>
+						<td>tr</td>
+						<td>trh</td>
+						<td>dr</td>
+						<td>drh</td>
 						<td>yky</td>
 						<td>ykyh</td>
 						<td>ygy</td>
@@ -1118,6 +1130,7 @@
 						<td>ҭъ</td>
 						<td>д̣</td>
 						<td>д̣ъ</td>
+						<td>р</td>
 						<td>т</td>
 						<td>ть</td>
 						<td>у</td>
@@ -1128,6 +1141,10 @@
 						<td>дъ</td>
 						<td>о</td>
 						<td>дьъ</td>
+						<td>тꙏ</td>
+						<td>тꙏь</td>
+						<td>дꙏ</td>
+						<td>дꙏь</td>
 						<td>ҝ</td>
 						<td>ҝъ</td>
 						<td>ӷ</td>
@@ -1174,6 +1191,7 @@
 						<td>ធ</td>
 						<td>ទៈ</td>
 						<td>ធៈ</td>
+						<td>រ</td>
 						<td>ត</td>
 						<td>ត៉</td>
 						<td>ឩ/ូ</td>
@@ -1184,6 +1202,10 @@
 						<td>ថៈ</td>
 						<td>ឧ/ុ</td>
 						<td>ថ៉ៈ</td> <!--ឌ-->
+						<td>ត៊</td> 
+						<td>ថ៊</td>
+						<td>ត៊ៈ</td> 
+						<td>ថ៊ៈ</td>
 						<td>ជ</td>
 						<td>ឆ</td>
 						<td>ជៈ</td>
@@ -1242,6 +1264,7 @@
 						<td>t̪͆ʰ~θ</td>
 						<td>d̪͆</td>
 						<td>d̪͆ʱ~ð</td>
+						<td>ɾ~r</td>
 						<td>t</td>
 						<td>tʲ</td>
 						<td rowspan="2">u</td>
@@ -1252,6 +1275,10 @@
 						<td>dʱ</td>
 						<td rowspan="2">o</td>
 						<td>dʲʱ</td>
+						<td>t̠</td>
+						<td>t̠ʰ</td>
+						<td>d̠</td>
+						<td>d̠ʱ</td>
 						<td>c</td>
 						<td>c͡ç~cʰ</td>
 						<td>ɟ</td>
@@ -1302,14 +1329,19 @@
 						<td>t̪͆</td>
 						<td>t̚</td>
 						<td>dʲ</td>
+						<td>l</td>
 						<td colspan="2">t̚</td>
 						<td>t</td>
 						<td>tʲ</td>
 						<td colspan="2">t̚</td>
 						<td>d</td>
 						<td>dʲ</td>
+						<td>/t̚/ [t̠̚]</td>
+						<td>t̠</td>
+						<td>/d̚/ [d̠̚]</td>
+						<td>d̠</td>
 						<td>i̯</td>
-						<td>c</td>
+						<td>c~ç</td>
 						<td>i̯</td>
 						<td>k̚</td>
 						<td>/k̚/ [k̟̚]</td>
@@ -1328,7 +1360,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<p class="plain-font">The capital form of <span aria-hidden="true">' </span><span class="screenreader"> the apostrophe </span>&#8203; &#8203;is <span aria-hidden="true">¦<span class="screenreader"> the broken bar</span>.&#8203;&nbsp;&nbsp;&#8203;The orthographies have 53 letters.&#8203;&nbsp;&nbsp;&#8203;Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Ambiguities in the ASCII notation are disambiguated with the dash/hyphen "-" (e.g. "dy-a" (d́a) vs. "d-ya" (dya)).&#8203;&nbsp;&nbsp;&#8203;Polyphthongs carry a single overarching tone, which is marked with a diacritic on the last vowel.&#8203;&nbsp;&nbsp;&#8203;The mid tone is unmarked, but when it becomes necessary to orthographically separate it from an adjacent vowel with its own tone, it is marked with the vertical line ◌̍. The letter "i" keeps its <abbr title="The dot over the lowercase I or J">tittle</abbr> under a tone diacritic (e.g. "i̇̌") unless vertical space limitations necessitate its omission.<br/>
+			<p class="plain-font">The capital form of <span aria-hidden="true">' </span><span class="screenreader"> the apostrophe </span>&#8203; &#8203;is <span aria-hidden="true">¦<span class="screenreader"> the broken bar</span>.&#8203;&nbsp;&nbsp;&#8203;Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Ambiguities in the ASCII notation are disambiguated with the dash/hyphen "-" (e.g. "dy-a" (d́a) vs. "d-ya" (dya)).&#8203;&nbsp;&nbsp;&#8203;Polyphthongs carry a single overarching tone, which is marked with a diacritic on the last vowel.&#8203;&nbsp;&nbsp;&#8203;The mid tone is unmarked, but when it becomes necessary to orhographically separate it from an adjacent vowel with its own tone, it is marked with the vertical line ◌̍. The letter "i" keeps its <abbr title="The dot over the lowercase I or J">tittle</abbr> under a tone diacritic (e.g. "i̇̌") unless vertical space limitations necessitate its omission.<br/>
 			<span class="indent" id="orthographyFootnote1"><sup><a href="#orthographyFootnote1Note">1</a></sup> <i>The Cyrillic orthography was created by someone on the Internet and intended as a joke/shitpost, and is only used humorously and extremely rarely.</i></span><br/>
 			<span class="indent" id="orthographyFootnote2"><sup><a href="#orthographyFootnote2Note">2</a></sup> <i>The Khmer orthography uses ◌៑ as a virama, which is used to suppress the vowel in syllable-final consonants. It also uses the subscript forms ◌្ល, ◌្វ, and ◌្យ to represent the medials [l], [w], and [j]. Its inherent vowel is [e], which is unmarked. Western-style punctuation marks are sometimes used, but traditional Khmer punctuation are also used (mainly ។ as a period and ៕ to mark the end of a text).</i></span><br/>
 			</p>
@@ -2826,6 +2858,57 @@ sourceData = [
 			window.addEventListener("load", function() {
 				var abbrevs = document.getElementById("abbreviations");
 				var warning = document.getElementById("errorWarning");
+				nbsp = String.fromCharCode(0xA0);
+				
+				//Display the number of initials
+				var initialsTable = document.getElementById("initialsTable");
+				var initialCells = initialsTable.querySelectorAll("tr td");
+				var initialCount = 0;
+				for(var i = 0; i < initialCells.length; i++) {
+					var text = initialCells[i].textContent;
+					if(text.length > 0 && text !== nbsp) {
+						initialCount++
+					};
+				};
+				var initialsText = document.getElementById("initialsCount");
+				initialsText.textContent = `${initialCount.toLocaleString()} initial consonant${initialCount == 1 ? "" : "s"}`
+				loadScroll();
+
+				//Display the number of finals
+				var finalsTable = document.getElementById("finalsTable");
+				var finalCells = finalsTable.querySelectorAll("tr td");
+				var finalCount = 0;
+				for(var i = 0; i < finalCells.length; i++) {
+					var text = finalCells[i].textContent;
+					if(text.length > 0 && text !== nbsp) {
+						finalCount++
+					};
+				};
+				var finalsText = document.getElementById("finalsCount");
+				finalsText.textContent = `${finalCount.toLocaleString()} final consonant${finalCount == 1 ? "" : "s"}`
+
+				//Display the number of letters (based on Latin count)
+				var lettersTable = document.getElementById("romanRow");
+				var letterCells = lettersTable.childNodes;
+				var letterCount = 0;
+				var cellsCounted = 0;
+				for(var i = 0; i < letterCells.length; i++) {
+					var cell = letterCells[i];
+					var tagName = cell.tagName;
+					if(tagName == undefined) { continue };
+					if(cellsCounted == 0 && tagName == "TH") { continue };
+					if(cellsCounted > 0 && tagName == "TH") {
+						break
+					};
+					if(tagName == "TD") {
+						letterCount++
+					};
+					cellsCounted++
+				};
+				var lettersText = document.getElementById("lettersCount");
+				lettersText.textContent = `${letterCount.toLocaleString()} letter${letterCount == 1 ? "" : "s"}`
+
+				loadScroll();
 
 				document.addEventListener("scroll",saveScroll);
 				document.addEventListener("scrollend",saveScroll);
@@ -2844,7 +2927,6 @@ sourceData = [
 					console.error(error);
 					warning.classList.remove("dnone");
 				}
-				loadScroll();
 			})
 		</script>
 
