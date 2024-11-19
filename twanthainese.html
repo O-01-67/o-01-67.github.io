@@ -90,6 +90,13 @@
 				padding: 8px;
 			}
 
+			.advisory {
+				background-color: #00182f;
+				color: white;
+				border: 1px solid #007fff;
+				padding: 8px;
+			}
+
 			table.plain-font > tbody > tr > th {
 				font-family: 'Gamja Flower', 'Comic Mono', 'Arial', sans-serif;
 				font-size: 140%;
@@ -520,6 +527,7 @@
 		<h1>Twanthainese</h1>
 		<span id="version" title="Version 2.0 is designated as a division point due to massive changes to the phonology and corresponding breaking changes to the orthography, and significant changes to the lexicon.  Version 3.0 is where I add a bunch of lore and another phoneme.  Version 3.1 involves adding articles and a major phonotactical change. Version 4.0 is where I add FAAAAAAAR too many tones. (the hell begins). Version 4.1 sees a rhotic and post-alveolar plosives added.">Version 4.1</span>
 		<p id="description" class="alert">Twanthainese is a conlang I just made up for fun.&#8203;&nbsp;&nbsp;&#8203;This page is a <em>work in progress</em>, under construction; features of this conlang may radically and massively change at any time without prior notice.</p><br/>
+		<p id="description" class="advisory">This page uses the American convention for numbers. Unless otherwise noted, a dot "." is the decimal separator, and a comma "," is the thousands separator.</p><br/>
 
 <section id="phonology">
 	<h2>Phonology:</h2>
@@ -1379,7 +1387,7 @@
 	<section id="phonotactics">
 		<h2>Phonotactics:</h2>
 		<main class="plain-font" aria-role="paragraph">
-			The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(<abbr title="L: Any liquid (/ɾ/ or /l/)">L</abbr>)(<abbr title="V: Any nasal">N</abbr>)(L)(<abbr title="SV: Any semivowel (/j/ or /w/)">SV</abbr>)<abbr title="V: Any vowel (or polyphthong)">V</abbr>(V)(V)T(C).<ul>
+			The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(<abbr title="L: Any liquid (/ɾ/ or /l/)">L</abbr>)(<abbr title="V: Any nasal">N</abbr>)(L)(<abbr title="S: Any semivowel (/j/ or /w/)">S</abbr>)<abbr title="V: Any vowel (or polyphthong)">V</abbr>(V)(V)<abbr title="tone">T</abbr>(C).<ul>
 				<li>ថ្មល្វាង៑ t̃mlyaǹ, ថ្លម្យាង៑ t̃lmyaǹ, ថ្មយាង៑ t̃myaǹ, ថ្លយាង៑ t̃lyaǹ</li>
 				<li>Polyphthongs carry one tone.</li>
 				<li>When an aspirated plosive precedes a liquid medial, the aspiration is moved to after the liquid.</li>
@@ -1647,7 +1655,8 @@ sourceData = [
 	{ part: 'noun', qtw: 'nyit', eng: 'cold', extra: 'The sensation or absence of temperature' },
 	{ part: 'noun', qtw: 'nait', eng: 'dizzy' },
 	{ part: 'noun', qtw: 'cai̇̄c', eng: 'heat' },
-	{ part: 'noun', qtw: 'bëǹ', eng: 'ground, earth', extra: 'It refers either only to natural ground, or to a large area of ground or the surface of the planet itself (in which case it does include all artificial ground)' },
+	{ part: 'noun', qtw: 'bëǹ', eng: 'ground, earth, land', extra: 'It refers either only to natural ground, or to a large area of ground or the surface of the planet itself (in which case it does include all artificial ground)' },
+	{ part: 'noun', qtw: 'gan', eng: 'island' },
 	{ part: 'noun', qtw: 'büǹ', eng: 'dirt, soil' },
 	{ part: 'noun', qtw: 'bon', eng: 'mud' },
 	{ part: 'noun', qtw: 'buiǹ', eng: 'hill' },
@@ -1742,12 +1751,14 @@ sourceData = [
 	{ part: 'noun', qtw: 'ǹüf', eng: 'rust' },
 	{ part: 'noun', qtw: 'fe̠ǹ', eng: 'metal', extra: 'In general', etym: 'Affected by the p̃-f merger. Related to "fu̠ǹ".' },
 	{ part: 'noun', qtw: 'pǜǹ', eng: 'steel', etym: 'From "pei mü̠f fu̠ǹ"' },
-	{ part: 'noun', qtw: 'yaīp', eng: 'money, (historical) gold' },
+	{ part: 'noun', qtw: 'yai̇̄p', eng: 'money, (historical) gold' },
 	{ part: 'noun', qtw: 'ywel', eng: 'wage, wages, salary', etym: 'From "yun [mü̠f] wel [ček]"' },
 	{ part: 'noun', qtw: 'yau᷅n', eng: 'economy', etym: 'From "yaip f̌won"' },
 	{ part: 'noun', qtw: 'ťwaun', eng: 'market', etym: 'From "ťwaiw yaun"' },
 	{ part: 'noun', qtw: 'wan', eng: 'a straight rod or stick, a long object (regardless of straightness)', extra: 'Usually cylindrical, but can also refer to other shapes (usually squares)' },
-	{ part: 'noun', qtw: 'wak', eng: 'square, rectangle' },
+	{ part: 'noun', qtw: 'wak', eng: 'square' },
+	{ part: 'noun', qtw: 'myen', eng: 'rectangle' },
+	{ part: 'noun', qtw: 'čai', eng: 'cube' },
 	{ part: 'noun', qtw: 'nauk', eng: 'wooden plank, wooden board', etym: 'From "nat wak"' },
 	{ part: 'noun', qtw: 'ǹauk', eng: 'signboard, sign', etym: 'From "ǹap nauk"' },
 	{ part: 'noun', qtw: 'kwauk', eng: 'license plate, number plate', etym: 'From "kwëw ťa ǹauk"' },
@@ -1825,7 +1836,7 @@ sourceData = [
 	{ part: 'noun', qtw: 'twaw', eng: 'forest', etym: 'From "ťwain nwaw"' },
 	{ part: 'noun', qtw: 'bwow', eng: 'grass', etym: 'From "bëǹ wwaw"' },
 	{ part: 'noun', qtw: 'klnei̇̄n', eng: 'flower' },
-	{ part: 'noun', qtw: 't̃ī', eng: 'bush' },
+	{ part: 'noun', qtw: 't̃i̇̄', eng: 'bush' },
 	{ part: 'noun', qtw: 'nwao', eng: 'leaf', etym: 'From "nwaw bwow"' },
 	{ part: 'noun', qtw: 'noë', eng: 'feather', etym: 'From "nwëw bwow"' },
 	{ part: 'noun', qtw: 'nat', eng: 'wood' },
@@ -1980,14 +1991,42 @@ sourceData = [
 	{ part: 'noun', qtw: 'nwaop', eng: 'a large branch, especially one connected to the trunk of a tree', etym: 'From "nwaw dwop"' },
 	{ part: 'noun', qtw: 'bap', eng: 'grain of sand', etym: 'From "bak dwop"' },
 	{ part: 'noun', qtw: 'jyeo᷅p', eng: 'a unit of measure', etym: 'From "jyè dwop"' },
-	{ part: 'noun', qtw: 'waow jyeo᷅p', eng: 'a Twanthainese traditional unit now standardized at 6.3cm', etym: 'Lit. "worm unit"' },
-	{ part: 'noun', qtw: 'nwaop jyeo᷅p', eng: 'a Twanthainese traditional unit now standardized at 2.81m', etym: 'Lit. "large-branch unit"' },
-	{ part: 'noun', qtw: 't̀ei̇́ jyeo᷅p', eng: 'cubit', etym: 'Lit. "arm unit"', extra: 'Now standardized in Twanthain at 69.3cm' },
-	{ part: 'noun', qtw: 'bap jyeo᷅p', eng: 'a Twanthainese traditional unit now standardized at 0.5mm', etym: 'Lit. "grain-of-sand unit"' },
-	{ part: 'noun', qtw: 'nwaw jyeo᷅p', eng: 'a Twanthainese traditional unit now standardized at 10.5m', etym: 'Lit. "tree unit"' },
-	{ part: 'noun', qtw: 'fwa\' nwaw jyeo᷅p', eng: 'a Twanthainese traditional unit now standardized at 31m', etym: 'Lit. "large tree unit"' },
-	{ part: 'noun', qtw: 'nwëǹ jyeo᷅p', eng: 'a Twanthainese traditional unit now standardized at 4.8km', etym: 'Lit. "horizon unit"' },
-	{ part: 'noun', qtw: 'tǹwań nwëǹ jyeo᷅p', eng: 'a Twanthainese traditional unit now standardized at 210km', etym: 'Lit. "mountain horizon unit"' },
+	{ part: 'noun', qtw: 'waôp', eng: 'worm unit (a Twanthainese traditional unit of length now standardized at 6.3cm)', etym: 'From "waow jyeo᷅p"' },
+	{ part: 'noun', qtw: 'nwaôp', eng: 'large-branch unit (a Twanthainese traditional unit of length now standardized at 2.81m)', etym: 'From "nwaop jyeo᷅p"' },
+	{ part: 'noun', qtw: 't̀ei̇̂p', eng: 'cubit', etym: 'From "t̀ei̇́ jyeo᷅p", lit. "arm unit"', extra: 'Now standardized in Twanthain at 69.3cm' },
+	{ part: 'noun', qtw: 'baôp', eng: 'grain-of-sand unit (a Twanthainese traditional unit of length now standardized at 0.5mm)', etym: 'From "bap jyeo᷅p"' },
+	{ part: 'noun', qtw: 'nwaûp', eng: 'tree unit (a Twanthainese traditional unit of length now standardized at 10.5m)', etym: 'From "nwaw jyeo᷅p"' },
+	{ part: 'noun', qtw: 'fwaûp', eng: 'large tree unit (a Twanthainese traditional unit of length now standardized at 31m)', etym: 'From "fwa\' nwaw jyeo᷅p"' },
+	{ part: 'noun', qtw: 'nwë̂p', eng: 'horizon unit (a Twanthainese traditional unit of length now standardized at 4.8km)', etym: 'From "nwëǹ jyeo᷅p"' },
+	{ part: 'noun', qtw: 'nwop', eng: 'mountain horizon unit (a Twanthainese traditional unit of length now standardized at 210km)', etym: 'From "tǹwań nwëǹ jyeo᷅p"' },
+	{ part: 'noun', qtw: 'gao᷅p', eng: 'island unit (a Twanthainese traditional unit of length now standardized at 1Mm)', etym: 'From "gan jyeo᷅p"', extra: 'Derived from a measurement of the north-south length of Twanthain\'s main island' },
+	{ part: 'noun', qtw: 'waôk', eng: 'square worm unit (39.69 cm^2)', etym: 'From "wak waôp"' },
+	{ part: 'noun', qtw: 'nwaôk', eng: 'square large-branch unit (7.8961 m^2)', etym: 'From "wak nwaôp"' },
+	{ part: 'noun', qtw: 'kei̇̂p', eng: 'square cubit (48.0249 dm^2 in the Twanthainese context)', etym: 'From "wak t̀ei̇̂p"' },
+	{ part: 'noun', qtw: 'baôk', eng: 'square grain-of-sand unit (0.25 mm^2)', etym: 'From "wak baôp"' },
+	{ part: 'noun', qtw: 'nwaûk', eng: 'square tree unit (110.25 m^2)', etym: 'From "wak nwaûp"' },
+	{ part: 'noun', qtw: 'fwaûk', eng: 'square large tree unit (961 m^2)', etym: 'From "wak fwaûp"' },
+	{ part: 'noun', qtw: 'nwë̂k', eng: 'square horizon unit (23.04 km^2)', etym: 'From "wak nwë̂p"' },
+	{ part: 'noun', qtw: 'nwok', eng: 'square mountain horizon unit (441 mym^2)', etym: 'From "wak nwop"' },
+	{ part: 'noun', qtw: 'gao᷅k', eng: 'square island unit (1 Mm^2)', etym: 'From "wak gao᷅p"' },
+	{ part: 'noun', qtw: 'waôč', eng: 'cubic worm unit (250.05 cm^3)', etym: 'From "čai waôp"' },
+	{ part: 'noun', qtw: 'nwaôč', eng: 'cubic large-branch unit (22.19 m^3)', etym: 'From "čai nwaôp"' },
+	{ part: 'noun', qtw: 't̀ei̇̂č', eng: 'cubic cubit (0.3328 m^3 in the Twanthainese context)', etym: 'From "čai t̀ei̇̂p"' },
+	{ part: 'noun', qtw: 'baôč', eng: 'cubic grain-of-sand unit (0.125 mm^3, 125 dmm^3)', etym: 'From "čai baôp"' },
+	{ part: 'noun', qtw: 'nwaûč', eng: 'cubic tree unit (1.158 dam^3)', etym: 'From "čai nwaûp"' },
+	{ part: 'noun', qtw: 'fwaûč', eng: 'cubic large tree unit (29.79 dam^2)', etym: 'From "čai fwaûp"' },
+	{ part: 'noun', qtw: 'nwë̂č', eng: 'cubic horizon unit (111 km^3)', etym: 'From "čai nwë̂p"' },
+	{ part: 'noun', qtw: 'nwoč', eng: 'cubic mountain horizon unit (9,261 mym^3)', etym: 'From "čai nwop"' },
+	{ part: 'noun', qtw: 'gao᷅č', eng: 'cubic island unit (1 Mm^3)', etym: 'From "čai gao᷅p"' },
+	{ part: 'noun', qtw: 'ťeóp', eng: 'double worm unit (12.6 cm)', etym: 'From "ťen waôp"' },
+	{ part: 'noun', qtw: 'ťweo᷄p', eng: 'square double-worm-unit (158.8 cm^2)', etym: 'From "wak ťeôp"' },
+	{ part: 'noun', qtw: 'čeo᷄p', eng: 'cubic double-worm-unit (2 dm^3)', etym: 'From "čai ťeôp"' },
+	{ part: 'noun', qtw: 'f̌eôč', eng: 'water-cubic-worm-unit (256.3 g)', etym: 'From "f̌en waôč"', extra: 'Closest traditional analog to the pound or kilogram' },
+	{ part: 'noun', qtw: 'beo᷄p', eng: 'sand double-cubic-worm-unit (3.204 kg)', etym: 'From "bak čeo᷄p"', extra: 'A heavier unit for everyday objects' },
+	{ part: 'noun', qtw: 'bai̇̂č', eng: 'sand-cubic-cubit (533.1 kg); (metaphorical/slang) a ton', etym: 'From "bak t̀ei̇̂č"', extra: 'Closest traditional analog to the ton' },
+	{ part: 'noun', qtw: 'püi̇̌č', eng: 'steel-cubic-cubit (2,662.4 kilograms)', etym: 'From "pǜǹ t̀ei̇̂č"', extra: 'A heavier unit for really heavy stuff' },
+	{ part: 'noun', qtw: 'f̌ao᷄č', eng: 'water-cubic-large-branch-unit (22,744 kg); a f*** ton', etym: 'From "f̌en nwaôč"', extra: 'An heavier unit for heavier stuff (often massive quantities of water)' },
+	{ part: 'noun', qtw: 'l̃ao᷄č', eng: 'gold-cubic-island-unit (19.32 Yg); a nuclear f*** ton', etym: 'From "l̃aip gao᷅č"', extra: 'An impractically large unit, mostly used as a hyperbole. It was once used to convey mass estimates of celestial bodies. It is equivalent to 0.263 lunar masses.' },
 	{ part: 'noun', qtw: 'k̃loaǹ', eng: 'clong (humorous slang for a conlang)', etym: 'From English', extra: '"ខ្លុឰង៑" in the Khmer script' },
 	{ part: 'noun', qtw: 'ťa', eng: 'number, quantity' }, 
 	{ part: 'noun', qtw: 'gǎ', eng: 'variable', etym: 'From "gau mü̠f ťa"' },
@@ -2308,7 +2347,7 @@ sourceData = [
 	{ part: 'noun', qtw: 'dwǖp wan', eng: 'turd', extra: 'Taboo/Mildly vulgar' },
 	{ part: 'noun', qtw: 'suk', eng: 'p**s', extra: 'Vulgar', censor: true },
 	{ part: 'noun', qtw: 'kut', eng: 'sh*t', extra: 'Vulgar', censor: true },
-	{ part: 'noun', qtw: 'kut wan', eng: 'turd', extra: 'More vulgar than "dwüp wan"', },
+	{ part: 'noun', qtw: 'kut wan', eng: 'turd', extra: 'More vulgar than "dwǖp wan"', },
 	{ part: 'noun', qtw: 'kut \'oi', eng: 'a**hole', censor: true },
 	{ part: 'noun', qtw: 'muǹ', eng: 'hole' },
 	{ part: 'noun', qtw: 'f̌en muǹ', eng: 'well (hole for water)' },
@@ -2925,6 +2964,7 @@ sourceData = [
 	{ part: 'other', qtw: 'dēka̠', eng: 'deca-', etym: 'From English' },
 	{ part: 'other', qtw: '\'ēkto̠', eng: 'hecto-', etym: 'From English' },
 	{ part: 'other', qtw: 'k̃ǖlo̠', eng: 'kilo-', etym: 'From English' },
+	{ part: 'other', qtw: 'mi̇̄ri̠a̠', eng: 'myria-', etym: 'From English' },
 	{ part: 'other', qtw: 'mēga̠', eng: 'mega-', etym: 'From English' },
 	{ part: 'other', qtw: 'gǖga̠', eng: 'giga-', etym: 'From English' },
 	{ part: 'other', qtw: 't̃ēra̠', eng: 'tera-', etym: 'From English' },
@@ -2937,9 +2977,10 @@ sourceData = [
 	{ part: 'other', qtw: 'dēsü̠', eng: 'deci-', etym: 'From English' },
 	{ part: 'other', qtw: 'sēntü̠', eng: 'centi-', etym: 'From English' },
 	{ part: 'other', qtw: 'mǖllü̠', eng: 'milli-', etym: 'From English' },
-	{ part: 'other', qtw: 'maīkro̠', eng: 'micro-', etym: 'From English' },
+	{ part: 'other', qtw: 'dė̄si̠mi̇̄', eng: 'decimilli- (10^-4)', etym: 'From English' },
+	{ part: 'other', qtw: 'mai̇̄kro̠', eng: 'micro-', etym: 'From English' },
 	{ part: 'other', qtw: 'nāno̠', eng: 'nano-', etym: 'From English' },
-	{ part: 'other', qtw: 'pīko̠', eng: 'pico-', etym: 'From English' },
+	{ part: 'other', qtw: 'pi̇̄ko̠', eng: 'pico-', etym: 'From English' },
 	{ part: 'other', qtw: 'fēmto̠', eng: 'femto-', etym: 'From English' },
 	{ part: 'other', qtw: 'āto̠', eng: 'atto-', etym: 'From English' },
 	{ part: 'other', qtw: 'zēpto̠', eng: 'zepto-', etym: 'From English' },
@@ -3187,13 +3228,13 @@ AAAAAAAAAAAAAAAAA!</p></br>
 		<!--
 			Profanities (VERSION 1 ORTHOGRAPHY):
 			Profane phrase	|	Meaning	|	Literal/Etymology
-			kat kut ǵot jün yey cain duǹ ǵot jyai su̇k	|	"S*** a brick and f*** me with it"	|	N/A
-			cu̇n kwa duǹ fu̇̄p naǹ	|	"Your d*** is small"	|	N/A
+			čup kut g̋ot jǖn yey su̇k jyai cain duǹ g̋ot jǖn |	"S*** a brick and f*** me with it"	|	N/A
+			fu̇̄p cu̇n kwa duǹ naǹ	|	"Your d*** is small"	|	N/A
 			kut cu̇n naǹ	|	"You are sh**"	|	N/A
-			dwüp muǹ cu̇n naǹ	|	"You're an a**hole"/"You're a piece of s***"	|	"You are a cesspit"
-			suk mü̠f f̌wan pin zün	|	"Go f*** yourself"/"F*** off and d*e"	|	"Drink an ocean of p***"
-			fu̇t zün ḱep	|	"kys"	|	"D*e now (imperative)"
-			cu̇n kwa dwuǹ mwen duǹ wen zün	|	"F*** you"/"Go f*** yourself"	|	"Put a d*** in [your] ass"
+			dwǖp muǹ cu̇n naǹ	|	"You're an a**hole"/"You're a piece of s***"	|	"You are a cesspit"
+			suk f̌wan pin jǖn	|	"Go f*** yourself"/"F*** off and d*e"	|	"Drink an ocean of p***"
+			fu̇t jǖn k̋ep	|	"kys"	|	"D*e now (imperative)"
+			cu̇n kwa dwuǹ mwen duǹ wen jǖn	|	"F*** you"/"Go f*** yourself"	|	"Put a d*** in [your] ass"
 			cuec mü̠f bët tun bët ǵe ḱey	|	"Go to h**l"	|	N/A
 			duǹ ǵe ḱey	|	"Go f*** yourself"/"Get f***ed"	|	"go to d**k", calque of Russian "иди на х*й"
 		-->
