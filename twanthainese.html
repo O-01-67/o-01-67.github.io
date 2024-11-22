@@ -75,7 +75,7 @@
 			.dnone {
 				display: none;
 			}
-
+			
 			#errorWarning, .warning {
 				background-color: #2f0000;
 				color: white;
@@ -97,7 +97,7 @@
 				padding: 8px;
 			}
 
-			table.plain-font > tbody > tr > th {
+			table tr th {
 				font-family: 'Gamja Flower', 'Comic Mono', 'Arial', sans-serif;
 				font-size: 140%;
 				font-weight: bold;
@@ -3345,7 +3345,7 @@ AAAAAAAAAAAAAAAAA!</p></br>
 
 		<section id="sissinese">
 			<h1 class="subh1">Sissinese</h1>
-			<p>Sissinese is a language spoken in the Sissin region of Twanthain, which encompasses inner Tn̏wań Province (between the mountains) and the entirety of F̌eik Province.
+			<p class="plain-font">Sissinese is a language spoken in the Sissin region of Twanthain, which encompasses inner Tn̏wań Province (between the mountains) and the entirety of F̌eik Province.
 			<section id="qstPhonology">
 				<h2>Phonology:</h2>
 				<section id="qstConsonants">
@@ -3837,7 +3837,7 @@ AAAAAAAAAAAAAAAAA!</p></br>
 				<h3>Grammar</h3>
 				<main> 
 					<p class="plain-font">
-						The word order is SVO (SVDI). TAM affixes are applied in the order "aspect-tense-mood".
+						The word order is SVO (SVDI).&#8203;&nbsp;&nbsp;&#8203;TAM affixes are applied in the order "aspect-tense-mood".
 					</p>
 				</main>
 			</section>
@@ -3970,6 +3970,37 @@ AAAAAAAAAAAAAAAAA!</p></br>
 				{ part: 'verb', qst: 'sóşì', eng: 'to swim' },
 				{ part: 'verb', qst: 'susu', eng: 'to walk' },
 				{ part: 'interjection', qst: 'miʃí', eng: 'hello' },
+				{ part: 'noun, adjective', qst: 'ʃiʃín', eng: 'one, single' },
+				{ part: 'noun, adjective', qst: 'ʒelín', eng: 'two, double' },
+				{ part: 'noun, adjective', qst: 'şamé', eng: 'three, triple' },
+				{ part: 'noun, adjective', qst: 'sánà', eng: 'four, quadruple' },
+				{ part: 'noun, adjective', qst: 'ŧén', eng: 'five, quintuple' },
+				{ part: 'noun, adjective', qst: 'êǥí', eng: 'six, sextuple' },
+				{ part: 'noun, adjective', qst: 'ɔ̦óè', eng: 'seven, septuple' },
+				{ part: 'noun, adjective', qst: 'z̦ahé', eng: 'eight, octuple' },
+				{ part: 'noun, adjective', qst: 'ʃ̵íen̊à', eng: 'nine, nonuple' },
+				{ part: 'noun, adjective', qst: 'n̏̊êm', eng: 'ten, decuple' },
+				{ part: 'noun, adjective', qst: 'h̊éwe', eng: 'eleven', extra: 'Every number word can also mean "n-uple"' },
+				{ part: 'noun, adjective', qst: 'ʒ̊an', eng: 'twelve' },
+				{ part: 'noun, adjective', qst: 'ҟapa', eng: 'thirteen' },
+				{ part: 'noun, adjective', qst: 'šése', eng: 'fourteen' },
+				{ part: 'noun, adjective', qst: 'iʃí', eng: 'fifteen' },
+				{ part: 'noun, adjective', qst: 'íʃì', eng: 'sixteen' },
+				{ part: 'noun, adjective', qst: 'sám', eng: 'seventeen' },
+				{ part: 'noun, adjective', qst: 'qoñ', eng: 'eighteen' },
+				{ part: 'noun, adjective', qst: 'n̵áyì', eng: 'nineteen' },
+				{ part: 'noun, adjective', qst: 'n̵áyì ʃiʃín', eng: 'twenty' },
+				{ part: 'noun, adjective', qst: 'n̵áyì ʒelín', eng: 'twenty-one' },
+				{ part: 'noun, adjective', qst: 'n̵áyì şamé', eng: 'twenty-two' },
+				{ part: 'noun, adjective', qst: 'n̵áyì sánà', eng: 'twenty-three' },
+				{ part: 'noun, adjective', qst: 'n̵áyì n̏̊êm', eng: 'twenty-nine' },
+				{ part: 'noun, adjective', qst: 'n̵áyì qoñ', eng: 'thirty-seven' },
+				{ part: 'noun, adjective', qst: 'ʒelín n̵áyì', eng: 'thirty-eight' },
+				{ part: 'noun, adjective', qst: 'ʃ̵íen̊à n̵áyì', eng: 'fifty-seven' },
+				{ part: 'noun, adjective', qst: 'ŧén n̵áyì ŧén', eng: '100', extra: 'As the Sissinese people are used to base 19, "normal" base 10 numbers may seem oddly specific to them. However, as the dominant base 10 has seeped in through close contact with the Twanthainese people outside of the Sissin region, they are more exposed to base 10 numbers and more used to them.' },
+				{ part: 'noun, adjective', qst: 'ʃíʃihề', eng: '361 (19 squared)' },
+				{ part: 'noun, adjective', qst: 'ʃíʃihề šése n̵áyì ʒ̊an', eng: '1,000' },
+				{ part: 'noun, adjective', qst: 'hasín', eng: '6,859 (19 cubed)' },
 				{ part: 'other', qst: 'ʒ̄o-', eng: '(Augmentative)', extra: 'Very productive' },
 				{ part: 'other', qst: 'lisi-', eng: '(Diminutive)' },
 				{ part: 'other', qst: '-nam', eng: '(Past tense suffix)' },
@@ -4034,7 +4065,126 @@ AAAAAAAAAAAAAAAAA!</p></br>
 				<main id="qstWordlist">
 					<h4>Additional information</h4>	
 					<p class="plain-font">
-						<span>Animate pronouns (cain, caun, cu̇n, cwu̇n, cën, cwën) also apply to animals.&#8203;&nbsp;&nbsp;&#8203;Plants are mostly referred to with either, as the Sissinese's opinions differ on whether plants are animate.&#8203;&nbsp;&nbsp;&#8203;Substances are always considered inanimate, except sometimes for living flesh of an organism (sometimes including living plant matter).<br/>
+						<span>Sissinese uses a base 19 number system, as they count on their fingers in a certain way.</span><br/>
+						<table id="sissineseFingerTable">
+							<thead>
+								<tr style="border-top: none; border-left: none; border-right: none; text-align: left;" rowspan="2">
+									<td style="border-top: none; border-left: none; border-right: none; text-align: left;" colspan="2">
+										<p>The fingers are given the following designations.&#8203;&nbsp;&nbsp;&#8203;The Sissinese people consider the thumb to be a finger.</p>
+										<p>Each hand may be denoted with the string "1-2-3-4-5", with non-extended fingers' numbers replaced with underscores.&#8203;&nbsp;&nbsp;&#8203;Fingers touching are denoted with a comma and the touching fingers separated by x.&#8203;&nbsp;&nbsp;&#8203;Hands are separated by a semicolon and space. In the Sissinese finger count, the hands are head with the palms facing towards the person counting.</p>
+									</td>
+								</tr>
+								<tr>
+									<th>Number</th>
+									<th>Finger</th>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>Thumb</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Index/Pointer</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>Middle</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>Ring</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td>Pinky</td>
+								</tr>
+								<tr style="border-top: none; border-left: none; border-right: none; text-align: left;">
+									<td colspan="2">&nbsp;</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>Finger pattern</th>
+									<th>Value</th>
+								</tr>
+								<tr>
+									<td>No fingers extended</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td><abbr title="Thumb extended on one hand">1-_-_-_-_</abbr></td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td><abbr title="Thumb and pointer (index) extended on one hand">1-2-_-_-_</abbr></td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td><abbr title="Thumb, pointer, and middle extended on one hand">1-2-3-_-_</abbr></td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td><abbr title="All fingers except pinky extended on one hand">1-2-3-4-_</abbr></td>
+									<td>4</td>
+								</tr>
+								<tr>
+									<td><abbr title="All fingers extended on one hand">1-2-3-4-5</abbr></td>
+									<td>5</td>
+								</tr>
+								<tr>
+									<td>1-2-3-4-5,<abbr title="Thumb and pointer touching">1x2</abbr></td>
+									<td>6</td>
+								</tr>
+								<tr>
+									<td>1-2-3-4-5,<abbr title="Thumb and middle touching">1x3</abbr></td>
+									<td>7</td>
+								</tr>
+								<tr>
+									<td>1-2-3-4-5,<abbr title="Thumb and ring touching">1x4</abbr></td>
+									<td>8</td>
+								</tr>
+								<tr>
+									<td>1-2-3-4-5,<abbr title="Thumb and pinky touching">1x5</abbr></td>
+									<td>9</td>
+								</tr>
+								<tr>
+									<td>1-2-3-4-5,1x5; <abbr title="No fingers extended">1-_-_-_-_<abbr></td>
+									<td>10</td>
+								</tr>
+								<tr>
+									<td>1-2-3-4-5,1x5; 1-2-_-_-_</td>
+									<td>11</td>
+								</tr>
+								<tr>
+									<td>1-2-3-4-5,1x5; 1-2-3-_-_</td>
+									<td>12</td>
+								</tr>
+								<tr>
+									<td>1-2-3-4-5,1x5; 1-2-3-4-_</td>
+									<td>13</td>
+								</tr>
+								<tr>
+									<td>1-2-3-4-5,1x5; 1-2-3-4-5</td>
+									<td>14</td>
+								</tr>
+								<tr>
+									<td>1-2-3-4-5,1x5; 1-2-3-4-5,1x2</td>
+									<td>15</td>
+								</tr>
+								<tr>
+									<td>1-2-3-4-5,1x5; 1-2-3-4-5,1x3</td>
+									<td>16</td>
+								</tr>
+								<tr>
+									<td>1-2-3-4-5,1x5; 1-2-3-4-5,1x4</td>
+									<td>17</td>
+								</tr>
+								<tr>
+									<td>1-2-3-4-5,1x5; 1-2-3-4-5,1x5</td>
+									<td>18</td>
+								</tr>
+							</tbody>
+						</table>
 					</p>
 				</main>
 			</section>
