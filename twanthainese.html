@@ -314,6 +314,10 @@
 				padding-right: 1px;
 				border: 1px solid #7f7f7f3f;
 			}
+			
+			#qstReductionTable td {
+				min-width: 12px;
+			}
 		</style>
 		<script>
 			function NOTIMPLEMENTED_getTtnStartLetterIndex(string) {
@@ -528,7 +532,7 @@
 
 		</script>
 		<style id="removeMeIfScripted">
-			script#qtwDataTable {
+			script#qtwDataTable, script#qstDataTable {
 				display: block;
 				white-space: pre-wrap;
 				font-family: monospace;
@@ -537,7 +541,7 @@
 				color: #cfc;
 			}
 
-			div#search {
+			div#qtwSearch, div#qstSearch {
 				display: none;
 			}
 		</style>
@@ -1031,7 +1035,7 @@
 						<table class="plain-font" style="font-size: 68%;" id="qtwLettersTable">
 							<tbody>
 								<tr id="qtwRomanRow">
-									<th>Roman letter</th>
+									<th style="min-width: 100px;">Roman&nbsp;letter</th>
 									<td rowspan="2">m</td>
 									<td rowspan="2">n</td>
 									<td>ń</td>
@@ -1430,7 +1434,7 @@
 				<section id="qtwPhonotactics">
 					<h2>Phonotactics:</h2>
 					<main class="plain-font" aria-role="paragraph">
-						The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(<abbr title="L: Any liquid (/ɾ/ or /l/)">L</abbr>)(<abbr title="V: Any nasal">N</abbr>)(L)(<abbr title="S: Any semivowel (/j/ or /w/)">S</abbr>)<abbr title="V: Any vowel (or polyphthong)">V</abbr>(V)(V)<abbr title="tone">T</abbr>(C).<ul>
+						The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(<abbr title="L: Any liquid (/ɾ/ or /l/)">L</abbr>)(<abbr title="N: Any nasal">N</abbr>)(L)(<abbr title="S: Any semivowel (/j/ or /w/)">S</abbr>)<abbr title="V: Any vowel (or polyphthong)">V</abbr>(V)(V)<abbr title="tone">T</abbr>(C).<ul>
 							<li>ថ្មល្វាង៑ t̃mlyan̏, ថ្លម្យាង៑ t̃lmyan̏, ថ្មយាង៑ t̃myan̏, ថ្លយាង៑ t̃lyan̏</li>
 							<li>Polyphthongs carry one tone.</li>
 							<li>When an aspirated plosive precedes a liquid medial, the aspiration is moved to after the liquid.</li>
@@ -1502,7 +1506,7 @@
 
 						function logAndReturn(t) { console.log(t); return t };
 
-						function search() {
+						function searchTwanthainese() {
 							var query = (document.getElementById("qtwSearchQuery")?.value) ?? "";
 							var noDia = (document.getElementById("qtwIgnoreDiacritics") ?? {checked: false}).checked;
 							//var regex = (document.getElementById("qtwSearchIsRegex") ?? {checked: false}).checked;
@@ -1545,7 +1549,7 @@
 							};
 
 
-							doTable(filteredData,"qtw","qtwWordlist");
+							doTable(filteredData,"Twanthainese","qtw","qtwWordlist");
 
 							filteredData = null;
 						};
@@ -1553,10 +1557,10 @@
 						var searchOptions = ["qtwSearchQuery","qtwIgnoreDiacritics",/*"qtwSearchIsRegex",*/"qtwSearchEnglish","qtwSearchTwanthainese","qtwSearchEtymology","qtwSearchExtraInfo","qtwSearchPartOfSpeech"].map(x => document.getElementById(x));
 						for(var i = 0; i < searchOptions.length; i++) {
 							if(searchOptions[i].getAttribute("type") == "checkbox") {
-								searchOptions[i].addEventListener("change",search)
+								searchOptions[i].addEventListener("change",searchTwanthainese)
 							} else {
-								searchOptions[i].addEventListener("keyup",search)
-								searchOptions[i].addEventListener("paste",search)
+								searchOptions[i].addEventListener("keyup",searchTwanthainese)
+								searchOptions[i].addEventListener("paste",searchTwanthainese)
 							}
 						};
 
@@ -1573,9 +1577,9 @@
 							"article": "art."
 						};
 
-						function doTable(data,languagePrefix,tableDestinationID) {
+						function doTable(data,languageName,languageCode,tableDestinationID) {
 							var length = data.length;
-							var countText = document.getElementById(languagePrefix + "EntryCount");
+							var countText = document.getElementById(languageCode + "EntryCount");
 							if(countText) {
 								var unit = (length == 1 ? "entry" : "entries");
 								countText.innerText = `${length.toLocaleString()} ${unit}`
@@ -1586,20 +1590,20 @@
 
 							var tableDestination = document.getElementById(tableDestinationID);
 
-							var oldTable = document.getElementById(languagePrefix + "WordTable");
+							var oldTable = document.getElementById(languageCode + "WordTable");
 							if(oldTable) { oldTable.parentElement.removeChild(oldTable); oldTable = null };
 
 							var newTable = document.createElement("table");
 							tableDestination.insertAdjacentElement("afterbegin",newTable)
 								newTable.classList.add("plain-font");
-								newTable.id = languagePrefix + "WordTable";
+								newTable.id = languageCode + "WordTable";
 								var newTbody = document.createElement("tbody");
 								newTable.appendChild(newTbody);
 									var headerRow = document.createElement("tr");
 									newTbody.appendChild(headerRow);
-										var thTwanthainese = document.createElement("th");
-										headerRow.appendChild(thTwanthainese);
-											thTwanthainese.innerText = "Twanthainese";
+										var thConlang = document.createElement("th");
+										headerRow.appendChild(thConlang);
+											thConlang.innerText = languageName;
 
 										var thEnglish = document.createElement("th");
 										headerRow.appendChild(thEnglish);
@@ -1624,9 +1628,9 @@
 										newTbody.appendChild(newTr);
 											var tdConlang = document.createElement("td");
 											newTr.appendChild(tdConlang);
-												tdConlang.innerText = data[i].qtw ?? "";
+												tdConlang.innerText = data[i][languageCode] ?? "";
 												if(data[i].qtw) {
-													tdConlang.setAttribute("id",data[i].qtw)
+													tdConlang.setAttribute("id",data[i][languageCode])
 												};
 												if(data[i].qtw == fragmentValue) {
 													tdConlang.scrollIntoView?.()
@@ -2601,9 +2605,10 @@
 				{ part: 'noun', qtw: 'ťa n̏aup', eng: 'digit (of a number system)' },
 				{ part: 'noun', qtw: 'Ťwaiw gap', eng: 'Twanthainese', etym: 'From "twan ťain wwaiw gap"', extra: '"ទ្វាឭវ៑ កាៈព៑" in the Khmer script.' },
 				{ part: 'noun', qtw: 'twan ťain wwaiw ban̏', eng: '(historical, archaic) Twanthain', extra: 'Still sometimes used for a "ye olde" effect' },
-				{ part: 'noun', qtw: 'Cwan', eng: 'The main island of Twanthain', etym: 'From "Cauk̃ Gan"' },
-				{ part: 'noun', qtw: 'Cwan Ťwaiw Wwëy Ḱü̚y Ban̏', eng: 'The full official name of Twanthain', etym: 'meaning "People\'s Democratic Republic of Cwan"', extra: 'Despite the name, Twanthain was never socialist.' },
-				{ part: 'noun', qtw: 'Cwan Ťwaiw Ban̏', eng: 'Twanthain (the country of the Twanthainese)', extra: 'The English name is an Anglicization of "twan ťain [wwaiw ban̏]". Based on the modern orthography, it would be written as "Twanťain" or "Twanhtain"; however, the first English who eventually made contact with the people wrote it as "Twanthain"' },
+				{ part: 'noun', qtw: 'cauk̃ gan', eng: '(Often used to refer to the main island of Twanthain)', etym: 'lit. "our island"' },
+				{ part: 'noun', qtw: 'Wüan', eng: 'The main island of Twanthain' },
+				{ part: 'noun', qtw: 'Wüan Ťwaiw Wwëy Ḱü̚y Ban̏', eng: 'The full official name of Twanthain', etym: 'meaning "People\'s Democratic Republic of Wüan (Wiuan)"', extra: 'Despite the name, Twanthain was never socialist.' },
+				{ part: 'noun', qtw: 'Wüan Ťwaiw Ban̏', eng: 'Twanthain (the country of the Twanthainese)', extra: 'The English name is an Anglicization of "twan ťain [wwaiw ban̏]". Based on the modern orthography, it would be written as "Twanťain" or "Twanhtain"; however, the first English who eventually made contact with the people wrote it as "Twanthain"' },
 				{ part: 'noun', qtw: 'ťwaiw wwëy ḱü̚y ban̏', eng: 'people\'s democratic republic' },
 				{ part: 'noun', qtw: 'Law Ťwaiw Kwa Wwëy Ḱü̚y Ban̏', eng: 'Lao People\'s Democratic Republic' },
 				{ part: 'noun', qtw: '\'ain ček', eng: 'a production, a creation' },
@@ -3129,7 +3134,8 @@
 							};
 
 							try {
-								doTable(qtwSourceData,"qtw","qtwWordlist");
+								doTable(qtwSourceData,"Twanthainese","qtw","qtwWordlist");
+								doTable(qstSourceData,"Sissinese","qst","qstWordlist");
 								abbrevs.classList.remove("dnone");
 								hideCode()
 							} catch(error) {
@@ -3337,12 +3343,717 @@ AAAAAAAAAAAAAAAAA!</p></br>
 			</section>
 		</section>
 
+		<section id="sissinese">
+			<h1 class="subh1">Sissinese</h1>
+			<p>Sissinese is a language spoken in the Sissin region of Twanthain, which encompasses inner Tn̏wań Province (between the mountains) and the entirety of F̌eik Province.
+			<section id="qstPhonology">
+				<h2>Phonology:</h2>
+				<section id="qstConsonants">
+					<h3>Consonants:</h3>
+					<main>
+						<div id="qstConsonantCounter"><span id="qstConsonantsCount">&nbsp;</span></div>
+						<table class="plain-font" id="qstConsonantsTable">
+							<tbody>
+								<tr>
+									<th colspan="2">&nbsp;</th>
+									<th colspan="2">Labial</th>
+									<th colspan="2">Alveolar</th>
+									<th colspan="2"><abbr title="Palatalized">Pal.</abbr> alveolar</th>
+									<th colspan="2">Alveolo-palatal</th>
+									<th colspan="2">Post-alveolar</th>
+									<th colspan="2">Retroflex</th>
+									<th colspan="2">Palatal</th>
+									<th colspan="2">Velar</th>
+									<th colspan="2">Uvular</th>
+								</tr>
+								<tr>
+									<th colspan="2">&nbsp;</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+								</tr>
+								<tr>
+									<th colspan="2">Plosive</th>
+									<td>p</td>
+									<td>b</td>
+									<td>t</td>
+									<td>d</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>ʈ</td>
+									<td>ɖ</td>
+									<td>c</td>
+									<td>ɟ</td>
+									<td>k</td>
+									<td>g</td>
+									<td>q</td>
+									<td>ɢ</td>
+								</tr>
+								<tr>
+									<th rowspan="2">Nasal</th>
+									<th>Plain</th>
+									<td>&nbsp;</td>
+									<td>m</td>
+									<td>&nbsp;</td>
+									<td>n</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>n̠</td>
+									<td>&nbsp;</td>
+									<td>ɳ</td>
+									<td>&nbsp;</td>
+									<td>ɲ</td>
+									<td>&nbsp;</td>
+									<td>ŋ</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<!--Nasal-->
+									<th>Labialized</th>
+									<td>&nbsp;</td>
+									<td>mʷ</td>
+									<td>&nbsp;</td>
+									<td>nʷ</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>n̠ʷ</td>
+									<td>&nbsp;</td>
+									<td>ɳʷ</td>
+									<td>&nbsp;</td>
+									<td>ɲʷ</td>
+									<td>&nbsp;</td>
+									<td>ŋʷ</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<th rowspan="2">Fricative</th>
+									<th>Plain</th>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>s</td>
+									<td>z</td>
+									<td>sʲ</td>
+									<td>zʲ</td>
+									<td>ɕ</td>
+									<td>ʑ</td>
+									<td>ʃ</td>
+									<td>ʒ</td>
+									<td>ʂ</td>
+									<td>ʐ</td>
+									<td>ç</td>
+									<td>ʝ</td>
+									<td>x</td>
+									<td>&nbsp;</td>
+									<td>χ</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<!--Fricative-->
+									<th>Labialized</th>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>sʷ</td>
+									<td>zʷ</td>
+									<td>sʲʷ</td>
+									<td>zʲʷ</td>
+									<td>ɕʷ</td>
+									<td>ʑʷ</td>
+									<td>ʃʷ</td>
+									<td>ʒʷ</td>
+									<td>ʂʷ</td>
+									<td>ʐʷ</td>
+									<td>çʷ</td>
+									<td>ʝʷ</td>
+									<td>xʷ</td>
+									<td>&nbsp;</td>
+									<td>χʷ</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<th colspan="2">Approximant</th>
+									<td>&nbsp;</td>
+									<td>w</td>
+									<td>&nbsp;</td>
+									<td>l</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>j</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</main>
+				</section>
+
+				<!--Shifts, merges, and exceptions:
+					*/ɣ/ disappeared
+					*/ɣʷ/ merged into /w/
+					#/β/ never developed
+					*/β̞/ merged into /w/
+					#/χ/, #/χʷ/, and #/ɴ/ never developed
+					#/t̠/ and #/d̠/ never developed
+				--> 
+
+				<section id="qstVowels">
+					<h3>Vowels</h3>
+					<main>
+						<table class="plain-font">
+							<tbody>
+								<tr>
+									<th>&nbsp;</th>
+									<th>Front</th>
+									<th>Back</th>
+								</tr>
+								<tr>
+									<th>&nbsp;</th>
+									<th>Unround</th>
+									<th>Rounded</th>
+								</tr>
+								<tr>
+									<th>Close</th>
+									<td>i</td>
+									<td>u</td>
+								</tr>
+								<tr>
+									<th>Close-mid</th>
+									<td>e</td>
+								</tr>
+								<tr>
+									<th>Mid</th>
+									<td>&nbsp;</td>
+									<td>o~o̞</td>
+								</tr>
+								<tr>
+									<th>Open-mid</th>
+									<td>ɛ</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<th>Open</th>
+									<td>a</td>
+									<td>&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<section id="qstPolyphthongs">
+							<h4>Diphthongs and polyphthongs</h4>
+							<p class="indent">
+								TBD.&#8203;&nbsp;&nbsp;&#8203;
+							</p>
+						</section>
+
+						<section id="qstReduction">
+							<h4>Vowel reduction</h4>
+							<table class="plain-font indent" id="qstReductionTable">
+								<tbody>
+									<tr>
+										<th>Unreduced</th>
+										<td>i</td>
+										<td>e</td>
+										<td rowspan="2">ɛ</td>
+										<td>a</td>
+										<td>o~o̞</td>
+										<td>u</td>
+									</tr>
+									<tr>
+										<th>Reduced</th>
+										<td>ɪ</td>
+										<td>e̞</td>
+										<td>ä</td>
+										<td>ə</td>
+										<td>ʊ</td>
+									</tr>
+								</tbody>
+							</table><br/>
+							<p class="indent plain-font">
+								Sissinese vowels reduce when they are in low-pitch syllables according to Sissinese pitch accent.&#8203;&nbsp;&nbsp;&#8203;The vowel /ɛ/ does not reduce. /i/ does not reduce before a palatal consonant.
+							</p>
+						</section>
+					</main>
+				</section>
+
+				<section id="qstOrthography">
+					<h2>Orthography</h2>
+					<main> 
+						<div id="qstLetterCounter"><span id="qstLettersCount">&nbsp;</span></div>
+						<table class="plain-font" style="font-size: 68%;" id="qstLettersTable">
+							<tbody>
+								<tr id="qstRomanRow">
+									<th style="min-width: 100px;">Roman&nbsp;letter</th>
+									<td rowspan="2">p</td>
+									<td rowspan="2">b</td>
+									<td rowspan="2">t</td>
+									<td rowspan="2">d</td>
+									<td>ŧ</td>
+									<td>đ</td>
+									<td>ҟ</td>
+									<td>ǥ</td>
+									<td rowspan="2">k</td>
+									<td rowspan="2">g</td>
+									<td rowspan="2">q</td>
+									<td>ɔ̦</td>
+									<td rowspan="2">s</td>
+									<td rowspan="2">z</td>
+									<td>š</td>
+									<td>ž</td>
+									<td>ş</td>
+									<td>z̦</td>
+									<td>ʃ</td>
+									<td>ʒ</td>
+									<td>ʃ̵</td>
+									<td>ʒ̄</td>
+									<td rowspan="2">x</td>
+									<td rowspan="2">j</td>
+									<td rowspan="2">h</td>
+									<td>x̵</td>
+									<td>s̊</td>
+									<td>z̊</td>
+									<td>š̊</td>
+									<td>ž̊</td>
+									<td>z̦̊</td>
+									<td>ş̊</td>
+									<td>ʃ̊</td>
+									<td>ʒ̊</td>
+									<td>ʃ̵̊</td>
+									<td>ʒ̄̊</td>
+									<td>x̊</td>
+									<td>j̊</td>
+									<td>h̊</td>
+									<td>x̵̊</td>
+									<td rowspan="2">m</td>
+									<td rowspan="2">n</td>
+									<td>n̵</td>
+									<td>n̵̄</td>
+									<td>ñ</td>
+									<td>n̏</td>
+									<td>m̊</td>
+									<td>n̊</td>
+									<td>n̵̊</td>
+									<td>n̵̄̊</td>
+									<td>ñ̊</td>
+									<td>n̏̊</td>
+									<td rowspan="2">w</td>
+									<td rowspan="2">l</td>
+									<td rowspan="2">y</td>
+									<td rowspan="2">a</td>
+									<td rowspan="2">e</td>
+									<td>ê</td>
+									<td rowspan="2">i</td>
+									<td rowspan="2">o</td>
+									<td rowspan="2">u</td>
+									<th>Pitch accent diacritic</th>
+									<td>◌́</td>
+									<td>◌̀</td>
+								</tr>
+								<tr>
+									<th>ASCII</th>
+									<td>tr</td>
+									<td>dr</td>
+									<td>ky</td>
+									<td>gy</td>
+									<td>qg</td>
+									<td>sy</td>
+									<td>zy</td>
+									<td>shy</td>
+									<td>zhy</td>
+									<td>sh</td>
+									<td>zh</td>
+									<td>shr</td>
+									<td>zhr</td>
+									<td>qh</td>
+									<td>sw</td>
+									<td>zw</td>
+									<td>syw</td>
+									<td>zyw</td>
+									<td>shyw</td>
+									<td>zhyw</td>
+									<td>shw</td>
+									<td>zhw</td>
+									<td>shrw</td>
+									<td>zhrw</td>
+									<td>xw</td>
+									<td>jw</td>
+									<td>hw</td>
+									<td>qhw</td>
+									<td>rn</td>
+									<td>nr</td>
+									<td>ny</td>
+									<td>ng</td>
+									<td>mw</td>
+									<td>nw</td>
+									<td>rnw</td>
+									<td>nrw</td>
+									<td>nyw</td>
+									<td>ngw</td>
+									<td>ae</td>
+									<th>ASCII pitch accent indicator</th>
+									<td>^</td>
+									<td>_</td>
+								</tr>
+								<tr>
+									<th>Sound</th>
+									<td>p</td>
+									<td>b</td>
+									<td>t</td>
+									<td>d</td>
+									<td>ʈ</td>
+									<td>ɖ</td>
+									<td>c</td>
+									<td>ɟ</td>
+									<td>k</td>
+									<td>g</td>
+									<td>q</td>
+									<td>ɢ</td>
+									<td>s</td>
+									<td>z</td>
+									<td>sʲ</td>
+									<td>zʲ</td>
+									<td>ɕ</td>
+									<td>ʑ</td>
+									<td>ʃ</td>
+									<td>ʒ</td>
+									<td>ʂ</td>
+									<td>ʐ</td>
+									<td>ç</td>
+									<td>ʝ</td>
+									<td>x</td>
+									<td>χ</td>
+									<td>sʷ</td>
+									<td>zʷ</td>
+									<td>sʲʷ</td>
+									<td>zʲʷ</td>
+									<td>ɕʷ</td>
+									<td>ʑʷ</td>
+									<td>ʃʷ</td>
+									<td>ʒʷ</td>
+									<td>ʂʷ</td>
+									<td>ʐʷ</td>
+									<td>çʷ</td>
+									<td>ʝʷ</td>
+									<td>xʷ</td>
+									<td>χʷ</td>
+									<td>m</td>
+									<td>n</td>
+									<td>n̠</td>
+									<td>ɳ</td>
+									<td>ɲ</td>
+									<td>ŋ</td>
+									<td>mʷ</td>
+									<td>nʷ</td>
+									<td>n̠ʷ</td>
+									<td>ɳʷ</td>
+									<td>ɲʷ</td>
+									<td>ŋʷ</td>
+									<td>w</td>
+									<td>l</td>
+									<td>j</td>
+									<td>a</td>
+									<td>e</td>
+									<td>ɛ</td>
+									<td>i</td>
+									<td>o</td>
+									<td>u</td>
+									<th>Pitch accent</th>
+									<td>ꜛ</td>
+									<td>ꜜ</td>
+
+								</tr>
+							</tbody>
+						</table>
+						<p class="plain-font">
+							The capital form of ʃ is ʆ.&#8203;&nbsp;&nbsp;&#8203;<br/>
+						</p>
+					</main>
+				</section>
+
+				<section id="qstPhonotactics">
+					<h2>Phonotactics:</h2>
+					<main class="plain-font">
+						<p>The syllable structure is (C)(<abbr title="A: Any approximant">A</abbr>)V(<abbr title="N: Any nasal">N</abbr>).&#8203;&nbsp;&nbsp;&#8203;Velar sounds and /i/ may undergo assimilation in one of two ways: either the velar plosives /k/ and /g/ palatalize or front respectively into [kʲ~k̟] and [gʲ~g̟] before /i/, or the /i/ may back into /ɪ̝/ before those velar sounds.&#8203;&nbsp;&nbsp;&#8203;/i/ undergoes the same assimilation as below when next to a retroflex fricative.</p>
+						
+						<h3>Vowels' uvular assimilation</h3>
+						<table class="plain-font indent" id="qstReductionTable">
+							<tbody>
+								<tr>
+									<th>Unassimilated</th>
+									<td>i</td>
+									<td>e</td>
+									<td>ɛ</td>
+									<td>a</td>
+									<td rowspan="2">o~o̞</td>
+									<td rowspan="2">u</td>
+								</tr>
+								<tr>
+									<th>Assimilated</th>
+									<td>ɪ~ɪ̝~ɨ~ɨ̞</td>
+									<td>e~e̞~əe̞̯</td>
+									<td>ɛ~e̞</td>
+									<td>ä</td>
+								</tr>
+							</tbody>
+						</table>
+					</main>
+				</section>
+			</section>
+
+			<section id="qstGrammar">
+				<h3>Grammar</h3>
+				<main> 
+					<p class="plain-font">
+						The word order is SVO (SVDI). TAM affixes are applied in the order "aspect-tense-mood".
+					</p>
+				</main>
+			</section>
+
+			<section id="qstWords">
+				<h3>Word table (<span id="qstEntryCount" title="This is not indicative of completeness or comprehensiveness, as it includes all words including sequential derivatives, and it does not account for the subjects of all of these words or their usefulness.  It is for advisory purposes only.">Uncounted entries</span>)</h3>
+					<div id="qstAbbreviations" class="dnone">
+						<h4>Abbreviations</h4>
+						<p class="indent">
+							<span class="part-abbreviation">n.</span>: <span class="full-part">noun</span><br/>
+							<span class="part-abbreviation">prn.</span>: <span class="full-part">pronoun</span><br/>
+							<span class="part-abbreviation">v.</span>: <span class="full-part">verb</span><br/>
+							<span class="part-abbreviation">adj.</span>: <span class="full-part">adjective</span><br/>
+							<span class="part-abbreviation">adv.</span>: <span class="full-part">adverb</span><br/>
+							<span class="part-abbreviation">postp.</span>: <span class="full-part">postposition</span><br/>
+							<span class="part-abbreviation">int.</span>: <span class="full-part">interjection</span><br/>
+							<span class="part-abbreviation">conj.</span>: <span class="full-part">conjunction</span><br/>
+							<span class="part-abbreviation">m.</span>: <span class="full-part">marker</span><br/>
+							<span class="part-abbreviation">art.</span>: <span class="full-part">article</span>
+						</p>
+					</div>
+
+					<p id="qstErrorWarning" class="dnone">There is a syntax error in the data definition that prevents the table from being generated.&#8203;&nbsp;&nbsp;&#8203;Its source code is being shown instead.</p>
+
+					<noscript>With JavaScript disabled, this page will instead show the contents of the script that holds the data.</noscript>
+
+					<div id="qstSearch">
+						<h4>Search (Likely to be slow)</h4>
+						<input placeholder="Enter your query (2 characters or longer)" id="qstSearchQuery" class="plain-font"/><br/>
+						<input type="checkbox" id="qstIgnoreDiacritics"> <label for="qstIgnoreDiacritics">Ignore diacritics</label><br/>
+						<!--<input type="checkbox" id="qstSearchIsRegex"> <label for="qstSearchIsRegex">Use regex</label>-->
+						<input type="checkbox" id="qstSearchEnglish" checked> <label for="qstSearchEnglish">Search English</label>
+						<input type="checkbox" id="qstSearchSissinese" checked> <label for="qstSearchSissinese">Search Sissinese</label>
+						<input type="checkbox" id="qstSearchEtymology"> <label for="qstSearchEtymology">Search in etymologies</label>
+						<input type="checkbox" id="qstSearchExtraInfo"> <label for="qstSearchExtraInfo">Search in extra info</label>
+						<input type="checkbox" id="qstSearchPartOfSpeech"> <label for="qstSearchPartOfSpeech">Search in parts of speech</label>
+					</div>
+
+					<script id="showAndSearchScript">
+
+						function logAndReturn(t) { console.log(t); return t };
+
+						function searchSissinese() {
+							var query = (document.getElementById("qstSearchQuery")?.value) ?? "";
+							var noDia = (document.getElementById("qstIgnoreDiacritics") ?? {checked: false}).checked;
+							//var regex = (document.getElementById("qstSearchIsRegex") ?? {checked: false}).checked;
+							var sEng = (document.getElementById("qstSearchEnglish") ?? {checked: true}).checked;
+							var sTwa = (document.getElementById("qstSearchSissinese") ?? {checked: true}).checked;
+							var sEty = (document.getElementById("qstSearchEtymology") ?? {checked: false}).checked;
+							var sExt = (document.getElementById("qstSearchExtraInfo") ?? {checked: false}).checked;
+							var sPar = (document.getElementById("qstSearchPartOfSpeech") ?? {checked: false}).checked;
+
+							var filteredData = qstSourceData;
+							if(query && (query.length > 1)) {
+								filteredData = structuredClone(qstSourceData).filter(function(itemData) {
+									/*if(regex) {
+										var regex = RegExp(query,"i");
+										return (
+											(sEng && regex.test(itemData.eng ?? "")) ||
+											(sTwa && regex.test(itemData.qst ?? "")) ||
+											(sEty && itemData.etym && regex.test(itemData.etym)) ||
+											(sExt && itemData.extra && regex.test(itemData.extra)) ||
+											(sPar && itemData.part && regex.test(itemData.part))
+										)
+									} else if(!regex)*/ if(noDia) {
+										return (
+											(sEng && ((itemData.eng.normalize("NFD").replace(/[̀-ͯ]/g,"") ?? "").toLowerCase().includes(query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")))) ||
+											(sTwa && ((itemData.qst.normalize("NFD").replace(/[̀-ͯ]/g,"") ?? "").toLowerCase().includes(query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")))) ||
+											(sEty && itemData.etym.normalize("NFD").replace(/[̀-ͯ]/g,"") && (itemData.etym.toLowerCase().includes(query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")))) ||
+											(sExt && itemData.extra.normalize("NFD").replace(/[̀-ͯ]/g,"") && (itemData.extra.toLowerCase().includes(query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")))) ||
+											(sPar && itemData.part.normalize("NFD").replace(/[̀-ͯ]/g,"") && (itemData.part.toLowerCase().includes(query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""))))
+										)
+									} else {
+										return (
+											(sEng && ((itemData.eng ?? "").toLowerCase().includes(query.toLowerCase()))) ||
+											(sTwa && ((itemData.qst ?? "").toLowerCase().includes(query.toLowerCase()))) ||
+											(sEty && itemData.etym && (itemData.etym.toLowerCase().includes(query.toLowerCase()))) ||
+											(sExt && itemData.extra && (itemData.extra.toLowerCase().includes(query.toLowerCase()))) ||
+											(sPar && itemData.part && (itemData.part.toLowerCase().includes(query.toLowerCase())))
+										)
+									};
+								})
+							};
+
+
+							doTable(filteredData,"Sissinese","qst","qstWordlist");
+
+							filteredData = null;
+						};
+
+						var searchOptions = ["qstSearchQuery","qstIgnoreDiacritics",/*"qstSearchIsRegex",*/"qstSearchEnglish","qstSearchSissinese","qstSearchEtymology","qstSearchExtraInfo","qstSearchPartOfSpeech"].map(x => document.getElementById(x));
+						for(var i = 0; i < searchOptions.length; i++) {
+							if(searchOptions[i].getAttribute("type") == "checkbox") {
+								searchOptions[i].addEventListener("change",searchSissinese)
+							} else {
+								searchOptions[i].addEventListener("keyup",searchSissinese)
+								searchOptions[i].addEventListener("paste",searchSissinese)
+							}
+						};
+
+			qstSourceData = [
+				{ part: 'pronoun', qst: 'ҟim', eng: 'I, me' },
+				{ part: 'noun', qst: 'nàja', eng: 'coconut' },
+				{ part: 'noun', qst: 'ʃín', eng: 'water' },
+				{ part: 'noun', qst: 'ʒ̄oʃín', eng: 'lake' },
+				{ part: 'noun', qst: 'sesê', eng: 'sea, ocean' },
+				{ part: 'noun', qst: 'šal', eng: 'sand' },
+				{ part: 'noun', qst: 'ҟilepé', eng: 'island' },
+				{ part: 'noun', qst: 'tihásiwin', eng: 'The main island of Twanthain' },
+				{ part: 'noun', qst: 'sísìm', eng: 'dirt, soil' },
+				{ part: 'noun', qst: 'síʒà', eng: 'human, person' },
+				{ part: 'noun', qst: 'đaҟen', eng: 'tree' },
+				{ part: 'noun', qst: 'saʃ̊iǥê', eng: 'rock, stone' },
+				{ part: 'noun', qst: 'ené', eng: 'flesh' },
+				{ part: 'noun', qst: 'Sisin', eng: 'The Sissin region of Twanthain' },
+				{ part: 'noun', qst: 'tilin', eng: 'a pebble, a small rock', extra: 'Classification varies depending on the speaker, and may be subject to the sorites paradox, but rocks with a longest measurement less than 4cm are generally considered "tilin".' },
+				{ part: 'noun', qst: 'sêhin̏', eng: 'a large rock', extra: 'Rocks over 10cm in length are generally considered "sêhin̏".' },
+				{ part: 'noun', qst: 'sahesín', eng: 'a huge rock', extra: 'Rocks over 50cm in length are generally considered "sahesín".' },
+				{ part: 'noun', qst: 'siʃísim', eng: 'a boulder', extra: 'Rocks at least 1m in length are generally considered "siʃísim".' },
+				{ part: 'noun', qst: 'ʒ̄osiʃísim', eng: 'a huge boulder', extra: 'Rocks at least 3m in length are generally considered "ʒ̄osiʃísim".' },
+				{ part: 'verb', qst: 'ʒ̄osusumiñ', eng: 'a long walk' },
+				{ part: 'verb', qst: 'sóşì', eng: 'to like' },
+				{ part: 'verb', qst: 'ʒ̄osóşì', eng: 'to love' },
+				{ part: 'verb', qst: 'žasé', eng: 'to eat, to drink, to ingest, (metaphorically) to use, to diminish' },
+				{ part: 'verb', qst: 'ʒ̄ožasé', eng: 'to eat a lot, to ravenously devour, to guzzle, to gobble up, to rapidly diminish' },
+				{ part: 'verb', qst: 'isíşi', eng: 'to taste like' },
+				{ part: 'verb', qst: 'ʒ̄oisíşi', eng: 'to taste strongly like' },
+				{ part: 'verb', qst: 'nélin', eng: 'to smell like' },
+				{ part: 'verb', qst: 'ʒ̄onélin', eng: 'to smell strongly like' },
+				{ part: 'verb', qst: 'sóşì', eng: 'to swim' },
+				{ part: 'verb', qst: 'susu', eng: 'to walk' },
+				{ part: 'interjection', qst: 'miʃí', eng: 'hello' },
+				{ part: 'other', qst: 'ʒ̄o-', eng: '(Augmentative)', extra: 'Very productive' },
+				{ part: 'other', qst: 'lisi-', eng: '(Diminutive)' },
+				{ part: 'other', qst: '-nam', eng: '(Past tense suffix)' },
+				{ part: 'other', qst: '-sếšà', eng: '(Present tense suffix)' },
+				{ part: 'other', qst: '-loma', eng: '(Future tense suffix)' },
+				{ part: 'other', qst: '-móʃi', eng: '(Habitual aspect suffix)' },
+				{ part: 'other', qst: '-tam̊é', eng: '(Imperative mood suffix)' },
+				{ part: 'other', qst: '-di', eng: '(Makes a noun plural)' },
+				{ part: 'other', qst: '-míe', eng: '(Nominative suffix)' },
+				{ part: 'other', qst: '-đin', eng: '(Accusative suffix)' },
+				{ part: 'other', qst: '-síʃi', eng: '(Genitive suffix), \'s' },
+				{ part: 'other', qst: '-hen', eng: '(Dative suffix)' },
+				{ part: 'other', qst: '-neñ', eng: '(Nominalizer suffix)' },
+				{ part: 'other', qst: '-paşu', eng: '(Verbalizer suffix)' },
+				{ part: 'other', qst: '-ʃ̊e', eng: '(Adjectivizer suffix)' },
+				{ part: 'other', qst: '-n̊iñ', eng: '(Adverbializer suffix)' },
+			]
+					</script>
+					<script>
+						window.addEventListener("load", function() {
+							var abbrevs = document.getElementById("qstAbbreviations");
+							var warning = document.getElementById("errorWarning");
+							nbsp = String.fromCharCode(0xA0);
+							
+							//Display the number of initials
+							var initialsTable = document.getElementById("qstConsonantsTable");
+							var initialCells = initialsTable.querySelectorAll("tr td");
+							var initialCount = 0;
+							for(var i = 0; i < initialCells.length; i++) {
+								var text = initialCells[i].textContent;
+								if((text.length) > 0 && text !== nbsp) {
+									initialCount++
+								};
+							};
+							var initialsText = document.getElementById("qstConsonantsCount");
+							initialsText.textContent = `${initialCount.toLocaleString()} initial consonant${initialCount == 1 ? "" : "s"}`
+							loadScroll();
+
+							//Display the number of letters (based on Latin count)
+							var lettersTable = document.getElementById("qstRomanRow");
+							var letterCells = lettersTable.childNodes;
+							var letterCount = 0;
+							var cellsCounted = 0;
+							for(var i = 0; i < letterCells.length; i++) {
+								var cell = letterCells[i];
+								var tagName = cell.tagName;
+								if(tagName == undefined) { continue };
+								if(cellsCounted == 0 && tagName == "TH") { continue };
+								if(cellsCounted > 0 && tagName == "TH") {
+									break
+								};
+								if(tagName == "TD") {
+									letterCount++
+								};
+								cellsCounted++
+							};
+							var lettersText = document.getElementById("qstLettersCount");
+							lettersText.textContent = `${letterCount.toLocaleString()} letter${letterCount == 1 ? "" : "s"}`
+						})
+					</script>
+					
+				<main id="qstWordlist">
+					<h4>Additional information</h4>	
+					<p class="plain-font">
+						<span>Animate pronouns (cain, caun, cu̇n, cwu̇n, cën, cwën) also apply to animals.&#8203;&nbsp;&nbsp;&#8203;Plants are mostly referred to with either, as the Sissinese's opinions differ on whether plants are animate.&#8203;&nbsp;&nbsp;&#8203;Substances are always considered inanimate, except sometimes for living flesh of an organism (sometimes including living plant matter).<br/>
+					</p>
+				</main>
+			</section>
+
+
+			<section id="sissineseLore">
+				<h3>Lore</h3>
+				<div id="lore1" class="indent plain-font" aria-role="paragraph">
+					To do.
+				</div>
+			</section>
+		</section>
+
 		<section id="twanthain">
 			<h1 class="subh1">Twanthain</h1>
 			<main class="plain-font" aria-role="paragraph" id="twanthainLore">
 				<section id="description">
 					<h2>Description</h2>
-					<p class="indent">Twanthain (<span lang="qtw-Latn">Cwan Ťwaiw Ban̏</span>/<span lang="qtw-Khmr">ឝ្វាណ៑ ទ្វាឭវ៑ ពាៈង៑</span>, "People's Nation of Cwan"; officially <span lang="qtw-Latn">Cwan Ťwaiw Wwëy Ḱü̚y Ban̏</span>/<span lang="qtw-Khmr">ឝ្វាណ៑ ទ្វាឭវ៑ វ្វយ៑ ជឺ៹យ៑ ពាៈង៑</span>, "People's Democratic Republic of Cwan") is an island country in the eastern Philippine Sea, on the West Mariana Ridge.&#8203;&nbsp;&nbsp;&#8203;It is located west of Guam, south of Japan, east of the Philippines, northwest of Palau, and north of western Micronesia; it is disagreed on whether Twanthain is considered a part of Southeast Asia or Oceania.&#8203;&nbsp;&nbsp;&#8203;Its capital is Pfewhuang (<span lang="qtw-Latn">F̌eu ¦wán̏</span>/<span lang="qtw-Khmr">ផឩ អ្វាង៑</span>, "River City").&#8203;&nbsp;&nbsp;&#8203;It has one time zone, Twanthainese Standard Time (<span lang="qtw-Latn">Cwan Ťwaiw Ban̏ Čiao᷅n̏</span>/<span lang="qtw-Khmr">ឝ្វាណ៑ ទ្វាឭវ៑ ពាៈង៑ ឞីឰឧ៱៰ង៑</span>), whose UTC offset is UTC+10 without daylight savings time.&#8203;&nbsp;&nbsp;&#8203;Twanthain's ISO country codes are <code title="ISO 3166-1 alpha-2">TI</code>, <code title="ISO 3166-1 alpha-3">TTN</code>, and <code title="ISO 3166-1 numeric">799</code>; thus its <abbr title="country code top-level domain">ccTLD</abbr> is <code>.ti</code>.&#8203;&nbsp;&nbsp;&#8203;Its currency is the Twanthainese nak (<span lang="qtw-Latn">nàk</span>/<span lang="qtw-Khmr">ណា៳ក៑</span>), which as of 2024 exchanges at a rate of ≈83Ň to 1 US dollar.&#8203;&nbsp;&nbsp;&#8203;It has two symbols: Ň (a Latin letter N with a caron/háček), and <span>កា</span>‌<span style="display: inline-block; position: relative; left: -8px; top: -2px;">̌</span> (the Khmer-script syllable "កា" with a caron); this latter symbol is not supported by Unicode and likely to display improperly, and as a result its usage is declining.&#8203;&nbsp;&nbsp;&#8203;The nak's currency codes are <code title="ISO 4217 alphabetical code">TIN</code> and <code title="ISO 4217 numeric code">797</code>.&#8203;&nbsp;&nbsp;&#8203;The nation has a total area of <span id="landAreaKm2">104,476</span> square kilometers.&#8203;&nbsp;&nbsp;&#8203;Twanthain has a population of about <span id="population">3.5 million</span>, and a population density of about <span id="populationDensity">33.73</span> people per square kilometer.&#8203;&nbsp;&nbsp;&#8203;Its population growth rate is <span id="populationGrowthRate">1.429%</span>.
+					<p class="indent">Twanthain (<span lang="qtw-Latn">Wüan Ťwaiw Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑ ទ្វាឭវ៑ ពាៈង៑</span>, "People's Nation of Wüan"; officially <span lang="qtw-Latn">Wüan Ťwaiw Wwëy Ḱü̚y Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑ ទ្វាឭវ៑ វ្វយ៑ ជឺ៹យ៑ ពាៈង៑</span>, "People's Democratic Republic of Wüan") is an island country in the eastern Philippine Sea, on the West Mariana Ridge.&#8203;&nbsp;&nbsp;&#8203;It is located west of Guam, south of Japan, east of the Philippines, northwest of Palau, and north of western Micronesia; it is disagreed on whether Twanthain is considered a part of Southeast Asia or Oceania.&#8203;&nbsp;&nbsp;&#8203;Its capital is Pfewhuang (<span lang="qtw-Latn">F̌eu ¦wán̏</span>/<span lang="qtw-Khmr">ផឩ អ្វាង៑</span>, "River City").&#8203;&nbsp;&nbsp;&#8203;It has one time zone, Twanthainese Standard Time (<span lang="qtw-Latn">Wüan Ťwaiw Ban̏ Čiao᷅n̏</span>/<span lang="qtw-Khmr">វឺឰណ៑ ទ្វាឭវ៑ ពាៈង៑ ឞីឰឧ៱៰ង៑</span>), whose UTC offset is UTC+10 without daylight savings time.&#8203;&nbsp;&nbsp;&#8203;Twanthain's ISO country codes are <code title="ISO 3166-1 alpha-2">TI</code>, <code title="ISO 3166-1 alpha-3">TTN</code>, and <code title="ISO 3166-1 numeric">799</code>; thus its <abbr title="country code top-level domain">ccTLD</abbr> is <code>.ti</code>.&#8203;&nbsp;&nbsp;&#8203;Its currency is the Twanthainese nak (<span lang="qtw-Latn">nàk</span>/<span lang="qtw-Khmr">ណា៳ក៑</span>), which as of 2024 exchanges at a rate of ≈83Ň to 1 US dollar.&#8203;&nbsp;&nbsp;&#8203;It has two symbols: Ň (a Latin letter N with a caron/háček), and <span>កា</span>‌<span style="display: inline-block; position: relative; left: -8px; top: -2px;">̌</span> (the Khmer-script syllable "កា" with a caron); this latter symbol is not supported by Unicode and likely to display improperly, and as a result its usage is declining.&#8203;&nbsp;&nbsp;&#8203;The nak's currency codes are <code title="ISO 4217 alphabetical code">TIN</code> and <code title="ISO 4217 numeric code">797</code>.&#8203;&nbsp;&nbsp;&#8203;The nation has a total area of <span id="landAreaKm2">104,476</span> square kilometers.&#8203;&nbsp;&nbsp;&#8203;Twanthain has a population of <span id="population">3.5 million</span>, and a population density of about <span id="populationDensity">33.73</span> people per square kilometer.&#8203;&nbsp;&nbsp;&#8203;Its fertility rate is 4.73 births per woman<!--not because there's a lot of death, but because they f*** like rabbits-->, and its population growth rate is <span id="populationGrowthRate">8.449%</span>.
 					<script>
 						illions = ["thousand","million","billion","trillion","quadrillion","quintillion","sextillion","septillion","octillion","nonillion","decillion","undecillion"];
 						var area = 104476;
@@ -3372,13 +4083,16 @@ AAAAAAAAAAAAAAAAA!</p></br>
 							var displayValue;
 							var rounder = 10 ** ((pIllion + 1) * 3);
 							displayValue = (population / rounder).toFixed(1).replace(".0","");
-							var displayQuantifier;
+							/*var displayQuantifier;
 							if(pIllion < 0) { displayQuantifier = "" }
 							else if(pIllion >= illions.length) { displayQuantifier = "times ten to the power of something" }
 							else { displayQuantifier = illions[pIllion] };
-							displayPopulation = `${displayValue} ${displayQuantifier}`
+							displayPopulation = `${displayValue} ${displayQuantifier}`*/
 							var populationText = document.getElementById("population");
-							if(populationText) { populationText.innerText = displayPopulation }
+							if(populationText) { 
+								//populationText.innerText = displayPopulation
+								populationText.innerText = population.toLocaleString()
+							}
 							
 							if(area) {
 								var populationDensityText = document.getElementById("populationDensity");
@@ -3447,43 +4161,42 @@ AAAAAAAAAAAAAAAAA!</p></br>
 					<span class="indent" style="display: block;">If a child has two same-gender parents, the older parent's name comes first.</span></span></p>
 					<span class="info-pair"><span class="info-label">Other major cities</span>: <span class="info-value">Tsyonhuang, Tsyonbwam (Cyo᷅n ¦wán̏, Cyo᷅n Bwam; "South City"); Twawhuang, Bwangbwam (Twaw ¦wán̏, Bwan̏ Bwam; "Forest City"); Jey Wiung Hdik Zeng City, Jeybwam (Jék̋ Wu̇̄n̏ Ďi̠g Zen̏ ¦wán̏, Jék̋ Bwam), Dez Bwim Ong Lheu City, Pfeikbwam (Dez Bwim On̏ L̃eu ¦uang, F̌eik Bwam)</span></span><br/>
 					<span class="info-pair"><span class="info-label">Provinces</span>: <span class="info-value">Pelbwam (Pel Bwam, "Gulf Province"), Pfeikbwam (F̌eik Bwam, "Delta Province"), Tngwanybwam (Tn̏wań Bwam, "Mountain Province"), Nuitmuifkaingbwam (Nüť Mü̠f Kai̠n̏ Bwam, "Red Village Province"), Pfewbwam (F̌eu Bwam, "River Province"), Pfewhuang (F̌eu ¦wán̏, "River City"; special provincial-level city), Jeybwam (Jék̋ Bwam, "Jék̋ Province"), Tsyonbwam (Cyo᷅n Bwam, "South Province")</span></span><br/>
-					<span class="info-pair"><span class="info-label">Life expectancy</span>: <span class="info-value">77.77 years</span></span><br/>
-					<span class="info-pair"><span class="info-label">Fertility rate</span>: <span class="info-value">2.73 births per woman</span></span><br/>
+					<span class="info-pair"><span class="info-label">Life expectancy</span>: <span class="info-value">87.65 years</span></span><br/>
 					<span class="info-pair"><span class="info-label">Literacy rate</span>: <span class="info-value">98.7%</span></span><br/>
 					<div class="info-pair"><span class="info-label">Most spoken languages</span>: <span>(Percentages do not add up to 100% due to multilingualism)</span> <ol class="info-value">
 						<li class="subpair"><span class="sublabel">Twanthainese</span>: <span class="subvalue">99.9%</span></li>
 						<li class="subpair"><span class="sublabel">Spanish</span>: <span class="subvalue">29.1%</span></li>
+						<li class="subpair"><span class="sublabel" title="A language of Twanthain, spoken by the Sissin people.">Sissinese</span>: <span class="subvalue">25.4%</span></li> <!--DBOL population: 426,949; total speakers: 896,949 as of pop. 3,529,215-->
 						<li class="subpair"><span class="sublabel">English</span>: <span class="subvalue">24.4%</span></li>
-						<li class="subpair"><span class="sublabel">Indonesian</span>: <span class="subvalue">14.4%</span></span>, 
-						<li class="subpair"><span class="sublabel">Filipino/Tagalog</span>: <span class="subvalue">13.5%</span></span>, 
-						<li class="subpair"><span class="sublabel">Mandarin</span>: <span class="subvalue">11.6%</span></span>, 
-						<li class="subpair"><span class="sublabel">Taiwanese Hokkien</span>: <span class="subvalue">10.6%</span></span>, 
-						<li class="subpair"><span class="sublabel">Bisaya/Cebuano</span>: <span class="subvalue">7.8%</span></span>, 
-						<li class="subpair"><span class="sublabel" title="A minority language of Twanthain, spoken by the Sissin people.">Sissinese</span>: <span class="subvalue">6.8%</span></span>, 
-						<li class="subpair"><span class="sublabel">Japanese</span>: <span class="subvalue">3.6%</span></span>, 
-						<li class="subpair"><span class="sublabel">French</span>: <span class="subvalue">0.78%</span></span>, 
-						<li class="subpair"><span class="sublabel">Korean</span>: <span class="subvalue">0.7%</span></span>, 
-						<li class="subpair"><span class="sublabel">Vietnamese</span>: <span class="subvalue">0.63%</span></span>, 
-						<li class="subpair"><span class="sublabel">Portuguese</span>: <span class="subvalue">0.6%</span></span>, 
-						<li class="subpair"><span class="sublabel">Thai</span>: <span class="subvalue">0.58%</span></span>, 
-						<li class="subpair"><span class="sublabel">Khmer</span>: <span class="subvalue">0.5%</span></span>, 
-						<li class="subpair"><span class="sublabel">Lao</span>: <span class="subvalue">0.2%</span></span>, 
-						<li class="subpair"><span class="sublabel">German</span>: <span class="subvalue">0.14%</span></span>, 
-						<li class="subpair"><span class="sublabel">Burmese</span>: <span class="subvalue">0.13%</span></span>, 
-						<li class="subpair"><span class="sublabel">Malay</span>: <span class="subvalue">0.11%</span></span>, 
-						<li class="subpair"><span class="sublabel">Bengali</span>: <span class="subvalue">0.09%</span></span>, 
-						<li class="subpair"><span class="sublabel">Chamorro</span>: <span class="subvalue">0.05%</span></span>, 
-						<li class="subpair"><span class="sublabel">Tok Pisin</span>: <span class="subvalue">0.04%</span></span>, 
-						<li class="subpair"><span class="sublabel">Haitian Creole</span>: <span class="subvalue">0.012%</span></span>, 
-						<li class="subpair"><span class="sublabel">Toki Pona</span>: <span class="subvalue">0.003%</span></span>, 
-						<li class="subpair"><span class="sublabel">Uzbek</span>: <span class="subvalue">0.0012%</span></span>, 
-						<li class="subpair"><span class="sublabel">Turkish</span>: <span class="subvalue">0.0008%</span></span>, 
-						<li class="subpair"><span class="sublabel">Polish</span>: <span class="subvalue">0.000314%</span></span>, 
-						<li class="subpair"><span class="sublabel">Serbian</span>: <span class="subvalue">0.000143%</span></span>, 
+						<li class="subpair"><span class="sublabel">Indonesian</span>: <span class="subvalue">14.4%</span></li> 
+						<li class="subpair"><span class="sublabel">Filipino/Tagalog</span>: <span class="subvalue">13.5%</span></li> 
+						<li class="subpair"><span class="sublabel">Mandarin</span>: <span class="subvalue">11.6%</span></li> 
+						<li class="subpair"><span class="sublabel">Taiwanese Hokkien</span>: <span class="subvalue">10.6%</span></li> 
+						<li class="subpair"><span class="sublabel">Bisaya/Cebuano</span>: <span class="subvalue">7.8%</span></li> 
+						<li class="subpair"><span class="sublabel">Japanese</span>: <span class="subvalue">3.6%</span></li> 
+						<li class="subpair"><span class="sublabel">French</span>: <span class="subvalue">0.78%</span></li> 
+						<li class="subpair"><span class="sublabel">Korean</span>: <span class="subvalue">0.7%</span></li> 
+						<li class="subpair"><span class="sublabel">Vietnamese</span>: <span class="subvalue">0.63%</span></li> 
+						<li class="subpair"><span class="sublabel">Portuguese</span>: <span class="subvalue">0.6%</span></li> 
+						<li class="subpair"><span class="sublabel">Thai</span>: <span class="subvalue">0.58%</span></li> 
+						<li class="subpair"><span class="sublabel">Khmer</span>: <span class="subvalue">0.5%</span></li> 
+						<li class="subpair"><span class="sublabel">Lao</span>: <span class="subvalue">0.2%</span></li> 
+						<li class="subpair"><span class="sublabel">German</span>: <span class="subvalue">0.14%</span></li> 
+						<li class="subpair"><span class="sublabel">Burmese</span>: <span class="subvalue">0.13%</span></li> 
+						<li class="subpair"><span class="sublabel">Malay</span>: <span class="subvalue">0.11%</span></li> 
+						<li class="subpair"><span class="sublabel">Bengali</span>: <span class="subvalue">0.09%</span></li> 
+						<li class="subpair"><span class="sublabel">Chamorro</span>: <span class="subvalue">0.05%</span></li> 
+						<li class="subpair"><span class="sublabel">Tok Pisin</span>: <span class="subvalue">0.04%</span></li> 
+						<li class="subpair"><span class="sublabel">Haitian Creole</span>: <span class="subvalue">0.012%</span></li> 
+						<li class="subpair"><span class="sublabel">Toki Pona</span>: <span class="subvalue">0.003%</span></li> 
+						<li class="subpair"><span class="sublabel">Uzbek</span>: <span class="subvalue">0.0012%</span></li> 
+						<li class="subpair"><span class="sublabel">Turkish</span>: <span class="subvalue">0.0008%</span></li> 
+						<li class="subpair"><span class="sublabel">Polish</span>: <span class="subvalue">0.000314%</span></li> 
+						<li class="subpair"><span class="sublabel">Serbian</span>: <span class="subvalue">0.000143%</span></li> 
 						<li class="subpair"><span class="sublabel">Kay(f)bop(t)</span>: <span class="subvalue">0.0000286%</span></li>
 					</ol></div><br/>
-					<span class="info-pair"><span class="info-label">National languages</span>: <span class="info-value">Twanthainese and Spanish. The difference in status between these and the "working" languages, below, is nil in practice, and it is mostly only a ceremonial distinction.</span></span><br/>
-					<span class="info-pair"><span class="info-label">Working languages</span>: <span class="info-value">Twanthainese, Spanish, English, Indonesian, Tagalog, Mandarin, and Taiwanese Hokkien. Twanthain's "working languages" are the usually ones in which official documentation is always provided; the difference between them and the "official" languages is minimal and nebulous, and in a sense these may all be regarded as <i>de facto</i> official languages.</span></span><br/>
+					<span class="info-pair"><span class="info-label">National languages</span>: <span class="info-value">Twanthainese, Sissinese, and Spanish. The difference in status between these and the "working" languages, below, is nil in practice, and it is mostly only a ceremonial distinction.</span></span><br/>
+					<span class="info-pair"><span class="info-label">Working languages</span>: <span class="info-value">Twanthainese, Sissinese, Spanish, English, Indonesian, Tagalog, Mandarin, and Taiwanese Hokkien. Twanthain's "working languages" are the usually ones in which official documentation is always provided; the difference between them and the "official" languages is minimal and nebulous, and in a sense these may all be regarded as <i>de facto</i> official languages.</span></span><br/>
 					<div class="info-pair"><span class="info-label">Most practiced religions</span>: <ul class="info-value">
 						<li class="subpair"><span class="sublabel">Christianity</span>: 42.2%: <ol class="subvalue">
 							<li class="subpair"><span class="sublabel">Catholic</span>: <span class="subvalue">98.76% of Christians (41.68% of the total population)</span></li>
