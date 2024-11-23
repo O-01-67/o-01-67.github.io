@@ -1581,16 +1581,18 @@
 						};
 
 						partOfSpeechAbbreviations = {
-							"pronoun": "prn.",
-							"noun": "n.",
-							"verb": "v.",
 							"adjective": "adj.",
 							"adverb": "adv.",
+							"pronoun": "prn.",
 							"postposition": "postp.",
 							"interjection": "int.",
 							"conjunction": "conj.",
 							"marker": "m.",
-							"article": "art."
+							"article": "art.",
+							"affix": "aff.",
+							"classifier": "cl.", //CL FROM 2NE1??!?!??!?!?!?!!!?!?!?
+							"noun": "n.",
+							"verb": "v.",
 						};
 
 						function doTable(data,languageName,languageCode,tableDestinationID) {
@@ -3853,7 +3855,7 @@ AAAAAAAAAAAAAAAAA!</p></br>
 				<h3>Grammar</h3>
 				<main> 
 					<p class="plain-font">
-						The default word order is SVO (SVDI).&#8203;&nbsp;&nbsp;&#8203;TAM affixes are applied in the order "aspect-tense-mood".&#8203;&nbsp;&nbsp;&#8203;Sissinese is agglutinative and highly inflectional.&#8203;&nbsp;&nbsp;&#8203;It uses numeral classifiers (to do).
+						The default word order is SVO (SVDI).&#8203;&nbsp;&nbsp;&#8203;TAM affixes are applied in the order "aspect-tense-mood".&#8203;&nbsp;&nbsp;&#8203;Sissinese is somewhat agglutinative and highly inflectional.&#8203;&nbsp;&nbsp;&#8203;It uses numeral classifiers, which go between the number and the thing being counted.
 					</p>
 				</main>
 			</section>
@@ -3863,16 +3865,18 @@ AAAAAAAAAAAAAAAAA!</p></br>
 					<div id="qstAbbreviations" class="dnone">
 						<h4>Abbreviations</h4>
 						<p class="indent">
-							<span class="part-abbreviation">n.</span>: <span class="full-part">noun</span><br/>
-							<span class="part-abbreviation">prn.</span>: <span class="full-part">pronoun</span><br/>
-							<span class="part-abbreviation">v.</span>: <span class="full-part">verb</span><br/>
 							<span class="part-abbreviation">adj.</span>: <span class="full-part">adjective</span><br/>
 							<span class="part-abbreviation">adv.</span>: <span class="full-part">adverb</span><br/>
+							<span class="part-abbreviation">prn.</span>: <span class="full-part">pronoun</span><br/>
 							<span class="part-abbreviation">postp.</span>: <span class="full-part">postposition</span><br/>
 							<span class="part-abbreviation">int.</span>: <span class="full-part">interjection</span><br/>
 							<span class="part-abbreviation">conj.</span>: <span class="full-part">conjunction</span><br/>
 							<span class="part-abbreviation">m.</span>: <span class="full-part">marker</span><br/>
-							<span class="part-abbreviation">art.</span>: <span class="full-part">article</span>
+							<span class="part-abbreviation">art.</span>: <span class="full-part">article</span><br/>
+							<span class="part-abbreviation">aff.</span>: <span class="full-part">affix</span><br/>
+							<span class="part-abbreviation">cl.</span>: <span class="full-part">classifier</span><br/>
+							<span class="part-abbreviation">n.</span>: <span class="full-part">noun</span><br/>
+							<span class="part-abbreviation">v.</span>: <span class="full-part">verb</span>
 						</p>
 					</div>
 
@@ -3955,8 +3959,13 @@ AAAAAAAAAAAAAAAAA!</p></br>
 						};
 
 			qstSourceData = [
-				{ part: 'pronoun', qst: 'ҟim', eng: 'I, me' },
-				{ part: 'noun', qst: 'nàja', eng: 'coconut' },
+				{ part: 'pronoun', qst: 'ҟím', eng: '(first-person singular pronoun)' },
+				{ part: 'pronoun', qst: 'ҟímdì', eng: '(first-person plural pronoun)' },
+				{ part: 'pronoun', qst: 'x̵ówu', eng: '(second-person singular pronoun)' },
+				{ part: 'pronoun', qst: 'x̵ówudì', eng: '(second-person plural pronoun)' },
+				{ part: 'pronoun', qst: 'tána', eng: '(third-person singular pronoun)' },
+				{ part: 'pronoun', qst: 'tánadì', eng: '(third-person plural pronoun)' },
+				{ part: 'noun', qst: 'nájà', eng: 'coconut' },
 				{ part: 'noun', qst: 'ʃín', eng: 'water' },
 				{ part: 'noun', qst: 'ʒ̄oʃín', eng: 'lake' },
 				{ part: 'noun', qst: 'sesê', eng: 'sea, ocean' },
@@ -3964,19 +3973,43 @@ AAAAAAAAAAAAAAAAA!</p></br>
 				{ part: 'noun', qst: 'ҟilepé', eng: 'island' },
 				{ part: 'noun', qst: 'tihásiwin', eng: 'The main island of Twanthain' },
 				{ part: 'noun', qst: 'sísìm', eng: 'dirt, soil' },
+				{ part: 'noun', qst: 'šál', eng: 'light' },
 				{ part: 'noun', qst: 'síʒà', eng: 'human, person' },
 				{ part: 'noun', qst: 'đaҟen', eng: 'tree' },
+				{ part: 'noun', qst: 'áwa', eng: 'time' },
+				{ part: 'noun', qst: 'anilé', eng: 'the sun' },
+				{ part: 'noun', qst: 'sếwì', eng: 'moon, month' },
+				{ part: 'noun', qst: 'aniwi', eng: 'day', etym: 'From "anilésếwì"', extra: 'Sissinese does not compress compounds anywhere near as often as Twanthainese does, but very-commonly-used ones sometimes get shortened.' },
+				{ part: 'noun', qst: 'sếwì', eng: 'moon, month' },
+				{ part: 'noun', qst: 'awá', eng: 'world, Earth' },
+				{ part: 'noun', qst: 'háya', eng: 'eye' },
 				{ part: 'noun', qst: 'saʃ̊iǥê', eng: 'rock, stone' },
 				{ part: 'noun', qst: 'ené', eng: 'flesh' },
+				{ part: 'noun', qst: 'áwawà', eng: 'calendar' },
+				{ part: 'noun', qst: 'susé', eng: 'amethyst' },
+				{ part: 'noun', qst: 'áyahu', eng: 'gold' },
+				{ part: 'noun', qst: 'seni', eng: 'metal, (historical) meteoric iron' },
+				{ part: 'noun', qst: 'áwawì', eng: 'month', etym: 'From "áwawàsếwì"' },
+				{ part: 'noun', qst: 'pune', eng: 'stick, twig' },
+				{ part: 'noun', qst: 'lasí', eng: 'boat' },
 				{ part: 'noun', qst: 'Sisin', eng: 'The Sissin region of Twanthain' },
 				{ part: 'noun', qst: 'tilin', eng: 'a pebble, a small rock', extra: 'Classification varies depending on the speaker, and may be subject to the sorites paradox, but rocks with a longest measurement less than 4cm are generally considered "tilin".' },
 				{ part: 'noun', qst: 'sêhin̏', eng: 'a large rock', extra: 'Rocks over 10cm in length are generally considered "sêhin̏".' },
 				{ part: 'noun', qst: 'sahesín', eng: 'a huge rock', extra: 'Rocks over 50cm in length are generally considered "sahesín".' },
 				{ part: 'noun', qst: 'siʃísim', eng: 'a boulder', extra: 'Rocks at least 1m in length are generally considered "siʃísim".' },
 				{ part: 'noun', qst: 'ʒ̄osiʃísim', eng: 'a huge boulder', extra: 'Rocks at least 3m in length are generally considered "ʒ̄osiʃísim".' },
+				{ part: 'noun', qst: 'ánề', eng: 'country, nation' },
+				{ part: 'noun', qst: 'puné', eng: 'village, hamlet, small settlement' },
+				{ part: 'noun', qst: 'ʒ̄opuné', eng: 'a large village' },
+				{ part: 'noun', qst: 'twélì', eng: 'house, home, dwelling' },
+				{ part: 'noun', qst: 'ʒ̄otwélì', eng: 'mansion' },
 				{ part: 'verb', qst: 'ʒ̄osusumiñ', eng: 'a long walk' },
+				{ part: 'noun', qst: 'wána', eng: 'town, city' },
+				{ part: 'noun', qst: 'ʒ̄owána', eng: 'big city, metropolis' },
 				{ part: 'verb', qst: 'sóşì', eng: 'to like' },
 				{ part: 'verb', qst: 'ʒ̄osóşì', eng: 'to love' },
+				{ part: 'verb', qst: 'liwí', eng: 'to find (through a deliberate search)' },
+				{ part: 'verb', qst: 'háyà', eng: 'to stumble upon, to come across by chance' },
 				{ part: 'verb', qst: 'žasé', eng: 'to eat, to drink, to ingest, (metaphorically) to use, to diminish' },
 				{ part: 'verb', qst: 'ʒ̄ožasé', eng: 'to eat a lot, to ravenously devour, to guzzle, to gobble up, to rapidly diminish' },
 				{ part: 'verb', qst: 'isíşi', eng: 'to taste like' },
@@ -3985,6 +4018,12 @@ AAAAAAAAAAAAAAAAA!</p></br>
 				{ part: 'verb', qst: 'ʒ̄onélin', eng: 'to smell strongly like' },
 				{ part: 'verb', qst: 'sóşì', eng: 'to swim' },
 				{ part: 'verb', qst: 'susu', eng: 'to walk' },
+				{ part: 'verb', qst: 'míʃì', eng: 'to see' },
+				{ part: 'verb', qst: 'z̦í', eng: 'to live' },
+				{ part: 'verb', qst: 'yaga', eng: 'to die' },
+				{ part: 'verb', qst: 'yáha', eng: 'to give birth' },
+				{ part: 'verb', qst: 'iyen', eng: 'to be born' },
+				{ part: 'verb', qst: 'kúmu', eng: 'to kill' },
 				{ part: 'interjection', qst: 'miʃí', eng: 'hello' },
 				{ part: 'noun, adjective', qst: 'ʃiʃín', eng: 'one, single' },
 				{ part: 'noun, adjective', qst: 'ʒelín', eng: 'two, double' },
@@ -4013,27 +4052,48 @@ AAAAAAAAAAAAAAAAA!</p></br>
 				{ part: 'noun, adjective', qst: 'n̵áyì qoñ', eng: 'thirty-seven' },
 				{ part: 'noun, adjective', qst: 'ʒelín n̵áyì', eng: 'thirty-eight' },
 				{ part: 'noun, adjective', qst: 'ʃ̵íen̊à n̵áyì', eng: 'fifty-seven' },
+				{ part: 'noun', qst: 'lahá', eng: 'color' },
+				{ part: 'noun', qst: 'sá', eng: 'color' },
+				{ part: 'noun, adjective', qst: 'món', eng: 'red' },
+				{ part: 'noun, adjective', qst: 'n̵áhì', eng: 'blue' },
+				{ part: 'noun, adjective', qst: 'm̊amó', eng: 'purple' },
+				{ part: 'noun, adjective', qst: 'mónpulì', eng: 'salmon (color)' },
+				{ part: 'noun, adjective', qst: 'n̵áhìpulì', eng: 'pink (color)', extra: 'cf. #FF7FFF' },
+				{ part: 'noun, adjective', qst: 'púlì', eng: 'pink, salmon (color), apricot (color)' },
+				{ part: 'noun, adjective', qst: 'míñ', eng: 'green' },
 				{ part: 'noun, adjective', qst: 'ŧén n̵áyì ŧén', eng: '100', extra: 'As the Sissinese people are used to base 19, "normal" base 10 numbers may seem oddly specific to them. However, as the dominant base 10 has seeped in through close contact with the Twanthainese people outside of the Sissin region, they are more exposed to base 10 numbers and more used to them.', etym: 'Effectively "fifty-five"' },
 				{ part: 'noun, adjective', qst: 'ʃíʃihề', eng: '361 (19 squared)' },
 				{ part: 'noun, adjective', qst: 'ʒelín ʃíʃihề šése n̵áyì ʒ̊an', eng: '1,000', etym: 'Effectively "two-hundred ernesty-chris"' },
 				{ part: 'noun, adjective', qst: 'hasín', eng: '6,859 (19 cubed)' },
 				{ part: 'noun, adjective', qst: 'hasín z̦ahé ʃíʃihề ҟapa n̵áyì êǥí', eng: '10,000', etym: 'Effectively "thousand eight-hundred dotty-six"' },
-				{ part: 'other', qst: 'ʒ̄o-', eng: '(Augmentative)', extra: 'Very productive' },
-				{ part: 'other', qst: 'lisi-', eng: '(Diminutive)' },
-				{ part: 'other', qst: '-nam', eng: '(Past tense suffix)' },
-				{ part: 'other', qst: '-sếšà', eng: '(Present tense suffix)' },
-				{ part: 'other', qst: '-loma', eng: '(Future tense suffix)' },
-				{ part: 'other', qst: '-móʃi', eng: '(Habitual aspect suffix)' },
-				{ part: 'other', qst: '-tam̊é', eng: '(Imperative mood suffix)' },
-				{ part: 'other', qst: '-di', eng: '(Makes a noun plural)' },
-				{ part: 'other', qst: '-míe', eng: '(Nominative suffix)' },
-				{ part: 'other', qst: '-đin', eng: '(Accusative suffix)' },
-				{ part: 'other', qst: '-síʃi', eng: '(Genitive suffix), \'s' },
-				{ part: 'other', qst: '-hen', eng: '(Dative suffix)' },
-				{ part: 'other', qst: '-neñ', eng: '(Nominalizer suffix)' },
-				{ part: 'other', qst: '-paşu', eng: '(Verbalizer suffix)' },
-				{ part: 'other', qst: '-ʃ̊e', eng: '(Adjectivizer suffix)' },
-				{ part: 'other', qst: '-n̊iñ', eng: '(Adverbializer suffix)' },
+				{ part: 'noun, adjective', qst: 'šése hasín h̊éwe ʃíʃihề şamé', eng: '100,000', etym: 'Effectively "ernest thousand bet hundred and three"' },
+				{ part: 'noun, adjective', qst: 'tuháwa', eng: '130,321 (19^4)' },
+				{ part: 'noun, adjective', qst: 'ɔ̦óè tuháwa ʒ̊an hasín iʃí ʃíʃihề n̵áyì h̊éwe', eng: '1,000,000', etym: 'Effectively "seven myriad chris thousand frost hundred betteen"' },
+				{ part: 'noun, adjective', qst: 'míwinidè', eng: '2,476,099 (19^5)' },
+				{ part: 'noun, adjective', qst: 'sánà míwinidè ҟapa hasín sám ʃíʃihề iʃí n̵áyì iʃí', eng: '10,000,000', etym: 'Effectively "four lakh dot thousand hope hundred frosty-frost"' },
+				{ part: 'classifier', qst: 'ʃ̵úh̊a', eng: 'classifier for rocks, gemstones, and mineral specimens when they are not a powder' },
+				{ part: 'classifier', qst: 'ž̊ili', eng: 'classifier for particles of dust or other powders' },
+				{ part: 'classifier', qst: 'haláê', eng: 'classifier for islands' },
+				{ part: 'classifier', qst: 'qu', eng: 'classifier for non-island bodies of land' },
+				{ part: 'classifier', qst: 'tapa', eng: 'classifier for areas of land and territories' },
+				{ part: 'classifier', qst: 'lelé', eng: 'classifier for bodies or volumes of water or any other liquid' },
+				{ part: 'affix', qst: 'ʒ̄o-', eng: '(Augmentative)', extra: 'Very productive' },
+				{ part: 'affix', qst: 'lisi-', eng: '(Diminutive)' },
+				{ part: 'affix', qst: '-nam', eng: '(Past tense suffix)' },
+				{ part: 'affix', qst: '-sếšà', eng: '(Present tense suffix)' },
+				{ part: 'affix', qst: '-loma', eng: '(Future tense suffix)' },
+				{ part: 'affix', qst: '-móʃi', eng: '(Habitual aspect suffix)' },
+				{ part: 'affix', qst: '-tam̊é', eng: '(Imperative mood suffix)' },
+				{ part: 'affix', qst: '-di', eng: '(Makes a noun plural)' },
+				{ part: 'affix', qst: '-míe', eng: '(Nominative subject-marking suffix)' },
+				{ part: 'affix', qst: '-đin', eng: '(Accusative direct-object-marking suffix)' },
+				{ part: 'affix', qst: '-síʃi', eng: '(Suffix that marks a possessor), \'s' },
+				{ part: 'affix', qst: '-hasi', eng: '(Suffix that marks a possessee)' },
+				{ part: 'affix', qst: '-hen', eng: '(Indirect-object-marking dative suffix)' },
+				{ part: 'affix', qst: '-neñ', eng: '(Nominalizer suffix)' },
+				{ part: 'affix', qst: '-paşu', eng: '(Verbalizer suffix)' },
+				{ part: 'affix', qst: '-ʃ̊e', eng: '(Adjectivizer suffix)' },
+				{ part: 'affix', qst: '-n̊iñ', eng: '(Adverbializer suffix)' },
 			]
 					</script>
 					<script>
