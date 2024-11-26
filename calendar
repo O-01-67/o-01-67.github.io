@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>number adder</title>
+		<meta property="og:site_name" content="orbit-loona.github.io" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="number adder" />
+		<meta property="og:url" content="https://orbit-loona.github.io/adder.html" />
+		<meta property="og:description" content="Quickly add a bunch of numbers" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:image" content="https://orbit-loona.github.io/bin/addition.png" />
+		<meta property="og:image:width" content="197" />
+		<meta property="og:image:height" content="312" />
+		<meta property="og:image:alt" content="image" />
+		<meta name="twitter:image:src" content="https://orbit-loona.github.io/bin/addition.png" />
+		<meta name="twitter:title" content="number adder" />
+		<meta name="twitter:description" content="Quickly add a bunch of numbers" />
+		<link rel="stylesheet" href="main.css"/>
+		<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="An Orbit">
+		<meta charset="UTF-8">
+		<style type="text/css">
+			#greaterTable {
+				border: 1px solid white;
+				color: white;
+				width: 100%;
+			}
+			
+			#textPane {
+				text-align: left;
+				padding-left: 1.5em;
+				width: 100%;
+			}
+			
+			#mainTable, #mainTable td {
+				border: 1px solid white;
+				color: white;
+			}
+			
+			.day, .weekHeading {
+				width: 25px;
+				min-width: 25px;
+				height: 100%;
+			}
+			
+			.weekHeading {
+				background-color: #7f7f7f;
+			}
+			
+			.today {
+				font-weight: bold;
+			}
+			
+			.week {
+				height: 27px;
+				width: 100%;
+			}
+			
+			#mainTable td .invalid, #mainTable td .invalid.valid {
+				background-color: black;
+				border: 1px solid #444;
+			}
+
+			#greaterTable tbody tr td #mainTable tbody tr.week td.invalid.iwbb {
+				border-bottom: 1px solid #fff;
+			}
+
+			#greaterTable tbody tr td #mainTable tbody tr.week td.invalid.iwrb {
+				border-right: 1px solid #fff;
+			}
+
+			#greaterTable tbody tr td #mainTable tbody tr.week td.wlb {
+				border-left: 1px solid #fff;
+			}
+
+			#mainTable td .valid {
+				background-color: #333;
+				position: relative;
+			}
+
+			#mainTable td .valid:before:not(.local-today):not(.korean-today) { /* cursed ahh stack overflow css https://stackoverflow.com/questions/49744706/how-to-have-table-cell-border-override-neighbour-table-cell-borders */
+				content: "";
+				position: absolute;
+				left: -1px;
+				right: -1px;
+				top: -1px;
+				bottom: -1px;
+				border: 1px solid white;
+			}
+
+			.black-outline{text-shadow:0px -1px 1px #000,1px -1px 1px #000,1px 0px 1px #000,1px 1px 1px #000,0px 1px 1px #000,-1px 1px 1px #000,-1px 0px 1px #000,-1px -1px 1px #000}
+			.white-outline{text-shadow:0px -1px 1px #fff,1px -1px 1px #fff,1px 0px 1px #fff,1px 1px 1px #fff,0px 1px 1px #fff,-1px 1px 1px #fff,-1px 0px 1px #fff,-1px -1px 1px #fff}
+			
+			#mainTable td.local-today {
+				border: 2px solid #FF3F3F;
+				color: white;
+				left: 0.2px;
+				top: 0.2px;
+			}
+			
+			td.local-today, #mainTable td.local-today.valid:before {
+				content: "";
+				position: absolute;
+				left: -1px;
+				right: -1px;
+				top: -1px;
+				bottom: -1px;
+				border: 2px solid #FF3F3F;
+			}
+
+			#mainTable td.korean-today {
+				border: 2px solid #3F3FFF;
+				color: white;
+				left: 0.2px;
+				top: 0.2px;
+			}
+			
+			td.local-today, #mainTable td.korean-today.valid:before {
+				content: "";
+				position: absolute;
+				left: -1px;
+				right: -1px;
+				top: -1px;
+				bottom: -1px;
+				border: 2px solid #3F3FFF;
+			}
+
+			#mainTable td.local-today.korean-today {
+				border: 2px solid #FF3FFF;
+				color: white;
+				left: 0.2px;
+				top: 0.2px;
+			}
+			
+			td.local-today, #mainTable td.local-today.korean-today.valid:before {
+				content: "";
+				position: absolute;
+				left: -1px;
+				right: -1px;
+				top: -1px;
+				bottom: -1px;
+				border: 2px solid #FF3FFF;
+			}
+
+			span.local-today {
+				display: inline-block;
+				border: 2px solid #FF3F3F;
+				padding: 2px;
+			}
+
+			span.korean-today {
+				display: inline-block;
+				border: 2px solid #3F3FFF;
+				padding: 2px;
+			}
+
+			span.local-today.korean-today {
+				display: inline-block;
+				border: 2px solid #FF3FFF;
+				padding: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Loona calendar (HTML edition)</h1>
+
+		<table id="greaterTable">
+			<tbody>
+				<tr>
+					<td id="calendarPane">
+						<table id="mainTable">
+							<tbody>
+								<tr>
+									<td id="January"></td><td id="February"></td><td id="March"></td>
+								</tr>
+								<tr>
+									<td id="April"></td><td id="May"></td><td id="June"></td>
+								</tr>
+								<tr>
+									<td id="July"></td><td id="August"></td><td id="September"></td>
+								</tr>
+								<tr>
+									<td id="October"></td><td id="November"></td><td id="December"></td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td id="textPane">
+						<p>Text here</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<script>
+			function getLuminance(R,G,B){
+				return (0.2126*R+0.7152*G+0.0722*B)
+			}
+			
+			HTMLElement.prototype.setStyle = function(styleProperty,styleValue) {
+				//console.log(this,styleProperty,styleValue);
+				this.style[styleProperty] = styleValue;
+			}
+
+			function englishFormatList(thingsArrayIn) {
+				var thingsArray = thingsArrayIn;
+				var amount = thingsArray.length;
+				if(amount == 1) {
+					return thingsArray[0]
+				} else if(amount == 2) {
+					return thingsArray.join(" and ")
+				} else {
+					var lastItem = thingsArray[thingsArray.length - 1];
+					thingsArray[thingsArray.length - 1] = "and " + lastItem;
+					return thingsArray.join(", ")
+				};
+			};
+
+			function capitalizeFirstLetter(string,locale=null) {
+				return string[0][locale ? "toLocaleUpperCase" : "toUpperCase"](locale) + string.slice(1)
+			};
+
+			function HCCLGCG(colorArray){
+				var colorCount=colorArray.length
+				var fractionUnitPercent=100/colorCount
+				var tinyTransitionWidthPercent=fractionUnitPercent/2000
+				var gradientString="linear-gradient(to right,"
+				var percent=0
+				for(var i=0;i<colorCount;i++){
+					var color=colorArray[i]
+					gradientString+=`${color} ${percent}%, `
+					percent+=(fractionUnitPercent-tinyTransitionWidthPercent)
+					gradientString+=`${color} ${percent}% ${i>=(colorCount-1)?")":","}`
+					percent+=(tinyTransitionWidthPercent*colorCount)
+				}
+				return gradientString
+			}
+
+			var now = new Date();
+			var currentYear = now.getFullYear();
+			var currentMonth = now.getMonth();
+			var currentDay = now.getDate();
+			var preJanOneTime = new Date(`${currentYear.toString().padStart(4,"0")}-01-01`).getTime()
+			var currentOffset = now.getTimezoneOffset();
+			var janOneDate = new Date(preJanOneTime + currentOffset * 60 * 1000);
+			var localDayMonth = now.toLocaleString("en-GB").replace("/","-").substring(0,5);
+			var koreaDayMonth = now.toLocaleString("en-GB",kt={timeZone:"Asia/Seoul"}).replace("/","-").substring(0,5);
+			var offsetAbsoluteValue = Math.abs(currentOffset);
+			var formattedOffset = `${currentOffset < 0 ? "-" : "+"}${Math.floor(offsetAbsoluteValue / 60).toString().padStart(2,"0")}:${Math.floor(offsetAbsoluteValue % 60).toString().padStart(2,"0")}`;
+			
+			months = "January February March April May June July August September October November December".split(" ");
+			weekDays = "Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" ");
+			weekdaysShort = {
+				"Sunday": "S",
+				"Monday": "M",
+				"Tuesday": "T",
+				"Wednesday": "W",
+				"Thursday": "Th",
+				"Friday": "F",
+				"Saturday": "Sa",
+			};
+			
+			function logAndReturn(thing) {
+				console.log(thing);
+				return thing
+			};
+			
+			function getDaysInMonth(month,year) { //THIS IS NOT MEANT TO HANDLE EXOTIC YEARS LIKE 46 B.C. OR SWEDISH 1712.
+				var isLeap = (
+					//(((year % 4 === 0) && ((year % 100 !== 0))) || (year % 400 == 0)) && (year % 4000 !== 0)
+					((year % 4 === 0) && ((year % 100 !== 0))) || (year % 400 == 0)
+				);
+				var monthForSwitch;
+				if(typeof(month) == "number") {
+					monthForSwitch = months[month]
+				} else {
+					monthForSwitch = month
+				};
+				monthForSwitch = monthForSwitch.toLowerCase().slice(0,3);
+				switch(monthForSwitch) {
+					case "sep":
+					case "apr":
+					case "jun":
+					case "nov":
+						return 30;
+					case "feb":
+						return 28 + isLeap;
+					default:
+						return 31
+				}
+			};
+			
+			nbsp = String.fromCharCode(0xA0);
+			
+			colors = {
+				hj: "#FF007F",
+				hy: "#FFEF00",
+				hs: "#0FBF00",
+				yj: "#FF7F00",
+				vv: "#FFA7DF",
+				kl: "#FF2222",
+				js: "#005FFF",
+				cr: "#AF0097",
+				yv: "#9F0F4F",
+				ch: "#FFBF7F",
+				gw: "#2FEF87",
+				he: "#9F9F9F",
+				lt: "#62BFBE",
+				oe: "#C2C5F0",
+				op: "#DCB5EF",
+				yy: "#E24D25",
+				vr: "#D0689E",
+				qn: "#E8A343",
+				sm: "#C0A7E1",
+				nf: "#86EC0B",
+				yx: "#C8F5A2",
+				ln: "#F0F0F0",
+				as: "#9190F0",
+				lb: "#7F3F00",
+				ot: "#7276B3",
+				sl: "#9F0F00"
+			}
+
+			fullNames = {
+				hj: "HeeJin",
+				hy: "HyunJin",
+				hs: "HaSeul",
+				yj: "YeoJin",
+				vv: "ViVi",
+				kl: "Kim Lip",
+				js: "JinSoul",
+				cr: "Choerry",
+				yv: "Yves",
+				ch: "Chuu",
+				gw: "Go Won",
+				he: "HyeJu",
+				lt: "LOONA 1/3",
+				oe: "Odd Eye Circle",
+				op: "OEC+",
+				yy: "Yum Yum Unit",
+				vr: "ViRryVes",
+				qn: "Queen is Na",
+				sm: "Sun and Moon",
+				nf: "Not Friends Unit",
+				yx: "yx",
+				ln: "OT12",
+				as: "ARTMS",
+				lb: "Loossemble",
+				ot: "Other",
+				sl: "Scorpion Line"
+			}
+
+			events = {
+				"03-01": {entities: ["ch"], event: '"Fox Rain (The Moon during the Day)" (orig. J-Walk) Release Day', type: 'release'},
+				"04-01": {entities: ["yj"], event: 'YeoJin Reveal Day', type: 'reveal'},
+				"13-01": {entities: ["op"], event: 'OEC+ Injunction Day', type: 'legal'},
+				"15-01": {entities: ["gw"], event: 'Go Won Reveal Day', type: 'reveal'},
+				"16-01": {entities: ["yj"], event: 'YeoJin Debut Day', type: 'debut'},
+				"21-01": {entities: ["hj","js"], event: '"Masquerade" Release Day', type: 'release'},
+				"30-01": {entities: ["gw"], event: 'Go Won Debut Day', type: 'debut'},
+				"02-02": [{entities: ["lb"], event: 'Loossemble THE FIRST FANMEETING IN JAPAN Anniversary', type: 'event'}, {entities: ["yv"], event: '"Sunny" (orig. Yorushika) Release Day', type: 'release'}], //"type: 'event'" as in physical events like concerts and fanmeets
+				"03-02": {entities: ["ln"], event: 'LOOΠΔ x Study Group Anniversary Day', type: 'event'},
+				"05-02": {entities: ["ln"], event: '[#] Release Day', type: 'release'},
+				"06-02": {entities: ["lt"], event: 'LOONA 1/3 Reveal Day', type: 'reveal'},
+				"09-02": {entities: ["kl"], event: 'Kim Lip "Every Moment of You (orig. Sung Si-kyung) Release Day', type: 'release'},
+				"10-02": {entities: ["kl"], event: 'Kim Lip Birthday', type: 'birthday'},
+				"11-02": {entities: ["ln"], event: 'LOONAVERSE: FROM Anniversary Day', type: 'event'},
+				"13-02": [{entities: ["vv"], event: 'ViVi Reveal Day', type: 'reveal'}, {entities: ["ch"], event: '"Chocolate" Release Day', type: 'release'}],
+				"14-02": [{entities: ["ch"], event: '"Hello" (w/ Lee Hyeop) Release Day', type: 'release'}, {entities: ["ch"], event: 'Chocolate (English Version) Release Day', type: 'release'}],
+				"16-02": {entities: ["ln"], event: 'LOONAVERSE Concert Anniversary Day', type: 'event'},
+				"19-02": {entities: ["ln"], event: '[X X] Release Day', type: 'release'},
+				"22-02": {entities: ["ot"], event: 'Black Orbit Selca Day', type: 'other'}, //it is a date for orbits, exactly the kind of thing that should be on an orbit-directed calendar, this is not up for debate
+				"23-02": {entities: ["ch"], event: '"Let\'s Love" (w/ Kim Yohan) Release Day', type: 'release'},
+				"01-03": {entities: ["he"], event: '"I\'ll Be Your Spring" (orig. Airman, Godak) Release Day', type: 'release'},
+				"05-03": {entities: ["ln"], event: '"Sorry, Sorry" (orig. SUPER JUNIOR) Release Day', type: 'release'},
+				"08-03": {entities: ["ch"], event: 'Chuu BBC 1st Appeal Win Day', type: 'legal'},
+				"12-03": {entities: ["ln"], event: '1st Music Show Win Anniversary Day', type: 'win'},
+				"13-03": [{entities: ["lt"], event: 'LOONA 1/3 Debut Day', type: 'debut'}, {entities: ["yv"], event: 'Yves PAIX PER MIL Signing Day', type: 'signing'}],
+				"17-03": [{entities: ["he"], event: 'Hyeju Reveal Day', type: 'reveal'}, {entities: ["op"], event: 'OEC+ Modhaus Signing Day', type: 'signing'}, {entities: ["ln"], event: 'LOOΠΔ Cinema Theory: Up & Line Anniversary Day', type: 'event'}],
+				"20-03": {entities: ["hs"], event: 'HaSeul Modhaus Signing Day', type: 'signing'},
+				"29-03": {entities: ["as"], event: '"Birth" Release Day', type: 'release'},
+				"30-03": {entities: ["he"], event: 'Hyeju Debut Day', type: 'debut'},
+				"01-04": {entities: ["as"], event: 'ARTMS Reveal Day', type: 'reveal'},
+				"07-04": {entities: ["ch"], event: 'Chuu ATRP Signing Day', type: 'signing'},
+				"08-04": {entities: ["ln"], event: 'PTT (Queendom 2) Release Day', type: 'release'},
+				"11-04": {entities: ["as"], event: '"Flower Rhythm" Release Day', type: 'release'},
+				"14-04": {entities: ["ln"], event: '"Shake It" (orig. SISTAR) Release Day', type: 'release'},
+				"15-04": [{entities: ["js"], event: '"As Time Goes" Release Day', type: 'release'}, {entities: ["lb"], event: 'One of a Kind Release Day', type: 'release'}],
+				"17-04": {entities: ["vv"], event: 'ViVi Debut Day', type: 'debut'},
+				"25-04": {entities: ["as"], event: '"Candy Crush" Release Day', type: 'release'},
+				"26-04": {entities: ["yx"], event: 'LOONA yyxy Reveal Day', type: 'reveal'},
+				"27-04": {entities: ["lt"], event: 'Love & Evil Release Day', type: 'release'},
+				"05-05": {entities: ["yv"], event: '"A Journey" (orig. Wonpil) Release Day', type: 'release'},
+				"06-05": {entities: ["sm"], event: 'Sun & Moon (Queendom 2 Vocal Unit) Debut Day', type: 'debut'},
+				"09-05": [{entities: ["hj"], event: 'FeVerse CHO Release Day', type: 'release'}, {entities: ["hy","vv"], event: 'HyunVi Injunction Day', type: 'legal'}],
+				"10-05": {entities: ["as"], event: '"Air" Release Day', type: 'release'},
+				"13-05": {entities: ["qn"], event: 'Queen is Na (Queendom 2 Dance Unit) Debut Day', type: 'debut'},
+				"15-05": {entities: ["kl"], event: 'Kim Lip Reveal Day', type: 'reveal'},
+				"16-05": {entities: ["ln"], event: '"Love Battery" (orig. Hong Jin Young) Release Day', type: 'release'},
+				"18-05": {entities: ["yv"], event: '"Breath" Release Day', type: 'release'},
+				"23-05": {entities: ["kl"], event: 'Kim Lip Debut Day', type: 'debut'},
+				"24-05": {entities: ["yv"], event: 'Yves Birthday', type: 'birthday'},
+				"26-05": {entities: ["ln"], event: 'Butterfly (Queendom 2) Release Day', type: 'release'},
+				"27-05": {entities: ["ln"], event: 'POSE (Queendom 2) Release Day', type: 'release'},
+				"29-05": {entities: ["yv"], event: 'Yves Redebut Day', type: 'redebut'},
+				"30-05": {entities: ["yx"], event: 'LOONA yyxy Debut Day', type: 'debut'},
+				"31-05": {entities: ["as"], event: 'ARTMS Debut Day', type: 'debut'},
+				"02-06": {entities: ["ln"], event: 'LOOΠΔ Premier Greeting: Line & Up Anniversary Day', type: 'event'},
+				"03-06": {entities: ["ln"], event: 'Epilogue (Queendom 2) Release Day', type: 'release'},
+				"04-06": {entities: ["cr"], event: 'Choerry Birthday', type: 'birthday'},
+				"11-06": {entities: ["hy","vv"], event: 'HyunVi CTD ENM Signing Day', type: 'signing'},
+				"12-06": [{entities: ["ch"], event: '"Loving U" Release Day', type: 'release'}, {entities: ["yy"], event: 'Yum-Yum Unit Debut Day', type: 'debut'}],
+				"13-06": [{entities: ["js"], event: 'JinSoul Birthday', type: 'birthday'}, {entities: ["js"], event: 'JinSoul Reveal Day', type: 'reveal'}],
+				"16-06": {entities: ["ln"], event: 'LOONA Independence Day', type: 'legal'},
+				"17-06": {entities: ["ln"], event: 'LOONA Lightstick Announcement Day', type: 'lightstick'},
+				"20-06": [{entities: ["ln"], event: 'Flip That Release Day', type: 'release'}, {entities: ["ln"], event: 'LOONA "Cherry Bomb" (orig. NCT 127) Release Day', type: 'release'}, {entities: ["op"], event: 'OEC+ Nullification Day', type: 'legal'}],
+				"25-06": {entities: ["ch"], event: 'Strawberry Rush Release Day', type: 'release'},
+				"26-06": [{entities: ["js"], event: 'JinSoul Debut Day', type: 'debut'}, {entities: ["js"], event: 'JS "SIDE" (orig. PL) Release Day', type: 'release'}],
+				"27-06": [{entities: ["ch"], event: 'Chuu BBC 2nd Appeal Win Day', type: 'legal'}, {entities: ["ln"], event: 'LOONA Premier Greeting: D&D Anniversary Day', type: 'event'}, {entities: ["ch"], event: 'and Chuu "Lullaby" (w/ B.I) Release Day', type: 'release'}],
+				"28-06": [{entities: ["ln"], event: '[&] Release Day', type: 'release'}, {entities: ["ln"], event: 'Flip That "SBS The Show" Win Anniversary Day', type: 'win'}],
+				"29-06": {entities: ["ln"], event: 'Flip That "Show Champion" Win Anniversary Day', type: 'win'},
+				"05-07": {entities: ["yj","gw","he"], event: 'YeoWonHye CTD ENM Signing Day', type: 'signing'},
+				"06-07": {entities: ["ln"], event: 'PTT "SBS The Show" Win Anniversary Day', type: 'win'},
+				"10-07": {entities: ["ln"], event: 'LOONA Fandom Name Reveal Day', type: 'fanName'},
+				"12-07": [{entities: ["cr"], event: 'Choerry Reveal Day', type: 'reveal'}, {entities: ["oe"], event: 'Odd Eye Circle Redebut Day', type: 'redebut'}],
+				"13-07": {entities: ["hj"], event: '"Honestly" (orig. H:SEAN) Release Day', type: 'release'},
+				"15-07": {entities: ["lb"], event: 'Loossemble Lightstick Announcement Day', type: 'lightstick'},
+				"16-07": {entities: ["yj"], event: '"Full Moon" (orig. Sunmi) Release Day', type: 'release'},
+				"17-07": {entities: ["ch"], event: '2024 CHUU FAN-CON [Strawberry Rush] in AMERICAS Tour Anniversary Day', type: 'event'},
+				"23-07": {entities: ["oe"], event: 'OEC "Air Force One" Inkigayo Hot Stage 1st Win Anniversary Day', type: 'win'},
+				"25-07": {entities: ["ch"], event: 'Kkoti Fandom Name Reveal Day', type: 'fanName'},
+				"26-07": {entities: ["ch"], event: 'Kkuka Lightstick Announcement Day', type: 'lightstick'},
+				"27-07": {entities: ["cr"], event: '"If We Have Four Seasons" (orig. LOVEY) Release Day', type: 'release'},
+				"28-07": {entities: ["cr"], event: 'Choerry Debut Day', type: 'debut'},
+				"29-07": [{entities: ["lb","ch","yv"], event: 'Loossemble Reveal ("The 1st Field Day: Run, Orbit!" Anniversary, also including Chuu and Yves)', type: 'event'}, {entities: ["ch"], event: '"Spring Flower" Release Day', type: 'release'}],
+				"30-07": {entities: ["oe"], event: 'OEC "Air Force One" Inkigayo Hot Stage 2nd Win Anniversary Day', type: 'win'},
+				"02-08": [{entities: ["ch"], event: '"Our Night is more beautiful than your Day" (orig. KONA) Release Day', type: 'release'}, {entities: ["ln"], event: 'LOONA 1st World Tour: [LOONATHEWORLD] Anniversary Day', type: 'event'}],
+				"05-08": {entities: ["oe"], event: 'Odd Eye Circle <Volume Up> Tour Anniversary Day', type: 'event'},
+				"07-08": {entities: ["ln"], event: '"favOriTe" Release Day', type: 'release'},
+				"17-08": {entities: ["ch"], event: 'Chuu Nullification Day', type: 'legal'},
+				"18-08": [{entities: ["hs"], event: 'HaSeul Birthday', type: 'birthday'}, {entities: ["hs"], event: '"Flower Way" (orig. Kim Sejeong) Release Day', type: 'release'}],
+				"19-08": {entities: ["ln"], event: 'LOONA Debut Day', type: 'debut'},
+				"20-08": {entities: ["ln"], event: 'LOONA Debut Showcase Anniversary Day', type: 'event'},
+				"30-08": {entities: ["oe"], event: 'LOONA Odd Eye Circle Reveal Day', type: 'reveal'},
+				"01-09": {entities: ["lb"], event: 'Loossemble Fandom Name Reveal Day', type: ''},
+				"03-09": {entities: ["nf"], event: 'Not Friends Unit Debut Day', type: ''},
+				"04-09": {entities: ["ch"], event: 'Chuu "One and a Half\' (orig. TWO TWO) Release Day', type: ''},
+				"05-09": {entities: ["op"], event: 'Odd Eye Circle+ Debut Day', type: ''},
+				"12-09": {entities: ["ln"], event: 'LOONA "Not Today" (orig. BTS) Release Day', type: ''},
+				"15-09": [{entities: ["lb"], event: 'Loossemble Debut Day', type: 'debut'}, {entities: ["ln"], event: 'Loona Japanese Debut Day', type: 'regionalDebut'}, {entities: ["ch"], event: '"World is One 2021" (w/ Kim Yo Han. Eric Bellinger) Release Day', type: 'release'}],
+				"21-09": {entities: ["oe"], event: 'LOONA Odd Eye Circle Debut Day', type: 'debut'},
+				"26-09": {entities: ["hj"], event: 'HeeJin Reveal Day', type: 'reveal'},
+				"05-10": {entities: ["hj"], event: 'HeeJin Debut Day', type: 'debut'},
+				"06-10": {entities: ["lb"], event: 'Loossemble 2024 Concert [Up_Link Station] in U.S Anniversary Day', type: 'event'},
+				"08-10": {entities: ["ch"], event: '"Brunch" Release Day', type: 'release'},
+				"16-10": {entities: ["ch"], event: '"Confession" (orig. Park Hye-kyung) Release Day', type: 'release'},
+				"18-10": {entities: ["ch"], event: 'Chuu Redebut Day', type: 'redebut'},
+				"19-10": [{entities: ["hj"], event: 'HeeJin Birthday', type: 'birthday'}, {entities: ["ln"], event: '[12:00] Release Day', type: 'release'}],
+				"20-10": [{entities: ["ch"], event: 'Chuu Birthday', type: 'birthday'}, {entities: ["ln"], event: 'LOOΠΔ On Wave [LOOΠΔTHEWORLD: Midnight Festival] Anniversary Day', type: 'event'}],
+				"23-10": {entities: ["cr"], event: '"YOU" (w/ A-FLOW) Release Day', type: 'release'},
+				"25-10": {entities: ["as"], event: 'ARTMS Fandom Name Reveal Day', type: 'fanName'},
+				"26-10": {entities: ["hs"], event: 'HaSeul Redebut Day', type: 'redebut'},
+				"28-10": {entities: ["hy"], event: 'HyunJin Reveal Day', type: 'reveal'},
+				"31-10": [{entities: ["hj"], event: 'HeeJin Redebut Day', type: 'redebut'}, {entities: ["oe"], event: 'Max & Match Release Day', type: 'release'}, {entities: ["ln"], event: 'Orbit 1.0 Release Day', type: 'release'}, {entities: ["sl"], event: 'Scorpion Line (Dance Line) Debut Day', type: 'debut'}],
+				"03-11": {entities: undefined, event: undefined, type: undefined},
+				"04-11": [{entities: ["yy"], event: '"Yummy-Yummy" Release Day', type: 'release'}, {entities: ["ch"], event: 'Chuu 1st Tiny-Con \'My Palace\' Anniversary Day', type: 'event'}],
+				"08-11": {entities: ["hj"], event: '"November Song" (orig. Baek Yerin) Release Day', type: 'release'},
+				"11-11": {entities: ["yj"], event: 'YeoJin Birthday', type: 'birthday'},
+				"13-11": {entities: ["he"], event: 'Hyeju Birthday', type: 'birthday'},
+				"14-11": {entities: ["yv"], event: 'Yves Reveal Day', type: 'reveal'},
+				"15-11": [{entities: ["hy"], event: 'HyunJin Birthday', type: 'birthday'}, {entities: ["js"], event: '"Steal the Show" (orig. Lauv) Release Day', type: 'release'}],
+				"17-11": {entities: ["hy"], event: 'HyunJin Debut Day', type: 'debut'},
+				"18-11": {entities: ["ch"], event: '"I Like You" (orig. Weather Forecast) Release Day', type: 'release'},
+				"19-11": {entities: ["gw"], event: 'Go Won Birthday', type: 'birthday'},
+				"23-11": {entities: ["ln"], event: 'LOONA Studio Anniversary Day', type: 'event'},
+				"24-11": {entities: ["oe"], event: '"Sweet Crazy Love (English Version)" Release Day', type: 'release'},
+				"25-11": [{entities: ["ln"], event: 'LOONA Remembrance Day', type: 'other'}, {entities: ["hs"], event: 'HaSeul 1st Busking Anniversary Day', type: 'event'}, {entities: ["lb"], event: 'Loossemble 1st Fan—Con [Make a voyage] Anniversary Day', type: 'event'}],
+				"28-11": {entities: ["yv"], event: 'Yves Debut Day', type: 'debut'},
+				"01-12": {entities: ["as"], event: '"The Carol 3.0" Release Day', type: 'release'},
+				"03-12": {entities: ["ch"], event: '2023 CHUU <Howl> in USA Anniversary Day', type: 'event'},
+				"07-12": {entities: ["gw"], event: '"My Favorite Road" (w/ Bily Acoustie) Release Day', type: 'release'},
+				"08-12": {entities: ["hs"], event: 'HaSeul Reveal Day', type: 'reveal'},
+				"09-12": {entities: ["vv"], event: 'ViVi Birthday', type: 'birthday'},
+				"10-12": {entities: ["ch"], event: '"A Beautiful Farewell" (orig, Kim Gun-mo) Release Day', type: 'release'},
+				"13-12": [{entities: ["ln"], event: '"365" Release Day', type: 'release'}, {entities: ["vr"], event: 'ViRryVes Debut Day', type: 'debut'}],
+				"14-12": [{entities: ["ch"], event: 'Chuu Reveal Day', type: 'reveal'}, {entities: ["ln"], event: 'LOONA Premier Greeting: Meet & Up Anniversary Day', type: 'event'}],
+				"15-12": {entities: ["hs"], event: 'HaSeul Debut Day', type: 'debut'},
+				"20-12": {entities: ["he"], event: '"In Winter" (orig. Chan) Release Day', type: 'release'},
+				"22-12": {entities: ["as"], event: 'ARTMS Lightstick Announcement Day', type: 'lightstick'},
+				"24-12": [{entities: ["hs"], event: 'HaSeul "Christmas Carol Medley" (orig. BTOB, IU, Mariah Carey, LOONA) Release Day', type: 'release'}, {entities: ["ln"], event: 'LOONA "All I Want for Christmas Is You" (orig. Mariah Carey) Release Day', type: 'release'}],
+				"28-12": {entities: ["ch"], event: 'Chuu Debut Day', type: 'debut'},
+				"30-12": {entities: ["ch"], event: '"Paper Hearts" (orig. Tori Kelly) Release Day', type: 'release'},
+				"31-12": {entities: ["ch"], event: '"Step" (orig. KARA; with Oh My Girl Arin, Weki Meki Yoojung, (G)I-DLE Yuqi. and Choi Yena as 99z) Release Day', type: 'release'} /**/
+			};
+
+			localTodayEvents = null;
+			koreaTodayEvents = null;
+
+			for(var i = 0; i < months.length; i++) {
+				var monthName = months[i];
+				var trueMonth = i + 1;
+				var _a = new Date(`${currentYear.toString().padStart(4,"0")}-${trueMonth.toString().padStart(2,"0")}-01`).getTime();
+				var _b = new Date(_a + (currentOffset * 60 * 1000));
+				//console.log(_b);
+				var dayLimit = getDaysInMonth(monthName,currentYear);
+				var monthTableHolder = document.getElementById(monthName);
+					var newTABLE = document.createElement("table");
+					var startWeekday = (_b.getDay() - 1);
+					monthTableHolder.appendChild(newTABLE);
+						var newCAPTION = document.createElement("caption");
+						newTABLE.appendChild(newCAPTION);
+							newCAPTION.innerText = months[i];
+						var newTBODY = document.createElement("tbody");
+						newTABLE.appendChild(newTBODY);
+							for(var week = 0; week < 7; week++) {
+								var newTR = document.createElement("tr"); //lol it sounds like "neuter"
+								newTR.classList.add("week");
+								newTBODY.appendChild(newTR);
+								for(var day = 0; day < 7; day++) {
+									var weekdayName = weekDays[day]
+									var newTD = document.createElement("td");
+									newTR.appendChild(newTD);
+										if(week == 0) {
+											newTD.classList.add("weekHeading");
+											newTD.innerText = weekdaysShort[weekdayName]
+											newTD.title = weekdayName
+										} else if(week > 0) {
+											var trueDay = (((week - 1) * 7) + day) - startWeekday;
+											if(trueDay < 1 || trueDay > dayLimit) {
+												newTD.classList.add("invalid");
+												if(week == 1) { newTD.classList.add("iwbb") }; //invalid-white-bottom-border
+												newTD.classList.remove("valid");
+												newTD.textContent = nbsp;
+												if(trueDay == 0) {
+													newTD.classList.add("iwrb") 
+												}
+												if(day == 0) {
+													newTD.classList.add("wlb") 
+												}
+											} else {
+												newTD.classList.add("valid");
+												newTD.classList.remove("invalid");
+												newTD.classList.add("day");
+												var cellIndex = trueDay;
+												newTD.setAttribute("id",`t${i.toString()}c${cellIndex.toString()}`)
+												newTD.innerText = trueDay;
+												
+												var dayIndex = [trueDay,trueMonth].map(x => x.toString().padStart(2,"0")).join("-");
+												//console.log(dayIndex);
+
+												var timeModality = 0;
+
+												if(localDayMonth == dayIndex) {
+													newTD.classList.add("local-today");
+													timeModality += 1
+												};
+												if(koreaDayMonth == dayIndex) {
+													newTD.classList.add("korean-today");
+													timeModality += 2
+												}
+
+												if((typeof(events[dayIndex]) == "object") && (events[dayIndex] !== null)) {
+													var _ev = events[dayIndex];
+													if(!(Array.isArray(_ev))) { _ev = [_ev] };
+													if(localDayMonth == dayIndex) {
+														localTodayEvents = _ev
+													}
+													if(koreaDayMonth == dayIndex) {
+														koreaTodayEvents = _ev
+													}
+													var totalColors = Array.from(new Set(_ev.map(x => x.entities ?? []).flat().map(x => colors[x] ?? "#00007F")));
+
+													if(totalColors.length == 1) {
+														var _color = totalColors[0];
+														newTD.setStyle("background-color",_color);
+														var colorArray = _color.match(/[0-9A-Fa-f]{2}/g).map(x => parseInt(x,16));
+														var bgLum = getLuminance(...colorArray);
+														if(bgLum > 159){
+															newTD.setStyle("color","#000");
+														} else if(bgLum > 140) {
+															newTD.setStyle("color","#FFF");
+															newTD.classList.add("black-outline")
+														} else {
+															newTD.setStyle("color","#FFF");
+														}
+														newTD.setAttribute("filled","true")
+													} else if(totalColors.length > 1) {
+														newTD.setStyle("background",HCCLGCG(totalColors));
+														newTD.setStyle("color","#FFF");
+														newTD.classList.add("black-outline")
+														newTD.setAttribute("filled","true")
+													}
+
+													var totalEntities = Array.from(new Set(_ev.map(x => (x.entities ?? [])).flat())).map(x => fullNames[x] ?? "???");
+													if(totalEntities.length > 0) {
+														var _el = _ev.length;
+														var entityList = englishFormatList(totalEntities);
+														newTD.setAttribute("title",`${_el} event${_el == 1 ? "" : "s"}; day involves ${entityList}`)
+													} else {
+														if(newTD.getAttribute("title")) { newTD.removeAttribute("title") };
+														if(newTD.getAttribute("style")) { newTD.removeAttribute("style") };
+													}
+												}
+
+												var tmlDone = false;
+												switch(timeModality) {
+													case 1:
+														if(!tmlDone) {
+															if((newTD.getAttribute("title") !== null) && !(newTD.getAttribute("title").includes("Today in "))) {
+																newTD.setAttribute("title", newTD.getAttribute("title") + " (Today in local time)");
+																tmlDone = true;
+																break
+															} else if(newTD.getAttribute("title") === null) {
+																newTD.setAttribute("title", "(Today in local time)");
+																tmlDone = true;
+																break
+															}
+															break
+														}
+													case 2:
+														if(!tmlDone) {
+															if((newTD.getAttribute("title") !== null) && !(newTD.getAttribute("title").includes("Today in "))) {
+																newTD.setAttribute("title", newTD.getAttribute("title") + " (Today in Korean time)");
+																tmlDone = true;
+																break
+															} else if(newTD.getAttribute("title") === null) {
+																newTD.setAttribute("title", "(Today in Korean time)");
+																tmlDone = true;
+																break
+															}
+															break
+														}
+													case 3:
+														if(!tmlDone) {
+															if((newTD.getAttribute("title") !== null) && !(newTD.getAttribute("title").includes("Today in "))) {
+																newTD.setAttribute("title", newTD.getAttribute("title") + " (Today)");
+																tmlDone = true;
+																break
+															} else if(newTD.getAttribute("title") === null) {
+																newTD.setAttribute("title", "(Today)");
+																tmlDone = true;
+																break
+															}
+															break
+														}
+												}
+											}
+										};
+								}
+							};
+			};
+			
+			
+		</script>
+
+		<br/><br/><a href="index.html"><small>go to main page</small></a>
+
+	</body>
+</html>
