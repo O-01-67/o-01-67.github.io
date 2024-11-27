@@ -39,8 +39,30 @@
 			}
 			
 			.day, .weekHeading {
-				width: 25px;
-				min-width: 25px;
+				width: 23px;
+				min-width: 23px;
+				height: 20px;
+				max-height: 20px;
+				text-align: center;
+				vertical-align: middle;
+				overflow: hidden;
+				height: 100%;
+			}
+			
+			.day {
+				line-height: 40%;
+			}
+			
+			.week {
+				width: 22px;
+				min-width: 22px;
+				height: 20px;
+				max-height: 20px;
+				font-size: 80%;
+				line-height: 40%;
+				text-align: center;
+				vertical-align: middle;
+				overflow: hidden;
 				height: 100%;
 			}
 			
@@ -97,7 +119,7 @@
 				border: 1px solid white;
 			}
 
-			#mainTable td.local-today {
+			#mainTable td.local-today, div.local-today {
 				border: 2px solid #FF3F3F;
 				color: white;
 				left: 0.2px;
@@ -114,7 +136,7 @@
 				border: 2px solid #FF3F3F;
 			}
 
-			#mainTable td.korean-today {
+			#mainTable td.korean-today, div.korean-today {
 				border: 2px solid #3F3FFF;
 				color: white;
 				left: 0.2px;
@@ -131,7 +153,7 @@
 				border: 2px solid #3F3FFF;
 			}
 
-			#mainTable td.local-today.korean-today {
+			#mainTable td.local-today.korean-today, div.local-today.korean-today {
 				border: 2px solid #FF3FFF;
 				color: white;
 				left: 0.2px;
@@ -169,6 +191,29 @@
 			.black-outline { text-shadow: 0px -1px 1px #000, 1px -1px 1px #000, 1px 0px 1px #000, 1px 1px 1px #000, 0px 1px 1px #000, -1px 1px 1px #000, -1px 0px 1px #000, -1px -1px 1px #000 }
 
 			.white-outline { text-shadow: 0px -1px 1px #fff, 1px -1px 1px #fff, 1px 0px 1px #fff, 1px 1px 1px #fff, 0px 1px 1px #fff, -1px 1px 1px #fff, -1px 0px 1px #fff, -1px -1px 1px #fff }
+			
+			.color-example {
+				border: 1px solid white;
+				padding: 2px 3px 2px 3px;
+				margin-bottom: 1px;
+			}
+			
+			.date-outline-example {
+				width: 100% !important;
+				min-height: 30px !important;
+				height: 30px !important;
+				display: table-cell !important;
+				vertical-align: middle !important;
+				text-align: center !important;
+				line-height: 30px !important;
+			}
+
+			.date-outline-example-bounding {
+				min-width: 30px !important;
+				min-height: 30px !important;
+				max-width: 290px !important;
+				margin-bottom: 1px !important;
+			}
 		</style>
 	</head>
 	<body>
@@ -196,13 +241,26 @@
 						</table>
 					</td>
 					<td id="textPane">
+						<section id="realCurrentEvents">
+							<section id="currentEvents">
+							</section>
+							<section id="key">
+								<h3 id="keyHeading">Key</h3>
+								<div class="date-outline-example-bounding"><div class="local-today" class="date-outline-example" style="line-height: 30px;">The date in your time zone</div></div>
+								<div class="date-outline-example-bounding"><div class="korean-today" class="date-outline-example" style="line-height: 30px;">The date in Korea</div></div>
+								<div class="date-outline-example-bounding"><div class="local-today korean-today" class="date-outline-example" style="line-height: 30px;">The date in both time zones</div></div>
+								
+								<h4 id="colorHeading">Event cell colors</h4>
+								<div id="colorKey"></div>
+							</section>
+						</section>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 		
 		<script>
-			/*nbsp = String.fromCharCode(0xA0);
+			nbsp = String.fromCharCode(0xA0);
 			ce = function(tag) { return document.createElement(tag) };
 			ctn = function(text) { return document.createTextNode(text) };
 			gebi = function(id) { return document.getElementById(id) };
@@ -214,17 +272,12 @@
 			HTMLElement.prototype.addAttribute = function(attribute,value) { this.setAttribute(attribute,value); return this };
 			HTMLElement.prototype.addClass = function(...classes) { this.classList.add(...classes); return this };
 			HTMLElement.prototype.addStyle = function(property,value) { this.style[property] = value; return this };
-			Text.prototype.appendToElement = function(parentElement) { parentElement.appendChild(this); return this };*/
+			Text.prototype.appendToElement = function(parentElement) { parentElement.appendChild(this); return this };
 
 			function getLuminance(R,G,B){
 				return (0.2126*R+0.7152*G+0.0722*B)
 			}
 			
-			HTMLElement.prototype.setStyle = function(styleProperty,styleValue) {
-				//console.log(this,styleProperty,styleValue);
-				this.style[styleProperty] = styleValue;
-			}
-
 			function englishFormatList(thingsArrayIn) {
 				var thingsArray = thingsArrayIn;
 				var amount = thingsArray.length;
@@ -269,6 +322,7 @@
 			var janOneDate = new Date(preJanOneTime + currentOffset * 60 * 1000);
 			var localDayMonth = now.toLocaleString("en-GB").replace("/","-").substring(0,5);
 			var koreaDayMonth = now.toLocaleString("en-GB",kt={timeZone:"Asia/Seoul"}).replace("/","-").substring(0,5);
+			var koreaYear = now.toLocaleString("en-GB",kt={timeZone:"Asia/Seoul"}).replace("/","-").substring(6).match(/\d+/)[0];
 			var offsetAbsoluteValue = Math.abs(currentOffset);
 			var formattedOffset = `${currentOffset < 0 ? "-" : "+"}${Math.floor(offsetAbsoluteValue / 60).toString().padStart(2,"0")}:${Math.floor(offsetAbsoluteValue % 60).toString().padStart(2,"0")}`;
 			
@@ -331,17 +385,17 @@
 				he: "#9F9F9F",
 				lt: "#62BFBE",
 				oe: "#C2C5F0",
-				op: "#DCB5EF",
+				op: "#00FFFF",
 				yy: "#E24D25",
 				vr: "#D0689E",
 				qn: "#E8A343",
-				sm: "#C0A7E1",
+				sm: "#B097D1",
 				nf: "#86EC0B",
 				yx: "#C8F5A2",
 				ln: "#F0F0F0",
-				as: "#9190F0",
+				as: "#A190F0",
 				lb: "#7F3F00",
-				ot: "#7276B3",
+				ot: "#6266A3",
 				sl: "#9F0F00"
 			}
 
@@ -366,7 +420,7 @@
 				qn: "Queen is Na",
 				sm: "Sun and Moon",
 				nf: "Not Friends Unit",
-				yx: "yx",
+				yx: "yyxy",
 				ln: "OT12",
 				as: "ARTMS",
 				lb: "Loossemble",
@@ -599,21 +653,21 @@
 
 													if(totalColors.length == 1) {
 														var _color = totalColors[0];
-														newTD.setStyle("background-color",_color);
+														newTD.addStyle("background-color",_color);
 														var colorArray = _color.match(/[0-9A-Fa-f]{2}/g).map(x => parseInt(x,16));
 														var bgLum = getLuminance(...colorArray);
 														if(bgLum > 159){
-															newTD.setStyle("color","#000");
+															newTD.addStyle("color","#000");
 														} else if(bgLum > 140) {
-															newTD.setStyle("color","#FFF");
+															newTD.addStyle("color","#FFF");
 															newTD.classList.add("black-outline")
 														} else {
-															newTD.setStyle("color","#FFF");
+															newTD.addStyle("color","#FFF");
 														}
 														newTD.setAttribute("filled","true")
 													} else if(totalColors.length > 1) {
-														newTD.setStyle("background",HCCLGCG(totalColors));
-														newTD.setStyle("color","#FFF");
+														newTD.addStyle("background",HCCLGCG(totalColors));
+														newTD.addStyle("color","#FFF");
 														newTD.classList.add("black-outline")
 														newTD.setAttribute("filled","true")
 													}
@@ -714,18 +768,29 @@
 			localTodayEvents = todayEvents.filter(x => x.dateModality == 1);
 			bothTodayEvents  = todayEvents.filter(x => x.dateModality == 3);
 			
+			var currentEventSection = document.getElementById("currentEvents");
+			var todayP = document.createElement("p");
+			currentEventSection.appendChild(todayP);
+				if(localDayMonth == koreaDayMonth) {
+					todayP.addChild(ctn("Date: ")).addChild(ce("span").addClass("localDate").setText(localDayMonth + "-" + currentYear.toString()))
+				} else {
+					todayP.addChild(ctn("Local date: ")).addChild(ce("span").addClass("localDate").setText(localDayMonth + "-" + currentYear.toString()))
+						  .addChild(ce("br"))
+						  .addChild(ctn("Korean date: ")).addChild(ce("span").addClass("koreanDate").setText(koreaDayMonth + "-" + koreaYear));
+				}
+			
 			if(todayEvents == null || todayEvents?.length > 0) {
-				var textPaneHeading = document.createElement("h2");
-				textPane.appendChild(textPaneHeading);
-					textPaneHeading.innerText = "Events"
+				var currentEventSectionHeading = document.createElement("h2");
+				currentEventSection.appendChild(currentEventSectionHeading);
+					currentEventSectionHeading.innerText = "Events"
 			
 				if(bothTodayEvents.length > 0) {
 					var newHeadingBoth = document.createElement("h3");
-					textPane.appendChild(newHeadingBoth);
+					currentEventSection.appendChild(newHeadingBoth);
 						newHeadingBoth.id = "bothHeading";
 						newHeadingBoth.innerText = "In both Korean and local time";
 					var bothEventList = document.createElement("ul");
-					textPane.appendChild(bothEventList);
+					currentEventSection.appendChild(bothEventList);
 						bothEventList.id = "bothList";
 						for(var i = 0; i < bothTodayEvents.length; i++) {
 							var event = bothTodayEvents[i];
@@ -745,11 +810,11 @@
 
 				if(koreaTodayEvents.length > 0) {
 					var newHeadingKorea = document.createElement("h3");
-					textPane.appendChild(newHeadingKorea);
+					currentEventSection.appendChild(newHeadingKorea);
 						newHeadingKorea.id = "koreaHeading";
 						newHeadingKorea.innerText = "In Korean time";
 					var koreaEventList = document.createElement("ul");
-					textPane.appendChild(koreaEventList);
+					currentEventSection.appendChild(koreaEventList);
 						koreaEventList.id = "koreaList";
 						for(var i = 0; i < koreaTodayEvents.length; i++) {
 							var event = koreaTodayEvents[i];
@@ -769,11 +834,11 @@
 
 				if(localTodayEvents.length > 0) {
 					var newHeadingLocal = document.createElement("h3");
-					textPane.appendChild(newHeadingLocal);
+					currentEventSection.appendChild(newHeadingLocal);
 						newHeadingLocal.id = "localHeading";
 						newHeadingLocal.innerText = "In local time";
 					var localEventList = document.createElement("ul");
-					textPane.appendChild(localEventList);
+					currentEventSection.appendChild(localEventList);
 						localEventList.id = "localList";
 						for(var i = 0; i < localTodayEvents.length; i++) {
 							var event = localTodayEvents[i];
@@ -792,11 +857,27 @@
 				}
 			} else {
 				var noEventsText = document.createElement("strong");
-				textPane.appendChild(noEventsText);
+				currentEventSection.appendChild(noEventsText);
 					noEventsText.innerText = "There are no events today."
 			}
-
 			
+			for(var entityShortcode in colors) {
+				var entry = ce("span").addStyle("display","block");
+				colorKey.appendChild(entry);
+				var bgColor = colors[entityShortcode];
+				var colorExample = entry.appendChild(ce("span").addStyle("display","inline-block").setText(fullNames[entityShortcode]).addStyle("background-color",bgColor).addClass("color-example"));
+				var colorArray = bgColor.match(/[0-9A-Fa-f]{2}/g).map(x => parseInt(x,16));
+				var bgLum = getLuminance(...colorArray);
+				if(bgLum > 159){
+					colorExample.addStyle("color","#000");
+				} else if(bgLum > 140) {
+					colorExample.addStyle("color","#FFF");
+					colorExample.addClass("black-outline")
+				} else {
+					colorExample.addStyle("color","#FFF");
+				}
+			}
+
 		</script>
 
 		<br/><br/><a href="index.html"><small>go to main page</small></a>
