@@ -66,12 +66,20 @@
 				border-bottom: 1px solid #fff;
 			}
 
-			#greaterTable tbody tr td #mainTable tbody tr.week td.invalid.iwrb {
+			#greaterTable tbody tr td #mainTable tbody tr.week td.invalid.iwrb, #greaterTable tbody tr td #mainTable tbody tr.week td:nth-last-child(1) {
 				border-right: 1px solid #fff;
 			}
 
 			#greaterTable tbody tr td #mainTable tbody tr.week td.wlb {
 				border-left: 1px solid #fff;
+			}
+
+			#mainTable table.month tbody tr.week:nth-last-child(1), #mainTable table.month tbody tr.week:nth-last-child(1) td {
+				border-bottom: 1px solid #fff;
+			}
+			
+			#mainTable table.month, #mainTable table.month tbody {
+				border: 1px solid #fff;
 			}
 
 			#mainTable td .valid {
@@ -89,9 +97,6 @@
 				border: 1px solid white;
 			}
 
-			.black-outline{text-shadow:0px -1px 1px #000,1px -1px 1px #000,1px 0px 1px #000,1px 1px 1px #000,0px 1px 1px #000,-1px 1px 1px #000,-1px 0px 1px #000,-1px -1px 1px #000}
-			.white-outline{text-shadow:0px -1px 1px #fff,1px -1px 1px #fff,1px 0px 1px #fff,1px 1px 1px #fff,0px 1px 1px #fff,-1px 1px 1px #fff,-1px 0px 1px #fff,-1px -1px 1px #fff}
-			
 			#mainTable td.local-today {
 				border: 2px solid #FF3F3F;
 				color: white;
@@ -160,6 +165,10 @@
 				border: 2px solid #FF3FFF;
 				padding: 2px;
 			}
+
+			.black-outline { text-shadow: 0px -1px 1px #000, 1px -1px 1px #000, 1px 0px 1px #000, 1px 1px 1px #000, 0px 1px 1px #000, -1px 1px 1px #000, -1px 0px 1px #000, -1px -1px 1px #000 }
+
+			.white-outline { text-shadow: 0px -1px 1px #fff, 1px -1px 1px #fff, 1px 0px 1px #fff, 1px 1px 1px #fff, 0px 1px 1px #fff, -1px 1px 1px #fff, -1px 0px 1px #fff, -1px -1px 1px #fff }
 		</style>
 	</head>
 	<body>
@@ -187,13 +196,26 @@
 						</table>
 					</td>
 					<td id="textPane">
-						<p>Text here</p>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 		
 		<script>
+			/*nbsp = String.fromCharCode(0xA0);
+			ce = function(tag) { return document.createElement(tag) };
+			ctn = function(text) { return document.createTextNode(text) };
+			gebi = function(id) { return document.getElementById(id) };
+			gebcn = function(...classes) { return document.getElementsByClassName(...classes) };
+			HTMLElement.prototype.setText = function(text) { this.textContent = text; return this };
+			HTMLElement.prototype.ac = function(node) { return this.appendChild(node) };
+			HTMLElement.prototype.addChild = function(node) { this.appendChild(node); return this };
+			HTMLElement.prototype.appendToElement = function(parentElement) { parentElement.appendChild(this); return this };
+			HTMLElement.prototype.addAttribute = function(attribute,value) { this.setAttribute(attribute,value); return this };
+			HTMLElement.prototype.addClass = function(...classes) { this.classList.add(...classes); return this };
+			HTMLElement.prototype.addStyle = function(property,value) { this.style[property] = value; return this };
+			Text.prototype.appendToElement = function(parentElement) { parentElement.appendChild(this); return this };*/
+
 			function getLuminance(R,G,B){
 				return (0.2126*R+0.7152*G+0.0722*B)
 			}
@@ -238,6 +260,7 @@
 			}
 
 			var now = new Date();
+			//var now = new Date(Date.now() + (3600 * 1000 * 4));
 			var currentYear = now.getFullYear();
 			var currentMonth = now.getMonth();
 			var currentDay = now.getDate();
@@ -476,6 +499,8 @@
 				"23-11": {entities: ["ln"], event: 'LOONA Studio Anniversary Day', type: 'event'},
 				"24-11": {entities: ["oe"], event: '"Sweet Crazy Love (English Version)" Release Day', type: 'release'},
 				"25-11": [{entities: ["ln"], event: 'LOONA Remembrance Day', type: 'other'}, {entities: ["hs"], event: 'HaSeul 1st Busking Anniversary Day', type: 'event'}, {entities: ["lb"], event: 'Loossemble 1st Fan—Con [Make a voyage] Anniversary Day', type: 'event'}],
+				//"26-11": {entities: ["hj"], event: 'Test Day', type: 'test'},
+				//"27-11": {entities: ["he"], event: 'Korean Test Day', type: 'test'},
 				"28-11": {entities: ["yv"], event: 'Yves Debut Day', type: 'debut'},
 				"01-12": {entities: ["as"], event: '"The Carol 3.0" Release Day', type: 'release'},
 				"03-12": {entities: ["ch"], event: '2023 CHUU <Howl> in USA Anniversary Day', type: 'event'},
@@ -506,6 +531,7 @@
 				var dayLimit = getDaysInMonth(monthName,currentYear);
 				var monthTableHolder = document.getElementById(monthName);
 					var newTABLE = document.createElement("table");
+					newTABLE.classList.add("month");
 					var startWeekday = (_b.getDay() - 1);
 					monthTableHolder.appendChild(newTABLE);
 						var newCAPTION = document.createElement("caption");
@@ -651,6 +677,125 @@
 							};
 			};
 			
+			var textPane = document.getElementById("textPane");
+			
+			if(koreaTodayEvents) {
+				for(var i = 0; i < koreaTodayEvents.length; i++) {
+					koreaTodayEvents[i].dateModality ??= 0;
+					koreaTodayEvents[i].dateModality += 2;
+				}
+			}
+			
+			if(localTodayEvents) {
+				for(var i = 0; i < localTodayEvents.length; i++) {
+					localTodayEvents[i].dateModality ??= 0;
+					localTodayEvents[i].dateModality += 1;
+				}
+			}
+			
+			var todayEvents = [];
+			if(localTodayEvents || koreaTodayEvents) {
+				//Deduplication
+				todayEvents = (localTodayEvents ?? []).concat(koreaTodayEvents ?? []);
+				for(var i = todayEvents.length - 1; i >= 0; i--) {
+					var thisEvent = todayEvents[i];
+					var lastCheckedEvent = todayEvents[i + 1];
+					console.log(lastCheckedEvent);
+					if(lastCheckedEvent) {
+						if(thisEvent.event == lastCheckedEvent.event) {
+							console.log(todayEvents.splice(i,1));
+						}
+					}
+				}
+			}
+			
+			//Sorting
+			koreaTodayEvents = todayEvents.filter(x => x.dateModality == 2);
+			localTodayEvents = todayEvents.filter(x => x.dateModality == 1);
+			bothTodayEvents  = todayEvents.filter(x => x.dateModality == 3);
+			
+			if(todayEvents == null || todayEvents?.length > 0) {
+				var textPaneHeading = document.createElement("h2");
+				textPane.appendChild(textPaneHeading);
+					textPaneHeading.innerText = "Events"
+			
+				if(bothTodayEvents.length > 0) {
+					var newHeadingBoth = document.createElement("h3");
+					textPane.appendChild(newHeadingBoth);
+						newHeadingBoth.id = "bothHeading";
+						newHeadingBoth.innerText = "In both Korean and local time";
+					var bothEventList = document.createElement("ul");
+					textPane.appendChild(bothEventList);
+						bothEventList.id = "bothList";
+						for(var i = 0; i < bothTodayEvents.length; i++) {
+							var event = bothTodayEvents[i];
+							var newLI = document.createElement("li");
+							bothEventList.appendChild(newLI);
+								var entitySpan = document.createElement("span");
+								newLI.appendChild(entitySpan);
+									entitySpan.classList.add("entityName");
+									entitySpan.innerText = englishFormatList(event.entities.map(x => fullNames[x] ?? "???"));
+								newLI.appendChild(document.createTextNode(": "));
+								var eventSpan = document.createElement("span");
+								newLI.appendChild(eventSpan);
+									eventSpan.classList.add("eventName");
+									eventSpan.innerText = event.event;
+						}
+				}
+
+				if(koreaTodayEvents.length > 0) {
+					var newHeadingKorea = document.createElement("h3");
+					textPane.appendChild(newHeadingKorea);
+						newHeadingKorea.id = "koreaHeading";
+						newHeadingKorea.innerText = "In Korean time";
+					var koreaEventList = document.createElement("ul");
+					textPane.appendChild(koreaEventList);
+						koreaEventList.id = "koreaList";
+						for(var i = 0; i < koreaTodayEvents.length; i++) {
+							var event = koreaTodayEvents[i];
+							var newLI = document.createElement("li");
+							koreaEventList.appendChild(newLI);
+								var entitySpan = document.createElement("span");
+								newLI.appendChild(entitySpan);
+									entitySpan.classList.add("entityName");
+									entitySpan.innerText = englishFormatList(event.entities.map(x => fullNames[x] ?? "???"));
+								newLI.appendChild(document.createTextNode(": "));
+								var eventSpan = document.createElement("span");
+								newLI.appendChild(eventSpan);
+									eventSpan.classList.add("eventName");
+									eventSpan.innerText = event.event;
+						}
+				}
+
+				if(localTodayEvents.length > 0) {
+					var newHeadingLocal = document.createElement("h3");
+					textPane.appendChild(newHeadingLocal);
+						newHeadingLocal.id = "localHeading";
+						newHeadingLocal.innerText = "In local time";
+					var localEventList = document.createElement("ul");
+					textPane.appendChild(localEventList);
+						localEventList.id = "localList";
+						for(var i = 0; i < localTodayEvents.length; i++) {
+							var event = localTodayEvents[i];
+							var newLI = document.createElement("li");
+							localEventList.appendChild(newLI);
+								var entitySpan = document.createElement("span");
+								newLI.appendChild(entitySpan);
+									entitySpan.classList.add("entityName");
+									entitySpan.innerText = englishFormatList(event.entities.map(x => fullNames[x] ?? "???"));
+								newLI.appendChild(document.createTextNode(": "));
+								var eventSpan = document.createElement("span");
+								newLI.appendChild(eventSpan);
+									eventSpan.classList.add("eventName");
+									eventSpan.innerText = event.event;
+						}
+				}
+			} else {
+				var noEventsText = document.createElement("strong");
+				textPane.appendChild(noEventsText);
+					noEventsText.innerText = "There are no events today."
+			}
+
 			
 		</script>
 
