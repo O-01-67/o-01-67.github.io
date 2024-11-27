@@ -10,7 +10,7 @@
 		<meta property="og:locale" content="en_US" />
 		<!--<meta property="og:image" content="https://orbit-loona.github.io/bin/ImageURL.png" />
 		<meta property="og:image:width" content="255" />
-		<meta property="og:image:height" content="255" /> 
+		<meta property="og:image:height" content="255" />
 		<meta property="og:image:alt" content="image" />
 		<meta name="twitter:image:src" content="https://orbit-loona.github.io/bin/ImageURL.png" />
 		<meta name="twitter:title" content="Twanthainese" />
@@ -21,10 +21,6 @@
 		<meta name="author" content="An Orbit">
 		<meta charset="UTF-8">
 		<style>
-			#description {
-				line-height: 110%;
-			}
-
 			#date {
 				border: 1px solid #ccc;
 				padding: 1px;
@@ -322,6 +318,32 @@
 			.canonical {
 				color: #8fff8f;
 			}
+			
+			#twanthain [lang="qtw-Latn"] {
+				color: #8fcf8f;
+			}
+			
+			#twanthain [lang="qtw-Khmr"] {
+				color: #bfdf6f;
+			}
+			
+			#twanthain .translation {
+				color: #5fbf9f;
+			}
+			
+			#twanthain #description em {
+				color: #afafff;
+			}
+			
+			#twanthain [lang="qtw-Latn"], #twanthain [lang="qtw-Khmr"], #twanthain .translation {
+				margin-left: 1px;
+				margin-right: 1px;
+			}
+			
+			#twanthain p, #twanthain div[aria-role="paragraph"], #twanthain .info-pair, #twanthain > span.indent[style] {
+				font-size: 115%;
+				line-height: 118%;
+			}
 		</style>
 		<script>
 			function NOTIMPLEMENTED_getTtnStartLetterIndex(string) {
@@ -553,9 +575,9 @@
 	<body style="font-size: 110%;">
 		<h1>Twanthain and Twanthainese</h1>
 		<span id="version" title="Version 2.0 is designated as a division point due to massive changes to the phonology and corresponding breaking changes to the orthography, and significant changes to the lexicon.  Version 3.0 is where I add a bunch of lore and another phoneme.  Version 3.1 involves adding articles and a major phonotactical change. Version 4.0 is where I add FAAAAAAAR too many tones. (the hell begins). Version 4.1 sees a rhotic and post-alveolar plosives added.">Version 4.1</span>
-		<p id="description" class="alert">Twanthainese is a conlang I just made up for fun.&#8203;&nbsp;&nbsp;&#8203;This page is a <em>work in progress</em>, under construction; features of this conlang may radically and massively change at any time without prior notice.</p><br/>
-		<p id="description" class="advisory">This page uses the American convention for numbers.&#8203;&nbsp;&nbsp;&#8203;Unless otherwise noted, a dot "." is the decimal separator, and a comma "," is the thousands separator; and -illion numbers are in the short scale.</p><br/>
-		<div id="description" aria-role="paragraph" class="advisory">Base-19 (Enneadecimal) numbers on this page are conveyed with an ad-hoc extension of the <a href="https://en.wikipedia.org/wiki/Hexadecimal#Verbal_and_digital_representations">Magnuson system</a> (the man's name is spelled very inconsistently<!-- to the point where you'd think it was a romanized Arabic name-->).<ol>
+		<p class="alert">Twanthainese is a conlang I just made up for fun.&#8203;&nbsp;&nbsp;&#8203;This page is a <em>work in progress</em>, under construction; features of this conlang may radically and massively change at any time without prior notice.</p><br/>
+		<p class="advisory">This page uses the American convention for numbers.&#8203;&nbsp;&nbsp;&#8203;Unless otherwise noted, a dot "." is the decimal separator, and a comma "," is the thousands separator; and -illion numbers are in the short scale.</p><br/>
+		<div aria-role="paragraph" class="advisory">Base-19 (Enneadecimal) numbers on this page are conveyed with an ad-hoc extension of the <a href="https://en.wikipedia.org/wiki/Hexadecimal#Verbal_and_digital_representations">Magnuson system</a> (the man's name is spelled very inconsistently<!-- to the point where you'd think it was a romanized Arabic name-->).<ol>
 			<li class="canonical">10: Ann(-ty/-teen)</li>
 			<li class="canonical">11: Bet(-ty/-teen)</li>
 			<li class="canonical">12: Chris(-ty/-teen)</li>
@@ -1826,10 +1848,11 @@
 				{ part: 'noun', qtw: 'fe̠n̏', eng: 'metal', extra: 'In general', etym: 'Affected by the p̃-f merger. Related to "fu̠n̏".' },
 				{ part: 'noun', qtw: 'pǜn̏', eng: 'steel', etym: 'From "pei mü̠f fu̠n̏"' },
 				{ part: 'noun', qtw: 'čai mü̠f pǜn̏', eng: 'steel cube', etym: 'From "pei mü̠f fu̠n̏"', extra: '' },
-				{ part: 'noun', qtw: 'yai̇̄p', eng: 'money, (historical) gold' },
+				{ part: 'noun', qtw: 'tum', eng: 'seashell' },
+				{ part: 'noun', qtw: 'mii̇̄p', eng: 'money, (historical) seashell' },
 				{ part: 'noun, verb', qtw: 'yun', eng: 'work, to work' },
 				{ part: 'noun', qtw: 'ywel', eng: 'wage, wages, salary', etym: 'From "yun wel [ček]"' },
-				{ part: 'noun', qtw: 'yau᷅n', eng: 'economy', etym: 'From "yaip f̌won"' },
+				{ part: 'noun', qtw: 'miùn', eng: 'economy', etym: 'From "mii̇̄p f̌won"' },
 				{ part: 'noun', qtw: 'ťwaun', eng: 'market', etym: 'From "ťwaiw yaun"' },
 				{ part: 'noun', qtw: 'wan', eng: 'a straight rod or stick, a long object (regardless of straightness)', extra: 'Usually cylindrical, but can also refer to other shapes (usually squares)' },
 				{ part: 'noun', qtw: 'wak', eng: 'square' },
@@ -1849,8 +1872,8 @@
 				{ part: 'noun', qtw: 'waip', eng: 'box, square bin', etym: 'From "wak dep"' },
 				{ part: 'noun', qtw: 'dwop', eng: 'part, parts, elements (of a set or thing)' },
 				{ part: 'noun', qtw: 'ga̠\'', eng: 'thing, that which, (inanimate agentive suffix)', extra: '"mü̠f" is not necessary with "ga̠\'".' },
-				{ part: 'noun', qtw: 'yà\'', eng: 'goods, merchandise', etym: 'From "yaip ga̠\'"' },
-				{ part: 'noun', qtw: 'yuâ\'', eng: 'a service', etym: 'From "yun yà\'"' },
+				{ part: 'noun', qtw: 'myà\'', eng: 'goods, merchandise', etym: 'From "mii̇̄p ga̠\'"' },
+				{ part: 'noun', qtw: 'yuâ\'', eng: 'a service', etym: 'From "yun myà\'"' },
 				{ part: 'noun', qtw: 'ga', eng: 'group, collection', etym: 'Unrelated to "ga̠\'"' },
 				{ part: 'noun', qtw: 'leim', eng: 'system, procedure' },
 				{ part: 'noun', qtw: 'vǚm', eng: 'ideology', etym: 'From "vad̰́ mü̠f leim"' },
@@ -1861,7 +1884,7 @@
 				{ part: 'noun', qtw: 'pel', eng: 'bay, gulf' },
 				{ part: 'noun', qtw: 'dwip', eng: 'category' },
 				{ part: 'noun', qtw: 'n̏ük', eng: 'paper', etym: 'From "n̏ü\' wak". "n̏ü\'" (yellow) is present because the Twanthainese had access to ancient paper.', extra: 'Despite this, the word remains in use even as modern paper is white. However, "n̏yak", from "n̏ik wak", is gaining popularity in recent times.' },
-				{ part: 'noun', qtw: 'yauk', eng: 'banknote, paper money, dollar bill, (metonymically) money', etym: 'From "yaip n̏ük"' },
+				{ part: 'noun', qtw: 'miùk', eng: 'banknote, paper money, dollar bill, (metonymically) money', etym: 'From "mii̇̄p n̏ük"' },
 				{ part: 'noun', qtw: 'n̏yak', eng: 'paper (synonym of "n̏ük")' },
 				{ part: 'noun', qtw: 'n̏an', eng: 'picture, image, painting', etym: 'From "n̏ü\' wak nain"' },
 				{ part: 'noun', qtw: 'kwoan', eng: 'video, movie/motion picture, animation', etym: 'From "kwon n̏an"' },
@@ -2255,7 +2278,7 @@
 				{ part: 'noun', qtw: 'n̏üp', eng: 'chlorine', etym: 'From "n̏ü\' l̃wop"' },
 				{ part: 'noun', qtw: 'l̃yep', eng: 'argon', etym: 'From "l̃ain ťyam nit l̃wop", meaning "third air substance". As with nitrogen, this element was discovered by the Twanthainese through the YB́n̏UCASU in 1901.' },
 				{ part: 'noun', qtw: 'fün̏', eng: 'copper' },
-				{ part: 'noun', qtw: 'l̃aip', eng: 'gold', etym: 'From "yaip l̃wop"' },
+				{ part: 'noun', qtw: 'n̏wop', eng: 'gold', etym: 'From "n̏ü\' l̃wop"' },
 				{ part: 'noun', qtw: 'lwep nëp ťen', eng: 'carbon dioxide' },
 				{ part: 'noun', qtw: 'flwop ťen nëp ťen', eng: 'dioxygen difluoride (FOOF)' },
 				{ part: 'noun', qtw: 'n̏üp flwop l̃ain', eng: 'chlorine trifluoride' },
@@ -2640,13 +2663,15 @@
 				{ part: 'noun', qtw: 'dwép', eng: 'the diacritic acute-macron', etym: 'From "dwen prē gǒp"', extra: 'This diacritic does not exist in Unicode either. It is approximated with the Unicode character U+1DC8 "◌᷈".' },
 				{ part: 'noun', qtw: 'vilië̄m', eng: '៑ the diacritic viream, virama in general', etym: 'From Khmer' },
 				{ part: 'noun', qtw: 'wǚp', eng: 'name', etym: 'From "wwaiw mü̠f gwop"' },
-				{ part: 'noun', qtw: 'gwop dwop', eng: 'logograph' },
-				{ part: 'noun', qtw: 'ga̠\' gwop', eng: 'noun' },
-				{ part: 'noun', qtw: 'kwon gwop', eng: 'verb' },
-				{ part: 'noun', qtw: 'čey gwop', eng: 'adjective' },
-				{ part: 'noun', qtw: 'wé gwop', eng: 'marker (Twanthainese grammar)', extra: 'It can also encompass words of similar grammatical categories in other languages, such as particles. By some analyses, the English "\'s" could be considered a "we gwop".' },
-				{ part: 'noun', qtw: 'ťa gwop', eng: 'number word' },
-				{ part: 'noun', qtw: 'ťa n̏aup', eng: 'digit (of a number system)' },
+				{ part: 'noun', qtw: 'gwot', eng: 'logograph', etym: 'From "gwop dwop"' },
+				{ part: 'noun', qtw: 'gaóp', eng: 'noun', etym: 'From "ga̠\' gwop"' },
+				{ part: 'noun', qtw: 'kwop', eng: 'verb', etym: 'From "kwon gwop"' },
+				{ part: 'noun', qtw: 'kwoi̇́n', eng: 'tense (linguistics); aspect (linguistics)', etym: 'From "kwop či̇̄n", lit. "verb time"' },
+				{ part: 'noun', qtw: 'kaop', eng: 'grammar', etym: 'From "gap \'op", lit. "language rules"' },
+				{ part: 'noun', qtw: 'čwop', eng: 'adjective', etym: 'From "čey gwop"' },
+				{ part: 'noun', qtw: 'wép', eng: 'marker (Twanthainese grammar)', etym: 'From "wé gwop"', extra: 'It can also encompass words of similar grammatical categories in other languages, such as particles. By some analyses, the English "\'s" could be considered a "wép".' },
+				{ part: 'noun', qtw: 'ťaop', eng: 'number word', etym: 'From "ťa gwop"' },
+				{ part: 'noun', qtw: 'ťan̏', eng: 'digit (of a number system)', etym: 'From "ťa n̏aup"' },
 				{ part: 'noun', qtw: 'Ťwaiw gap', eng: 'Twanthainese', etym: 'From "twan ťain wwaiw gap"', extra: '"ទ្វាឭវ៑ កាៈព៑" in the Khmer script.' },
 				{ part: 'noun', qtw: 'twan ťain wwaiw ban̏', eng: '(historical, archaic) Twanthain', extra: 'Still sometimes used for a "ye olde" effect' },
 				{ part: 'noun', qtw: 'cauk̃ gan', eng: '(Often used to refer to the main island of Twanthain)', etym: 'lit. "our island"' },
@@ -4241,7 +4266,7 @@
 			<main class="plain-font" aria-role="paragraph" id="twanthainLore">
 				<section id="description">
 					<h2>Description</h2>
-					<p class="indent">Twanthain (<span lang="qtw-Latn">Wüan Ťwaiw Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑ ទ្វាឭវ៑ ពាៈង៑</span>, "People's Nation of Wüan"; officially <span lang="qtw-Latn">Wüan Ťwaiw Wwëy Ḱü̚y Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑ ទ្វាឭវ៑ វ្វយ៑ ជឺ៹យ៑ ពាៈង៑</span>, "People's Democratic Republic of Wüan") is an island country in the eastern Philippine Sea, on the West Mariana Ridge.&#8203;&nbsp;&nbsp;&#8203;It is located west of Guam, south of Japan, east of the Philippines, northwest of Palau, and north of western Micronesia; it is disagreed on whether Twanthain is considered a part of Southeast Asia or Oceania.&#8203;&nbsp;&nbsp;&#8203;Its capital is Pfewhuang (<span lang="qtw-Latn">F̌eu ¦wán̏</span>/<span lang="qtw-Khmr">ផឩ អ្វាង៑</span>, "River City").&#8203;&nbsp;&nbsp;&#8203;It has one time zone, Twanthainese Standard Time (<span lang="qtw-Latn">Wüan Ťwaiw Ban̏ Čiao᷅n̏</span>/<span lang="qtw-Khmr">វឺឰណ៑ ទ្វាឭវ៑ ពាៈង៑ ឞីឰឧ៱៰ង៑</span>), whose UTC offset is UTC+10 without daylight savings time.&#8203;&nbsp;&nbsp;&#8203;Twanthain's ISO country codes are <code title="ISO 3166-1 alpha-2">TI</code>, <code title="ISO 3166-1 alpha-3">TTN</code>, and <code title="ISO 3166-1 numeric">799</code>; thus its <abbr title="country code top-level domain">ccTLD</abbr> is <code>.ti</code>.&#8203;&nbsp;&nbsp;&#8203;Its currency is the Twanthainese nak (<span lang="qtw-Latn">nàk</span>/<span lang="qtw-Khmr">ណា៳ក៑</span>), which as of 2024 exchanges at a rate of ≈83Ň to 1 US dollar.&#8203;&nbsp;&nbsp;&#8203;It has two symbols: Ň (a Latin letter N with a caron/háček), and <span>កា</span>‌<span style="display: inline-block; position: relative; left: -8px; top: -2px;">̌</span> (the Khmer-script syllable "កា" with a caron); this latter symbol is not supported by Unicode and likely to display improperly, and as a result its usage is declining.&#8203;&nbsp;&nbsp;&#8203;The nak's currency codes are <code title="ISO 4217 alphabetical code">TIN</code> and <code title="ISO 4217 numeric code">797</code>.&#8203;&nbsp;&nbsp;&#8203;The nation has a total area of <span id="landAreaKm2">104,476</span> square kilometers.&#8203;&nbsp;&nbsp;&#8203;Twanthain has a population of <span id="population">3.5 million</span>, and a population density of about <span id="populationDensity">33.73</span> people per square kilometer.&#8203;&nbsp;&nbsp;&#8203;Its fertility rate is 4.73 births per woman<!--not because there's a lot of death, but because they f*** like rabbits-->, and its population growth rate is <span id="populationGrowthRate">8.449%</span>.
+					<p class="indent">Twanthain (<span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;ពាៈង៑</span>, "<span class="translation">People's Nation of Wüan</span>"; officially <span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Wwëy&nbsp;Ḱü̚y&nbsp;Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;វ្វយ៑&nbsp;ជឺ៹យ៑&nbsp;ពាៈង៑</span>, "<span class="translation">People's Democratic Republic of Wüan</span>") is an <em>island country in the eastern Philippine Sea</em>, on the <em>West Mariana Ridge</em>.&#8203;&nbsp;&nbsp;&#8203;It has Guam to its east, Japan to its north, the Philippines and Palau to its southeast, and western Micronesia to its south; people <em>disagree on whether Twanthain is part of Southeast Asia or Oceania</em>.&#8203;&nbsp;&nbsp;&#8203;Its <em>capital is Pfewhuang</em> (<span lang="qtw-Latn">F̌eu&nbsp;¦wán̏</span>/<span lang="qtw-Khmr">ផឩ&nbsp;អ្វាង៑</span>, "<span class="translation">River City</span>").&#8203;&nbsp;&nbsp;&#8203;It has <em>one time zone</em>, Twanthainese Standard Time (<span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Ban̏&nbsp;Čiao᷅n̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;ពាៈង៑&nbsp;ឞីឰឧ៱៰ង៑</span>), whose UTC offset is <em>UTC+10 without daylight savings time</em>.&#8203;&nbsp;&nbsp;&#8203;Twanthain's ISO country codes are <code title="ISO 3166-1 alpha-2">TI</code>, <code title="ISO 3166-1 alpha-3">TTN</code>, and <code title="ISO 3166-1 numeric">799</code>; thus its <em><abbr title="country code top-level domain">ccTLD</abbr> is <code>.ti</code></em>.&#8203;&nbsp;&nbsp;&#8203;Its <em>currency is the Twanthainese nak</em> (<span lang="qtw-Latn">nàk</span>/<span lang="qtw-Khmr">ណា៳ក៑</span>), which as of 2024 exchanges at a rate of <em>≈83Ň to 1 US dollar</em>.&#8203;&nbsp;&nbsp;&#8203;It has two symbols: <em>Ň</em> (a Latin letter N with a caron/háček), and <span>កា</span>‌<span style="display: inline-block; position: relative; left: -8px; top: -2px;">̌</span> (the Khmer-script syllable "<span title="na">កា</span>" with a caron); this latter symbol is not supported by Unicode and likely to display improperly, and as a result is falling out of use.&#8203;&nbsp;&nbsp;&#8203;The nak's currency codes are <code title="ISO 4217 alphabetical code">TIN</code> and <code title="ISO 4217 numeric code">797</code>.&#8203;&nbsp;&nbsp;&#8203;The nation has a total area of <em><span id="landAreaKm2">104,476</span> square kilometers</em>.&#8203;&nbsp;&nbsp;&#8203;Twanthain has a <em>population of <span id="population">3.56 million</span></em>, and a population density of about <em><span id="populationDensity">34.05</span> people per square kilometer</em>.&#8203;&nbsp;&nbsp;&#8203;Its fertility rate is <em>4.73 births per woman</em><!--not because there's a lot of death, but because they f*** like rabbits-->, and its <em>population growth rate is <span id="populationGrowthRate">8.449%</span></em>. Twanthain has a <abbr title="gross domestic product (a measure of the size of a nation's economy)">GDP</abbr> of <span id="gdp">$274.9 billion</span>, and a <abbr title="GDP divided by population (&quot;capita&quot;, from the Latin for &quot;head&quot;, just means &quot;person&quot; here)">GDP per capita</abbr> of <span id="gdpPerCapita">$77,996</span>.</p>
 					<script>
 						illions = ["thousand","million","billion","trillion","quadrillion","quintillion","sextillion","septillion","octillion","nonillion","decillion","undecillion"];
 						var area = 104476;
@@ -4252,13 +4277,30 @@
 							if(!(isNaN(parsedArea))) { area = parsedArea };
 						};
 
+						var gdp = null;
+						var gdpPerCapita = null;
+						var gdpPerCapitaText = document.getElementById("gdpPerCapita");
+						if(gdpPerCapitaText !== null) {
+							var content = gdpPerCapitaText.textContent;
+							var number = content.substring(content.indexOf(content.match(/-?\d/))); //i hate that i have to do this
+							var wasNegative = number.startsWith("-");
+							number = number.replace(/[^\d\.]/g,"").match(/^\d+(\.\d+|)/);
+							if(number) {
+								number = number[0] || "0";
+								gdpPerCapita = parseFloat(number);
+								if(wasNegative) { gdpPerCapita *= -1 };
+								if(isNaN(gdpPerCapita)) { gdpPerCapita = null }
+							}
+						}
+
 						var growthRateText = document.getElementById("populationGrowthRate");
 						if(growthRateText) {
 							var growthRate = growthRateText.textContent.replaceAll(",","").match(/\-?\d+(\.\d*|)%/)?.[0] ?? "1.429%";
 							growthRate = parseFloat(growthRate.replace(/\.?%$/,""))
 							var growthFactor = 1 + (growthRate / 100);
 							var startDate = 1729105848513; //file's creation date, 20241016151048.513088-240
-							var currentDate = Date.now();
+							var offset = 0; //1000 * 60 * 60 * 24 * 365 //For testing
+							var currentDate = Date.now() + offset;
 							var millisPassed = currentDate - startDate;
 							var startPopulation = 3524245;
 							var yearsPassed = millisPassed / (1000 * 60 * 60 * 24 * 365.2425);
@@ -4290,6 +4332,25 @@
 									populationDensityText.textContent = displayPD
 								}
 							}
+
+							if(gdpPerCapita !== null) {
+								gdp = gdpPerCapita * population;
+								var gdpText = document.getElementById("gdp");
+								if(gdpText) {
+									var displayGdpText;
+									var pMagnitude = Math.floor(Math.log10(gdp));
+									var pIllion = Math.floor(pMagnitude / 3) - 1;
+									var displayGdpValue;
+									var rounder = 10 ** ((pIllion + 1) * 3);
+									displayGdpValue = (gdp / rounder).toFixed(1).replace(".0","");
+									var displayQuantifier;
+									if(pIllion < 0) { displayQuantifier = "" }
+									else if(pIllion >= illions.length) { displayQuantifier = "times ten to the power of something" }
+									else { displayQuantifier = illions[pIllion] };
+									displayGdpText = `${displayGdpValue} ${displayQuantifier}`
+									gdpText.innerText = displayGdpText
+								}
+							}
 						}
 					</script>
 				</section>
@@ -4299,15 +4360,15 @@
 						<div class="indent">
 							<h3 id="prehistory">Prehistory</h3>
 							<p class="indent">
-								Twanthain and the surrounding islands were first peopled circa 2400 <abbr title="Before Christ">BC</abbr>/<abbr title="Before Common Era">BCE</abbr> by Austronesian peoples.
+								Twanthain and the surrounding islands were first peopled circa 2400 <abbr title="Before Christ">BC</abbr>/<abbr title="Before Common Era">BCE</abbr> by Austronesian peoples. Some archeological sites suggest that seashells were used as currency.
 							</p>
 							<h3 id="preColonial">Pre-colonial period</h3>
 							<p class="indent">
-								The Twanthainese language was not written until the people made contact with the Khmer Empire in 1023 <abbr title="Anno Domini">AD</abbr>/<abbr title="Common Era">CE</abbr>, from which they borrowed the Khmer script (ខ្មាឯ ងាព៑, K̃mae n̏ap).
+								The Twanthainese language was not written until the people made contact with the Khmer Empire in 1023 <abbr title="Anno Domini">AD</abbr>/<abbr title="Common Era">CE</abbr>, from which they borrowed the Khmer script (<span lang="qtw-Khmr">ខ្មាឯ&nbsp;ងាព៑</span>, <span lang="qtw-Latn">K̃mae&nbsp;n̏ap</span>).<!--conscript soon though so this will change, from OOU-->
 							</p>
 							<h3 id="colonization">Spanish colonization attempts</h3>
 							<p class="indent">
-								The first contact by Europe was by the Spanish in June of 1568, who set up a colony on the main island of Twanthain.&#8203;&nbsp;&nbsp;&#8203;These Spanish colonists were assimilated into the native population by March of 1569.&#8203;&nbsp;&nbsp;&#8203;The subsequent lack of response to the Spanish mainland prompted them to return to Twanthain in May of 1571 and establish a larger colony; by April of 1575, these new colonists had been assimilated into Twanthainese society as well.&#8203;&nbsp;&nbsp;&#8203;Notably, the Spanish governor-general had been given a position in Twanthain's government, but Twanthain retained its independence; unbeknownst to the Spanish crown, Twanthain was not truly colonized but entered a sort of <i>de facto</i> free association with Spain, a ruse maintained by the government successfully until 1821.&#8203;&nbsp;&nbsp;&#8203;This second colony led to the development of a Latin orthography for Twanthainese, but the Khmer orthography continued to be used at the same time.&#8203;&nbsp;&nbsp;&#8203;Spanish was made a co-official language of Twanthain.&#8203;&nbsp;&nbsp;&#8203;[ɲ] &lt;ń&gt;/&lt;ញ&gt; was marginally allophonic before Spanish contact and would likely have otherwise become phonemic by the 1800s, but interactions with the Spanish colony greatly sped up its development.
+								The first European contact was by the Spanish in June of 1568, who set up a colony on the main island of Twanthain.&#8203;&nbsp;&nbsp;&#8203;These Spanish colonists were assimilated into the native population by March of 1569.&#8203;&nbsp;&nbsp;&#8203;The subsequent lack of response to the Spanish mainland prompted them to return to Twanthain in May of 1571 and establish a larger colony; by April of 1575, these new colonists had been assimilated into Twanthainese society as well.&#8203;&nbsp;&nbsp;&#8203;Notably, the Spanish governor-general had been given a position in Twanthain's government, but Twanthain retained its independence; unbeknownst to the Spanish crown, Twanthain was not truly colonized but entered a sort of <i>de facto</i> free association with Spain, a ruse maintained by the government successfully until 1821.&#8203;&nbsp;&nbsp;&#8203;This second colony led to the development of a Latin orthography for Twanthainese, but the Khmer orthography continued to be used at the same time.&#8203;&nbsp;&nbsp;&#8203;Spanish was made a co-official language of Twanthain.
 							</p>
 							<h3 id="spanishWar">Spanish-Twanthainese War</h3>
 							<p class="indent">
@@ -4342,7 +4403,6 @@
 						<li>Fish</li>
 						<li>Rubber</li>
 					</ul></div>
-					<span class="info-pair"><span class="info-label">GDP</span>: <span class="info-value">$274.9 billion (GDP per capita: $77,996, <span title="Which isn't very useful because much of that land is covered in mountains which aren't very conducive to economic development">national average GDP density</span>: $2.631 million per square kilometer)</span></span><br/> <!--274,877,906,944; 3,524,245-->
 					<p class="info-pair"><span class="info-label">Name format</span>: <span class="info-value"><span>[Family name] [Mother's given name] [Father's given name] [Given name]. Given names and surnames are usually 1 or 2 syllables long, but can rarely be longer. The usual polite way to address someone is by their family and given name.</span><br/>
 					<span class="indent" style="display: block;">Foreign full names are adapted into the Twanthainese name order whenever possible, in a certain way. The given name is placed at the end and the family name at the beginning, but parents' names are not typically dug up to use as parentonymics; however, if the foreigner comes from a society or culture that uses parentonymics (which are, in practice, usually a patronymic), then those are placed in their corresponding spots in their adapted full name, such that, for instance, "Vladimir Vladimirovich Putin" becomes "Putin Vladimirovich Vladimir" ("Put́in Vlad́imirovič Vlad́imil"). Additional given names follow the first one. Middle names are placed after the given name unless they are the result of the foreigner's culture's naming system using one parent's surname as a middle name, in which case the middled surname follows the "true" surname.</span></span></p>
 					<span class="indent" style="display: block;">In marriage, the younger spouse usually takes the older spouse's last name.</span></span></p>
@@ -4421,7 +4481,7 @@
 					<ul class="info-value">
 						<li><i lang="qtw-Latn">Seām mü̠f Preām</i> is a toy system that consists of magnetic tiles which can construct various structures. It was launched in 1937, profiting off of the discovery of massive magnetite deposits in Tn̏wań Bwam.</li>
 						<li>In 2024, it sold 1,327,430 sets, out of Twanthain's population of 3.5 million.&#8203;&nbsp;&nbsp;&#8203;It has sold a total of 38.556 million sets domestically.</li>
-						<li>2,763,143 sets were sold outside of Twanthain in 2024.&#8203;&nbsp;&nbsp;&#8203;It has sold 55.171 million sets overseas.</li>
+						<li>2,763,143 sets were sold outside of Twanthain in 2024.&#8203;&nbsp;&nbsp;&#8203;It has sold 55.171 million sets overseas, and donated 2 million.</li>
 						<li><i lang="qtw-Latn">Seām mü̠f Preām</i> was not banned during Japanese occupation, but its production reduced as the island's resources were diverted towards Japan's war effort.&#8203;&nbsp;&nbsp;&#8203;The company that makes them, <i lang="qtw-Latn">Seām mü̠f Preām mü̠f Yuan̏</i> ("Tiled Imagination Company"), was forced to make pro-Empire of Japan sets; in the many years since the Japanese occupation, these sets have become extremely rare and valuable.</li>
 					</ul></span><br/>
 					<span class="info-pair"><span class="info-label">Main trading partners</span>: <span class="info-value">China, United States (notably Guam), Japan, Indonesia, the Philippines, Cambodia</span></span>
@@ -4434,7 +4494,7 @@
 							<li>Yoy B́ë N̏ley Ut̃, the plant's namesake, built the initial air separator unit in 1901, which was eventually accompanied by more air separators which gradually formed the large complex. A prominent scientist in his life, he is highly regarded for this.</li>
 							<li>During the Japanese occupation period, the complex was the site of the "Battle of the Yoy Complex". Liquid gases were thrown at Imperial Japanese troops, and dumped on the floor to cause asphyxiation and internal frostbite. In addition, oxygen gas was used as an oxidizer in incendiary weapons. The battle still caused millions of dollars in damage to the plant.</li>
 						</ul></li> <!--and liquid nitrogen was thrown at Imperial Japanese troops' faces-->
-						<li>Dez Bwim Ong Lheu City is Twanthain's second most prominent tourist destination, seeing about 400,000 tourists per year; it is beaten out by Pfewhuang, with 550,000 tourists. Dez Bwim Ong Lheu City's tourism slogan is "DBO: Delighful, Beautiful, Overachieving".</li>
+						<li>Dez Bwim Ong Lheu City is Twanthain's second most prominent tourist destination, seeing about 400,000 tourists per year; it is beaten out by Pfewhuang, with 550,000 tourists. Dez Bwim Ong Lheu City's tourism slogan is "DBO: Delighful, Beautiful, Outstanding".</li>
 						<li>Pop culture from the Philippines, Indonesia, Taiwan, Korea, and Cambodia is very popular in Twanthain.</li> 
 					</ul></div>
 				</section>
