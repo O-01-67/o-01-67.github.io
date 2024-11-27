@@ -1479,7 +1479,7 @@
 				<h3>Grammar</h3>
 				<main> 
 					<p class="plain-font">
-						Verbs do not conjugate, instead using grammatical markers to indicate information such as tense; the citation form of a verb is marked for tense (past, present, or future), but the present marker can generally be omitted.&#8203;&nbsp;&nbsp;&#8203;Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Aspect markers come between the verb and the tense marker; mood markers come after aspect markers (<abbr title="Verb">V</abbr>-<abbr title="Aspect">A</abbr>-<abbr title="Mood">M</abbr>-<abbr title="Tense">T</abbr>).&#8203;&nbsp;&nbsp;&#8203;Adverbs come after the verb and T.A.M markers.&#8203;&nbsp;&nbsp;&#8203;Modifiers come before the nouns they modify (e.g. <span style="color: #4f7fff;">blue</span>&nbsp;car), and this is often the order in which compounding usually proceeds; but often compounds deviate from this order due to phonotactics.&#8203;&nbsp;&nbsp;&#8203;Twanthainese uses an <abbr title="Object">O</abbr><abbr title="Subject">S</abbr>V (<abbr title="Indirect object">I</abbr>-<abbr title="Direct object">D</abbr>-S-V) order and postpositions, which can be chained and come before the object(s).&#8203;&nbsp;&nbsp;&#8203;The subject can be omitted in an imperative statement.&#8203;&nbsp;&nbsp;&#8203;Twanthainese acquired articles from Spanish influence, and they are used mostly-consistently; grammatically, they behave like adjectives.&#8203;&nbsp;&nbsp;&#8203;Adjectives do not follow a set order, but native speakers tend to order them alphabetically but may deviate from this order for emphasis (with the emphasized adjectives coming first).
+						Verbs do not conjugate, instead using grammatical markers to indicate information such as tense; the citation form of a verb is marked for tense (past, present, or future), but the present marker can generally be omitted.&#8203;&nbsp;&nbsp;&#8203;Present tense, simple aspect, and indicative mood are default.&#8203;&nbsp;&nbsp;&#8203;Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Aspect markers come between the verb and the tense marker; mood markers come after aspect markers (<abbr title="Verb">V</abbr>-<abbr title="Aspect">A</abbr>-<abbr title="Mood">M</abbr>-<abbr title="Tense">T</abbr>).&#8203;&nbsp;&nbsp;&#8203;Adverbs come after the verb and T.A.M markers.&#8203;&nbsp;&nbsp;&#8203;Modifiers come before the nouns they modify (e.g. <span style="color: #4f7fff;">blue</span>&nbsp;car), and this is often the order in which compounding usually proceeds; but often compounds deviate from this order due to phonotactics.&#8203;&nbsp;&nbsp;&#8203;Twanthainese uses an <abbr title="Object">O</abbr><abbr title="Subject">S</abbr>V (<abbr title="Indirect object">I</abbr>-<abbr title="Direct object">D</abbr>-S-V) order and postpositions, which can be chained and come before the object(s).&#8203;&nbsp;&nbsp;&#8203;The subject can be omitted in an imperative statement.&#8203;&nbsp;&nbsp;&#8203;Twanthainese acquired articles from Spanish influence, and they are used mostly-consistently; grammatically, they behave like adjectives.&#8203;&nbsp;&nbsp;&#8203;Adjectives do not follow a set order, but native speakers tend to order them alphabetically but may deviate from this order for emphasis (with the emphasized adjectives coming first).
 						<!--i'm with the boomers on this one, using 2 spaces after each sentence is more readable to me-->
 					</p>
 				</main>
@@ -1594,6 +1594,7 @@
 							"classifier": "cl.", //CL FROM 2NE1??!?!??!?!?!?!!!?!?!?
 							"noun": "n.",
 							"verb": "v.",
+							"noun/verb": "n/v.",
 						};
 
 						function doTable(data,languageName,languageCode,tableDestinationID) {
@@ -1715,16 +1716,16 @@
 				{ part: 'pronoun, adjective', qtw: 'swën', eng: 'those', extra: 'Plural of "sën"' },
 				{ part: 'pronoun', qtw: 'nei', eng: 'here (this place or situation)' },
 				{ part: 'noun', qtw: 'nit', eng: 'air' },
-				{ part: 'noun', qtw: 'nwot', eng: 'wind' },
+				{ part: 'noun/verb', qtw: 'nwot', eng: 'wind, to blow' },
 				{ part: 'noun', qtw: 'nwat', eng: 'sky' },
-				{ part: 'noun', qtw: 'neuť', eng: 'cloud' },
-				{ part: 'noun', qtw: 'nyit', eng: 'cold', extra: 'The sensation or absence of temperature' },
-				{ part: 'noun', qtw: 'nait', eng: 'dizzy' },
-				{ part: 'noun', qtw: 'cai̇̄c', eng: 'heat' },
+				{ part: 'noun/verb', qtw: 'neuť', eng: 'cloud, to become cloudy' },
+				{ part: 'noun/verb', qtw: 'nyit', eng: 'cold, to cool', extra: 'The sensation or absence of temperature' },
+				{ part: 'noun/verb', qtw: 'nait', eng: 'dizzy, to induce dizziness or vertigo' },
+				{ part: 'noun/verb', qtw: 'cai̇̄c', eng: 'heat, to heat' },
 				{ part: 'noun', qtw: 'bën̏', eng: 'ground, earth, land', extra: 'It refers either only to natural ground, or to a large area of ground or the surface of the planet itself (in which case it does include all artificial ground)' },
 				{ part: 'noun', qtw: 'gan', eng: 'island' },
-				{ part: 'noun', qtw: 'bün̏', eng: 'dirt, soil' },
-				{ part: 'noun', qtw: 'bon', eng: 'mud' },
+				{ part: 'noun/verb', qtw: 'bün̏', eng: 'dirt, soil; to add dirt' },
+				{ part: 'noun/verb', qtw: 'bon', eng: 'mud, to add mud' },
 				{ part: 'noun', qtw: 'buin̏', eng: 'hill' },
 				{ part: 'noun', qtw: 'tn̏wań', eng: 'mountain' },
 				{ part: 'noun', qtw: 'cuań', eng: 'volcano', etym: 'From "cuec tn̏wań"' },
@@ -1735,12 +1736,11 @@
 				{ part: 'noun', qtw: 'wam', eng: 'andesite' },
 				{ part: 'noun', qtw: 'siop', eng: 'dacite' },
 				{ part: 'noun', qtw: '\'ii̇̄', eng: 'shale' },
-				{ part: 'noun', qtw: 'bak', eng: 'sand, sediment' },
+				{ part: 'noun/verb', qtw: 'bak', eng: 'sand, sediment; to apply sand' },
 				{ part: 'noun', qtw: 'dol', eng: 'beach, sandy shore' },
 				{ part: 'noun', qtw: 'wem', eng: 'shore (without sand)' },
-				{ part: 'noun', qtw: 'bëy', eng: 'wet sand', etym: 'Related to "bak"' },
+				{ part: 'noun/verb', qtw: 'bëy', eng: 'wet sand, to apply wet sand', etym: 'Related to "bak"' },
 				{ part: 'noun', qtw: 'bwaa', eng: 'desert' },
-				{ part: 'noun', qtw: 'baik', eng: 'dry, thirsty' },
 				{ part: 'noun', qtw: 'bwok', eng: 'sandstorm' },
 				{ part: 'noun', qtw: 'byik', eng: 'quicksand' },
 				{ part: 'noun', qtw: 'ce', eng: 'clay' },
@@ -1755,35 +1755,34 @@
 				{ part: 'noun', qtw: 'ka᷄n̏', eng: 'sapphire', etym: 'From Khmer "កណ្ដៀង" as "kandië̄n̏"' },
 				{ part: 'noun', qtw: 'pu̇k̰̋', eng: 'diamond', etym: 'From Khmer "ពេជ្រ"' },
 				{ part: 'noun', qtw: 'pu̇i̇᷄', eng: 'zircon', etym: 'From Khmer "ពេជ្រថៃ" as "pu̇k̰̋t̃ai"' },
-				{ part: 'noun', qtw: 'cuec', eng: 'fire', extra: 'The chemical reaction, in general' },
-				{ part: 'noun', qtw: 'cwoc', eng: 'explosion' },
-				{ part: 'noun', qtw: 'fwēc', eng: 'fire', extra: 'In the context of a disaster such as a building or forest fire', etym: 'From "fwá\' cuec"' },
+				{ part: 'noun/verb', qtw: 'cuec', eng: 'fire; to burn, to be on fire, to ignite/set on fire', extra: 'The chemical reaction, in general' },
+				{ part: 'noun/verb', qtw: 'cwoc', eng: 'explosion, to explode' },
+				{ part: 'noun/verb', qtw: 'fwēc', eng: 'fire; to be burning in a large fire, to commit arson', extra: 'In the context of a disaster such as a building or forest fire', etym: 'From "fwá\' cuec"' },
 				{ part: 'noun', qtw: 'cyic', eng: 'lava' },
 				{ part: 'noun', qtw: 'cya᷄p', eng: 'igneous rock', etym: 'From "cyic seāp"' },
 				{ part: 'noun', qtw: 'bea᷄p', eng: 'sedimentary rock', etym: 'From "bak seāp"' },
 				{ part: 'noun', qtw: 'gai̇̌p', eng: 'metamorphic rock', etym: 'From "gau mü̠f seāp"' },
-				{ part: 'noun', qtw: 'cu̠̇c', eng: 'smoke' },
-				{ part: 'noun', qtw: 'f̌en', eng: 'water' },
-				{ part: 'noun', qtw: 'nen', eng: 'wave (especially of the sea)' },
+				{ part: 'noun/verb', qtw: 'cu̠̇c', eng: 'smoke; to apply smoke, to emit smoke' },
+				{ part: 'noun/verb', qtw: 'f̌en', eng: 'water, to wet' },
+				{ part: 'noun/verb', qtw: 'nen', eng: 'wave (especially of the sea), to oscillate or emit waves' },
 				{ part: 'noun', qtw: 'fwaên', eng: 'tsunami, large wave', etym: 'From "fwá\' nen"' },
-				{ part: 'noun', qtw: 'f̌ōt', eng: 'steam', etym: 'From "f̌en neuť"' },
-				{ part: 'noun', qtw: 'ťèn', eng: 'rain', etym: 'From "nwat f̌en"' },
+				{ part: 'noun/verb', qtw: 'f̌ōt', eng: 'steam, to apply steam', etym: 'From "f̌en neuť"' },
+				{ part: 'noun/verb', qtw: 'ťèn', eng: 'rain, to rain', etym: 'From "nwat f̌en"' },
 				{ part: 'noun', qtw: 'f̌wan', eng: 'sea, ocean' },
-				{ part: 'noun', qtw: 'f̌won', eng: 'current, flow, motion, (historical) river' },
+				{ part: 'noun/verb', qtw: 'f̌won', eng: 'current, flow, motion, (historical) river; to flow' },
 				{ part: 'noun', qtw: 'f̌yen', eng: 'lake' },
 				{ part: 'noun', qtw: 'f̌eu', eng: 'river, stream', etym: 'From "f̌en f̌won"' },
 				{ part: 'noun', qtw: 'f̌eik', eng: 'river delta', etym: 'From "f̌eu t̃wi ček"' },
 				{ part: 'noun', qtw: 'f̌aun', eng: 'drink' },
-				{ part: 'noun', qtw: 'yuḱi', eng: 'snow', etym: 'From Japanese' },
-				{ part: 'noun', qtw: 'koli', eng: 'ice', etym: 'From Japanese' },
-				{ part: 'noun', qtw: 'k̃yik̋', eng: 'slush' },
-				{ part: 'noun', qtw: 'k̃wak̋', eng: 'glacier, iceberg' },
+				{ part: 'noun', qtw: 'yuḱi', eng: 'snow', etym: 'From Japanese "雪"' },
+				{ part: 'noun/verb', qtw: 'koli', eng: 'ice, to freeze (of water)', etym: 'From Japanese "氷"' },
+				{ part: 'noun', qtw: 'miz', eng: 'slush', etym: 'From Japanese "霙"' },
+				{ part: 'noun', qtw: 'k̰̋ak', eng: 'glacier, iceberg', etym: 'From Tibetan "འཁྱགས"' },
 				{ part: 'noun', qtw: 'k̃aik̋', eng: 'severe cold, (poetic) cold' },
 				{ part: 'noun', qtw: 'bek̋', eng: 'glass', etym: 'from "bak k̃ek̋" ("sand ice")' },
-				{ part: 'noun', qtw: 'čuek̰̋', eng: 'electricity, (historical) lightning' },
+				{ part: 'noun/verb', qtw: 'čuek̰̋', eng: 'electricity, (historical) lightning; to shock, to supply electrical energy to' },
 				{ part: 'noun', qtw: 'čwak̰̋', eng: 'lightning' },
-				{ part: 'noun', qtw: 'čwok̰̋', eng: 'electric arc', etym: 'Recent phonesthemic coinage' },
-				{ part: 'noun', qtw: 'čaik̰̋', eng: 'a shock', extra: 'The sensation of static electricity, or of an electric shock in general' },
+				{ part: 'noun', qtw: 'čwok̰̋', eng: 'electric arc' },
 				{ part: 'noun', qtw: 'čyik̰̋', eng: 'thunderstorm' },
 				{ part: 'noun', qtw: 'v̌up', eng: 'earthquake' },
 				{ part: 'noun', qtw: 'nüť', eng: 'red' },
@@ -2826,6 +2825,7 @@
 				{ part: 'adjective', qtw: 'cuec mü̠f', eng: 'burning' },
 				{ part: 'adjective', qtw: 'bain̏', eng: 'dirty' },
 				{ part: 'adjective', qtw: 'f̌yin', eng: 'wet' },
+				{ part: 'adjective', qtw: 'baik', eng: 'dry, thirsty' },
 				{ part: 'adjective', qtw: 't̰́eē', eng: 'safe' },
 				{ part: 'adjective', qtw: 'sës', eng: 'sus', etym: 'From English' },
 				{ part: 'adjective', qtw: 'sës mü̠f', eng: 'sussy', etym: 'Calque of "sus" + "-y"' },
@@ -2954,7 +2954,6 @@
 				{ part: 'verb', qtw: 'nwa̚', eng: 'to push, to repel' },
 				{ part: 'verb', qtw: 'sen̋', eng: 'to love', etym: 'From "sen̏ g̋ot"' },
 				{ part: 'verb', qtw: 'jyè', eng: 'to measure' },
-				{ part: 'verb', qtw: 'cuet', eng: 'to burn, to be on fire, to ignite/set on fire', etym: 'From "cuec g̋ot"' },
 				{ part: 'verb', qtw: 'swej', eng: 'to mix, to stir', extra: 'In the latter sense, synonymous with "woy"' },
 				{ part: 'verb', qtw: 'nai', eng: 'to grow, to enlarge, to expand, to increase, to lengthen, to widen, to heighten, to deepen (of a hole, deep body, absence, or deficit)' },
 				{ part: 'verb', qtw: 'lë', eng: 'to shrink, to contract, to decrease, to shorten, to thin, to enshallow/be enshallowed (of a hole or deep body)' },
@@ -3057,16 +3056,23 @@
 				{ part: 'adverb', qtw: 'say', eng: 'rarely' },
 				{ part: 'adverb', qtw: 'lyao', eng: 'why', extra: 'Question words do not reorder the sentence like in English.' },
 				{ part: 'adverb', qtw: 'lon', eng: 'where', etym: 'Related to "bwon"' },
+
 				{ part: 'marker', qtw: 'nye̠p', eng: '(Past tense marker), -ed' },
 				{ part: 'marker', qtw: 'k̋ep', eng: '(Present tense marker)', extra: 'Can usually be omitted, but can also be included for emphasis.' },
 				{ part: 'marker', qtw: 'f̌ep', eng: '(Future tense marker)' },
+
 				{ part: 'marker', qtw: 't̃e̠p', eng: '(Habitual aspect marker)' },
 				{ part: 'marker', qtw: 'leń', eng: '(Continuous/progressive aspect marker)' },
+
 				{ part: 'marker', qtw: 'laiu̇́', eng: '(Interrogative mood marker)' },
 				{ part: 'marker', qtw: 'jǖn', eng: '(Imperative mood marker)' },
 				{ part: 'marker', qtw: 'ḱòy', eng: '(Deontic mood marker)', extra: 'Indicates that something normatively "must" happen. It is distinct from the imperative. It is a suffix with a meaning akin to "must" or "should".' },
 				{ part: 'marker', qtw: 'pem', eng: '(Epistemic mood marker (possibility))', extra: 'Indicates that something can happen' },
 				{ part: 'marker', qtw: 'plîk', eng: '(Epistemic mood marker (belief))', extra: 'Indicates that, based on the speaker’s knowledge, something logically "has to" happen. It is distinct from the deontic and the imperative, but can overlap in usage.)' },
+
+				{ part: 'marker', qtw: 'f̌nyèp', eng: '(Future perfect/anterior ??? marker)', etym: 'From "f̌ep nye̠p"', extra: 'insert enhypen joke' },
+				//After this I f\_/cking hate verbs
+
 				{ part: 'marker', qtw: 'mü̠f', eng: '(Adjectivizer), -al, -ous, -y', extra: 'Connects non-adjectives to their modificands as adjectives' },
 				{ part: 'marker', qtw: 'wa', eng: '(Agentive suffix), -er, (postpositive morpheme akin to "one who" or "that which")', etym: 'Cognate of "wwaiw"', extra: '"mü̠f" is not necessary with "wa"'},
 				{ part: 'marker', qtw: 'ťain', eng: '-numbered', extra: '(It connects a number word or phrase to its quantificand. In quantities with units, it is not needed to connect the number to the unit, but it is used to connect the unit quantity to something else (e.g. "ťyek̃ k̃ǖbü̠ mi̇̄të̠l ťain woin ček" = "10 kibimeter walk").)' },
@@ -3219,111 +3225,10 @@
 				<h3>Example sentences (These have not yet been updated to reflect tone.)</h3>
 				<main>
 					<p class="plain-font example-triplet">
-						<span lang="en"> <span g1>I</span> <span g2>walk</span> <span g3>on</span> <span g4a>the</span> <span g4>red</span> <span g5>sand</span>. </span><br/>
-						<span class="term" lang="qtw-Latn"> <span g4a>su̇l</span> <span g4>nüť</span> <span g5>bak</span> <span g3>gu̇n</span> <span g1>cain</span> <span g2>woin k̋ep</span>. </span><br/>
-						<span class="term" lang="qtw-Khmr"> <span g4a>សឹល៑</span> <span g4>ណឺទ៑</span> <span g5>ពាៈក៑</span> <span g3>កឹៈណ៑</span> <span g1>ឝាឭណ៑</span> <span g2>វុឭណ៑ ជព៑</span>។ </span><br/>
-						<span class="underlying"> <span g4a>the</span> <span g4>red</span> <span g5>sand</span><span g3>-on</span> <span g1>I</span> <span g2>walk</span>. </span><br/>
-						<span class="disclaimer">These are not intended to be proper glosses.</span>
-					</p><br/>
-
-					<p class="plain-font example-triplet">
-						<span lang="en"> <span g1>Jeanne</span> <span g2>ate</span> <span g4>twenty</span> <span g5>apples</span>. </span><br/>
-						<span class="term" lang="qtw-Latn"> <span g4>ťen ťyek̃ ťain</span> <span g5>nwan</span> <span g1>Jan</span> <span g2>pën nye̠p</span>. </span><br/>
-						<span class="term" lang="qtw-Latn"> <span g4>ទណ៑ ទ្យខ៑ ទាឭណ៑</span> <span g5>ណ្វាណ៑</span> <span g1>ឞាៈណ៑</span> <span g2>ពិណ៑ ណ្យព៑</span>។ </span><br/>
-						<span class="underlying"> <span g4>two-ten-<small><i>(connector)</i></small></span> <span g5>apple</span> <span g1>Jeanne</span> <span g2>eat did</span>. </span><br/>
-						<span class="underlying"><span g4>twenty-<small><i>(connector)</i></small></span> <span g5>apple</span> <span g1>Jeanne</span> <span g2>eat did</span>. </span><br/>
-					</p><br/>
-
-					<p class="plain-font example-triplet">
-						<span lang="en"> <span g4a>My</span> <span g1>hovercraft</span> <span g2>is</span> <span g6>full</span> <span g3>of</span> <span g5>eel</span><span g4>s</span>.</span><br/>
-						<span class="term" lang="qtw-Latn"> <span g4>twain</span> <span g5>f̌en fwan̏</span> <span g3>wai</span> <span g6>këp</span> <span g4a>cain kwa</span> <span g1>nwot kwëw</span> <span g2>nan̏ k̋ep</span>. </span><br/>
-						<span class="underlying"> <span g4>Many</span> <span g5>rod_sealife</span><span g3>-ly</span> <span g6>full</span> <span g4a>me's</span> <span g1>wind_vehicle</span> <span g2>be-now</span>.</span><br/>
-						<span class="underlying"> <span g4>Many</span> <span g5>eel</span><span g3>-ly</span> <span g6>full</span> <span g4a>me's</span> <span g1>hovercraft</span> <span g2>be-now</span>.</span>
-					</p><br/>
-
-					<p class="plain-font example-triplet">
-						<span lang="en"> <span g4a>My</span> <span g1>postillion</span> <span g2b>has been*</span> <span g2>str</span><span g2a>uck</span> <span g3>by</span> <span g5>lightning</span>. </span><br/>
-						<span class="term" lang="qtw-Latn"> <span g2>čwak̰̋ g̋ot</span> <span g2a>nye̠p</span> <span g2b>dyoi</span> <span g5>čwak̰̋</span> <span g3>jyai</span> <span g4a>caik̃</span> <span g1>kwoëw</span>. </span><br/>
-						<span class="underlying"> (<span g2>lightning-ing</span><span g2a>-ed</span><span g2b>-by</span> <span g5>lightning</span><span g3>-with</span> <span g4a>my</span> <span g1>postillion</span>.) </span><br/>
-						<span class="disclaimer"><span g2b>*</span>There's not really a one-to-one morpheme correspondence here (or none can be contrived) because the passive voice is largely conveyed in English by the structure of the sentence, whereas it also uses a marker in Twanthainese.)</span>
-					</p><br/>
-
-					<div class="plain-font example-triplet">
-						<p class="height"><span lang="en"> <span class="box"><span g1>I</span> <span g2a>can</span> <span g2>eat</span> <span g5>glass</span></span>, <span class="box2"><span g1>it</span> <span gnull>does</span> <span g2a>not</span> <span g2>hurt</span> <span g5>me</span></span>. </span></p><br/>
-						<p class="height"><span class="term" lang="qtw-Latn"> <span class="box"><span g5>bek̋</span> <span g1>cain</span> <span g2>pën</span> <span g2a>dün̏</span></span>, <span class="box2"><span g5>cain</span> <span g1>saik</span> <span g2a>dyōw</span> <span g2>'a'</span></span>.</p><br/>
-						<p class="height"><span class="term" lang="qtw-Latn"> <span class="box"><span g5>glass</span> <span g1>I</span> <span g2>eat</span> <span g2a>can</span></span>, <span class="box2"><span g5>me</span> <span g1>this</span> <span g2a>not</span> <span g2>hurt</span></span>.</p>
-					</div><br/>
-
-					<p class="plain-font example-triplet">
 						<span lang="fr"><span gnull>la</span> <span g1>plume</span> <span g4>de</span> <span g4a>ma</span> <span g3>tante</span></span><br/>
 						<span lang="en"><span g4a>my</span> <span g3>aunt</span><span g4>'s</span> <span g1>quill</span></span><br/>
 						<span class="term" lang="qtw-Latn"><span g4a>caik̃</span> <span g3>k̰̋wai</span> <span g4>kwa</span> <span g1>noët</span></span><br/>
 						<span class="underlying"><span g4a>my</span> <span g3>aunt</span><span g4>'s</span> <span g1>quill</span></span> 
-					</p><br/>
-
-					<p class="plain-font example-triplet">
-						<span lang="en"><span g6>If</span> <span title="There is no corresponding morpheme in the Twanthainese translation" gnull>it</span> <span g2>rain</span><span g2a>s</span>, <span g1>you</span> <span g4a>will</span> <span g3>get</span> <span g4>wet.</span></span><br/>
-						<span class="term" lang="qtw-Latn"><span g2>ťen</span> <span g2a>g̋ot</span> <span g6>kai</span> <span g2a title="There is no independently corresponding morpheme in the English translation, see below">f̌ep</span>, <span g4>f̌yin</span> <span g1>cu̇n</span> <span g3>nan̏</span> <span gnull title="There is no corresponding morpheme in the English translation, as it's implied by the structure of the sentence">kai</span> <span g4a>f̌ep</span></span> <br/>
-						<span class="underlying"><span g2>rain</span><span g2a>ing</span><span g6>-if</span> <span g2a title="There is no independently corresponding morpheme in the English translation, see below">later</span>, <span g4>wet</span> <span g1>you</span> <span g3>be</span> <span gnull title="There is no corresponding morpheme in the English translation, as it's implied by the structure of the sentence">then</span> <span g4a>will</span></span> <br/>
-						<span class="disclaimer">There isn't a one-to-one morpheme correspondence here (or none can be contrived) because, in addition to the "-s" in the English "rains" serving as both the verbalizer and the future tense marker, the conditional ("then") in the English sentence is implied by its structure of the sentence, whereas it uses a marker in Twanthainese.)&#8203;&nbsp;&nbsp;&#8203;Also, the weather being the thing that rains is implied in both languages, but in English this implication uses the word "it".</span>
-					</p><br/>
-
-					<p class="plain-font example-triplet">
-						<span lang="en" class="height"><span class="box"><span g4>2NE1</span><span g4a>'s</span> <span g1>CL</span> <span g2>is</span> <span g3>from</span> <span g5>Korea</span></span>. <span class="box2"><span g4>Her</span> <span g1>name</span> <span g2>is</span> <span g5>Chaerin Lee</span></span>. <span class="box3"><span g1>She</span> <span g2>g<span g2a>a</span>ve</span> <span g6>me</span> <span g4a>two</span> <span g4b>diamond</span> <span g4>pickaxes</span> <span g3>in</span> <span g5>Minecraft</span>.</span></span><br/>
-						<span class="term height"><span class="box"><span g5>¦anguk ban̏</span> <span g3>ko</span> <span g4 title="Ťen U̇n Et L̃ën">2NE1</span> <span g4a>kwa</span> <span g1 title="Ce Le">CL</span> <span g2>nan̏</span></span>. <span class="box2"><span g5>I Čairin</span> <span g4>cëek</span> <span g1>wǚp</span> <span g2>nan̏</span>.</span> <span class="box3"><span g5>Mai̇̄nkra̠ftë̠</span> <span g3>min</span> <span g6>cain</span> <span g4a>ťen ťain</span> <span g4b>pu̇k̰̋ mü̠f</span> <span g4>lna</span> <span g1>cëet</span> <span g2>la'</span> <span g2a>nye̠p</span></span>.</span><br/>
-						<span class="term height"><span class="box"><span g5>អាណ៑កូៈក៑ ពាៈង៑</span> <span g3>កុ</span> <span g4 title="ទណ៑ ឪណ៑ ឯត៑ ឡិណ៑">២ណឯ១</span> <span g4a>កា្វ</span> <span g1 title="ឝ ល">ឝល</span> <span g2>ណាង៑</span></span>។ <span class="box2"><span g5>ឭ ឞាឭរីណ៑</span> <span g4>ឝិឯត៑</span> <span g1>វឺ៶ព៑</span> <span g2>ណាង៑</span>។</span> <span class="box3"><span g5>មាឭណ៑៴ក្រាភ៑៲តិ៲</span> <span g3>មីណ៑</span> <span g6>ឝាឭណ៑</span> <span g4a>ទណ៑ ទាឭណ៑</span> <span g4b>ពឹឆ៑ មឺ៲ភ</span> <span g4>ល្ណា</span> <span g1>ឝិឯក៑</span> <span g2>លាអ៑</span> <span g2a>ណ្យ៲ព៑</span></span>៕</span><br/>           
-						<span class="underlying height"><span class="box"><span g5>Korea</span><span g3>-from</span> <span g4 title="Two N E One">2NE1</span><span g4a>-'s</span> <span g1 title="C L">CL</span> <span g2>is</span></span>. <span class="box2"><span g5>Lee Chaerin</span> <span g4>her</span> <span g1>name</span> <span g2>is</span></span>. <span class="box3"><span g5>Minecraft</span><span g3>-in</span> <span g6>me</span> <span g4a>two-numbered</span> <span g4b>diamond-y</span> <span g4>pickaxe</span> <span g1>she</span> <span g2>give</span><span g2a>-ed</span></span>.</span><br/>
-						<span class="disclaimer">This example has been updated with tones.</span>
-					</p><br/>
-
-					<p class="plain-font example-triplet">
-						<span lang="en"><span gnull>The</span> <span g1>sun</span> <span g2>is</span> <span g4a>very</span> <span g5>hot.</span></span><br/>
-						<span class="term" lang="qtw-Latn"><span g4a>fwá'</span> <span g5>cai̇̄c mü̠f</span> <span g1>'ay</span> <span g2>nan̏.</span></span><br/>
-						<span class="underlying"><span g4a>very</span> <span g5>hot</span> <span g1>sun</span> <span g2>is</span>.</span><br/>
-					</p><br/>
-
-					<p class="plain-font example-triplet">
-						<span lang="en"> <span g1>All human beings</span> <span g2>are born</span> <span g7a>free</span> <span g8>and</span> <span g7b>equal</span> <span g3>in</span> <span g7c>dignity</span> <span g8>and</span> <span g7d>rights</span>.</span><br/>
-						<span class="term" lang="qtw-Latn"> <span g7a>woin̏</span> <span g8>yey</span> <span g7b>mem ček</span> <span g3>puet</span> <span g7c>k̋eyt</span> <span g8>yey</span> <span g7d>wain̏</span> <span gnull>wëy</span> <span g1>ťwaiw</span> <span g2>yai k̋ep</span>.</span><br/>
-						<span class="underlying"><span g7a>freedom</span> <span g8>and</span> <span g7b>equal-ness</span> <span g3>of</span> <span g7c>dignity</span> <span g8>and</span> <span g7d>rights</span><span gnull>-with</span> <span g1>humankind</span> <span g2>birth-are</span>.</span><br/>
-					</p><br/>
-
-					<p class="plain-font example-triplet">
-						<span lang="en"><span g1>I</span> <span g2>love</span> <span g5>kittens.</span></span><br/>
-						<span class="term" lang="qtw-Latn"><span g5>fu̇̄an</span> <span g1>cain</span> <span g2>fwá' jen k̋ep.</span></span><br/>
-						<span class="underlying"><span g5>kittens</span> <span g1>I</span> <span g2>love<small><i>-(present)</i></small>.</span></span><br/>
-					</p><!--<br/>
-
-					<p class="plain-font example-triplet">
-						<span lang="en">Stop posting about Among Us! I'm tired from seeing it! My friends on Tiktok send me many memes, on Discord everything is fucking memes. I was in a server, right? And every channel was only Among Us stuff. I showed my Champion underwear to my girlfriend, and I turned their logo, and I said to her, "Hey, love, when the underwear is sus! HAHA DING DING DING DING DING DING DING, DI-DI-DING". I fucking looked at a trash can and said, "This is slightly sussy". I looked at my penis, thought of the astronaut's helmet, and said "Penis? More like penSUS!"! AAAAAAAAAAAAAAAAA!</span></br>
-						<span class="term" lang="qtw-Latn">A Mën̏ Ës puet n̏at kën jün Saik mi yak 'an̏ cain nan̏. Cain g̋e twan ťain mim cain kwa da T̃ik T̃ok min tai t̃a t̃ep, D̃is Kot min fyo' mim da nan̏. Së vë min cain nan̏ nye̠p, a? Yey pë A Mën̏ Ës mü̠f lon da čan ël nan̏ nye̠p. Cain kwa tai jet g̋e cain kwa Čam Pi Ën mü̠f myoin cain dal nye̠p, yey saik kwa log cain woy nye̠p, yey cën jet g̋e "An, sen̏, sës myoin nan̏ lyo. ¦WA ¦WA DEn̏ DEn̏ DEn̏ DEn̏ DEn̏ DEn̏ DEn̏, DE DE DEn̏" cain twa' nye̠p. Mwel dep g̋e cain g̋im nye̠p fyo' yay "fu̇̄p sës müf saik nan̏" cain twa' nye̠p. Cain kwa dwën̏ g̋e cain g̋im nyap, nwait wwaiw kwa dan yek puet cain vad̰́ nye̠p, yey "DWËn̏? DWËS d́a nan̏ la!" cain twa'! A A A A A A A A A A A A A A A A A!</span></br>
-						<p class="underlying" style="font-family: monospace; white-space: pre-wrap; font-size: 80%; background-color: #111; padding: 2px 2px 2px 3px; border: 1px solid #777; border-radius: 3px;">A Mën̏ Ës puet   n̏at  kën  jün   Saik mi  yak        'an̏   cain nan̏. Cain g̋e  twan ťain     mim
-Among Us -about post stop -IMP. It   see because_of tired 1SG  be.  1SG  -to many numbered meme
-
-cain kwa   da    T̃ik T̃ok min tai    t̃a   t̃ep,  D̃is Kot min fyo'    mim   da         nan̏.
-1SG  -POSS every TikTok  -in friend send -HAB, Discord -in fucking memes everything be.
-
-Së vë  min cain nan̏ nye̠p, a?     Yey pë   A Mën̏ Ës mü̠f   lon   da    čan ël  nan̏ nye̠p.
-server -in 1SG  be  -PST, right? and only Among Us -ADJZ stuff every channel be  -PST.
-
-Cain kwa   tai jet    g̋e  cain kwa   Cham Pi Ën mü̠f   myoin     cain dal  nye̠p, yey saik kwa
-1SG  -POSS girlfriend -to 1SG  -POSS Champion   -ADJZ underwear 1SG  show -PST, and this -POSS
-
-logo cain woy  nye̠p, yey cën     jet g̋e  "An,  sen̏,  sës myoin     nan̏ lyo.  ¦WA ¦WA DEn̏  DEn̏
-logo  1SG  turn -PST, and them_SG -F  -to "Hey, love, sus underwear be  when. ha  ha   ding ding
-
-DEn̏  DEn̏  DEn̏  DEn̏  DEn̏,  DE DE DEn̏"  cain twa' nye̠p. Mwel  dep g̋e  cain g̋im       nye̠p fyo'
-ding ding ding ding ding, di di ding" 1SG  say  -PST. trash bin	-to 1SG  looked_at -PST -fucking
-
-yay "fu̇̄p      sës müf saik nan̏" cain twa' nye̠p. Cain kwa   dwën̏  g̋e  cain g̋im       nyap,
-and "slightly sussy   this be"  1SG  said -PST. 1SG  -POSS penis -to 1SG  looked_at -PST,
-
-nwait wwaiw kwa   dan yek puet   cain vad̰́   nye̠p, yey "Dwën̏?  dwËS   d́a    nan̏ la!"  cain twa'!
-astronaut   -POSS helmet  -about 1SG  think -PST, and "PENIS? PENSUS -like be  more! 1SG  say!
-
-A A A A A A A A A A A A A A A A A!
-AAAAAAAAAAAAAAAAA!</p></br>
-						<span class="disclaimer">Colors are not provided. Unlike the other examples, a proper gloss is provided here.</span>-->
 					</p><br/>
 
 					<!--
