@@ -184,13 +184,14 @@ function HCCLGCG(colorArray){
 //Color code smh (minified)
 var nm="number"
 pF=parseFloat
-function CCF(r,e="rgb",a=!1){if(void 0===r)throw new Error("Color is undefined!");var t,o,n,u,l,s=r;if("string"==typeof r)if(/^#?[A-Za-z0-9]{1,8}$/.test(s)){switch(r.startsWith("#")&&(s=s.match(/[A-Za-z0-9]{1,8}/)[0]),s.length){case 0:throw new Error("CCF:Hex input but bytes are missing?");case 1:s=s.repeat(6);break;case 2:s=s[0].repeat(6)+s[1].repeat(2);break;case 3:case 4:s=s.match(/[A-Za-z0-9]/g).map((r=>r.repeat(2))).join("");break;case 5:var g=s.slice(0,3),c=s.slice(3,5);s=g.match(/[A-Za-z0-9]/g).map((r=>r.repeat(2))).join("")+alpha;case 7:g=s.slice(0,6),c=s.slice(6,7);s=g+c.repeat(2)}r={r:o=(t=s.toLowerCase().match(/[a-z0-9]{2}/g).map((r=>parseInt(r,16))))[0],g:n=t[1],b:u=t[2]},nm==typeof(l=a?null:t[3]??null)&&(r.a=l)}else t=r.match(/[\d\.]+/g),void 0===t?.map?(console.log(t),t=[255,0,255]):t=t.map((r=>Number(r))),r={r:o=t[0],g:n=t[1],b:u=t[2]},nm==typeof(l=a?null:t[3]??null)&&(r.a=l);else Array.isArray(r)?(r={r:o=(t=r)[0],g:n=t[1],b:u=t[2]},nm==typeof(l=a?null:t[3]??null)&&(r.a=l)):"object"==typeof r&&(o=r.r,n=r.g,u=r.b,l=a?null:r.a??null);switch(null!==l&&(l/=255),e.toLowerCase()){case"rgb":case"rgba":var i;m=o,p=n,v=u,h=nm==typeof l?l:null,i=a||null==h?[m,p,v]:[m,p,v,h];for(var b=0;b<=2;b++)i[b]=Math.round(i[b]);return(nm==typeof l?"rgba":"rgb")+`(${i.join(",")})`;case"hex":var m,p,v,h;return m=o,p=n,v=u,h=nm==typeof l?Math.round(255*l):null,"#"+(a||null==h?[m,p,v]:[m,p,v,h]).map((r=>Math.round(r).toString(16).padStart(2,"0"))).join("");case"json":return r;case"array":return Object.values(r);default:throw new Error('O must be "rgb", "hex", "json", or "array"')}}function RHC(r){return CCF(r,"rgb")}function ARPCA(r,e=!1){var a=[],t=[],o=[];for(k=0;k<r.length;k++){var n=CCF(r[k]);n=n.split(",");var u=pF(n[0].substring(4));a.push(u);var l=pF(n[1]);t.push(l);var s=pF(n[2].slice(0,-1));o.push(s)}return RA=Math.round(ANA(a)),GA=Math.round(ANA(t)),BA=Math.round(ANA(o)),e?{r:RA,g:GA,b:BA}:`rgb(${RA},${GA},${BA})`}function ANA(r){return r.reduce(A2N,0)/r.length}function A2N(r,e){return r+e}
+pI=parseInt
+function CCF(r,e="rgb",a=!1){if(void 0===r)throw new Error("Color is undefined!");var t,o,n,u,l,s=r;if("string"==typeof r)if(/^#?[A-Za-z0-9]{1,8}$/.test(s)){switch(r.startsWith("#")&&(s=s.match(/[A-Za-z0-9]{1,8}/)[0]),s.length){case 0:throw new Error("CCF:Hex input but bytes are missing?");case 1:s=s.repeat(6);break;case 2:s=s[0].repeat(6)+s[1].repeat(2);break;case 3:case 4:s=s.match(/[A-Za-z0-9]/g).map((r=>r.repeat(2))).join("");break;case 5:var g=s.slice(0,3),c=s.slice(3,5);s=g.match(/[A-Za-z0-9]/g).map((r=>r.repeat(2))).join("")+alpha;case 7:g=s.slice(0,6),c=s.slice(6,7);s=g+c.repeat(2)}r={r:o=(t=s.toLowerCase().match(/[a-z0-9]{2}/g).map((r=>pI(r,16))))[0],g:n=t[1],b:u=t[2]},nm==typeof(l=a?null:t[3]??null)&&(r.a=l)}else t=r.match(/[\d\.]+/g),void 0===t?.map?(console.log(t),t=[255,0,255]):t=t.map((r=>Number(r))),r={r:o=t[0],g:n=t[1],b:u=t[2]},nm==typeof(l=a?null:t[3]??null)&&(r.a=l);else Array.isArray(r)?(r={r:o=(t=r)[0],g:n=t[1],b:u=t[2]},nm==typeof(l=a?null:t[3]??null)&&(r.a=l)):"object"==typeof r&&(o=r.r,n=r.g,u=r.b,l=a?null:r.a??null);switch(null!==l&&(l/=255),e.toLowerCase()){case"rgb":case"rgba":var i;m=o,p=n,v=u,h=nm==typeof l?l:null,i=a||null==h?[m,p,v]:[m,p,v,h];for(var b=0;b<=2;b++)i[b]=Math.round(i[b]);return(nm==typeof l?"rgba":"rgb")+`(${i.join(",")})`;case"hex":var m,p,v,h;return m=o,p=n,v=u,h=nm==typeof l?Math.round(255*l):null,"#"+(a||null==h?[m,p,v]:[m,p,v,h]).map((r=>Math.round(r).toString(16).padStart(2,"0"))).join("");case"json":return r;case"array":return Object.values(r);default:throw new Error('O must be "rgb", "hex", "json", or "array"')}}function RHC(r){return CCF(r,"rgb")}function ARPCA(r,e=!1){var a=[],t=[],o=[];for(k=0;k<r.length;k++){var n=CCF(r[k]);n=n.split(",");var u=pF(n[0].substring(4));a.push(u);var l=pF(n[1]);t.push(l);var s=pF(n[2].slice(0,-1));o.push(s)}return RA=Math.round(ANA(a)),GA=Math.round(ANA(t)),BA=Math.round(ANA(o)),e?{r:RA,g:GA,b:BA}:`rgb(${RA},${GA},${BA})`}function ANA(r){return r.reduce(A2N,0)/r.length}function A2N(r,e){return r+e}
 //Color code over
 var S={//simpleColors
 R:"400"/*Red*/,Gn:"030"/*Grn*/,Gy:"222"/*Gry*/,S:"333"/*Slv*/,W:"444"/*Wht*/,C:"044"/*Cyn*/,Bl:"004"/*Blu*/,LB:"234"/*LgtBl*/,A:"034"/*Aqu*/,Y:"440"/*Ylw*/,Pp:"204"/*Ppl*/,Bk:"000"/*Blk*/,O:"420"/*Org*/,Br:"210"/*Brn*/,L:"140"/*Lme*/,M:"404"/*Mgt*/}
 for(var key in S){
 	var code=S[key]
-	code=code.split("").map(x=>(Math.min(255,Math.max(0,(parseInt(x*64)-1))).toString(16)).padStart(2,"0"))
+	code=code.split("").map(x=>(Math.min(255,Math.max(0,(pI(x*64)-1))).toString(16)).padStart(2,"0"))
 	S[key]=`#${code.join("")}`
 }
 S.Pk="#FF9FFF"
@@ -487,7 +488,7 @@ ID={//idolBdData
 "7-12":{e:"Sowon",c:S.C,g:G.gf,y:15},
 "8-12":{e:"Dami (Kang Hyeyeon)",c:"#6c9",g:G.ex,y:10},
 "9-12":[{e:"ViVi",c:"#ffa2d2",g:G.ln,y:16},{e:"J",c:S.R,g:G.st,y:24},{e:"Shin Yuna",c:S.Y,g:G.it,y:23}],
-"10-12":{e:"Elly (An Hyojin)",c:"#039",g:G.ex,y:11},//this is so messy, hyojin (or her corp) should have checked beforehand to make sure there was nobody already using that stage name
+"10-12":{e:"Elly (An Hyojin)",c:"#039",g:G.ex,y:11},
 "12-12":{e:"Lee Soojin",c:"#f576be",g:G.we,y:21},
 "13-12":{e:"Suhye",g:G.mi,y:24},
 "16-12":{e:"Mashiro",c:"#fdeef4",g:[G.kp,G.mi],y:19},
@@ -535,7 +536,7 @@ if(FD!==null){
 	if(typeof(FD)==="string"&&FD.trim().length==0){
 		FD=null
 	}else{
-		var parsedFD=parseInt(FD)
+		var parsedFD=pI(FD)
 		if(isNaN(FD)===false){
 			FD=new Date(parsedFD)
 		}else{
@@ -546,7 +547,7 @@ if(FD!==null){
 				}else if(FD?.length===0){
 					FD=null
 				}else if(FD){
-					FD=FD.map(x=> parseInt(x).toString().padStart(2,"0"));//normalize
+					FD=FD.map(x=> pI(x).toString().padStart(2,"0"));//normalize
 					var fakeYear=FD[2]??null
 					if(fakeYear!==null){fakeYear=fakeYear.toString().padStart(4,"0")}
 					FD=FD.slice(0,2).toReversed().join("-")
@@ -620,7 +621,7 @@ if((uP.get("FD")??"").match(/^chaos\-?\d*$/)){
 		if(_inc=="-"){
 			IAY=-1
 		}else{
-			IAY=parseInt(_inc)
+			IAY=pI(_inc)
 		}
 	}
 }
@@ -650,7 +651,7 @@ if(BD.length>0){
 	btx.apc(ctn(label))
 	var eventsListed=0
 	for(var ibd_cdI in BD){
-		ibd_cdI=parseInt(ibd_cdI)
+		ibd_cdI=pI(ibd_cdI)
 		var D=BD[ibd_cdI]
 		var resultText=(ibd_cdI==0?"H":"h")+"appy "
 		var is_From_A_Group=!(D.i||(D.g==null))
@@ -666,17 +667,17 @@ if(BD.length>0){
 				throw error
 			}
 			var averagedColor=ARPCA(rgbEnsuredColors)
-			colorValues=averagedColor.match(/\d+/g).map(x=> parseInt(x))
+			colorValues=averagedColor.match(/\d+/g).map(x=> pI(x))
 		}else{
 			if(!color.startsWith("#")){
 				try{
-					colorValues=color.match(/\d+/g).map(x=> parseInt(x))
+					colorValues=color.match(/\d+/g).map(x=> pI(x))
 				}catch(error){
 					console.error(`Invalid color for entity "${D.e}"`,color)
 					colorValues=[255,0,255]
 				}
 			}else{
-				colorValues=color.match(/[A-Za-z0-9]{2}/g).map(x=> parseInt(x,16))
+				colorValues=color.match(/[A-Za-z0-9]{2}/g).map(x=> pI(x,16))
 			}
 		}
 		var bgLum=getLuminance(...colorValues)
