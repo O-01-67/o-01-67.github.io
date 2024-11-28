@@ -46,15 +46,15 @@ function dumbBruh(){
 }
 bruhs=0n
 //Modified from code by FishBasketGordo on StackOverflow:https://stackoverflow.com/a/7033705
-function SSIC(str,chunkSize,FCS=null){
+function SSIC(str,cS,FCS=null){
 	var chunks=[]
 	var chunkIsFirst=true
 	for(i=str.length-1;i>=0;i--){
 		var ECS;//ECS=effectiveChunkSize
-		if((FCS!==null)&&(FCS!==chunkSize)&&chunkIsFirst){//FCS=firstChunkSize
+		if((FCS!==null)&&(FCS!==cS)&&chunkIsFirst){//FCS=firstChunkSize
 			ECS=FCS
 		}else{
-			ECS=chunkSize
+			ECS=cS
 		}
 		if(str.length<ECS){
 			if(str.length>0){
@@ -71,11 +71,11 @@ function SSIC(str,chunkSize,FCS=null){
 	chunks.reverse()
 	return chunks
 }
-function bigintCommas(bigint,separator=",",chunkSize=3,FCS=null){
+function bigintCommas(bigint,separator=",",cS=3,FCS=null){
 	var wasNegative=(bigint<0n)
 	var string=bigint.toString()
 	if(string.startsWith("-")){string=string.slice(1)}
-	string=SSIC(string,chunkSize,FCS).join(separator)
+	string=SSIC(string,cS,FCS).join(separator)
 	if(wasNegative){string="-"+string}
 	return string
 }
