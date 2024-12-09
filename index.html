@@ -85,13 +85,9 @@ bruhs+=1n
 var bd=gebi("bcf");//bruhDisplay
 var bruhCounter=gebi("bruhCount")
 var bruhS=gebi("bruhsPlural")
-if(bruhs===1n){
-	bd.style.removeProperty("display")
-}
+if(bruhs===1n){bd.style.removeProperty("display")}
 if(bd){
-if(bruhCounter){
-	bruhCounter.st(bigintCommas(bruhs))
-}
+if(bruhCounter){bruhCounter.st(bigintCommas(bruhs))}
 var sB=bruhs-50n;//not shifting all of those values down
 if(sB===0n){
 bd.ac("amethyst")
@@ -123,16 +119,11 @@ bd.rc("emerald")
 bd.ac("spinel")
 bd.rc("ruby")
 }
-if(bruhS){
-	if(bruhs===1n){
-		bruhS.st("")
-	}else if(bruhs===2n){
-		bruhS.st("s")
-	}
-}
-}
-return bruhs
-}
+if(bruhS){if(bruhs===1n){
+	bruhS.st("")
+}else if(bruhs===2n){
+	bruhS.st("s")
+}}}return bruhs}
 function tryJoin(SoA,joiner){
 	if(typeof(SoA)==="string"){return SoA}
 	if(Array.isArray(SoA)){return SoA.join(joiner)}
@@ -140,12 +131,7 @@ function tryJoin(SoA,joiner){
 	return SoA.toString()
 }
 LSU=1661127423000
-/*video length from debug D has millisecond precision (215.201),
-but reddit comments are only have second precision from the API (as
-1661127638.0 except that the decimal is always 0)*/
-function secondsSinceLoona(formatString=false){
-	return Math.floor((new Date().getTime()-LSU)/1000)
-}
+function secondsSinceLoona(formatString=false){return Math.floor((new Date().getTime()-LSU)/1000)}
 function updateLoonaTime(){
 	var textSeconds=gebi("ltsS")
 	var textDays=gebi("ltsD")
@@ -842,6 +828,10 @@ span.counter{font-family:monospace;font-size:95%;border:1px solid #777;text-alig
 .squished{letter-spacing:-0.5px;}
 del{text-decoration;line-through;}
 noscript{font-size:90%;}
+details summary{cursor:pointer;display:inline;}
+details#noticeToggle:not([open]) #ntExp{display:none;}
+details#noticeToggle[open] #ntCol{display:none;}
+.text-outlined{background-color: #7f7f7f1f; border: 1px solid #7f7f7f3f; padding: 1px;}
 		</style>
 	</head>
 	<body>
@@ -873,14 +863,16 @@ noscript{font-size:90%;}
 			<p>this site is a f. mess</p><br/>
 			i love orbits<br/>
 			loona ot12 forever</p>
+			<details id="noticeToggle" open><summary class="text-outlined">Click to <span id="ntCol">show</span><span id="ntExp">hide</span> notices</summary>
 			<ul>
-				<li class="high-warning"><div aria-role="paragraph">143 Entertainment <details style="display: inline; background-color: #7f7f7f1f; border: 1px solid #7f7f7f3f; padding: 1px;"><summary style="display: inline;">(<abbr title="Trigger Warning">TW</abbr>/click to show)</summary><span style="white-space: pre;"> </span><a href="https://www.instagram.com/p/DCrWv4CCHEO/">sexually assaulted</a> and <a href="https://www.instagram.com/p/DCsCnqFpICP/">extorted</a></details> Gaeun and is thus a dangerous and abusive company for MADEIN. They must be boycotted immediately and absolutely for this.</div></li>
+				<li class="high-warning"><div aria-role="paragraph">143 Entertainment's CEO <details style="display: inline;" class="text-outlined"><summary style="display; inline;">(<abbr title="Trigger Warning">TW</abbr>/click to show)</summary><span style="white-space: pre;"> </span><a href="https://www.instagram.com/p/DCrWv4CCHEO/" title="Instagram link, account NOT required to view">sexually assaulted</a> <a href="https://tribune.com.pk/story/2511266/madeins-gaeun-allegedly-sexually-assaulted-by-agency-ceo" title="Express Tribune link, account NOT required to view">Gaeun and released a statement denying the allegations but still blaming Gaeun for it (this incident occurred when Gaeun was 18, which is still a minor under Korean law)</a> and <a href="https://www.instagram.com/p/DCsCnqFpICP/" title="Instagram link, account NOT required to view">placed her on hiatus and threatened the members with fees</a></details> and is thus a dangerous and abusive company for MADEIN. They must be boycotted immediately and absolutely for this.</div></li>
+				<li class="high-warning"><div aria-role="paragraph">JYP Entertainment <details style="display: inline;" class="text-outlined"><summary>(<abbr title="Trigger Warning">TW</abbr>/click to show)</summary><span style="white-space: pre;"> </span><a href="https://www.forbes.com/sites/jeffbenjamin/2024/12/07/kg-of-vcha-exits-girl-group-after-lawsuit-against-jyp-usa-alleging-child-labor-abuse/" title="Forbes link (Contributor-published), soft paywall">abused and negligently overworked KG and the other VCHA members even with severe injuries over 12+ hour days, trapped them in over $500,000 each of debt (as mostly minors) and severely underpaid them, denied KG water, secretly recorded them constantly, mentally and verbally abused the members, drove members to self-harm and eating disorders (and drove an undisclosed member to attempt suicide and hid it from a child welfare worker), violated child labor laws and did not compensate the members for the extra work</a>, and <a href="https://x.com/rosechery_/status/1865533443230048736" title="Twitter (X) link, account NOT required to view">underfed the members and forbade them from eating often</a>. (JYPE <a href="https://www.chosun.com/english/kpop-culture-en/2024/12/09/22GFRZF2WVBKFJEHSSDTJBMAMA/" title="Chosun Daily link, account NOT required to view">denies the claims</a>, predictably.)</details> The full <a href="https://trellis.law/case/24stcv32165/k-m-vs-jyp-usa-inc" title="Trellis link, account required to download">lawsuit filing</a> has been made available <a href="https://drive.google.com/file/d/1BEAneK75NVjMuXyHjSUmhz-s6byIl46-/view?usp=sharing" title="Google Drive link, account NOT required to download">to download</a>. This situation reveals that JYP is a dangerous and abusive company for VCHA. They must also be boycotted immediately and absolutely. (It is worth noting that, as KG's <a href="https://www.reddit.com/r/kpop/comments/1h94lj7/vcha_kg_posts_an_instagram_story_update_regarding/" title="Reddit link, account NOT required to view">departure statement</a> emphasizes, this problem of abuse is endemic to the entire K-pop industry.)</div></li>
 				<li class="warning"><div aria-role="paragraph">HYBE has consistently mistreated multiple artists under them (with NewJeans recently rising to prominence in this regard) and should be boycotted. (They also have ties to Zionism.)</div></li>
-				<li class="high-advisory">Remember to do your <a href="https://arab.org/click-to-help/palestine/">daily click for Palestine</a></li>
+				<li class="high-advisory">Remember to do your <a href="https://arab.org/click-to-help/palestine/">daily click for Palestine</a>.</li>
 				<li class="warning"><p>Please <a href="https://drive.google.com/drive/folders/15nOtXlSIKYD_anDn7PtDimHiyByzrjFa?usp=share_link">do not stream</a> songs released under <span red>Blockberry Creative</span> (BBC), their former agency. Not only do the <em class="chuu">twelve</em> members <a href="https://reddit.com/r/LOONA/comments/zrd8di">not get paid from it</a>, but the money that <em>BBC</em> receives <a href="https://www.reddit.com/r/kpop/comments/14hdh12">will fund continued legal action against the members</a>; just recently BBC <a href="https://www.reddit.com/r/LOONA/comments/1blrjow">had appealed Chuu's contract nullification again</a><br/>As Orbits return to streaming pre-split Loona songs on official platforms, each one thinking that "it's just me so it will be fine" or "BBC only gets 0.3 cents anyway", then <em>a lot</em> of people will contribute money to BBC over time and the money will go towards persecuting Loona. Blockberry is allegedly in capital impairment, but we should not let up until Blockberry's bankruptcy is confirmed. This does not apply to songs released under Modhaus, ATRP, CTD ENM, or Paix Per Mil.<br/></p></li>
 				<li class="advisory"><p><a href="https://reddit.com/r/LOONA/comments/v3bawq/comment/iax84qr/">Queendom 2's</a> <a href="https://reddit.com/r/LOONA/comments/v3bawq/comment/iax80jk/">outcome was</a> <a href="https://reddit.com/r/LOONA/comments/v3bawq/comment/iax6iqj/">illegitimate</a> <a href="https://reddit.com/r/LOONA/comments/v3bawq/comment/iax73ua/">and LOONA only</a> <a href="https://reddit.com/r/LOONA/comments/v3bawq/comment/iax6sh5/">lost because</a> <a href="https://reddit.com/r/LOONA/comments/v3bawq/comment/iax896a/">they got COVID.</a> <a href="https://gall.dcinside.com/mgallery/board/view/?id=girlsofthemonth&no=755010">(Also Mnet is sus.)</a></p>
 				<p style="text-indent:2em;padding-top:4px;">However, WJSN still deserves congratulations.</p></li>
-			</ul>
+			</ul></details>
 			<span id="rem">&nbsp;</span>
 			<h1 class="ot12">my epic pages with great quality code</h1>
 				<p class="warning">Many of the links below are outdated because I forgot and/or didn't have the time to update them and I don't even know where to start. They should still work but are missing some things.</p></br>
@@ -937,7 +929,7 @@ noscript{font-size:90%;}
 					</p>
 				</div>
 				<div id="other">
-					<span class="yeojin">DNI: antis; akgaes <em>(notably skz/kep1er member/sakura/madein antis or yeshiro akgaes; member solo stans are fine but hating a group's other members makes one an akgae <small class="squished">(likewise, yeshiro solo stans are fine, but hating on the rest of madein is akgae behavior)</small>)</em>; people who blame NewJeans for actions they take as a result of being groomed <small class="squished">(hoping to hold them accountable is fine—albeit a bit far-fetched right now—but some of the things people say are just appalling)</small></span><br/>
+					<span class="yeojin">DNI/These people suck: antis; akgaes <em>(notably skz/kep1er member/sakura/madein antis or yeshiro akgaes; member solo stans are fine but hating a group's other members makes one an akgae <small class="squished">(likewise, yeshiro solo stans are fine, but hating on the rest of madein is akgae behavior)</small>)</em>; people who keep talking about how "it's okay to not like Chuus's songs" (using the subjectivity of music taste as a cover to hate on Chuu); people who blame NewJeans for actions they take as a result of being groomed <small class="squished">(hoping to hold them accountable is fine—albeit a bit far-fetched right now—but some of the things people say are just appalling)</small></span><br/>
 					<span class="circle">i have stanned loona for about <span class="counter" id="ltsS">66 million</span> seconds (about <span class="counter" id="ltsD">760</span> days, or <span class="counter" id="ltsW">109</span> weeks)</span> <noscript>(Requires JavaScript to update. Last manual update 9/19.)</noscript><br/>
 				</div>
 				<h2 class="circle">88x31 buttons:</h2>
