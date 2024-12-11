@@ -1648,6 +1648,8 @@
 							"noun/verb": "n/v.",
 						};
 
+						multiwordTerms = {};
+
 						function doTable(data,languageName,languageCode,tableDestinationID) {
 							var length = data.length;
 							var countText = document.getElementById(languageCode + "EntryCount");
@@ -1699,9 +1701,14 @@
 										newTbody.appendChild(newTr);
 											var tdConlang = document.createElement("td");
 											newTr.appendChild(tdConlang);
-												tdConlang.innerText = data[i][languageCode] ?? "";
-												if(data[i].qtw) {
-													tdConlang.setAttribute("id",data[i][languageCode])
+												var term = data[i][languageCode];
+												tdConlang.innerText = term ?? "";
+												if(data[i][languageCode]) {
+													tdConlang.setAttribute("id",`${languageCode}-${term}`);
+													if(term.includes(" ")) {
+														multiwordTerms[languageCode] ??= [];
+														multiwordTerms[languageCode].push(term)
+													}
 												};
 												if(data[i].qtw == fragmentValue) {
 													tdConlang.scrollIntoView?.()
@@ -1946,7 +1953,7 @@
 				{ part: 'noun', qtw: 'baip', eng: 'sandbox', etym: 'From "bak waip", a calque of "sand + box"' },
 				{ part: 'noun', qtw: 'n̏aop', eng: 'pixel', etym: 'From "n̏an dwop", a calque of "pictures + element"; however, "piksel" has been slowly gaining popularity' },
 				{ part: 'noun', qtw: 'Baiop', eng: 'Sandboxels', eng_href: 'https://sandboxels.R74n.com/', html_title: 'Not sponsored, I just like the game', etym: 'Calqued portmanteau of "sandbox + pixels" as "baip + n̏aop"' },
-				{ part: 'noun', qtw: 'Al L̃eu T̃on En', eng: 'R74n', eng_href: 'https://R74n.com/', html_title: 'also, I want to get into https://R74n.com/translate/' },
+				{ part: 'noun', qtw: 'Re L̃eu T̃on U̇n', eng: 'R74n', eng_href: 'https://R74n.com/', html_title: 'also, I want to get into https://R74n.com/translate/' },
 				{ part: 'noun', qtw: 'Saik Wek Kwa Jeuw', eng: 'LOONA', etym: 'Calque of "이달의 소녀"' },
 				{ part: 'noun/verb', qtw: 'kwon', eng: 'motion, (physical) movement; to move' },
 				{ part: 'noun/verb', qtw: 'wëi̇́t', eng: 'speed; to accelerate' },
@@ -1954,16 +1961,16 @@
 				{ part: 'noun/verb', qtw: 'wëi̇́t wëi̇́t', eng: '(archaic) acceleration' },
 				{ part: 'noun', qtw: 'nwai', eng: 'jerk/jolt (the rate of change of acceleration), to increase in acceleration', etym: 'From "wai nai"' },
 				{ part: 'noun', qtw: 'l̃aiam wëi̇́t', eng: '(dated) jerk' },
-				{ part: 'noun', qtw: 't̃oam wëi̇́t', eng: 'snap/jounce (the rate of change in jerk/jolt, the fourth derivative of position w.r.t time)' },
-				{ part: 'noun', qtw: 'l̃üam wëi̇́t', eng: 'crackle (rate of change in snap/jounce, the fifth derivative of position)' },
-				{ part: 'noun', qtw: 'ťoiam wëi̇́t', eng: 'pop (rate of change in crackle, the sixth derivative of position)' },
-				{ part: 'noun', qtw: 'l̃euam wëi̇́t', eng: 'the seventh derivative of position (rate of change in pop, allegedly termed "bang" or "lock")' },
-				{ part: 'noun', qtw: 'ťouam wëi̇́t', eng: 'the eighth derivative of position (rate of change in "bang"/"lock", allegedly termed "boom" or "drop")' },
-				{ part: 'noun', qtw: 'liam wëi̇́t', eng: 'the ninth derivative of position (rate of change in "boom"/"drop", allegedly termed "crash" or "shot")' },
-				{ part: 'noun', qtw: 'ťyeam wëi̇́t', eng: 'the tenth derivative of position (rate of change in "crash"/"shot", allegedly termed "put")' },
-				{ part: 'noun', qtw: 'l̃am wëi̇́t', eng: 'the eleventh derivative of position (rate of change in "put", allegedly termed "get")' },
-				{ part: 'noun', qtw: 'goam wëi̇́t', eng: 'the twelfth derivative of position (rate of change in "get", allegedly termed "plop")' },
-				{ part: 'noun', qtw: 'ťyain ťyam wëi̇́t', eng: 'the thirteenth derivative of position (rate of change in "plop", allegedly termed "stop")' },
+				{ part: 'noun', qtw: 't̃oëi̇́t', eng: 'snap/jounce (the rate of change in jerk/jolt, the fourth derivative of position w.r.t time)', etym: 'From "t̃oam wëi̇́t"' },
+				{ part: 'noun', qtw: 'l̃üëi̇́t', eng: 'crackle (rate of change in snap/jounce, the fifth derivative of position)', etym: 'From "l̃üam wëi̇́t"' },
+				{ part: 'noun', qtw: 'ťoi̇́t', eng: 'pop (rate of change in crackle, the sixth derivative of position)', etym: 'From "ťoiam wëi̇́t"' },
+				{ part: 'noun', qtw: 'l̃eui̇́t', eng: 'the seventh derivative of position (rate of change in pop, allegedly termed "bang" or "lock")', etym: 'From "l̃euam wëi̇́t"' },
+				{ part: 'noun', qtw: 'ťoui̇́t', eng: 'the eighth derivative of position (rate of change in "bang"/"lock", allegedly termed "boom" or "drop")', etym: 'From "ťouam wëi̇́t"' },
+				{ part: 'noun', qtw: 'liëi̇́t', eng: 'the ninth derivative of position (rate of change in "boom"/"drop", allegedly termed "crash" or "shot")', etym: 'From "liam wëi̇́t"' },
+				{ part: 'noun', qtw: 'ťyëi̇́t', eng: 'the tenth derivative of position (rate of change in "crash"/"shot", allegedly termed "put")', etym: 'From "ťyeam wëi̇́t"' },
+				{ part: 'noun', qtw: 'l̃aëi̇́t', eng: 'the eleventh derivative of position (rate of change in "put", allegedly termed "get")', etym: 'From "l̃am wëi̇́t"' },
+				{ part: 'noun', qtw: 'goëi̇́t', eng: 'the twelfth derivative of position (rate of change in "get", allegedly termed "plop")', etym: 'From "goam wëi̇́t"' },
+				{ part: 'noun', qtw: 'ťyaim wëi̇́t', eng: 'the thirteenth derivative of position (rate of change in "plop", allegedly termed "stop")' },
 				{ part: 'noun', qtw: 'wok', eng: 'circulation, orbit, cycle', etym: 'From "won kwon"' },
 				{ part: 'noun', qtw: 'cwu̇o᷅n', eng: 'thermohaline circulation', etym: 'From "cai̇̄c du̇y won kwon"' },
 				{ part: 'noun', qtw: 'wwow', eng: 'life, organism, animal' },
@@ -2116,52 +2123,52 @@
 				{ part: 'noun', qtw: 'bel', eng: 'boundary, perimeter' },
 				{ part: 'noun', qtw: 'pap', eng: 'pop music', etym: 'from English' },
 				{ part: 'noun', qtw: 'swen̏', eng: 'alloy', etym: 'from "swej fen̏"' },
-				{ part: 'noun', qtw: 'lin̏ n̏wop', eng: 'rose gold' },
+				{ part: 'noun', qtw: 'liop', eng: 'rose gold', etym: 'From "lin̏ n̏wop"' },
 				{ part: 'noun', qtw: 'min̏', eng: 'tin' },
 				{ part: 'noun', qtw: 'fyen̏', eng: 'bronze' },
 				{ part: 'noun', qtw: 'con̏', eng: 'zinc' },
 				{ part: 'noun', qtw: 'coin̏', eng: 'brass', etym: 'from "con̏ fün̏"' },
 				{ part: 'noun', qtw: 'ju', eng: 'field of study, -ology, practice (of)' },
-				{ part: 'noun', qtw: 'wwow ju', eng: 'biology' },
-				{ part: 'noun', qtw: 'fwan̏ ju', eng: 'marine biology' },
-				{ part: 'noun', qtw: 'zot ju', eng: 'mixology' },
-				{ part: 'noun', qtw: 'gap ju', eng: 'linguistics' },
-				{ part: 'noun', qtw: 'ban ju', eng: 'phonetics, phonology (field of study)' },
-				{ part: 'noun', qtw: 'n̏ap ju', eng: 'graphemics' },
-				{ part: 'noun', qtw: 'fe̠n̏ ju', eng: 'metallurgy' },
-				{ part: 'noun', qtw: 'bën̏ ju', eng: 'geology' },
-				{ part: 'noun', qtw: 'ket ju', eng: 'engineering; science and technology studies, the study of technology' },
-				{ part: 'noun', qtw: 'ban̏ ju', eng: 'political science' },
-				{ part: 'noun', qtw: 'ťwaiw ju', eng: 'demography; anthropology' },
-				{ part: 'noun', qtw: 'yai ček ju', eng: 'demography' },
-				{ part: 'noun', qtw: 'bwaiw ju', eng: 'anthropology' },
-				{ part: 'noun', qtw: 'nwaw ju', eng: 'dendrology' },
-				{ part: 'noun', qtw: 'bop ju', eng: 'chemistry' },
-				{ part: 'noun', qtw: 'k̃en̏ ju', eng: 'physics' },
-				{ part: 'noun', qtw: 'fan̏ ju', eng: 'acoustics (the study of sound)' },
-				{ part: 'noun', qtw: 'f̌wan ju', eng: 'oceanography' },
-				{ part: 'noun', qtw: 'cuan̏ ju', eng: 'volcanology' },
-				{ part: 'noun', qtw: 'seāp ju', eng: 'petrology' },
-				{ part: 'noun', qtw: 'cya᷄p ju', eng: 'igneous petrology' },
-				{ part: 'noun', qtw: 'bea᷄p ju', eng: 'sedimentary petrology' },
-				{ part: 'noun', qtw: 'gai̇̌p ju', eng: 'metamorphic petrology' },
-				{ part: 'noun', qtw: 'wwaw ju', eng: 'botany' },
-				{ part: 'noun', qtw: 'nwon ju', eng: 'optics' },
-				{ part: 'noun', qtw: 'tet ju', eng: 'musicology (the study of music), music theory' },
-				{ part: 'noun', qtw: 'nin̏ čal ju', eng: 'audiology (the study of hearing)' },
-				{ part: 'noun', qtw: 'yauk ju', eng: 'notaphily (the study of banknotes)' },
-				{ part: 'noun', qtw: 'yaun ju', eng: 'economics' },
-				{ part: 'noun', qtw: 'jyè ju', eng: 'metrology; the practice of measuring' },
+				{ part: 'noun', qtw: 'wwoj', eng: 'biology', etym: 'From "wwow ju"' },
+				{ part: 'noun', qtw: 'fwaj', eng: 'marine biology', etym: 'From "fwan̏ ju"' },
+				{ part: 'noun', qtw: 'zoj', eng: 'mixology', etym: 'From "zot ju"' },
+				{ part: 'noun', qtw: 'gaj', eng: 'linguistics', etym: 'From "gap ju"' },
+				{ part: 'noun', qtw: 'baj', eng: 'phonetics, phonology (field of study)', etym: 'From "ban ju"' },
+				{ part: 'noun', qtw: 'n̏aj', eng: 'graphemics', etym: 'From "n̏ap ju"' },
+				{ part: 'noun', qtw: 'fe̠j', eng: 'metallurgy', etym: 'From "fe̠n̏ ju"' },
+				{ part: 'noun', qtw: 'bëj', eng: 'geology', etym: 'From "bën̏ ju"' },
+				{ part: 'noun', qtw: 'kej', eng: 'engineering; science and technology studies, the study of technology', etym: 'From "ket ju"' },
+				{ part: 'noun', qtw: 'bag̃', eng: 'political science', etym: 'From "ban̏ ju"' },
+				{ part: 'noun', qtw: 'ťwaij', eng: 'demography; anthropology', etym: 'From "ťwaiw ju"' },
+				{ part: 'noun', qtw: 'yaej', eng: 'demography', etym: 'From "yai ček ju"' },
+				{ part: 'noun', qtw: 'bwaij', eng: 'anthropology', etym: 'From "bwaiw ju"' },
+				{ part: 'noun', qtw: 'nwaj', eng: 'dendrology', etym: 'From "nwaw ju"' },
+				{ part: 'noun', qtw: 'boj', eng: 'chemistry', etym: 'From "bop ju"' },
+				{ part: 'noun', qtw: 'k̃eg̃', eng: 'physics', etym: 'From "k̃en̏ ju"' },
+				{ part: 'noun', qtw: 'fad̃', eng: 'acoustics (the study of sound)', etym: 'From "fan̏ ju", rederived after American contact in the 1990s due to a previous similarity to a slur' },
+				{ part: 'noun', qtw: 'f̌waj', eng: 'oceanography', etym: 'From "f̌wan ju"' },
+				{ part: 'noun', qtw: 'cuag̃', eng: 'volcanology', etym: 'From "cuan̏ ju"' },
+				{ part: 'noun', qtw: 'seāj', eng: 'petrology', etym: 'From "seāp ju"' },
+				{ part: 'noun', qtw: 'cya᷄j', eng: 'igneous petrology', etym: 'From "cya᷄p ju"' },
+				{ part: 'noun', qtw: 'bea᷄j', eng: 'sedimentary petrology', etym: 'From "bea᷄p ju"' },
+				{ part: 'noun', qtw: 'gai̇̌j', eng: 'metamorphic petrology', etym: 'From "gai̇̌p ju"' },
+				{ part: 'noun', qtw: 'wwaj', eng: 'botany', etym: 'From "wwaw ju"' },
+				{ part: 'noun', qtw: 'nwoj', eng: 'optics', etym: 'From "nwon ju"' },
+				{ part: 'noun', qtw: 'tej', eng: 'musicology (the study of music), music theory', etym: 'From "tet ju"' },
+				{ part: 'noun', qtw: 'nid̃', eng: 'audiology (the study of hearing)', etym: 'From "nin̏ ju, rederived after American contact in the 1990s due to a previous similarity to a slur' },
+				{ part: 'noun', qtw: 'yaug̃', eng: 'notaphily (the study of banknotes)', etym: 'From "yauk ju"' },
+				{ part: 'noun', qtw: 'yauj', eng: 'economics', etym: 'From "yaun ju"' },
 				{ part: 'noun', qtw: 'jye᷅k', eng: 'a measurement, dimension (of size)', etym: 'From "jyè ček"' },
-				{ part: 'noun', qtw: 'daëk ju', eng: 'neurology, neurobiology, neuroscience (as they pertain to the brain)' },
-				{ part: 'noun', qtw: 'top ju', eng: 'psychology' },
-				{ part: 'noun', qtw: 'myin ju', eng: 'optometry, ophthamology' },
-				{ part: 'noun', qtw: '\'we ju', eng: 'medicine (practice or field of study)' },
-				{ part: 'noun', qtw: 'yon ju', eng: 'anatomy' },
+				{ part: 'noun', qtw: 'jyèj', eng: 'metrology; the practice of measuring', etym: 'From "jyè ju"' },
+				{ part: 'noun', qtw: 'daëj', eng: 'neurology, neurobiology, neuroscience (as they pertain to the brain)', etym: 'From "daëk ju"' },
+				{ part: 'noun', qtw: 'topj', eng: 'psychology', etym: 'From "top ju"' },
+				{ part: 'noun', qtw: 'myij', eng: 'optometry, ophthamology', etym: 'From "myin ju"' },
+				{ part: 'noun', qtw: '\'wej', eng: 'medicine (practice or field of study)', etym: 'From "\'we ju"' },
+				{ part: 'noun', qtw: 'yoj', eng: 'anatomy', etym: 'From "yon ju"' },
 				{ part: 'noun', qtw: 'cyek', eng: 'a cut', etym: 'From "sye ček"' },
 				{ part: 'noun', qtw: 'yoek', eng: 'cut (in a body); laceration; incision', etym: 'From "yon cyek"' },
-				{ part: 'noun', qtw: 'yoek ju', eng: 'surgery (practice or field of study)' },
-				{ part: 'noun', qtw: 'f̌won ju', eng: 'fluid mechanics, rheology' },
+				{ part: 'noun', qtw: 'yoej', eng: 'surgery (practice or field of study)', etym: 'From "yoek ju"' },
+				{ part: 'noun', qtw: 'f̌woj', eng: 'fluid mechanics, rheology', etym: 'From "f̌won ju"' },
 				{ part: 'noun', qtw: 'fwaûj', eng: 'macroeconomics', etym: 'From "fwá\' yaun ju"' },
 				{ part: 'noun', qtw: 'fu̇au᷅j', eng: 'microeconomics', etym: 'From "fu̇̄p yaun ju"' },
 				{ part: 'noun', qtw: 'l̃i̇́n', eng: 'hand' },
@@ -2991,6 +2998,7 @@
 				{ part: 'noun, adjective', qtw: 'ťyeam', eng: 'tenth (ordinal)', etym: 'From "ťyek̃ ťyam"' },
 				{ part: 'noun, adjective', qtw: 'l̃am', eng: 'eleventh (ordinal)', etym: 'From "l̃ak̃ ťyam"' },
 				{ part: 'noun, adjective', qtw: 'goam', eng: 'twelfth (ordinal)', etym: 'From "gok̃ ťyam"' },
+				{ part: 'noun, adjective', qtw: 'ťyaim', eng: 'thirteenth (ordinal)', etym: 'From "ťyain ťyam"' },
 				{ part: 'noun, adjective', eng: 'myriad', qtw: 't̃won̏' },
 				{ part: 'noun, adjective', eng: 'lakh', qtw: 't̃un' },
 				{ part: 'noun, adjective', eng: 'million', qtw: 'k̃euk' },
@@ -3483,6 +3491,7 @@
 							function cf(){return Math.random()<.5}
 
 							qtwGenerateRoot = function() {
+								//Does not account for allophonies
 								var word = [[],[]];
 								var randomNasal = randomChoice(qtwNasals);
 
