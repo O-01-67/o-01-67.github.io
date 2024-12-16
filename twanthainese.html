@@ -133,7 +133,7 @@
 			}
 
 			[g1] {
-				color: #ff7f7f;
+				color: #ff9f9f;
 			}
 
 			[g1a] {
@@ -266,12 +266,20 @@
 				font-size: 80%;
 			}
 
-			#twanthainLore br {
+			#twanthainLore > br, #twanthainLore *:not(li) > br {
 				height: 3px;
 				width: 2px;
 				border: 1px solid #0000;
 				display: block;
 				content: " ";
+			}
+			
+			sup {
+				line-height: 80%;
+			}
+			
+			.info-value li {
+				margin-bottom: 5px;
 			}
 
 			table+p {
@@ -327,12 +335,20 @@
 				color: #bfdf6f;
 			}
 
+			#twanthain [lang="qst-Latn"] {
+				color: #cfcf8f;
+			}
+
 			#twanthain .translation {
 				color: #5fbf9f;
 			}
 
 			#twanthain #description em {
 				color: #afafff;
+			}
+			
+			em.ui {
+				text-decoration: underline;
 			}
 
 			#twanthain [lang="qtw-Latn"], #twanthain [lang="qtw-Khmr"], #twanthain .translation {
@@ -343,6 +359,10 @@
 			#twanthain p, #twanthain div[aria-role="paragraph"], #twanthain .info-pair, #twanthain > span.indent[style] {
 				font-size: 115%;
 				line-height: 118%;
+			}
+			
+			#twanthain div[aria-role="paragraph"] ul li .info-pair {
+				font-size: 100%;
 			}
 
 			.phoneme {
@@ -2789,6 +2809,7 @@
 				{ part: 'noun', qtw: 'k̋eyt', eng: 'dignity' },
 				{ part: 'noun', qtw: 'čey', eng: 'property (as in the phrase "density is a property of a substance")', etym: 'Cognate of "ček"', extra: 'Not used in the sense that denotes ownership.' },
 				{ part: 'noun', qtw: 'gwop', eng: 'word, lexeme', etym: 'From "gap dwop"' },
+				{ part: 'noun', qtw: 'leop', eng: 'loanword', etym: 'From "lea gwop"' },
 				{ part: 'noun', qtw: 'naim', eng: 'question' },
 				{ part: 'noun', qtw: 'n̏ap', eng: 'script, writing, writing system', etym: 'From "gap n̏an"' },
 				{ part: 'noun', qtw: 'n̏aup', eng: 'letter, character, glyph', etym: 'From "n̏ap dwop"' },
@@ -4523,6 +4544,8 @@
 				{ part: 'noun', qst: 'sesê', eng: 'sea, ocean' },
 				{ part: 'noun', qst: 'šal', eng: 'sand' },
 				{ part: 'noun', qst: 'ҟilepé', eng: 'island' },
+				{ part: 'noun', qst: 'kísè', eng: 'river, stream' },
+				{ part: 'noun', qst: 'xíşanì', eng: 'river delta' },
 				{ part: 'noun', qst: 'tihásiwin', eng: 'The main island of Twanthain' },
 				{ part: 'noun', qst: 'sísìm', eng: 'dirt, soil, earth (as a substance)', extra: 'For instance, this word is used to translate "earth" as in the classical element.' },
 				{ part: 'noun', qst: 'súse', eng: 'plant' },
@@ -4566,6 +4589,7 @@
 				{ part: 'verb', qst: 'ʒ̇osusumiñ', eng: 'a long walk' },
 				{ part: 'noun', qst: 'wána', eng: 'town, city' },
 				{ part: 'noun', qst: 'ʒ̇owána', eng: 'big city, metropolis' },
+				{ part: 'noun', qst: 'ánềpuné', eng: 'state, province, prefecture, oblast, voivodeship, department, first-level administrative division' },
 				{ part: 'verb', qst: 'sóşì', eng: 'to like' },
 				{ part: 'verb', qst: 'ʒ̇osóşì', eng: 'to love' },
 				{ part: 'verb', qst: 'liwí', eng: 'to find (through a deliberate search)' },
@@ -4967,7 +4991,7 @@
 				<h2 class="indent">Disorganized facts</h2>
 				<section aria-role="paragraph" class="indent">
 					<em>Many towns' names are given in the Anglicized forms, with their native forms alongside them.</em><br/>
-					<div class="info-pair"><span class="info-label">Main exports</span>: <ul class="info-value">
+					<div class="info-pair">Main exports: <ul class="info-value">
 						<li>Liquified air gases</li>
 						<li>Glass products, including stained glass</li>
 						<li>Handicrafts (other than those made of glass)</li>
@@ -4987,15 +5011,74 @@
 						<li>Fish</li>
 						<li>Rubber</li>
 					</ul></div>
-					<p class="info-pair"><span class="info-label">Name format</span>: <span class="info-value"><span>[Family name] [Mother's given name] [Father's given name] [Given name]. Given names and surnames are usually 1 or 2 syllables long, but can rarely be longer. The usual polite way to address someone is by their family and given name.</span><br/>
-					<span class="indent" style="display: block;">Foreign full names are adapted into the Twanthainese name order whenever possible, in a certain way. The given name is placed at the end and the family name at the beginning, but parents' names are not typically dug up to use as parentonymics; however, if the foreigner comes from a society or culture that uses parentonymics (which are, in practice, usually a patronymic), then those are placed in their corresponding spots in their adapted full name, such that, for instance, "Vladimir Vladimirovich Putin" becomes "Putin Vladimirovich Vladimir" ("Put́in Vlad́imirovič Vlad́imil"). Additional given names follow the first one. Middle names are placed after the given name unless they are the result of the foreigner's culture's naming system using one parent's surname as a middle name, in which case the middled surname follows the "true" surname.</span></span></p>
+					<p class="info-pair">Name format: <span g1>[Family names]</span> <span g2>[Mother's given name or matronymic]</span> <span g3>[Father's given name or patronymic]</span> <span g4>[Given names]</span> <span g4b>[Middle name]</span>.&#8203;&nbsp;&nbsp;&#8203;Given names and surnames are usually 1 or 2 syllables long, but can rarely be longer.&#8203;&nbsp;&nbsp;&#8203;The usual polite way to address someone is by their <span g1>family</span> + <span g4>given</span> name.<br/>
+					<span class="indent" style="display: block;">Foreign full names are adapted into the Twanthainese name order whenever possible, in a certain way.&#8203;&nbsp;&nbsp;&#8203;The <span g4>given name</span> is placed at the <span g4><em>end</em></span> and the <span g1>family name</span> at the <span g1><em>beginning</em></span>, but parents' names are not typically dug up to use as parentonymics; however, if the foreigner comes from a society or culture that uses <span g2>parento</span><span g3>nymics</span> (which are, in practice, usually a <span g3>patronymic</span>), then those are placed in their corresponding spots in their adapted full name, such that, for instance, "<span g4>Vladimir</span> <span g3>Vladimirovich</span> <span g1>Putin</span>" becomes "<span g1>Putin</span> <span g3>Vladimirovich</span> <span g4>Vladimir</span>" ("<span g1>Put́in</span> <span g3>Vlad́imirovič</span> <span g4>Vlad́imil</span>").&#8203;&nbsp;&nbsp;&#8203;<span g4a>Additional given names</span>, if any, follow <span g4>the first one</span>.&#8203;&nbsp;&nbsp;&#8203;Christian names are treated as additional given names.&#8203;&nbsp;&nbsp;&#8203;<span g4>Middle names</span> are placed after the <span g4>given name</span> unless they are the result of the foreigner's culture's naming system using <span g1a>one parent's surname as a middle name</span>, in which case the <span g1a>middled surname</span> is considered a <span g1>family name</span> and placed after the "true" surname.&#8203;&nbsp;&nbsp;&#8203;If the last name is a parentonymic (i.e. there is no distinction between the two), the parentonymic is treated as the surname.&#8203;&nbsp;&nbsp;&#8203;Burmese names are considered one multi-word given name and effectively unchanged.</span></span></span></p>
+					<section id="qtwExampleNameAdaptations">
+						<h3>Example name adaptations</h3>
+						<em>No phonological adaptation is performed in these examples</em><br/>
+						<span><span g4>Aung San Suu Kyi</span>: <span g4>Aung San Suu Kyi</span></span><br/>
+						<span><span g1>Yamada</span> <span g4>Tarou</span>: <span g1>Yamada</span> <span g4>Tarou</span></span><br/>
+						<span><span g4>Salome</span> <span g1>Zourabichvili</span>: <span g1>Zourabichvili</span> <span g4>Salome</span></span><br/>
+						<span><span g4>Emmanuel Jean-Michel Frédéric</span> <span g1>Macron</span>: <span g1>Macron</span> <span g4>Emmanuel Jean-Michel Frédéric</span></span><br/>
+						<span><span g4>Gaius</span> <span g1>Julius Caesar</span>: <span g1>Julius Caesar</span> <span g4>Gaius</span></span><br/>
+						<span><span g4>Félix Antoine</span> <span g1>Tshisekedi</span> <span g1>Tshilombo</span>: <span g1>Tshisekedi Tshilombo</span> <span g4>Félix Antoine</span></span><br/>
+						<span><span g4>Recep</span> <span g4>Tayyip</span> <span g1>Erdoğan</span>: <span g1>Erdoğan</span> <span g4>Recep Tayyip</span></span><br/>
+						<span><span g4>Luiz Inácio Lula</span> <span g1>da Silva</span>: <span g1>da Silva</span> <span g4>Luiz Inácio Lula</span></span><br/>
+					</section>
 					<span class="indent" style="display: block;">In marriage, the younger spouse usually takes the older spouse's last name.</span></span></p>
 					<span class="indent" style="display: block;">If a child has two same-gender parents, the older parent's name comes first.</span></span></p>
-					<span class="info-pair"><span class="info-label">Other major cities</span>: <span class="info-value">Tsyonhuang, Tsyonbwam (Cyo᷅n ¦wán̏, Cyo᷅n Bwam; "South City"); Twawhuang, Bwangbwam (Twaw ¦wán̏, Bwan̏ Bwam; "Forest City"); Jey Wiung Hdik Zeng City, Jeybwam (Jék̋ Wu̇̄n̏ Ďi̠g Zen̏ ¦wán̏, Jék̋ Bwam), Dezmi Bwimkyo Ongliu Lheu City, Pfeikbwam (Dezmi Bwimḱo On̏lu̇ L̃eu ¦uang, F̌eik Bwam)</span></span><br/>
-					<span class="info-pair"><span class="info-label">Provinces</span>: <span class="info-value">Pelbwam (Pel Bwam, "Gulf Province"), Pfeikbwam (F̌eik Bwam, "Delta Province"), Tngwanybwam (Tn̏wań Bwam, "Mountain Province"), Nuitmuifkaingbwam (Nüť Mü̠f Kai̠n̏ Bwam, "Red Village Province"), Pfewbwam (F̌eu Bwam, "River Province"), Pfewhuang (F̌eu ¦wán̏, "River City"; special provincial-level city), Jeybwam (Jék̋ Bwam, "Jék̋ Province"), Tsyonbwam (Cyo᷅n Bwam, "South Province")</span></span><br/>
-					<span class="info-pair"><span class="info-label">Life expectancy</span>: <span class="info-value">87.65 years</span></span><br/>
-					<span class="info-pair"><span class="info-label">Literacy rate</span>: <span class="info-value">98.7%</span></span><br/>
-					<div class="info-pair"><span class="info-label">Most spoken languages</span>: <span>(Percentages do not add up to 100% due to multilingualism)</span> <ol class="info-value">
+					<div aria-role="paragraph" class="info-pair">Provinces: <ul class="info-value">
+						<li><em class="anglicized-name">Pelbwam</em><br/>
+						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Pel Bwam</span> (<span class="translation">Gulf Province</span>)</span></span><br/>
+						<span class="info-pair indent">Area: <span class="info-value">17,156 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #185170; color: white;">#185170</span></span><br/></li> <!--water of the gulf-->
+
+						<li><em class="anglicized-name">Pfeikbwam</em><br/>
+						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">F̌eik Bwam</span> (<span class="translation">Delta Province</span>)</span></span><br/>
+						<span class="info-pair indent">Area: <span class="info-value">7,148 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #53822D; color: white;">#53822D</span></span><br/></li> <!--grass of the delta-->
+
+						<li><em class="anglicized-name">Tngwanybwam</em><br/>
+						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Tn̏wań Bwam</span> (<span class="translation">Mountain Province</span>)</span></span><br/>
+						<span class="info-pair indent">Type: Province</span><br/>
+						<span class="info-pair indent">Area: <span class="info-value">39,532 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #BAE0EF; color: black;">#BAE0EF</span></span><br/></li> <!--the sky from the mountaintop-->
+
+						<li><em class="anglicized-name">Nuitmuifkaingbwam</em><br/>
+						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Nüť Mü̠f Kai̠n̏ Bwam</span> (<span class="translation">Red Village Province</span>)</span></span><br/>
+						<span class="info-pair indent">Type: Province</span><br/>
+						<span class="info-pair indent">Area: <span class="info-value">4,976 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #E2372B; color: white;">#E2372B</span></span><br/></li> <!--red (duh)-->
+
+						<li><em class="anglicized-name">Pfewbwam</em><br/>
+						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">F̌eu Bwam</span> (<span class="translation">River Province</span>)</span></span><br/>
+						<span class="info-pair indent">Type: Province</span><br/>
+						<span class="info-pair indent">Area: <span class="info-value">4,972 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #EAA6D7; color: black;">#EAA6D7</span></span><br/></li> <!--pink flowers-->
+
+						<li><em class="anglicized-name">Pfewhuang</em><br/>
+						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">F̌eu ¦wán̏</span> (<span class="translation">River City</span>)</span></span><br/>
+						<span class="info-pair indent">Type: Special provincial-level city</span><br/>
+						<span class="info-pair indent">Area: <span class="info-value">1,336 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #B7002D; color: white;">#B7002D</span></span><br/></li> <!--a ruby deposit-->
+
+						<li><em class="anglicized-name">Jeybwam</em><br/>
+						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Jék̋ Bwam</span> (<span class="translation">Jék̋ Province</span>; the final 〈k̋〉 is pronounced as if it were a 〈y〉)</span></span><br/>
+						<span class="info-pair indent">Type: Province</span><br/>
+						<span class="info-pair indent">Area: <span class="info-value">17,516 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #8251ED; color: white;">#8251ED</span></span><br/></li> <!--jey's girlfriend's favorite color-->
+
+						<li><em class="anglicized-name">Tsyonbwam</em><br/>
+						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Cyo᷅n Bwam</span> (<span class="translation">South Province</span>)</span></span><br/>
+						<span class="info-pair indent">Type: Province</span><br/>
+						<span class="info-pair indent">Area: <span class="info-value">11,840 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #F78018; color: black;">#F78018</span></span><br/></li> <!--the sunset-->
+					</ul></div>
+					
+					<span class="info-pair">Other major cities: <span class="info-value">Tsyonhuang, Tsyonbwam (Cyo᷅n ¦wán̏, Cyo᷅n Bwam; "South City"); Twawhuang, Bwangbwam (Twaw ¦wán̏, Bwan̏ Bwam; "Forest City"); Jey Wiung Hdik Zeng City, Jeybwam (Jék̋ Wu̇̄n̏ Ďi̠g Zen̏ ¦wán̏, Jék̋ Bwam), Dezmi Bwimkyo Ongliu Lheu City, Pfeikbwam) (Twanthainese: <span lang="qtw-Latn">F̌eik Bwam mwen Dezmi Bwimḱo On̏lu̇ L̃eu ¦uang</span>, Sissinese: <span lang="qst-Latn">Dézmi Bwímҟo Ón̏lù Léu Wána, Xíşanì Ánềpuné</span>)</span></span><br/>
+					<span class="info-pair">Life expectancy: 87.65 years</span><br/>
+					<span class="info-pair">Literacy rate: 98.7%</span><br/>
+					<div class="info-pair">Most spoken languages: <span>(Percentages do not add up to 100% due to multilingualism)</span> <ol class="info-value">
 						<li class="subpair"><span class="sublabel">Twanthainese</span>: <span class="subvalue">99.9%</span></li>
 						<li class="subpair"><span class="sublabel">Spanish</span>: <span class="subvalue">29.1%</span></li>
 						<li class="subpair"><span class="sublabel" title="A language of Twanthain, spoken by the Sissin people.">Sissinese</span>: <span class="subvalue">25.4%</span></li> <!--DBOL population: 426,949; total speakers: 896,949 as of pop. 3,529,215-->
@@ -5027,9 +5110,9 @@
 						<li class="subpair"><span class="sublabel">Serbian</span>: <span class="subvalue">0.000143%</span></li>
 						<li class="subpair"><span class="sublabel">Kay(f)bop(t)</span>: <span class="subvalue">0.0000286%</span></li>
 					</ol></div><br/>
-					<span class="info-pair"><span class="info-label">National languages</span>: <span class="info-value">Twanthainese, Sissinese, and Spanish. The difference in status between these and the "working" languages, below, is nil in practice, and it is mostly only a ceremonial distinction.</span></span><br/>
-					<span class="info-pair"><span class="info-label">Working languages</span>: <span class="info-value">Twanthainese, Sissinese, Spanish, English, Indonesian, Tagalog, Mandarin, and Taiwanese Hokkien. Twanthain's "working languages" are the usually ones in which official documentation is always provided; the difference between them and the "official" languages is minimal and nebulous, and in a sense these may all be regarded as <i>de facto</i> official languages.</span></span><br/>
-					<div class="info-pair"><span class="info-label">Most practiced religions</span>: <ul class="info-value">
+					<span class="info-pair">National languages: Twanthainese, Sissinese, and Spanish. The difference in status between these and the "working" languages, below, is nil in practice, and it is mostly only a ceremonial distinction.</span><br/>
+					<span class="info-pair">Working languages: <span class="info-value">Twanthainese, Sissinese, Spanish, English, Indonesian, Tagalog, Mandarin, and Taiwanese Hokkien. Twanthain's "working languages" are the usually ones in which official documentation is always provided; the difference between them and the "official" languages is minimal and nebulous, and in a sense these may all be regarded as <i>de facto</i> official languages.</span></span><br/>
+					<div class="info-pair">Most practiced religions: <ul class="info-value">
 						<li class="subpair"><span class="sublabel">Christianity</span>: 42.2%: <ol class="subvalue">
 							<li class="subpair"><span class="sublabel">Catholic</span>: <span class="subvalue">98.76% of Christians (41.68% of the total population)</span></li>
 							<li class="subpair"><span class="sublabel">Protestant</span>: <span class="subvalue">0.65% of Christians (0.273% of the total population)</span></li>
@@ -5049,8 +5132,8 @@
 						</ol></li>
 						<li class="subpair"><span class="sublabel">Other non-indigenous religions</span>: <span class="subvalue">0.13%</span></span>,
 					</ul></div><br/>
-					<span class="info-pair"><span class="info-label">State religion</span>: <span class="info-value">None</span></span><br/>
-					<span class="info-pair"><span class="info-label">Holidays</span>: <ol class="info-value">
+					<span class="info-pair">State religion: None</span><br/>
+					<span class="info-pair">Holidays: <ol class="info-value">
 						<li>January 7: Victory Over Genocide Day (commemorates the end of the Khmer Rouge regime, name copied from Cambodia)</li>
 						<li>April 20: Spanish Friendship Day (commemorates the assimilation of Spain's attempted second colony)</li>
 						<li>June 7: National Day (a spontaneous celebration of Twanthain in 1989 that became a tradition)</li>
@@ -5059,17 +5142,17 @@
 						<li>December 11: Decolonization Day (commemorates the return of Nuevo San Ambrosio to Twanthain)</li>
 						<li>December 25: Christmas (due to Spanish influence)</li>
 					</ol></span><br/>
-					<span class="info-pair"><span class="info-label">Foreign Twanthainese learners</span>: <span class="info-value">≈21,840</span></span><br/>
-					<span class="info-pair"><span class="info-label">Largest packaging company</span>: <span class="info-value">Wot Htohdmi Khosla Iim Northern Packaging Company (Wot Ťoď̰mi K̃osla Ii̇̄m Nyon Mü̠f Waip Yuan̏)</span></span><br/>
-					<span class="info-pair"><span class="info-label">Most popular children's toy</span>: <span class="info-value">"Tiled Imagination" (<span lang="qtw-Latn">Seām mü̠f Preām</span>)</span>
+					<span class="info-pair">Foreign Twanthainese learners: ≈21,840</span><br/>
+					<span class="info-pair">Largest packaging company: Wot Htohdmi Khosla Iim Northern Packaging Company (Wot Ťoď̰mi K̃osla Ii̇̄m Nyon Mü̠f Waip Yuan̏)</span><br/>
+					<span class="info-pair">Most popular children's toy: <span class="info-value">"Tiled Imagination" (<span lang="qtw-Latn">Seām mü̠f Preām</span>)</span>
 					<ul class="info-value">
 						<li><i lang="qtw-Latn">Seām mü̠f Preām</i> is a toy system that consists of magnetic tiles which can construct various structures. It was launched in 1937, profiting off of the discovery of massive magnetite deposits in Tn̏wań Bwam.</li>
 						<li>In 2024, it sold 1,329,823 sets, out of Twanthain's population of 3.5 million.&#8203;&nbsp;&nbsp;&#8203;It has sold a total of 38.556 million sets domestically.</li>
 						<li>2,763,557 sets were sold outside of Twanthain in 2024.&#8203;&nbsp;&nbsp;&#8203;It has sold a total of 55.171 million sets overseas, and donated 2 million.</li>
 						<li><i lang="qtw-Latn">Seām mü̠f Preām</i> was not banned during Japanese occupation, but its production reduced as the island's resources were diverted towards Japan's war effort.&#8203;&nbsp;&nbsp;&#8203;The company that makes them, <i lang="qtw-Latn">Seām mü̠f Preām kwa Yuan̏</i> ("Tiled Imagination Company"), was forced to make pro-Empire of Japan sets; in the many years since the Japanese occupation, these sets have become extremely rare and valuable.</li>
 					</ul></span><br/>
-					<span class="info-pair"><span class="info-label">Main trading partners</span>: <span class="info-value">China, United States (notably Guam), Japan, Indonesia, the Philippines, Cambodia</span></span>
-					<div class="info-pair"><span class="info-label">Other</span>: <ul class="info-value">
+					<span class="info-pair">Main trading partners: China, United States (notably Guam), Japan, Indonesia, the Philippines, Cambodia</span>
+					<div class="info-pair">Other: <ul class="info-value">
 						<li>Twanthainese culture places a very high value on filial piety. However, their notion of filial piety goes both ways, with parents having to respect their children.</li>
 						<li>Twanthain was occupied by Japan from 1939 to 1945.&#8203;&nbsp;&nbsp;&#8203;The use of Twanthainese and other pre-existing languages was discouraged and restricted, and the cititzens living then were forced to learn Japanese.</li>
 						<li>Twanthain was never socialist, despite what its official name suggests nowadays.</li>
