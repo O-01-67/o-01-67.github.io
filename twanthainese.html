@@ -370,7 +370,11 @@
 			}
 
 			.marginal-allophone .phoneme {
-				color: #a5a5cf;
+				opacity: 0.8;
+			}
+
+			.marginal-allophone .grapheme {
+				opacity: 0.9;
 			}
 
 			.grapheme {
@@ -615,7 +619,7 @@
 	</head>
 	<body style="font-size: 110%;">
 		<h1>Twanthain and Twanthainese</h1>
-		<span id="version" title="Version 2.0 is designated as a division point due to massive changes to the phonology and corresponding breaking changes to the orthography, and significant changes to the lexicon.  Version 3.0 is where I add a bunch of lore and another phoneme.  Version 3.1 involves adding articles and a major phonotactical change. Version 4.0 is where I add FAAAAAAAR too many tones. (the hell begins). Version 4.1 sees a rhotic and post-alveolar plosives added. 4.2 is where I fxck with the grammar.">Version 4.2</span>
+		<span id="version" title="Version 2.0 is designated as a division point due to massive changes to the phonology and corresponding breaking changes to the orthography, and significant changes to the lexicon.  Version 3.0 is where I add a bunch of lore and another phoneme.  Version 3.1 involves adding articles and a major phonotactical change. Version 4.0 is where I add FAAAAAAAR too many tones. (the hell begins). Version 4.1 sees a rhotic and post-alveolar plosives added. 4.2 is where I fxck with the grammar. Version 4.3 has a bunch of undisclosed changes and 2 new phonemes.">Version 4.3</span>
 		<p class="alert">Twanthainese is a conlang I just made up for fun.&#8203;&nbsp;&nbsp;&#8203;This page is a <em>work in progress</em>, under construction; features of this conlang may radically and massively change at any time without prior notice.</p><br/>
 		<p class="advisory">This page uses the American convention for numbers.&#8203;&nbsp;&nbsp;&#8203;Unless otherwise noted, a dot "." is the decimal separator, and a comma "," is the thousands separator; and -illion numbers are in the short scale.</p><br/>
 		<div aria-role="paragraph" class="advisory">Base-19 (Enneadecimal) numbers on this page are conveyed with an ad-hoc extension of the <a href="https://en.wikipedia.org/wiki/Hexadecimal#Verbal_and_digital_representations">Magnuson system</a> (the man's name is spelled very inconsistently<!-- to the point where you'd think it was a romanized Arabic name-->).<ol>
@@ -826,9 +830,9 @@
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>&nbsp;</td>
 									<td><span class="phoneme">/ɬ~ɮ/</span> <span class="grapheme">〈l̃〉</span></td>
 									<td>&nbsp;</td>
+									<td><span class="phoneme">/ɬ̠~ɮ̠~ꞎ~<abbr title="Under-fonted extIPA symbol: U+1DF05 𝼅"/>ɭ˔</abbr>/</span> <span class="grapheme">〈l̰̀〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
@@ -846,7 +850,7 @@
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td><span class="phoneme">/l/</span> <span class="grapheme">〈l〉</span></td>
-									<td>&nbsp;</td>
+									<td><span class="phoneme">/ɹ~ɻ/</span> <span class="grapheme">〈l̀〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td><span class="phoneme">/j/</span> <span class="grapheme">〈y〉</span></td>
@@ -866,6 +870,7 @@
 					*/d̪͆ʲ/ and */d̪͆ʲʱ/ never developed
 					#/t̠ʲ/, #/d̠ʲ/, #/t̠ʲʰ/, and #/d̠ʲʱ/ never developed
 					*/cʰ/ became freely variant with /c͡ç/
+					*/l̠/ became /ɭ/ and then /ɹ~ɻ/
 					*/ɟʱ/ merged into /j/
 					#/cʲ/, #/cʲʰ/, #/ɟʲ/, and #/ɟʲʱ/ never developed (you can't really palatalize a palatal consonant)
 					*/z/ merged into /s/
@@ -925,7 +930,7 @@
 
 						<h4 id="qtwPolyphthongs">Diphthongs and polyphthongs</h4>
 						<p id="qtwDiphthongs" class="indent"> <!--old anchor kept for backward compatibility-->
-							Any vowel may follow any other vowel; duplicate vowels are equivalent to long vowels.&#8203;&nbsp;&nbsp;&#8203;Twanthainese phonotactics allow for up to 3 vowels in a syllable (triphthongs).&#8203;&nbsp;&nbsp;&#8203;These sequences' components can exhibit considerable allophony.
+							Any vowel may follow any other vowel; duplicate vowels are equivalent to long vowels.&#8203;&nbsp;&nbsp;&#8203;Twanthainese phonotactics allow for up to <span id="maxPhthongs">3</span> vowels in a syllable (triphthongs).&#8203;&nbsp;&nbsp;&#8203;These sequences' components can exhibit considerable allophony.
 						</p>
 					</main>
 				</section>
@@ -944,7 +949,7 @@
 									<th colspan="2">Alveolar</th>
 									<th colspan="2">Post-alveolar</th>
 									<th colspan="2">Palatal</th>
-									<th colspan="2" style="opacity: 0.9;">(Pre-velar)</th>
+									<th colspan="2">Pre-velar</th>
 									<th colspan="2">Velar</th>
 									<th>Glottal</th>
 								</tr>
@@ -1104,7 +1109,7 @@
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td><span class="phoneme">/l/</span> <span class="grapheme">〈l/l̃〉</span></td>
-									<td>&nbsp;</td>
+									<td><span class="phoneme">/ɹ~ɻ/</span> <span class="grapheme">〈l̀/l̰̀〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td><span class="phoneme">/i̯/</span> <span class="grapheme">〈y〉</span></td>
@@ -1187,6 +1192,8 @@
 									<td rowspan="2">e</td>
 									<td rowspan="2">l</td>
 									<td>l̃</td>
+									<td>l̀</td>
+									<td>l̰̀</td>
 									<td rowspan="2">s</td>
 									<td rowspan="2">c</td>
 									<td rowspan="2">z</td>
@@ -1245,6 +1252,8 @@
 									<td>pf</td>
 									<td>bv</td>
 									<td>lh</td>
+									<td>lr</td>
+									<td>lrh</td>
 									<td>ui</td>
 									<td>ch</td>
 									<th rowspan="2">Tone number</th>
@@ -1315,6 +1324,8 @@
 									<td>е</td>
 									<td>л</td>
 									<td>лъ</td>
+									<td>лꙏ</td>
+									<td>лꙏъ</td>
 									<td>с</td>
 									<td>ц</td>
 									<td>ѕ</td>
@@ -1380,6 +1391,8 @@
 									<td>ឯ</td>
 									<td>ល</td>
 									<td>ឡ</td>
+									<td>ល៊</td>
+									<td>ឡ៊</td>
 									<td>ស</td>
 									<td>ឝ</td>
 									<td>ឝៈ</td>
@@ -1457,6 +1470,8 @@
 									<td rowspan="2">e</td>
 									<td>l</td>
 									<td>ɬ̆~ɮ̆</td>
+									<td>ɹ~ɻ</td>
+									<td>ɬ̠~ɮ̠~ꞎ~ɭ˔</td>
 									<td rowspan="2">s</td>
 									<td rowspan="2">t͡s</td>
 									<td rowspan="2">d͡z</td>
@@ -1515,6 +1530,7 @@
 									<td>u̯</td>
 									<td colspan="3">f</td>
 									<td colspan="2">l</td>
+									<td colspan="2">/ɹ~ɻ/</td>
 									<td>i̯</td>
 									<td>ʔ</td>
 								</tr>
@@ -1522,7 +1538,7 @@
 						</table>
 						<p class="plain-font">The capital form of <span aria-hidden="true">' </span><span class="screenreader"> the apostrophe </span>&#8203; &#8203;is <span aria-hidden="true">¦<span class="screenreader"> the broken bar</span>.&#8203;&nbsp;&nbsp;&#8203;Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Ambiguities in the ASCII notation are disambiguated with the dash/hyphen "-" (e.g. "dy-a" (d́a) vs. "d-ya" (dya)).&#8203;&nbsp;&nbsp;&#8203;Polyphthongs carry a single overarching tone, which is marked with a diacritic on the last vowel.&#8203;&nbsp;&nbsp;&#8203;The mid tone is unmarked, but when it becomes necessary to orhographically separate it from an adjacent vowel with its own tone, it is marked with the vertical line ◌̍. The letter "i" keeps its <abbr title="The dot over the lowercase I or J">tittle</abbr> under a tone diacritic (e.g. "i̇̌") unless vertical space limitations necessitate its omission.<br/>
 						<span class="indent" id="qtwOrthographyFootnote1"><sup><a href="#qtwOrthographyFootnote1Note">1</a></sup> <i>The Cyrillic orthography was created by someone on the Internet and intended as a joke/sh**post, and is only used humorously and extremely rarely.</i></span><br/>
-						<span class="indent" id="qtwOrthographyFootnote2"><sup><a href="#qtwOrthographyFootnote2Note">2</a></sup> <i>The Khmer orthography uses ◌៑ as a virama, which is used to suppress the vowel in syllable-final consonants.&#8203;&nbsp;&nbsp;&#8203;It also uses the subscript forms ◌្ល, ◌្រ, ◌្វ, and ◌្យ to represent the medials [l], [r], [w], and [j]. Its inherent vowel is [e], which is unmarked. Western-style punctuation marks are sometimes used, but traditional Khmer punctuation are also used (mainly ។ as a period and ៕ to mark the end of a text).</i></span><br/>
+						<span class="indent" id="qtwOrthographyFootnote2"><sup><a href="#qtwOrthographyFootnote2Note">2</a></sup> <i>The Khmer orthography uses ◌៑ as a virama, which is used to suppress the vowel in syllable-final consonants.&#8203;&nbsp;&nbsp;&#8203;It also uses the subscript forms ្ល, ្រ, ្វ, and ្យ to represent the medials [l], [r], [w], and [j]. Its inherent vowel is [e], which is unmarked. Western-style punctuation marks are sometimes used, but traditional Khmer punctuation are also used (mainly ។ as a period and ៕ to mark the end of a text).</i></span><br/>
 						</p>
 					</main>
 				</section>
@@ -1531,7 +1547,7 @@
 					<h2>Phonotactics:</h2>
 					<main class="plain-font" aria-role="paragraph">
 						The syllable structure is (<abbr title="C: Any consonant">C</abbr>)(<abbr title="L: Any liquid (/ɾ/ or /l/)">L</abbr>)(<abbr title="N: Any nasal">N</abbr>)(L)(<abbr title="S: Any semivowel (/j/ or /w/)">S</abbr>)<abbr title="V: Any vowel (or polyphthong)">V</abbr>(V)(V)<abbr title="tone">T</abbr>(C).<ul>
-							<li>ថ្មល្វាង៑ t̃mlyan̏, ថ្លម្យាង៑ t̃lmyan̏, ថ្មយាង៑ t̃myan̏, ថ្លយាង៑ t̃lyan̏</li>
+							<li>ថ្មល្វាង៑ t̃mlyan̏, ថ្លម្យាង៑ t̃lmyan̏, ថ្មយាង៑ t̃myan̏, ថ្លយាង៑ t̃lyan̏, <abbr title="Ideally, the treisăpt diacritic ៊ would be placed under a subscript ្ល medial. However, Unicode does not allow for this.">ថ៑ល៊ម្យាង៑</abbr> t̃l̀myan̏</li>
 							<li>Polyphthongs carry one tone.</li>
 							<li>When an aspirated plosive precedes a liquid medial, the aspiration is moved to after the liquid and the liquid becomes aspirated or breathy-voiced.</li>
 							<li>Interdental plosives before an /l/ medial (/t̪͆l/, /d̪͆l/, /t̪͆ʰl/, /d̪͆ʱl/, /t̪͆ʲl/, /t̪͆ʲʰl/) become laterally released. With the above rule, they respectively become ([ t̪͆ˡl ], [ d̪͆ˡl ], [ t̪͆lʱ~t̪͆l̤ ], [ d̪͆lʱ~d̪͆l̤ ], [ t̪͆ʲl ], [ t̪͆ʲlʱ~t̪͆ʲl̤ ]).<ul> 
@@ -1841,8 +1857,8 @@
 				{ part: 'noun/verb', qtw: 'bün̏', eng: 'dirt, soil; to add dirt' },
 				{ part: 'noun/verb', qtw: 'bon', eng: 'mud, to add mud' },
 				{ part: 'noun', qtw: 'buin̏', eng: 'hill' },
-				{ part: 'noun', qtw: 'tn̏wań', eng: 'mountain' },
-				{ part: 'noun', qtw: 'cuań', eng: 'volcano', etym: 'From "cuec tn̏wań"' },
+				{ part: 'noun', qtw: 'tńwan̏', eng: 'mountain' },
+				{ part: 'noun', qtw: 'cuan̏', eng: 'volcano', etym: 'From "cuec tńwan̏"' },
 				{ part: 'noun', qtw: 'bwon̏', eng: 'landslide' },
 				{ part: 'noun', qtw: 'seāp', eng: 'rock, stone' },
 				{ part: 'noun', qtw: 'jos', eng: 'a huge boulder', etym: 'From Sissinese "ʒ̇osiʃísim"' },
@@ -2325,7 +2341,7 @@
 				{ part: 'noun', qtw: 'nwaûp', eng: 'tree unit (a Twanthainese traditional unit of length now standardized at 10.5m)', etym: 'From "nwaw jyeo᷅p"' },
 				{ part: 'noun', qtw: 'fwaûp', eng: 'large tree unit (a Twanthainese traditional unit of length now standardized at 31m)', etym: 'From "fwa\' nwaw jyeo᷅p"' },
 				{ part: 'noun', qtw: 'nwë̂p', eng: 'horizon unit (a Twanthainese traditional unit of length now standardized at 4.8km)', etym: 'From "nwën̏ jyeo᷅p"' },
-				{ part: 'noun', qtw: 'nwop', eng: 'mountain horizon unit (a Twanthainese traditional unit of length now standardized at 210km)', etym: 'From "tn̏wań nwën̏ jyeo᷅p"' },
+				{ part: 'noun', qtw: 'tnwop', eng: 'mountain horizon unit (a Twanthainese traditional unit of length now standardized at 210km)', etym: 'From "tńwan̏ nwën̏ jyeo᷅p"' },
 				{ part: 'noun', qtw: 'gao᷅p', eng: 'island unit (a Twanthainese traditional unit of length now standardized at 1Mm)', etym: 'From "gan jyeo᷅p"', extra: 'Derived from a measurement of the north-south length of Twanthain\'s main island' },
 				{ part: 'noun', qtw: 'wiôp', eng: 'square finger unit (3.24 cm^2)', etym: 'From "wak piôp"' },
 				{ part: 'noun', qtw: 'waôk', eng: 'square worm unit (39.69 cm^2)', etym: 'From "wak waôp"' },
@@ -2336,7 +2352,7 @@
 				{ part: 'noun', qtw: 'nwaûk', eng: 'square tree unit (110.25 m^2)', etym: 'From "wak nwaûp"' },
 				{ part: 'noun', qtw: 'fwaûk', eng: 'square large tree unit (961 m^2)', etym: 'From "wak fwaûp"' },
 				{ part: 'noun', qtw: 'nwë̂k', eng: 'square horizon unit (23.04 km^2)', etym: 'From "wak nwë̂p"' },
-				{ part: 'noun', qtw: 'nwok', eng: 'square mountain horizon unit (441 mym^2)', etym: 'From "wak nwop"' },
+				{ part: 'noun', qtw: 'tnwok', eng: 'square mountain horizon unit (441 mym^2)', etym: 'From "wak tnwop"' },
 				{ part: 'noun', qtw: 'gao᷅k', eng: 'square island unit (1 Mm^2)', etym: 'From "wak gao᷅p"' },
 				{ part: 'noun', qtw: 'piôč', eng: 'cubic finger unit (5.832 cm^3)', etym: 'From "čai piôp"' },
 				{ part: 'noun', qtw: 'waôč', eng: 'cubic worm unit (250.05 cm^3)', etym: 'From "čai waôp"' },
@@ -2347,7 +2363,7 @@
 				{ part: 'noun', qtw: 'nwaûč', eng: 'cubic tree unit (1.158 dam^3)', etym: 'From "čai nwaûp"' },
 				{ part: 'noun', qtw: 'fwaûč', eng: 'cubic large tree unit (29.79 dam^2)', etym: 'From "čai fwaûp"' },
 				{ part: 'noun', qtw: 'nwë̂č', eng: 'cubic horizon unit (111 km^3)', etym: 'From "čai nwë̂p"' },
-				{ part: 'noun', qtw: 'nwoč', eng: 'cubic mountain horizon unit (9,261 mym^3)', etym: 'From "čai nwop"' },
+				{ part: 'noun', qtw: 'tnwoč', eng: 'cubic mountain horizon unit (9,261 mym^3)', etym: 'From "čai nwop"' },
 				{ part: 'noun', qtw: 'gao᷅č', eng: 'cubic island unit (1 Mm^3)', etym: 'From "čai gao᷅p"' },
 				{ part: 'noun', qtw: 'f̌eôč', eng: 'water-cubic-worm-unit (256.3 g)', etym: 'From "f̌en waôč"' },
 				{ part: 'noun', qtw: 'beo᷄p', eng: 'sand double-cubic-worm-unit (3.204 kg)', etym: 'From "bak čeo᷄p"', extra: 'A heavier unit for everyday objects' },
@@ -2489,7 +2505,7 @@
 				{ part: 'noun', qtw: 'f̌eip', eng: 'hydrogen', etym: 'From "f̌en \'ain l̃wop", from a calque of "hydro-" + "-gen"' },
 				{ part: 'noun', qtw: '\'aip', eng: 'helium', etym: 'From "\'ai l̃wop", a calque of "helios" + "-ium"' },
 				{ part: 'noun', qtw: 'lüf', eng: 'lithium', etym: 'From "lüť̰ l̃wop", from English' },
-				{ part: 'noun', qtw: 'bëp', eng: 'beryllium', etym: 'From "bël l̃wop", from English' },
+				{ part: 'noun', qtw: 'bëp', eng: 'beryllium', etym: 'From "bël̀ l̃wop", from English' },
 				{ part: 'noun', qtw: 'd̰́ip', eng: 'boron', etym: 'From "d̰́is l̃wop"' },
 				{ part: 'noun', qtw: 'ťip', eng: 'nitrogen', etym: 'From "ťeam nit l̃wop", meaning "second air substance". The origin lies in nitrogen being first isolated by the Twanthainese only in 1901 when they constructed the initial ASU of the Yoy Cryogenic Air Separator Complex in F̌eu ¦wán̏, producing the previously-identified oxygen and a second, then-unidentified substance.' },
 				{ part: 'noun', qtw: 'f̌eiip', eng: 'liquid nitrogen', etym: 'From "f̌ey ťip"' },
@@ -2669,32 +2685,32 @@
 				{ part: 'noun', qtw: 'ťyeam klein', eng: 'decane' },
 				{ part: 'noun', qtw: 'sēk', eng: 'second', etym: 'From English' },
 				{ part: 'noun', qtw: 'mǖn', eng: 'minute', etym: 'From English' },
-				{ part: 'noun', qtw: 'mi̇̄të̠l', eng: 'meter', etym: 'From English' },
-				{ part: 'noun', qtw: 'grām', eng: 'gram', etym: 'From English' },
-				{ part: 'noun', qtw: 'āmpi̠l', eng: 'ampere', etym: 'From English' },
+				{ part: 'noun', qtw: 'mi̇̄të̠l̀', eng: 'meter', etym: 'From English' },
+				{ part: 'noun', qtw: 'gl̀ām', eng: 'gram', etym: 'From English' },
+				{ part: 'noun', qtw: 'āmpi̠l̀', eng: 'ampere', etym: 'From English' },
 				{ part: 'noun', qtw: 'k̃ēlvü̠n', eng: 'kelvin', etym: 'From English' },
 				{ part: 'noun', qtw: 'moūl', eng: 'mole (unit)', etym: 'From English' },
 				{ part: 'noun', qtw: 'k̃a̠ndēlë̠', eng: 'candela', etym: 'From English' },
-				{ part: 'noun', qtw: '\'̄ëlcë̠', eng: 'hertz', etym: 'From English' },
-				{ part: 'noun', qtw: 'lēidi̠ë̠n', eng: 'radian', etym: 'From English' },
-				{ part: 'noun', qtw: 'së̠tel', eng: 'steradian', etym: 'From English, abbreviated from "sëtelēidiën"' },
+				{ part: 'noun', qtw: '\'̄ël̀cë̠', eng: 'hertz', etym: 'From English' },
+				{ part: 'noun', qtw: 'l̀ēidi̠ë̠n', eng: 'radian', etym: 'From English' },
+				{ part: 'noun', qtw: 'së̠tel̀', eng: 'steradian', etym: 'From English, abbreviated from "sëtelēidiën"' },
 				{ part: 'noun', qtw: 'nyūtë̠n', eng: 'newton (unit)', etym: 'From English' },
 				{ part: 'noun', qtw: 'paskal', eng: 'pascal', etym: 'From English' },
 				{ part: 'noun', qtw: 'jwūl', eng: 'joule', etym: 'From English' },
 				{ part: 'noun', qtw: 'wāt', eng: 'watt', etym: 'From English' },
 				{ part: 'noun', qtw: 'k̃wūlo̠m', eng: 'coulomb', etym: 'From English' },
 				{ part: 'noun', qtw: 'voūltë̠', eng: 'volt', etym: 'From English' },
-				{ part: 'noun', qtw: 'wēbë̠', eng: 'weber', etym: 'From English' },
+				{ part: 'noun', qtw: 'wēbë̠l̀', eng: 'weber', etym: 'From English' },
 				{ part: 'noun', qtw: 't̃ēslë̠', eng: 'tesla (unit)', etym: 'From English' },
-				{ part: 'noun', qtw: 'fārë̠d̃', eng: 'farad', etym: 'From English' },
+				{ part: 'noun', qtw: 'fāl̀ë̠d̃', eng: 'farad', etym: 'From English' },
 				{ part: 'noun', qtw: 'oūm', eng: 'ohm', etym: 'From English' },
 				{ part: 'noun', qtw: 'syi̇̄me̠nz', eng: 'siemens', etym: 'From English' },
-				{ part: 'noun', qtw: '\'ēnli̠', eng: 'henry (unit)', etym: 'From English' },
+				{ part: 'noun', qtw: '\'ēnl̀i̠', eng: 'henry (unit)', etym: 'From English' },
 				{ part: 'noun', qtw: 'sēlsi̠ë̠s', eng: 'degree Celsius', etym: 'From English' },
 				{ part: 'noun', qtw: 'lwūme̠n', eng: 'lumen', etym: 'From English' },
 				{ part: 'noun', qtw: 'lë̄ksë̠', eng: 'lux', etym: 'From English' },
 				{ part: 'noun', qtw: 'bēkë̠', eng: 'becquerel', etym: 'From English, abbreviated from "bēkë̠rë̠l"' },
-				{ part: 'noun', qtw: 'grēy', eng: 'gray (unit)', etym: 'From English' },
+				{ part: 'noun', qtw: 'gl̀ēy', eng: 'gray (unit)', etym: 'From English' },
 				{ part: 'noun', qtw: 'k̃ātë̠l', eng: 'katal', etym: 'From English' },
 				{ part: 'noun', qtw: 'gālë̠n', eng: 'gallon', etym: 'From English' },
 				{ part: 'noun', qtw: 'mwaǒf', eng: 'consonant', etym: 'From "mwëp mü̠f baop"' },
@@ -2794,8 +2810,8 @@
 				{ part: 'noun', qtw: 'myoǐn', eng: 'underwear (excluding bras)', etym: 'From "min mü̠f \'oi fun"' },
 				{ part: 'noun', qtw: 'myeǔn', eng: 'bra', etym: 'From "min mü̠f \'oi fun"'	},
 				{ part: 'noun', qtw: 'pancë̠', eng: 'pants', etym: 'From English' },
-				{ part: 'noun', qtw: 'lüz', eng: 'rizz (slang for "charisma")', etym: 'From English' },
-				{ part: 'noun', qtw: 'lüz wa', eng: 'rizzler' },
+				{ part: 'noun', qtw: 'l̀üz', eng: 'rizz (slang for "charisma")', etym: 'From English' },
+				{ part: 'noun', qtw: 'l̀üz wa', eng: 'rizzler' },
 				{ part: 'noun', qtw: 'gyat', eng: 'gyatt (slang for a big butt)', etym: 'From English' },
 				{ part: 'noun', qtw: 'gap', eng: 'language' },
 				{ part: 'noun', qtw: 'glat', eng: 'language family', etym: 'From "gap plet"' },
@@ -2895,6 +2911,8 @@
 				{ part: 'noun', qtw: 'et', eng: 'the letter E/e' },
 				{ part: 'noun', qtw: 'le', eng: 'the letter L/l' },
 				{ part: 'noun', qtw: 'l̃e', eng: 'the letter L̃/l̃' },
+				{ part: 'noun', qtw: 'l̀e', eng: 'the letter L̀/l̀' },
+				{ part: 'noun', qtw: 'l̰̀e', eng: 'the letter L̰̀/l̰̀' },
 				{ part: 'noun', qtw: 'se', eng: 'the letter S/s' },
 				{ part: 'noun', qtw: 'ce', eng: 'the letter C/c' },
 				{ part: 'noun', qtw: 'ze', eng: 'the letter Z/z' },
@@ -2964,9 +2982,9 @@
 				{ part: 'noun', qtw: 'Sovyet Ťwüm Ḱü̚y Mü̠f D́ei Ček Ban̏', eng: 'Union of Soviet Socialist Republics' },
 				{ part: 'noun', qtw: 'Vyët Nam Ťwüm Ḱü̚y Ban̏', eng: 'Socialist Republic of Vietnam' },
 				{ part: 'noun', qtw: 'Law ťwaiw', eng: 'Lao people' },
-				{ part: 'noun', qtw: 'Bwütën ban̏', eng: 'Britain' },
-				{ part: 'noun', qtw: 'Bwütën gap', eng: 'English' },
-				{ part: 'noun', qtw: 'Bwütën ťwaiw', eng: 'British people' },
+				{ part: 'noun', qtw: 'Bl̀ütën ban̏', eng: 'Britain' },
+				{ part: 'noun', qtw: 'Bl̀ütën gap', eng: 'English' },
+				{ part: 'noun', qtw: 'Bl̀ütën ťwaiw', eng: 'British people' },
 				{ part: 'noun', qtw: 'Pilipinas gap', eng: 'Filipino (language)' },
 				{ part: 'noun', qtw: 'Pilipinas ťwaiw', eng: 'Filipino people' },
 				{ part: 'noun', qtw: 'Ńihon gap', eng: 'Japanese' },
@@ -3001,7 +3019,7 @@
 				{ part: 'noun', qtw: 'Polsëka gap', eng: 'Polish' },
 				{ part: 'noun', qtw: 'N̏üf Bët ťwaiw', eng: 'Martian (hypothetical species)' },
 				{ part: 'noun', qtw: '¦alasai gap', eng: 'Halacae', eng_href: 'https://R74n.com/halacae/' },
-				{ part: 'noun', qtw: 'Disko̠ldë̠ gu̇n Dwop mü̠f', eng: 'Elemental on Discord' },
+				{ part: 'noun', qtw: 'Disko̠l̀dë̠ gu̇n Dwop mü̠f', eng: 'Elemental on Discord' },
 				{ part: 'noun', qtw: 'bout', eng: 'underworld', extra: 'A general term for a world or realm below our own', etym: 'From "bët tun bët"' },
 				{ part: 'noun', qtw: 'cwout', eng: 'Hell', etym: 'From "cuec bout"' },
 				{ part: 'noun', qtw: 'fwai̇̂b', eng: 'manly man, chad', etym: 'From "fwá\' k̰̋in bab"' },
@@ -3334,7 +3352,7 @@
 				{ part: 'verb', qtw: 'čui̇̄', eng: 'to tell, to send a message' },
 				{ part: 'verb', qtw: 'nen kwon g̋im', eng: 'to sit/stand idly', etym: 'Lit. "watch the waves move"' },
 				{ part: 'verb', qtw: 'fwaên mel ček mi', eng: 'to be completely and utterly f***ed, to be in a catastrophically bad situation', etym: 'Lit. "see the big wave coming"' },
-				{ part: 'verb', qtw: 'tn̏wań waá twan la tn̏wań nań', eng: '(A dismayed expression of never-ending struggle), "more of the same s***", "this bulls*** never ends"', etym: 'Lit. "behind mountains are many more mountains". It is disputed if this is of Haitian origin or independently coined.' },
+				{ part: 'verb', qtw: 'tńwan̏ waá twan la tńwan̏ nań', eng: '(A dismayed expression of never-ending struggle), "more of the same s***", "this bulls*** never ends"', etym: 'Lit. "behind mountains are many more mountains". It is disputed if this is of Haitian origin or independently coined.' },
 				{ part: 'verb', qtw: 'bak min gwué', eng: 'to be in a situation that only seems to get worse', etym: 'Lit. "drown in sand"' },
 				{ part: 'verb', qtw: 'cu̇k̃ dan lei cu̠̇c nwet ček g̋im', eng: 'to resign yourself to a very bad, dangerous, or futile situation; to accept your ill fate', etym: 'Lit. "watch the smoke rise over your head"' },
 				{ part: 'verb', qtw: 'caik̃ dan lei cu̠̇c nwet ček g̋im', eng: '(First-person form of "cu̇k̃ dan lei cu̠̇c nwet ček g̋im")' },
@@ -3351,10 +3369,10 @@
 				{ part: 'verb', qtw: 'Yečwa', eng: 'Jesus', etym: 'From Hebrew' },
 				{ part: 'verb', qtw: 'Jizë̠s', eng: 'Jesus', etym: 'From English' },
 				{ part: 'verb', qtw: 'Kristo̠', eng: 'Christ', etym: 'From Spanish' },
-				{ part: 'verb', qtw: 'Kraistë̠', eng: 'Christ', etym: 'From English' },
+				{ part: 'verb', qtw: 'Kl̀aistë̠', eng: 'Christ', etym: 'From English' },
 				{ part: 'verb', qtw: 'K̃esus Kristo', eng: 'Jesus Christ', etym: 'From Spanish' },
 				{ part: 'verb', qtw: 'Yečwa ¦waip', eng: 'Jesus Christ' },
-				{ part: 'verb', qtw: 'Jizë̠s Kraistë̠', eng: 'Jesus Christ', etym: 'From English' },
+				{ part: 'verb', qtw: 'Jizë̠s Kl̀aistë̠', eng: 'Jesus Christ', etym: 'From English' },
 				{ part: 'verb', qtw: '\'Waip T̃yǘm', eng: 'Christianity' },
 				{ part: 'verb', qtw: '\'Waip T̃yǘm kai̠f', eng: '(dated) Christian church' },
 				{ part: 'verb', qtw: 'ǵlēs', eng: 'Christian church', etym: 'From Spanish "iglesia"' },
@@ -3510,28 +3528,28 @@
 				{ part: 'other', qtw: 'dēka̠', eng: 'deca-', etym: 'From English' },
 				{ part: 'other', qtw: '\'ēkto̠', eng: 'hecto-', etym: 'From English' },
 				{ part: 'other', qtw: 'k̃ǖlo̠', eng: 'kilo-', etym: 'From English' },
-				{ part: 'other', qtw: 'mi̇̄ri̠a̠', eng: 'myria-', etym: 'From English' },
+				{ part: 'other', qtw: 'mi̇̄l̀i̠a̠', eng: 'myria-', etym: 'From English' },
 				{ part: 'other', qtw: 'mēga̠', eng: 'mega-', etym: 'From English' },
 				{ part: 'other', qtw: 'gǖga̠', eng: 'giga-', etym: 'From English' },
-				{ part: 'other', qtw: 't̃ēra̠', eng: 'tera-', etym: 'From English' },
+				{ part: 'other', qtw: 't̃ēl̀a̠', eng: 'tera-', etym: 'From English' },
 				{ part: 'other', qtw: 'pēta̠', eng: 'peta-', etym: 'From English' },
 				{ part: 'other', qtw: 'ēksa̠', eng: 'exa-', etym: 'From English' },
 				{ part: 'other', qtw: 'zēta̠', eng: 'exa-', etym: 'From English' },
 				{ part: 'other', qtw: 'yāta̠', eng: 'yotta-', etym: 'From English' },
-				{ part: 'other', qtw: 'rāna̠', eng: 'ronna-', etym: 'From English' },
+				{ part: 'other', qtw: 'l̀āna̠', eng: 'ronna-', etym: 'From English' },
 				{ part: 'other', qtw: 'k̃wēta̠', eng: 'quetta-', etym: 'From English' },
 				{ part: 'other', qtw: 'dēsü̠', eng: 'deci-', etym: 'From English' },
 				{ part: 'other', qtw: 'sēntü̠', eng: 'centi-', etym: 'From English' },
 				{ part: 'other', qtw: 'mǖllü̠', eng: 'milli-', etym: 'From English' },
 				{ part: 'other', qtw: 'dė̄si̠mi̇̄', eng: 'decimilli- (10^-4)', etym: 'From English' },
-				{ part: 'other', qtw: 'mai̇̄kro̠', eng: 'micro-', etym: 'From English' },
+				{ part: 'other', qtw: 'mai̇̄kl̀o̠', eng: 'micro-', etym: 'From English' },
 				{ part: 'other', qtw: 'nāno̠', eng: 'nano-', etym: 'From English' },
 				{ part: 'other', qtw: 'pi̇̄ko̠', eng: 'pico-', etym: 'From English' },
 				{ part: 'other', qtw: 'fēmto̠', eng: 'femto-', etym: 'From English' },
 				{ part: 'other', qtw: 'āto̠', eng: 'atto-', etym: 'From English' },
 				{ part: 'other', qtw: 'zēpto̠', eng: 'zepto-', etym: 'From English' },
 				{ part: 'other', qtw: 'yōkto̠', eng: 'yocto-', etym: 'From English' },
-				{ part: 'other', qtw: 'rānto̠', eng: 'ronto-', etym: 'From English' },
+				{ part: 'other', qtw: 'l̀ānto̠', eng: 'ronto-', etym: 'From English' },
 				{ part: 'other', qtw: 'k̃wēkto̠', eng: 'quecto-', etym: 'From English' },
 				{ part: 'other', qtw: 'k̃ǖbü̠', eng: 'kibi-', etym: 'From English' },
 				{ part: 'other', qtw: 'mēbü̠', eng: 'mebi-', etym: 'From English' },
@@ -3541,7 +3559,7 @@
 				{ part: 'other', qtw: 'ēksë̠̠bü̠', eng: 'exbi-', etym: 'From English' },
 				{ part: 'other', qtw: 'zēbü̠', eng: 'zebi-', etym: 'From English' },
 				{ part: 'other', qtw: 'yābü̠', eng: 'yobi-', etym: 'From English' },
-				{ part: 'other', qtw: 'rābü̠', eng: 'robi-', etym: 'From English' },
+				{ part: 'other', qtw: 'l̀ābü̠', eng: 'robi-', etym: 'From English' },
 				{ part: 'other', qtw: 'k̃wēbü̠', eng: 'quebi-', etym: 'From English' },
 				{ part: 'other', qtw: 'á', eng: 'isn\'t it?, right?' }
 			]
@@ -3907,7 +3925,7 @@
 
 		<section id="sissinese">
 			<h1 class="subh1">Sissinese</h1>
-			<p class="plain-font">Sissinese is a language spoken in the Sissin region of Twanthain, which encompasses inner Tn̏wań Province (between the mountains) and the entirety of F̌eik Province.
+			<p class="plain-font">Sissinese is a language spoken in the Sissin region of Twanthain, which encompasses inner Tnywangbwam (between the mountains) and the entirety of Pfeikbwam.
 			<section id="qstPhonology">
 				<h2>Phonology:</h2>
 				<section id="qstConsonants">
@@ -4873,7 +4891,7 @@
 			<main class="plain-font" aria-role="paragraph" id="twanthainLore">
 				<section id="description">
 					<h2>Description</h2>
-					<p class="indent">Twanthain (<span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;ពាៈង៑</span>, "<span class="translation">People's State of Wüan</span>"; officially <span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Wwaiy&nbsp;Ḱü̚y&nbsp;Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;វា្វឭយ៑&nbsp;ជឺ៹យ៑&nbsp;ពាៈង៑</span>, "<span class="translation">People's Democratic Republic of Wüan</span>") is an <em>island country in the eastern Philippine Sea</em>, on the <em>West Mariana Ridge</em>.&#8203;&nbsp;&nbsp;&#8203;It has Guam to its east, Japan to its north, the Philippines and Palau to its southeast, and western Micronesia to its south; people <em>disagree on whether Twanthain is part of Southeast Asia or Oceania</em>.&#8203;&nbsp;&nbsp;&#8203;Its <em>capital is Pfewhuang</em> (<span lang="qtw-Latn">F̌eu&nbsp;¦wán̏</span>/<span lang="qtw-Khmr">ផឩ&nbsp;អ្វាង៑</span>, "<span class="translation">River City</span>").&#8203;&nbsp;&nbsp;&#8203;It has <em>one time zone</em>, Twanthainese Standard Time (<span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Ban̏&nbsp;Čiao᷅n̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;ពាៈង៑&nbsp;ឞីឰឧ៱៰ង៑</span>), whose UTC offset is <em>UTC+10 without daylight savings time</em>.&#8203;&nbsp;&nbsp;&#8203;Twanthain's ISO country codes are <code title="ISO 3166-1 alpha-2">TI</code>, <code title="ISO 3166-1 alpha-3">TTN</code>, and <code title="ISO 3166-1 numeric">799</code>; thus its <em><abbr title="country code top-level domain">ccTLD</abbr> is <code>.ti</code></em>.&#8203;&nbsp;&nbsp;&#8203;Its <em>currency is the Twanthainese nak</em> (<span lang="qtw-Latn">nàk</span>/<span lang="qtw-Khmr">ណា៳ក៑</span>), which as of 2024 exchanges at a rate of <em>≈83Ň to 1 US dollar</em>.&#8203;&nbsp;&nbsp;&#8203;It has two symbols: <em>Ň</em> (a Latin letter N with a caron/háček), and <span>កា</span>‌<span style="display: inline-block; position: relative; left: -8px; top: -2px;">̌</span> (the Khmer-script syllable "<span title="na">កា</span>" with a caron); this latter symbol is not supported by Unicode and likely to display improperly, and as a result is falling out of use.&#8203;&nbsp;&nbsp;&#8203;The nak's currency codes are <code title="ISO 4217 alphabetical code">TIN</code> and <code title="ISO 4217 numeric code">797</code>.&#8203;&nbsp;&nbsp;&#8203;The nation has a total area of <em><span id="landAreaKm2">104,476</span> square kilometers</em>.&#8203;&nbsp;&nbsp;&#8203;Twanthain has a <em>population of <span id="population">3.56 million</span></em>, and a population density of about <em><span id="populationDensity">34.05</span> people per square kilometer</em>.&#8203;&nbsp;&nbsp;&#8203;Its fertility rate is <em>4.73 births per woman</em><!--not because there's a lot of death, but because they f*** like rabbits-->, and its <em>population growth rate is <span id="populationGrowthRate">8.451%</span></em>. Twanthain has a <abbr title="gross domestic product (a measure of the size of a nation's economy)">GDP</abbr> of <span id="gdp">$274.9 billion</span>, and a <abbr title="GDP divided by population (&quot;capita&quot;, from the Latin for &quot;head&quot;, just means &quot;person&quot; here)">GDP per capita</abbr> of <span id="gdpPerCapita">$77,996</span>.</p>
+					<p class="indent">Twanthain (<span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;ពាៈង៑</span>, "<span class="translation">People's State of Wüan</span>"; officially <span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Wwaiy&nbsp;Ḱü̚y&nbsp;Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;វា្វឭយ៑&nbsp;ជឺ៹យ៑&nbsp;ពាៈង៑</span>, "<span class="translation">People's Democratic Republic of Wüan</span>") is an <em>island country in the eastern Philippine Sea</em>, on the <em>West Mariana Ridge</em>.&#8203;&nbsp;&nbsp;&#8203;It has Guam to its east, Japan to its north, the Philippines and Palau to its southeast, and western Micronesia to its south; people <em>disagree on whether Twanthain is part of Southeast Asia or Oceania</em>.&#8203;&nbsp;&nbsp;&#8203;Its <em>capital is Pfewhuang</em> (<span lang="qtw-Latn">F̌eu&nbsp;¦wán̏</span>/<span lang="qtw-Khmr">ផឩ&nbsp;អ្វាង៑</span>, "<span class="translation">River City</span>").&#8203;&nbsp;&nbsp;&#8203;It has <em>one time zone</em>, Twanthainese Standard Time (<span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Ban̏&nbsp;Čiao᷅n̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;ពាៈង៑&nbsp;ឞីឰឧ៱៰ង៑</span>), whose UTC offset is <em>UTC+10 without daylight savings time</em>.&#8203;&nbsp;&nbsp;&#8203;Twanthain's ISO country codes are <code title="ISO 3166-1 alpha-2">TI</code>, <code title="ISO 3166-1 alpha-3">TTN</code>, and <code title="ISO 3166-1 numeric">799</code>; thus its <em><abbr title="country code top-level domain">ccTLD</abbr> is <code>.ti</code></em>.&#8203;&nbsp;&nbsp;&#8203;Its <em>currency is the Twanthainese nak</em> (<span lang="qtw-Latn">nàk</span>/<span lang="qtw-Khmr">ណា៳ក៑</span>), which as of 2024 exchanges at a rate of <em>≈83Ň to 1 US dollar</em>.&#8203;&nbsp;&nbsp;&#8203;It has two symbols: <em>Ň</em> (a Latin letter N with a caron/háček), and <span>កា</span>‌<span style="display: inline-block; position: relative; left: -8px; top: -2px;">̌</span> (the Khmer-script syllable "<span title="na">កា</span>" with a caron); this latter symbol is not supported by Unicode and likely to display improperly, and as a result is falling out of use.&#8203;&nbsp;&nbsp;&#8203;The nak's currency codes are <code title="ISO 4217 alphabetical code">TIN</code> and <code title="ISO 4217 numeric code">797</code>.&#8203;&nbsp;&nbsp;&#8203;The nation has a total area of <em><span id="landAreaKm2">104,476</span> square kilometers</em>.&#8203;&nbsp;&nbsp;&#8203;Twanthain has a <em>population of <span id="population"><noscript>3,572,250</noscript></span></em>, and a population density of about <em><span id="populationDensity"><noscript>34.19</noscript></span> people per square kilometer</em>.&#8203;&nbsp;&nbsp;&#8203;Its fertility rate is <em>4.73 births per woman</em><!--not because there's a lot of death, but because they f*** like rabbits-->, and its <em>population growth rate is <span id="populationGrowthRate">8.451%</span></em>. Twanthain has a <abbr title="gross domestic product (a measure of the size of a nation's economy)">GDP</abbr> of <span id="gdp"><noscript>278.6 billion</noscript></span>, and a <abbr title="GDP divided by population (&quot;capita&quot;, from the Latin for &quot;head&quot;, just means &quot;person&quot; here)">GDP per capita</abbr> of <span id="gdpPerCapita">$77,996</span>.</p>
 					<script>
 						illions = ["thousand","million","billion","trillion","quadrillion","quintillion","sextillion","septillion","octillion","nonillion","decillion","undecillion"];
 						var area = 104476;
@@ -4883,13 +4901,13 @@
 							var parsedArea = parseFloat(areaTextText.replaceAll(",",""));
 							if(!(isNaN(parsedArea))) { area = parsedArea };
 						};
-
+						
 						var gdp = null;
 						var gdpPerCapita = null;
 						var gdpPerCapitaText = document.getElementById("gdpPerCapita");
 						if(gdpPerCapitaText !== null) {
 							var content = gdpPerCapitaText.textContent;
-							var number = content.substring(content.indexOf(content.match(/-?\d/))); //i hate that i have to do this
+							var number = content.substring(content.indexOf(content.match(/-?\d/))); //i hate that i have to operate so deeply to do this
 							var wasNegative = number.startsWith("-");
 							number = number.replace(/[^\d\.]/g,"").match(/^\d+(\.\d+|)/);
 							if(number) {
@@ -4900,6 +4918,7 @@
 							}
 						}
 
+						population = null;
 						var growthRateText = document.getElementById("populationGrowthRate");
 						if(growthRateText) {
 							var growthRate = growthRateText.textContent.replaceAll(",","").match(/\-?\d+(\.\d*|)%/)?.[0] ?? "1.429%";
@@ -4912,22 +4931,11 @@
 							var startPopulation = 3524245;
 							var yearsPassed = millisPassed / (1000 * 60 * 60 * 24 * 365.2425);
 							var populationGrowthFactor = growthFactor ** yearsPassed;
-							var population = Math.round(startPopulation * populationGrowthFactor);
+							population = Math.round(startPopulation * populationGrowthFactor);
 							console.log(population);
-							var displayPopulation;
-							var pMagnitude = Math.floor(Math.log10(population));
-							var pIllion = Math.floor(pMagnitude / 3) - 1;
-							var displayValue;
-							var rounder = 10 ** ((pIllion + 1) * 3);
-							displayValue = (population / rounder).toFixed(1).replace(".0","");
-							/*var displayQuantifier;
-							if(pIllion < 0) { displayQuantifier = "" }
-							else if(pIllion >= illions.length) { displayQuantifier = "times ten to the power of something" }
-							else { displayQuantifier = illions[pIllion] };
-							displayPopulation = `${displayValue} ${displayQuantifier}`*/
+							//PENIS
 							var populationText = document.getElementById("population");
 							if(populationText) {
-								//populationText.innerText = displayPopulation
 								populationText.innerText = population.toLocaleString()
 							}
 
@@ -4945,15 +4953,15 @@
 								var gdpText = document.getElementById("gdp");
 								if(gdpText) {
 									var displayGdpText;
-									var pMagnitude = Math.floor(Math.log10(gdp));
-									var pIllion = Math.floor(pMagnitude / 3) - 1;
+									var magnitude = Math.floor(Math.log10(gdp));
+									var illion = Math.floor(magnitude / 3) - 1;
 									var displayGdpValue;
-									var rounder = 10 ** ((pIllion + 1) * 3);
-									displayGdpValue = (gdp / rounder).toFixed(1).replace(".0","");
+									var rounder = 10 ** ((illion + 1) * 3);
+									displayGdpValue = (gdp / rounder).toFixed(2).replace(/\.?0+$/,"");
 									var displayQuantifier;
-									if(pIllion < 0) { displayQuantifier = "" }
-									else if(pIllion >= illions.length) { displayQuantifier = "times ten to the power of something" }
-									else { displayQuantifier = illions[pIllion] };
+									if(illion < 0) { displayQuantifier = "" }
+									else if(illion >= illions.length) { displayQuantifier = "times ten to the power of something" }
+									else { displayQuantifier = illions[illion] };
 									displayGdpText = `${displayGdpValue} ${displayQuantifier}`
 									gdpText.innerText = displayGdpText
 								}
@@ -5012,7 +5020,7 @@
 						<li>Rubber</li>
 					</ul></div>
 					<p class="info-pair">Name format: <span g1>[Family names]</span> <span g2>[Mother's given name or matronymic]</span> <span g3>[Father's given name or patronymic]</span> <span g4>[Given names]</span> <span g4b>[Middle name]</span>.&#8203;&nbsp;&nbsp;&#8203;Given names and surnames are usually 1 or 2 syllables long, but can rarely be longer.&#8203;&nbsp;&nbsp;&#8203;The usual polite way to address someone is by their <span g1>family</span> + <span g4>given</span> name.<br/>
-					<span class="indent" style="display: block;">Foreign full names are adapted into the Twanthainese name order whenever possible, in a certain way.&#8203;&nbsp;&nbsp;&#8203;The <span g4>given name</span> is placed at the <span g4><em>end</em></span> and the <span g1>family name</span> at the <span g1><em>beginning</em></span>, but parents' names are not typically dug up to use as parentonymics; however, if the foreigner comes from a society or culture that uses <span g2>parento</span><span g3>nymics</span> (which are, in practice, usually a <span g3>patronymic</span>), then those are placed in their corresponding spots in their adapted full name, such that, for instance, "<span g4>Vladimir</span> <span g3>Vladimirovich</span> <span g1>Putin</span>" becomes "<span g1>Putin</span> <span g3>Vladimirovich</span> <span g4>Vladimir</span>" ("<span g1>Put́in</span> <span g3>Vlad́imirovič</span> <span g4>Vlad́imil</span>").&#8203;&nbsp;&nbsp;&#8203;<span g4a>Additional given names</span>, if any, follow <span g4>the first one</span>.&#8203;&nbsp;&nbsp;&#8203;Christian names are treated as additional given names.&#8203;&nbsp;&nbsp;&#8203;<span g4>Middle names</span> are placed after the <span g4>given name</span> unless they are the result of the foreigner's culture's naming system using <span g1a>one parent's surname as a middle name</span>, in which case the <span g1a>middled surname</span> is considered a <span g1>family name</span> and placed after the "true" surname.&#8203;&nbsp;&nbsp;&#8203;If the last name is a parentonymic (i.e. there is no distinction between the two), the parentonymic is treated as the surname.&#8203;&nbsp;&nbsp;&#8203;Burmese names are considered one multi-word given name and effectively unchanged.</span></span></span></p>
+					<span class="indent" style="display: block;">Foreign full names are adapted into the Twanthainese name order whenever possible, in a certain way.&#8203;&nbsp;&nbsp;&#8203;The <span g4>given name</span> is placed at the <span g4><em>end</em></span> and the <span g1>family name</span> at the <span g1><em>beginning</em></span>, but parents' names are not typically dug up to use as parentonymics; however, if the foreigner comes from a society or culture that uses <span g2>parento</span><span g3>nymics</span> (which are, in practice, usually a <span g3>patronymic</span>), then those are placed in their corresponding spots in their adapted full name, such that, for instance, "<span g4>Vladimir</span> <span g3>Vladimirovich</span> <span g1>Putin</span>" becomes "<span g1>Putin</span> <span g3>Vladimirovich</span> <span g4>Vladimir</span>" ("<span g1>Put́in</span> <span g3>Vlad́imirovič</span> <span g4>Vlad́imil</span>").&#8203;&nbsp;&nbsp;&#8203;Additional given names, if any, <span g4>follow the first one</span>.&#8203;&nbsp;&nbsp;&#8203;Christian names are treated as additional given names.&#8203;&nbsp;&nbsp;&#8203;<span g4>Middle names</span> are placed after the <span g4>given name</span> unless they are the result of the foreigner's culture's naming system using <span g1a>one parent's surname as a middle name</span>, in which case the <span g1a>middled surname</span> is considered a <span g1>family name</span> and placed after the "true" surname.&#8203;&nbsp;&nbsp;&#8203;If the last name is a parentonymic (i.e. there is no distinction between the two), the parentonymic is treated as the surname.&#8203;&nbsp;&nbsp;&#8203;Burmese names are considered one multi-word given name and effectively unchanged.</span></span></span></p>
 					<section id="qtwExampleNameAdaptations">
 						<h3>Example name adaptations</h3>
 						<em>No phonological adaptation is performed in these examples</em><br/>
@@ -5028,54 +5036,165 @@
 					<span class="indent" style="display: block;">In marriage, the younger spouse usually takes the older spouse's last name.</span></span></p>
 					<span class="indent" style="display: block;">If a child has two same-gender parents, the older parent's name comes first.</span></span></p>
 					<div aria-role="paragraph" class="info-pair">Provinces: <ul class="info-value">
-						<li><em class="anglicized-name">Pelbwam</em><br/>
-						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Pel Bwam</span> (<span class="translation">Gulf Province</span>)</span></span><br/>
-						<span class="info-pair indent">Area: <span class="info-value">17,156 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<li id="pelbwam"><em class="anglicized-name">Pelbwam</em><br/>
+						<span class="info-pair indent">Name: <span lang="qtw-Latn">Pel Bwam</span> (<span class="translation">Gulf Province</span>)</span><br/>
+						<span class="info-pair indent">Type: Province</span><br/>
+						<span class="info-pair indent">Population: <span class="province-population"><noscript>440,122</noscript></span></span><br/>
+						<span class="info-pair indent">Population density: <span class="province-population-density">25.65</span> people per square kilometer</span><br/>
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #185170; color: white;">#185170</span></span><br/></li> <!--water of the gulf-->
 
-						<li><em class="anglicized-name">Pfeikbwam</em><br/>
-						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">F̌eik Bwam</span> (<span class="translation">Delta Province</span>)</span></span><br/>
-						<span class="info-pair indent">Area: <span class="info-value">7,148 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<li id="pfeikbwam"><em class="anglicized-name">Pfeikbwam</em><br/>
+						<span class="info-pair indent">Name: <span lang="qtw-Latn">F̌eik Bwam</span> (<span class="translation">Delta Province</span>)</span><br/>
+						<span class="info-pair indent">Type: Province</span><br/>
+						<span class="info-pair indent">Population: <span class="province-population"><noscript>640,580</noscript></span></span><br/>
+						<span class="info-pair indent">Capital: Dezmi Bwimkyo Ongliu Lheu City (Twanthainese: <span lang="qtw-Latn"><span style="opacity: 0.7">F̌eik Bwam mwen </span>Dezmi Bwimḱo On̏lu̇ L̃eu ¦uang</span>, Sissinese: <span lang="qst-Latn">Dézmi Bwímҟo Ón̏lù Léu Wána<span style="opacity: 0.7">, Xíşanì Ánềpuné</span></span>)</span><br/>
+						<span class="info-pair indent">Population density: <span class="province-population-density">89.62</span> people per square kilometer</span><br/>
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #53822D; color: white;">#53822D</span></span><br/></li> <!--grass of the delta-->
 
-						<li><em class="anglicized-name">Tngwanybwam</em><br/>
-						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Tn̏wań Bwam</span> (<span class="translation">Mountain Province</span>)</span></span><br/>
+						<li id="tnywangbwam"><em class="anglicized-name">Tnywangbwam</em><br/>
+						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Tńwan̏ Bwam</span> (<span class="translation">Mountain Province</span>)</span></span><br/>
 						<span class="info-pair indent">Type: Province</span><br/>
-						<span class="info-pair indent">Area: <span class="info-value">39,532 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<span class="info-pair indent">Population: <span class="province-population"><noscript>250,881</noscript></span></span><br/>
+						<span class="info-pair indent">Capital: Twawhuang (<span lang="qtw-Latn">Twaw ¦wán̏</span>, <span class="translation">Forest City</span>)</span></span><br/>
+						<span class="info-pair indent">Area: <span class="province-area">39,532</span> <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span><br/>
+						<span class="info-pair indent">Population density: <span class="province-population-density">6.35</span> people per square kilometer</span><br/>
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #BAE0EF; color: black;">#BAE0EF</span></span><br/></li> <!--the sky from the mountaintop-->
 
-						<li><em class="anglicized-name">Nuitmuifkaingbwam</em><br/>
+						<li id="nuitmuifkaingbwam"><em class="anglicized-name">Nuitmuifkaingbwam</em><br/>
 						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Nüť Mü̠f Kai̠n̏ Bwam</span> (<span class="translation">Red Village Province</span>)</span></span><br/>
 						<span class="info-pair indent">Type: Province</span><br/>
-						<span class="info-pair indent">Area: <span class="info-value">4,976 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<span class="info-pair indent">Population: <span class="province-population"><noscript>472,762</noscript></span></span><br/>
+						<span class="info-pair indent">Area: <span class="province-area">4,976</span> <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span><br/>
+						<span class="info-pair indent">Population density: <span class="province-population-density">95.01</span> people per square kilometer</span><br/>
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #E2372B; color: white;">#E2372B</span></span><br/></li> <!--red (duh)-->
 
-						<li><em class="anglicized-name">Pfewbwam</em><br/>
+						<li id="pfewbwam"><em class="anglicized-name">Pfewbwam</em><br/>
 						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">F̌eu Bwam</span> (<span class="translation">River Province</span>)</span></span><br/>
 						<span class="info-pair indent">Type: Province</span><br/>
-						<span class="info-pair indent">Area: <span class="info-value">4,972 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<span class="info-pair indent">Population: <span class="province-population"><noscript>442,747</noscript></span></span><br/>
+						<span class="info-pair indent">Area: <span class="province-area">4,972</span> <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span><br/>
+						<span class="info-pair indent">Population density: <span class="province-population-density">89.05</span> people per square kilometer</span><br/>
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #EAA6D7; color: black;">#EAA6D7</span></span><br/></li> <!--pink flowers-->
 
-						<li><em class="anglicized-name">Pfewhuang</em><br/>
+						<li id="pfewhuang"><em class="anglicized-name">Pfewhuang</em><br/>
 						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">F̌eu ¦wán̏</span> (<span class="translation">River City</span>)</span></span><br/>
 						<span class="info-pair indent">Type: Special provincial-level city</span><br/>
-						<span class="info-pair indent">Area: <span class="info-value">1,336 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<span class="info-pair indent">Population: <span class="province-population"><noscript>580,469</noscript></span></span><br/>
+						<span class="info-pair indent">Capital: N/A (it is the city itself)</span><br/>
+						<span class="info-pair indent">Area: <span class="province-area">1,336</span> <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span><br/>
+						<span class="info-pair indent">Population density: <span class="province-population-density">434.48</span> people per square kilometer</span><br/>
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #B7002D; color: white;">#B7002D</span></span><br/></li> <!--a ruby deposit-->
 
-						<li><em class="anglicized-name">Jeybwam</em><br/>
+						<li id="jeybwam"><em class="anglicized-name">Jeybwam</em><br/>
 						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Jék̋ Bwam</span> (<span class="translation">Jék̋ Province</span>; the final 〈k̋〉 is pronounced as if it were a 〈y〉)</span></span><br/>
 						<span class="info-pair indent">Type: Province</span><br/>
-						<span class="info-pair indent">Area: <span class="info-value">17,516 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<span class="info-pair indent">Population: <span class="province-population"><noscript>375,910</noscript></span></span><br/>
+						<span class="info-pair indent">Capital: Jey Wiuny Hdik Zeng City (<span lang="qtw-Latn">Jék̋ Wu̇̄ń Ďi̠g Zen̏ ¦wán̏</span>; the final 〈g〉 is pronounced as if it were a 〈k〉)</span></span><br/>
+						<span class="info-pair indent">Area: <span class="province-area">17,516</span> <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span><br/>
+						<span class="info-pair indent">Population density: <span class="province-population-density">21.46</span> people per square kilometer</span><br/>
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #8251ED; color: white;">#8251ED</span></span><br/></li> <!--jey's girlfriend's favorite color-->
 
-						<li><em class="anglicized-name">Tsyonbwam</em><br/>
+						<li id="tsyonbwam"><em class="anglicized-name">Tsyonbwam</em><br/>
 						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Cyo᷅n Bwam</span> (<span class="translation">South Province</span>)</span></span><br/>
 						<span class="info-pair indent">Type: Province</span><br/>
-						<span class="info-pair indent">Area: <span class="info-value">11,840 <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span></span><br/>
+						<span class="info-pair indent">Population: <span class="province-population"><noscript>368,801</noscript></span></span><br/>
+						<span class="info-pair indent">Capital: Tsyonhuang (<span lang="qtw-Latn">Cyo᷅n ¦wán̏</span>, <span class="translation">South City</span>)</span></span><br/>
+						<span class="info-pair indent">Area: <span class="province-area">11,840</span> <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span><br/>
+						<span class="info-pair indent">Population density: <span class="province-population-density">31.15</span> people per square kilometer</span><br/>
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #F78018; color: black;">#F78018</span></span><br/></li> <!--the sunset-->
 					</ul></div>
 					
-					<span class="info-pair">Other major cities: <span class="info-value">Tsyonhuang, Tsyonbwam (Cyo᷅n ¦wán̏, Cyo᷅n Bwam; "South City"); Twawhuang, Bwangbwam (Twaw ¦wán̏, Bwan̏ Bwam; "Forest City"); Jey Wiung Hdik Zeng City, Jeybwam (Jék̋ Wu̇̄n̏ Ďi̠g Zen̏ ¦wán̏, Jék̋ Bwam), Dezmi Bwimkyo Ongliu Lheu City, Pfeikbwam) (Twanthainese: <span lang="qtw-Latn">F̌eik Bwam mwen Dezmi Bwimḱo On̏lu̇ L̃eu ¦uang</span>, Sissinese: <span lang="qst-Latn">Dézmi Bwímҟo Ón̏lù Léu Wána, Xíşanì Ánềpuné</span>)</span></span><br/>
+					<script>
+						var provinceAreas = {
+							pelbwam: 17156,
+							pfeikbwam: 7148,
+							tnywangbwam: 39532,
+							nuitmuifkaingbwam: 4976,
+							pfewbwam: 4972,
+							pfewhuang: 1336,
+							jeybwam: 17516,
+							tsyonbwam: 11840
+						};
+
+						//population proportions in PPM
+						var provincePopulationShares = {
+							tsyonbwam: 103240,
+							jeybwam: 105230,
+							pfewhuang: 162493, 
+							pfewbwam: 123940,
+							nuitmuifkaingbwam: 132342, 
+							tnywangbwam: 70230,
+							pfeikbwam: 179320,
+							pelbwam: 123205
+						};
+						var provinceToAddDeficitTo = "pfewhuang";
+						var provinceToRemoveSurplusFrom = "tnywangbwam";
+						provincePopulations = {
+						
+						};
+						provincePopulationDensities = {
+						
+						};
+						var totalAdded = 0;
+						for(var allLowercaseProvinceName in provincePopulationShares) {
+							var proportion = provincePopulationShares[allLowercaseProvinceName];
+							var scaledPopulation = Math.round((population * proportion) / 1000000);
+							provincePopulations[allLowercaseProvinceName] = scaledPopulation;
+							totalAdded += scaledPopulation;
+							var differenceFromTotalPopulation = population - totalAdded;
+						};
+						//if the sum of the provincial populations is greater than the defined national population due to rounding (and so the difference is negative because the sum is bigger)
+						if(differenceFromTotalPopulation < 0) {
+							provincePopulations[provinceToRemoveSurplusFrom] += differenceFromTotalPopulation
+						} else if(differenceFromTotalPopulation > 0) { //if the sum is less than the national population (and so the difference is positive)
+							provincePopulations[provinceToAddDeficitTo] += differenceFromTotalPopulation
+						};
+						totalAdded += differenceFromTotalPopulation;
+						
+						for(var allLowercaseProvinceName in provinceAreas) {
+							var pArea = provinceAreas[allLowercaseProvinceName];
+							var areaText = document.getElementById(allLowercaseProvinceName);
+							if(!areaText) {
+								continue
+							};
+							areaText = populationText.querySelector(".province-area");
+							if(!areaText) {
+								continue
+							};
+							areaText.innerText = pArea.toLocaleString()
+						}
+
+						for(var allLowercaseProvinceName in provincePopulations) {
+							var pPopulation = provincePopulations[allLowercaseProvinceName];
+							var pArea = provinceAreas[allLowercaseProvinceName];
+							if(pArea) {
+								provincePopulationDensities[allLowercaseProvinceName] = pPopulation / pArea
+							};
+							var populationText = document.getElementById(allLowercaseProvinceName);
+							if(!populationText) {
+								continue
+							};
+							populationText = populationText.querySelector(".province-population");
+							if(!populationText) {
+								continue
+							};
+							populationText.innerText = pPopulation.toLocaleString()
+						}
+
+						for(var allLowercaseProvinceName in provincePopulationDensities) {
+							var pPopDen = provincePopulationDensities[allLowercaseProvinceName];
+							var popDenText = document.getElementById(allLowercaseProvinceName);
+							if(!popDenText) {
+								continue
+							};
+							popDenText = popDenText.querySelector(".province-population-density");
+							if(!popDenText) {
+								continue
+							};
+							popDenText.innerText = pPopDen.toLocaleString("en-US",{maximumFractionDigits:2})
+						}
+					</script>
+					
 					<span class="info-pair">Life expectancy: 87.65 years</span><br/>
 					<span class="info-pair">Literacy rate: 98.7%</span><br/>
 					<div class="info-pair">Most spoken languages: <span>(Percentages do not add up to 100% due to multilingualism)</span> <ol class="info-value">
@@ -5146,7 +5265,7 @@
 					<span class="info-pair">Largest packaging company: Wot Htohdmi Khosla Iim Northern Packaging Company (Wot Ťoď̰mi K̃osla Ii̇̄m Nyon Mü̠f Waip Yuan̏)</span><br/>
 					<span class="info-pair">Most popular children's toy: <span class="info-value">"Tiled Imagination" (<span lang="qtw-Latn">Seām mü̠f Preām</span>)</span>
 					<ul class="info-value">
-						<li><i lang="qtw-Latn">Seām mü̠f Preām</i> is a toy system that consists of magnetic tiles which can construct various structures. It was launched in 1937, profiting off of the discovery of massive magnetite deposits in Tn̏wań Bwam.</li>
+						<li><i lang="qtw-Latn">Seām mü̠f Preām</i> is a toy system that consists of magnetic tiles which can construct various structures. It was launched in 1937, profiting off of the discovery of massive magnetite deposits in Tnywangbwam.</li>
 						<li>In 2024, it sold 1,329,823 sets, out of Twanthain's population of 3.5 million.&#8203;&nbsp;&nbsp;&#8203;It has sold a total of 38.556 million sets domestically.</li>
 						<li>2,763,557 sets were sold outside of Twanthain in 2024.&#8203;&nbsp;&nbsp;&#8203;It has sold a total of 55.171 million sets overseas, and donated 2 million.</li>
 						<li><i lang="qtw-Latn">Seām mü̠f Preām</i> was not banned during Japanese occupation, but its production reduced as the island's resources were diverted towards Japan's war effort.&#8203;&nbsp;&nbsp;&#8203;The company that makes them, <i lang="qtw-Latn">Seām mü̠f Preām kwa Yuan̏</i> ("Tiled Imagination Company"), was forced to make pro-Empire of Japan sets; in the many years since the Japanese occupation, these sets have become extremely rare and valuable.</li>
