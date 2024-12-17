@@ -1575,7 +1575,7 @@
 				<h3>Grammar</h3>
 				<main>
 					<p class="plain-font">
-						Verbs do not conjugate, instead using grammatical markers to indicate information such as tense; the citation form of a verb is marked for tense (past, present, or future), but the present marker can generally be omitted.&#8203;&nbsp;&nbsp;&#8203;Present tense, simple aspect, and indicative mood are default.&#8203;&nbsp;&nbsp;&#8203;Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Aspect markers come between the verb and the tense marker; mood markers come after aspect markers (<abbr title="Verb">V</abbr>-<abbr title="Aspect">A</abbr>-<abbr title="Mood">M</abbr>-<abbr title="Tense">T</abbr>).&#8203;&nbsp;&nbsp;&#8203;Twanthainese has a minimal or nonexistent class distinction between adjectives and adverbs, such that adjectives can also serve as adverbs.&#8203;&nbsp;&nbsp;&#8203;Adverbs and adjectives acting as adverbs come after the verb and T.A.M markers.&#8203;&nbsp;&nbsp;&#8203;Despite this, some words which do not make sense as adjectives do exist solely as adverbs (and thus come after the verb).&#8203;&nbsp;&nbsp;&#8203;This placement rule excepts "<span lang="qtw-Latn">dyōw</span>", which comes before the thing it negates.&#8203;&nbsp;&nbsp;&#8203;Modifiers come before the nouns they modify (e.g. <span style="color: #4f7fff;">blue</span>&nbsp;car), and this is often the order in which compounding usually proceeds; but often compounds deviate from this order due to phonotactics.&#8203;&nbsp;&nbsp;&#8203;Twanthainese uses an <abbr title="Object">O</abbr><abbr title="Subject">S</abbr>V (<abbr title="Indirect object">I</abbr>-<abbr title="Direct object">D</abbr>-S-V) order and postpositions, which can be chained and come before the object(s).&#8203;&nbsp;&nbsp;&#8203;The subject can be omitted in an imperative statement.&#8203;&nbsp;&nbsp;&#8203;Twanthainese acquired articles from Spanish influence, and they are used mostly-consistently; grammatically, they behave like adjectives.&#8203;&nbsp;&nbsp;&#8203;Adjectives do not follow a set order, but native speakers tend to order them alphabetically but may deviate from this order for emphasis (with the emphasized adjectives coming first).
+						Verbs do not conjugate, instead using grammatical markers to indicate information such as tense; the citation form of a verb is marked for tense (past, present, or future), but the present marker can generally be omitted.&#8203;&nbsp;&nbsp;&#8203;Present tense, simple aspect, and indicative mood are default.&#8203;&nbsp;&nbsp;&#8203;Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Aspect markers come between the verb and the tense marker; mood markers come after aspect markers (<abbr title="Verb">V</abbr>-<abbr title="Aspect">A</abbr>-<abbr title="Mood">M</abbr>-<abbr title="Tense">T</abbr>).&#8203;&nbsp;&nbsp;&#8203;Twanthainese has a minimal or nonexistent class distinction between adjectives and adverbs, such that adjectives can also serve as adverbs.&#8203;&nbsp;&nbsp;&#8203;Adverbs and adjectives acting as adverbs come after the verb and T.A.M markers.&#8203;&nbsp;&nbsp;&#8203;Despite this, some words which do not make sense as adjectives do exist solely as adverbs (and thus come after the verb).&#8203;&nbsp;&nbsp;&#8203;This placement rule excepts "<span lang="qtw-Latn">dyōw</span>", which comes before the thing it negates.&#8203;&nbsp;&nbsp;&#8203;Modifiers come before the nouns they modify (e.g. <span style="color: #4f7fff;">blue</span>&nbsp;car), and this is often the order in which compounding usually proceeds; but often compounds deviate from this order due to phonotactics.&#8203;&nbsp;&nbsp;&#8203;Twanthainese uses an <abbr title="Object">O</abbr><abbr title="Subject">S</abbr>V (<abbr title="Indirect object">I</abbr>-<abbr title="Direct object">D</abbr>-S-V) order and postpositions, which can be chained and come before the object(s).&#8203;&nbsp;&nbsp;&#8203;The subject can be omitted in an imperative statement.&#8203;&nbsp;&nbsp;&#8203;Twanthainese acquired articles in part from Spanish influence, and they are used mostly-consistently; grammatically, they behave like adjectives.&#8203;&nbsp;&nbsp;&#8203;Adjectives do not follow a set order, and may be ordered for emphasis (with the emphasized adjectives coming first).&#8203;&nbsp;&nbsp;&#8203;However, articles and demonstrative adjectives come before all other adjectives.&#8203;&nbsp;&nbsp;&#8203;Articles are required before adjectives, including possessive adjectives, but not with demonstratives.&#8203;&nbsp;&nbsp;&#8203;Uncountable and abstract nouns usually do not require articles, but they can still be used in a demonstrative role.&#8203;&nbsp;&nbsp;&#8203;People and groups of people do not require articles, and this extends to organizations and corporations.
 						<!--i'm with the boomers on this one, using 2 spaces after each sentence is more readable to me-->
 					</p>
 				</main>
@@ -1773,7 +1773,18 @@
 														if(showNSF == 1) {
 															termEng = termEng.map(function(x) {
 																if((x.length) > 1) {
-																	x = x.slice(0,-1) + "*"
+																	if(x.endsWith("#")) {
+																		x = x.replace(/#+$/,"")
+																	} else {
+																		x = x.slice(0,-1) + "*"
+																	}
+																};
+																return x
+															})
+														} else if(showNSF == 2) {
+															termEng = termEng.map(function(x) {
+																if(x.endsWith("#")) {
+																	x = x.replace(/#+$/,"")
 																};
 																return x
 															})
@@ -2063,6 +2074,8 @@
 				{ part: 'noun', qtw: 'wok', eng: 'circulation, orbit, cycle', etym: 'From "won kwon"' },
 				{ part: 'noun', qtw: 'cwu̇o᷅n', eng: 'thermohaline circulation', etym: 'From "cai̇̄c du̇y won kwon"' },
 				{ part: 'noun', qtw: 'wwow', eng: 'life, organism, animal' },
+				{ part: 'noun', qtw: 'lu̇s', eng: 'spider' },
+				{ part: 'noun', qtw: 't̃lüü᷈l̀', eng: 'web (especially a cobweb/spiderweb), net (a mesh of some fibers)' },
 				{ part: 'noun', qtw: 'waow', eng: 'worm', etym: 'From "wan wwow"' },
 				{ part: 'noun', qtw: 'tai', eng: 'friend' },
 				{ part: 'noun', qtw: 'tain', eng: 'boyfriend', etym: 'From "tai k̰̋in"' },
@@ -2206,6 +2219,7 @@
 				{ part: 'noun, postposition, adjective', qtw: 'nyon nyuen', eng: 'north by west', etym: 'lit. "north-NNW"' },
 				{ part: 'noun', qtw: 'ton', eng: 'structure (especially one intended for human presence, temporary or permanent)' },
 				{ part: 'noun', qtw: 'kai̠f', eng: 'house, (historical) building' },
+				{ part: 'noun', qtw: 'baef', eng: 'embassy', etym: 'From "ban̏ lea kai̠f"' },
 				{ part: 'noun', qtw: 'kwu̇n', eng: 'vehicular road, street', etym: 'From "kwëw tu̇n"' },
 				{ part: 'noun', qtw: 'kau̇᷈n', eng: 'street (road surrounded by houses)', etym: 'From "kai̠f kwu̇n"' },
 				{ part: 'noun', qtw: 'kwu̇ap', eng: 'sidewalk', etym: 'From "kwu̇n kap"' },
@@ -2244,7 +2258,7 @@
 				{ part: 'noun/verb', qtw: 'vaek', eng: 'thoughts, a thought, thinking; to think' },
 				{ part: 'noun/verb', qtw: 'preām', eng: 'imagination, to imagine' },
 				{ part: 'noun/verb', qtw: 'ť̰aan', eng: 'pretending, to pretend' },
-				{ part: 'noun/verb', qtw: 'plyām', eng: 'imitation, simulation, emulation, mimicry; to imitate, to simulate, to emulate; to mimic' },
+				{ part: 'noun/verb', qtw: 'plyām', eng: 'imitation, simulation, emulation, mimicry; to imitate, to simulate, to emulate; to mimic, to act like (something)' },
 				{ part: 'noun/verb', qtw: 't̀wëén', eng: 'copying, cloning, duplication; a copy, a clone, a duplicate; to copy, to clone, to duplicate' },
 				{ part: 'noun', qtw: 'pwak', eng: 'door' },
 				{ part: 'noun', qtw: 'yen', eng: 'window' },
@@ -2292,7 +2306,7 @@
 				{ part: 'noun', qtw: 'nid̃', eng: 'audiology (the study of hearing)', etym: 'From "nin̏ ju, rederived after American contact in the 1990s due to a previous similarity to a slur' },
 				{ part: 'noun', qtw: 'yaug̃', eng: 'notaphily (the study of banknotes)', etym: 'From "yauk ju"' },
 				{ part: 'noun', qtw: 'yauj', eng: 'economics', etym: 'From "yaun ju"' },
-				{ part: 'noun', qtw: 'jye᷅k', eng: 'a measurement, dimension (of size)', etym: 'From "jyè ček"' },
+				{ part: 'noun', qtw: 'jye᷅k', eng: 'size; a measurement, dimension (of size)', etym: 'From "jyè ček"' },
 				{ part: 'noun', qtw: 'jyèj', eng: 'metrology; the practice of measuring', etym: 'From "jyè ju"' },
 				{ part: 'noun', qtw: 'daëj', eng: 'neurology, neurobiology, neuroscience (as they pertain to the brain)', etym: 'From "daëk ju"' },
 				{ part: 'noun', qtw: 'topj', eng: 'psychology', etym: 'From "top ju"' },
@@ -2383,11 +2397,13 @@
 				{ part: 'noun', qtw: 'mea', eng: 'constant', etym: 'From "me ťa"' },
 				{ part: 'noun', qtw: 'bwoi̇᷄p', eng: 'gravity', etym: 'From "bwot \'i̇́p"' },
 				{ part: 'noun', qtw: 'bwǒa', eng: 'gravitational constant', etym: 'From "bwoi̇᷄p mü̠f mea"' },
-				{ part: 'noun', qtw: 'woǔn̏', eng: 'orbital radius', etym: 'From "wok mü̠f ian ček"' },
-				{ part: 'noun', qtw: 'bn̏oǔn̏', eng: 'astronomical unit', etym: 'From "bn̏ët woǔn̏"' },
+				{ part: 'noun', qtw: 'woǎn̏', eng: 'radius (of a circle)', etym: 'From "won kwa ian ček"' },
+				{ part: 'noun', qtw: 'kwoǎn̏', eng: 'orbital radius', etym: 'From "wok kwa ian ček"' },
+				{ part: 'noun', qtw: 'bn̏oǎn̏', eng: 'astronomical unit', etym: 'From "bn̏ët kwoǎn̏"' },
 				{ part: 'noun', qtw: 'nwon wauk', eng: 'light-year', etym: 'Calque of English "light-year"' },
 				{ part: 'noun', qtw: 'mi\'', eng: 'sequence', etym: 'From the order of the letters in the Twanthainese alphabet' },
-				{ part: 'noun', qtw: 'ťa ju', eng: 'arithmetic, mathematics/math/maths' },
+				{ part: 'noun', qtw: 'ťaj', eng: 'arithmetic, mathematics/math/maths', etym: 'From "ťa ju"' },
+				{ part: 'noun', qtw: 'ťaet', eng: 'calculator', etym: 'From "ťaj ket"' },
 				{ part: 'noun', qtw: 'ťu̇᷅j', eng: 'arithmetic', etym: 'From "fu̇̄p ťa ju"' },
 				{ part: 'noun', qtw: 'ťwâj', eng: 'mathematics/math/maths (in general), but can still include arithmetic', etym: 'From "fwá\' ťa ju"' },
 				{ part: 'noun', qtw: 'tlaim', eng: 'mathematical operation', etym: 'From "ťa leim"' },
@@ -2444,11 +2460,19 @@
 				{ part: 'noun', qtw: 't̃wüp', eng: 'titanium tetrachloride', etym: 'from "t̃in̏ n̏üp n̏wüf bop"' },
 				{ part: 'noun', qtw: 't̃lwop', eng: 'titanium', etym: 'from "t̃wüp lop bop" later blended with "l̃wop" once it was confirmed to be an element' },
 				{ part: 'noun', qtw: 'dwiêk', eng: 'impunity', etym: 'From "dyōw dwin pem ček"' },
-				{ part: 'noun', qtw: 'dyōw dwin pem mǚ̠f', eng: '(historical) unpunishable, impune' },
-				{ part: 'noun', qtw: 'dwiêk mǚ̠f', eng: 'unpunishable, impune' },
+				{ part: 'noun', qtw: 'dyōw dwin pem mü̠f', eng: '(historical) unpunishable, impune' },
+				{ part: 'noun', qtw: 'dwiêk mü̠f', eng: 'unpunishable, impune' },
 				{ part: 'noun', qtw: 'dyi̇̂k', eng: 'unpunishment, amnesty', etym: 'From "dyōw dwin ček"' },
 				{ part: 'noun', qtw: 'ket', eng: 'tool, device' },
-				{ part: 'noun', qtw: 'syǚ̠t', eng: 'cutting tools (in their various forms)', etym: 'From "sye mǚ̠f ket"' },
+				{ part: 'noun', qtw: 'myiet', eng: 'camera', etym: 'From "myin ket"' },
+				{ part: 'noun', qtw: 'f̌yiet', eng: 'microphone', etym: 'From "f̌yiow ket"' },
+				{ part: 'noun', qtw: 'fu̇e᷅t', eng: 'speaker (a device that plays sound)', etym: 'From "fu̇̄n̏ ket"' },
+				{ part: 'noun', qtw: 'daet', eng: 'computer (the electronic device)', etym: 'From "daëk ket"' },
+				{ part: 'noun', qtw: 'daü᷈l̀', eng: 'computer network, the Internet', etym: 'From "daet t̃lüü᷈l̀"' },
+				{ part: 'noun', qtw: 'daü᷈u̇n', eng: 'online (on a network such as the Internet)', etym: 'From "daü᷈l̀ gu̇n"' },
+				{ part: 'noun', qtw: 'fwaü᷈l̀', eng: 'the Internet', etym: 'From "fwa\' daü᷈l̀"' },
+				{ part: 'noun', qtw: 'üntë̠rne̠t', eng: 'the Internet', etym: 'From English "internet"' },
+				{ part: 'noun', qtw: 'syü̠t', eng: 'a cutting tool (in their various forms)', etym: 'From "sye mü̠f ket"' },
 				{ part: 'noun', qtw: 'syau', eng: 'blade', etym: 'From "sye wa"' },
 				{ part: 'noun', qtw: 'syaun', eng: 'sword', etym: 'From "syau \'an"' },
 				{ part: 'noun', qtw: 'myuat', eng: 'a tool that helps you see, -(o)scope, -(o)graph, (historical) telescope', etym: 'From "mi wa ket"' },
@@ -2547,12 +2571,13 @@
 				{ part: 'noun', qtw: 'su᷅\'', eng: 'sulfur', etym: 'From "seāp n̏ü\'"' },
 				{ part: 'noun', qtw: 'Su᷅\' Bët', eng: 'Venus', extra: 'None of the planet "stars" were identified as planets by the Twanthainese until after their compositions had already been discovered' },
 				{ part: 'noun', qtw: 'n̏üf Bët', eng: 'Mars' },
-				{ part: 'noun', qtw: 'myin', eng: 'eye' },
-				{ part: 'noun', qtw: 'dan', eng: 'head' },
+				{ part: 'noun', qtw: 'myin', eng: 'eye (of a human or animal)' },
+				{ part: 'noun', qtw: 'f̌yiow', eng: 'ear (of a human or animal)' },
+				{ part: 'noun', qtw: 'dan', eng: 'head (of a human or animal)' },
 				{ part: 'noun', qtw: 'daëk', eng: 'brain', etym: 'From "dan dëk"' },
 				{ part: 'noun', qtw: 'top', eng: 'heart (metaphorical), soul' },
-				{ part: 'noun', qtw: 'fān̏', eng: 'sound', etym: 'From "p̃an̏"' },
-				{ part: 'noun', qtw: 'fai̇᷅', eng: 'pitch', etym: 'From "fān̏ tlëi̇́"' },
+				{ part: 'noun', qtw: 'fu̇̄n̏', eng: 'sound', etym: 'From "p̃u̇n̏"' },
+				{ part: 'noun', qtw: 'fu̇i̇᷅', eng: 'pitch', etym: 'From "fu̇̄n̏ tlëi̇́"' },
 				{ part: 'noun', qtw: 'tet', eng: 'music' },
 				{ part: 'noun', qtw: 'mu̇ť', eng: 'mouth', etym: 'A represntation of chewing' },
 				{ part: 'noun', qtw: 'mwoť', eng: 'breath', etym: 'From "mu̇ť nwot"' },
@@ -2571,6 +2596,8 @@
 				{ part: 'noun', qtw: 'd̃ep', eng: 'pillar' },
 				{ part: 'noun', qtw: 'ť̰at', eng: 'horizontal pillar, lintel, beam' },
 				{ part: 'noun', qtw: '\'ü̠m', eng: 'opposition', etym: 'From "\'om mü̠f vüm"' },
+				{ part: 'noun', qtw: '\'eut \'ü̠m', eng: 'misogyny' },
+				{ part: 'noun', qtw: 'k̰̋yaiw \'ü̠m', eng: 'misandry' },
 				{ part: 'noun', qtw: '\'ëy', eng: 'gender' },
 				{ part: 'noun', qtw: 'k̃ǖbü̠ mi̇̄të̠l', eng: 'kibimeter' },
 				{ part: 'noun', qtw: 'mën̏', eng: 'homosexuality', etym: 'From "mem \'ëy sen̏"' },
@@ -2600,6 +2627,9 @@
 				{ part: 'noun', qtw: 'lüôp', eng: 'hour', etym: 'From "lui čyo᷅p", in reference to the sundial' },
 				{ part: 'noun', qtw: 'či̇̄ao᷅n̏', eng: 'standard time', etym: 'From "či̇̄n tëao᷅n̏"', extra: 'A nation\'s time zone or standard' },
 				{ part: 'noun', qtw: 'ban̏', eng: 'country, nation' },
+				{ part: 'noun', qtw: 'ḱouǎ', eng: 'escapee, fugitive; one who fled', etym: 'From "ḱouǒ wa"' },
+				{ part: 'noun', qtw: 'bauǎ', eng: 'refugee', etym: 'From "ban̏ ḱouǎ"' },
+				{ part: 'noun', qtw: 'baueń', eng: 'asylum (the legal protection for/admission of refugees)', etym: 'From "bauǎ mweń"' },
 				{ part: 'noun', qtw: 'oy', eng: 'power (over something or someone)' },
 				{ part: 'noun', qtw: '\'ën̏', eng: 'physical strength', etym: 'onomatopoeia for grunting while lifting something' },
 				{ part: 'noun', qtw: 'd́ǹlyo᷄', eng: 'weight' },
@@ -2611,6 +2641,7 @@
 				{ part: 'noun', qtw: 'blaën̏', eng: 'colony', etym: 'From "lea bat baën̏"' },
 				{ part: 'noun', qtw: 'wak ček', eng: 'choice (not as in option), decision' },
 				{ part: 'noun', qtw: 'kan', eng: 'choice, option' },
+				{ part: 'noun', qtw: 'slét', eng: 'a list, a directory' },
 				{ part: 'noun', qtw: '\'op', eng: 'rule, law' },
 				{ part: 'noun', qtw: 'baup', eng: 'law', etym: 'From "bat \'op"' },
 				{ part: 'noun/adjective', qtw: 'dyaùp', eng: 'illegal, unlawful, criminal; crime', etym: 'From "dyōw baup"' },
@@ -2648,7 +2679,7 @@
 				{ part: 'noun', qtw: 'dwǚt', eng: 'federal government', etym: 'From "dwǚn̏ bat"' },
 				{ part: 'noun', qtw: 'fyeut', eng: 'martial law, martial government', etym: 'From "fyew bat"' },
 				{ part: 'noun', qtw: 'dwaü̚y', eng: 'federal democratic republic', etym: 'From "dwǚn̏ wwaiy ḱü̚y"' },
-				{ part: 'noun', qtw: 'Itiopiya dwaü̚y', eng: 'Federal Democratic Republic of Ethiopia', extra: 'I Ti O Pi Ya' },
+				{ part: 'noun', qtw: 'Itiopiya dwǚn̏ wwaiy ḱü̚y', eng: 'Federal Democratic Republic of Ethiopia', extra: 'I Ti O Pi Ya' },
 				{ part: 'noun', qtw: 'bwam', eng: 'state, province, prefecture, oblast, voivodeship, department, first-level administrative division', etym: 'From "ban̏ dwop"' },
 				{ part: 'noun', qtw: 'bom', eng: 'county, parish, raion, second-level administrative division', etym: 'From "bwam dwop"' }, //ťeam ban̏ t̃wi ček
 				{ part: 'noun', qtw: 'bwow', eng: 'municipality, hromada, third-level administrative division', etym: 'From "bom dwop"' }, //l̃aiam ban̏ t̃wi ček
@@ -2749,16 +2780,16 @@
 				{ part: 'noun', qtw: 'mun̏', eng: 'hole' },
 				{ part: 'noun', qtw: 'f̌eun̏', eng: 'well (hole for water)', etym: 'From "f̌en mun̏"' },
 				{ part: 'noun, interjection', qtw: 'dwu᷅n̏', eng: ['ap', 'ck, (interjection) cr', 'thole, (interjection) fu', 'cesspit, shi'], censor: true, etym: 'From "dwǖp mun̏", pejorated', extra: 'Nowadays used as an insult of a person (akin to "a**hole" or "sh**head") or a place (akin to "sh**hole" or "hellhole").' },
-				{ part: 'interjection', qtw: 'dwu᷅n̏ g̋ay lüow jǖn', eng: 'f*** you, f*** off, go f*** yourself', etym: 'Lit. "jump into a cesspit"', censor: true },
-				{ part: 'interjection', qtw: 'dwu᷅n̏ cu̇n nan̏', eng: 'you\'re an a**hole, you\'re a piece of s***', etym: 'Lit. "you are a cesspit', censor: true },
+				{ part: 'interjection', qtw: 'dwu᷅n̏ g̋ay lüow jǖn', eng: ['ck yourself#','ck off, go fu','ck you, fu','fu'], etym: 'Lit. "jump into a cesspit"', censor: true },
+				{ part: 'interjection', qtw: 'dwu᷅n̏ cu̇n nan̏', eng: ['it','shole, you\'re a piece of sh','you\'re an as'], etym: 'Lit. "you are a cesspit', censor: true },
 				{ part: 'interjection', qtw: 'suk f̌wan pin jǖn', eng: 'go f*** yourself, f*** off and die', etym: 'Lit. "drink an ocean of p***', censor: true },
 				{ part: 'noun/verb, interjection', qtw: 'pizdēc', eng: 'f***-up, clusterf**k; oh f**k, I\'m so f***ed; c*nt (literally or as an insult); to f*ck up, to scr*w up', etym: 'From Russian "п*зде́ц"', extra: 'Vulgar', censor: true },
-				{ part: 'noun', qtw: 'dij', eng: ['tch','bi'], extra: 'Vulgar', etym: 'From "dil jet", pejorated', censor: true },
-				{ part: 'noun', qtw: 'dwuan', eng: ['ldo','di'], extra: 'Vulgar', etym: 'From "dwun̏ wan", lit. "a*s stick"', censor: true },
-				{ part: 'noun', qtw: 'dwën̏', eng: ['nis','pe'], extra: 'Clinical', censor: true },
-				{ part: 'noun', qtw: 'v̌yue̚k̰̋', eng: ['gina','va'], extra: 'Clinical', censor: true },
-				{ part: 'noun', qtw: 'dun̏', eng: 'p*en, dic*, coc*', extra: 'Vulgar', censor: true },
-				{ part: 'noun', qtw: 'ǵ̰ūd̰́', eng: 'p*ssy, c*nt', extra: 'Vulgar', censor: true },
+				{ part: 'noun', qtw: 'dij', eng: ['tch#','bi'], extra: 'Vulgar', etym: 'From "dil jet", pejorated', censor: true },
+				{ part: 'noun', qtw: 'dwuan', eng: ['ldo#','di'], extra: 'Vulgar', etym: 'From "dwun̏ wan", lit. "a*s stick"', censor: true },
+				{ part: 'noun', qtw: 'dwën̏', eng: ['nis#','pe'], extra: 'Clinical', censor: true },
+				{ part: 'noun', qtw: 'v̌yue̚k̰̋', eng: ['gina#','va'], extra: 'Clinical', censor: true },
+				{ part: 'noun', qtw: 'dun̏', eng: ['ck#','ck, co','en, di','pe'], extra: 'Vulgar', censor: true },
+				{ part: 'noun', qtw: 'ǵ̰ūd̰́', eng: ['nt#','sy, cu','pus'], extra: 'Vulgar', censor: true },
 				{ part: 'noun', qtw: 'jǹu̇k̃', eng: 'w*ore, *lut, (historical) pr*st*tute', extra: 'Vulgar', etym: 'Pejorated', censor: true },
 				{ part: 'noun', qtw: 'k̃óf', eng: 'to f*ck (have sex with)', extra: 'Vulgar', etym: 'Pejorated', censor: true },
 				{ part: 'noun', qtw: 'mwel', eng: 'trash, refuse, rubbish' },
@@ -2825,12 +2856,19 @@
 				{ part: 'noun', qtw: 'k̋eyt', eng: 'dignity' },
 				{ part: 'noun', qtw: 'čey', eng: 'property (as in the phrase "density is a property of a substance")', etym: 'Cognate of "ček"', extra: 'Not used in the sense that denotes ownership.' },
 				{ part: 'noun', qtw: 'gwop', eng: 'word, lexeme', etym: 'From "gap dwop"' },
+				{ part: 'noun', qtw: 'gwoap', eng: 'written text', etym: 'From "gwop n̏ap"' },
+				{ part: 'noun', qtw: 'gwoük', eng: 'page (of text or images)', etym: 'From "gwoap n̏ük"', extra: 'As the meaning broadened, it also includes pages with or of images' },
+				{ part: 'noun', qtw: 'gwouf', eng: 'header', etym: 'From "gwoük euf"' },
+				{ part: 'noun', qtw: 'gwoi', eng: 'footer', etym: 'From "gwoük \'oi"' },
+				{ part: 'noun', qtw: 'fwaǚk', eng: 'webpage', etym: 'From "fwaü᷈l̀ gwoük"' },
+				{ part: 'noun', qtw: 'fwaut', eng: 'website', etym: 'From "fwaü᷈l̀ put", by analogy with "fwaü᷈l̀ gwoük"' },
 				{ part: 'noun', qtw: 'leop', eng: 'loanword', etym: 'From "lea gwop"' },
 				{ part: 'noun', qtw: 'naim', eng: 'question' },
 				{ part: 'noun', qtw: 'n̏ap', eng: 'script, writing, writing system', etym: 'From "gap n̏an"' },
 				{ part: 'noun', qtw: 'n̏aup', eng: 'letter, character, glyph', etym: 'From "n̏ap dwop"' },
 				{ part: 'noun', qtw: 'n̏aük', eng: 'written paper, document', etym: 'From "n̏aup n̏ük"' },
 				{ part: 'noun', qtw: 'naik', eng: 'form (document to be filled in), questionnaire, paperwork', etym: 'From "naim n̏aük"' },
+				{ part: 'noun', qtw: 'naiul', eng: 'to fill out a form, to apply for something', etym: 'From "naik nul"' },
 				{ part: 'noun', qtw: 'ḱoë᷅y wap naik', eng: 'incident report form' },
 				{ part: 'noun', qtw: 'put', eng: 'book' },
 				{ part: 'noun', qtw: 'gǒp', eng: 'diacritical mark', etym: 'From "gau mü̠f n̏ap"' },
@@ -2952,7 +2990,7 @@
 				{ part: 'noun', qtw: 'prwèp', eng: 'the diacritic macron-grave', etym: 'From "prē b́wen gǒp"', extra: 'This diacritic does not exist in Unicode. It is approximated with the Unicode character U+031A "◌̚".' },
 				{ part: 'noun', qtw: 'bwêp', eng: 'the diacritic grave-macron (◌᷅)', etym: 'From "b́wen prē gǒp"' },
 				{ part: 'noun', qtw: 'dwép', eng: 'the diacritic acute-macron', etym: 'From "dwen prē gǒp"', extra: 'This diacritic does not exist in Unicode either. It is approximated with the Unicode character U+1DC8 "◌᷈".' },
-				{ part: 'noun', qtw: 'vilië̄m', eng: '៑ the diacritic viream, virama in general', etym: 'From Khmer' },
+				{ part: 'noun', qtw: 'vilië̄m', eng: '៑ the diacritic viream (in any writing system that has it), the concepts of virama or vowel suppression in general', etym: 'From Khmer' },
 				{ part: 'noun', qtw: 'wǚp', eng: 'name', etym: 'From "wwaiw mü̠f gwop"' },
 				{ part: 'noun', qtw: 'gwot', eng: 'logograph', etym: 'From "gwop dwop"' },
 				{ part: 'noun/verb', qtw: 'gaóp', eng: 'noun, to turn a word into a noun, to become a noun', etym: 'From "ga̠\' gwop"' },
@@ -2968,7 +3006,7 @@
 				{ part: 'noun', qtw: 'twan ťain wwaiw ban̏', eng: '(historical, archaic) Twanthain', extra: 'Still sometimes used for a "ye olde" effect' },
 				{ part: 'noun', qtw: 'cauk̃ gan', eng: '(Often used to refer to the main island of Twanthain)', etym: 'lit. "our island"' },
 				{ part: 'noun', qtw: 'Wüan', eng: 'The main island of Twanthain' },
-				{ part: 'noun', qtw: 'Wüan Ťwaiw Wwaiy Ḱü̚y Ban̏', eng: 'The full official name of Twanthain', etym: 'meaning "People\'s Democratic Republic of Wüan (Wiuan)"', extra: 'Despite the name, Twanthain was never socialist. Despite the formation of the word "ťwuaik", this name is not abbreviated.' },
+				{ part: 'noun', qtw: 'Wüan Ťwaiw Wwaiy Ḱü̚y Ban̏', eng: 'The full official name of Twanthain', etym: 'meaning "State of the People\'s Democratic Republic of Wüan (Wiuan)"', extra: 'Despite the name, Twanthain was never socialist. Despite the formation of the word "ťwuaik", this name is not abbreviated.' },
 				{ part: 'noun', qtw: 'Wüan Ťwaiw Ban̏', eng: 'Twanthain (the country of the Twanthainese)', extra: 'The English name is an Anglicization of "twan ťain [wwaiw ban̏]". Based on the modern orthography, it would be written as "Twanťain" or "Twanhtain"; however, the first English who eventually made contact with the people wrote it as "Twanthain"' },
 				{ part: 'noun', qtw: 'ťwuaik', eng: 'people\'s democratic republic', etym: 'From "ťwaiw wwaiy ḱü̚y"' },
 				{ part: 'noun', qtw: 'ťwuaig̃', eng: 'a country that is a people\'s democratic republic', etym: 'From "ťwuaik ban̏"' },
@@ -2978,13 +3016,16 @@
 				{ part: 'noun', qtw: 'ťwü̂m', eng: 'socialism', etym: 'From "ťwaiw vǚm"' },
 				{ part: 'noun', qtw: 'La᷄w ban̏', eng: 'Laos' },
 				{ part: 'noun', qtw: 'La᷄w gap', eng: 'Lao (language)' },
-				{ part: 'noun', qtw: 'Sovyet D́ei Ček Ban̏', eng: 'Soviet Union' },
-				{ part: 'noun', qtw: 'Sovyet Ťwüm Ḱü̚y Mü̠f D́ei Ček Ban̏', eng: 'Union of Soviet Socialist Republics' },
-				{ part: 'noun', qtw: 'Vyët Nam Ťwüm Ḱü̚y Ban̏', eng: 'Socialist Republic of Vietnam' },
+				{ part: 'noun', qtw: 'd́eiek', eng: 'union', etym: 'From "d́ei ček"' },
+				{ part: 'noun', qtw: 'Sovyet D́eiek ban̏', eng: 'Soviet Union' },
+				{ part: 'noun', qtw: 'Sovyet Ťwüm Ḱü̚y Mü̠f D́eiek ban̏', eng: 'Union of Soviet Socialist Republics' },
+				{ part: 'noun', qtw: 'Vyët Nam Ťwüm Ḱü̚y ban̏', eng: 'Socialist Republic of Vietnam' },
 				{ part: 'noun', qtw: 'Law ťwaiw', eng: 'Lao people' },
-				{ part: 'noun', qtw: 'Bl̀ütën ban̏', eng: 'Britain' },
-				{ part: 'noun', qtw: 'Bl̀ütën gap', eng: 'English' },
-				{ part: 'noun', qtw: 'Bl̀ütën ťwaiw', eng: 'British people' },
+				{ part: 'noun', qtw: 'Ë̠mēl̀ü̠kë̠ ban̏', eng: 'America (the United States)' },
+				{ part: 'noun', qtw: 'swu̇as Ë̠mēl̀ü̠kë̠ mü̠f D́eiek mü̠f Bwam ban̏', eng: 'the United States of America' },
+				{ part: 'noun', qtw: 'Bl̀ǖtë̠n ban̏', eng: 'Britain' },
+				{ part: 'noun', qtw: 'Bl̀ǖtë̠n gap', eng: 'English' },
+				{ part: 'noun', qtw: 'Bl̀ǖtë̠n ťwaiw', eng: 'British people' },
 				{ part: 'noun', qtw: 'Pilipinas gap', eng: 'Filipino (language)' },
 				{ part: 'noun', qtw: 'Pilipinas ťwaiw', eng: 'Filipino people' },
 				{ part: 'noun', qtw: 'Ńihon gap', eng: 'Japanese' },
@@ -3271,6 +3312,7 @@
 				{ part: 'adjective', qtw: 'sai', eng: 'reflective' },
 				{ part: 'adjective', qtw: 'k̰̋aët', eng: 'elegant', etym: 'From Khmer' },
 				{ part: 'adjective', qtw: 'laé', eng: 'happy' },
+				{ part: 'adjective', qtw: 'd̰́n̏loǎ', eng: 'exact' },
 				{ part: 'adjective', qtw: 't̰́uë̚', eng: 'content, pleased, satisfied' },
 				{ part: 'adjective', qtw: 'dë̄n', eng: '(transiently) sad' },
 				{ part: 'adjective', qtw: '\'ën', eng: 'melancholic, depressed' },
@@ -3307,13 +3349,15 @@
 				{ part: 'noun/verb', qtw: 'kip', eng: 'game, to play' },
 				{ part: 'noun/verb', qtw: 'woin', eng: 'a walk, to walk' },
 				{ part: 'noun/verb', qtw: 'dwaon', eng: 'a run, to run' },
+				{ part: 'noun/verb', qtw: 'l̀wo᷅', eng: 'to leave, to exit; an exit (the act of exiting)' },
+				{ part: 'noun/verb', qtw: 'ḱouǒ', eng: 'to flee, to escape; an escape (the act of escaping)', etym: 'From "ḱoùn l̀wo᷅"' },
 				{ part: 'noun/verb', qtw: 'lüow', eng: 'a jump, to jump', extra: 'Also used in anthropomorphic metaphor to refer to a sudden increase in a number' },
 				{ part: 'noun/verb', qtw: 'gau', eng: 'change, variation; to change, to vary' },
 				{ part: 'noun/verb', qtw: 'fu̠t', eng: 'soft or quiet fart', extra: 'Likely onomatopoeic' },
 				{ part: 'noun/verb', qtw: 'frāt', eng: 'loud or large fart', extra: 'Likely onomatopoeic and likely to have previously been *"p̃rāt"' },
 				{ part: 'noun/verb', qtw: 'brnwāj', eng: 'wet fart, shart', extra: 'Likely onomatopoeic and likely to have previously been *"b̃rnwāj"' },
 				{ part: 'noun/verb', qtw: 'syek', eng: 'education, to learn' },
-				{ part: 'noun/verb', qtw: '\'ei', eng: 'physical force (especially for compulsion of a person); to physically force, to compel, to apply physical force to (especially high force)' },
+				{ part: 'noun/verb', qtw: '\'ei', eng: 'physical force (especially for compulsion of a person); to physically force, to compel (even without physical force), to apply physical force to (especially high force)', extra: 'The direct object is the person being compelled and the indirect object is the action' },
 				{ part: 'noun/verb', qtw: '\'ǚt', eng: 'forced labor, slavery; to enslave', etym: 'From "\'ǚn"' },
 				{ part: 'noun/verb', qtw: 'mye', eng: 'end, completion, conclusion, termination (of a contract); to complete, to end, to finish, to conclude, to terminate (of a contract)' },
 				{ part: 'noun/verb', qtw: 'dye᷅l', eng: 'independence, self-sufficiency; to be independent, to be self-sufficient', etym: 'From "dyōw d́el"' },
@@ -3332,10 +3376,15 @@
 				{ part: 'noun/verb', qtw: 't́a', eng: 'a fee; to charge, to take money from' },
 				{ part: 'noun/verb', qtw: 'ťlü', eng: 'a lie; to lie to, to deceive' },
 				{ part: 'noun/verb', qtw: 'glaë́n', eng: 'sickness, illness, ailment, malady; to sicken, to infect' },
+				{ part: 'noun/verb', qtw: 'mweń', eng: 'entry (the act of entering into a structure or location), to enter', etym: 'From "mwen g̋ot"' },
+				{ part: 'noun/verb', qtw: 'bo', eng: 'a wish, a hope; to wish, to hope for' },
+				{ part: 'verb, interjection', qtw: 'cë̂p', eng: 'Welcome!, to welcome, to be welcomed', etym: 'From "cu̇k̃ së́j ček [cain] bo, lit. "[I] wish for your wellness" or more idiomatically "I wish you well"' },
 				{ part: 'verb', qtw: 'pën', eng: 'to eat' },
 				{ part: 'verb', qtw: 'pin', eng: 'to drink' },
 				{ part: 'verb', qtw: 'd́el', eng: 'to need' },
 				{ part: 'verb', qtw: 'sye', eng: 'to cut' },
+				{ part: 'verb', qtw: 'slêń', eng: 'to sign up for/to something, to register for/to something', etym: 'From "slét mweń"' },
+				{ part: 'verb', qtw: 'ńwok', eng: 'a vote, to vote' },
 				{ part: 'verb', qtw: '\'weüot', eng: 'to prescribe (a medication)', etym: 'From "\'weüep g̋ot"' },
 				{ part: 'verb', qtw: 'len', eng: 'to sell' },
 				{ part: 'verb', qtw: 'myao᷅t', eng: 'to agree', etym: 'From "myao᷅n g̋ot"' },
@@ -3347,6 +3396,7 @@
 				{ part: 'verb', qtw: 'cin̏', eng: 'to ride' },
 				{ part: 'verb', qtw: 'jeiot', eng: 'to permit, to allow, to let; to allow through', etym: 'From "jep g̋ot"', extra: 'Can be ditransitive, in which case the direct object is the thing being allowed and the indirect object is the person being given the permission.' },
 				{ part: 'verb', qtw: 'dyo᷅t', eng: 'to forbid, to deny; to block (of movement)', etym: 'From "dyōw jeiot"', extra: 'It can be ditransitive like "jeiot"; the direct object will be the thing being forbidden, and the optional indirect object is the person being forbidden from engaging in/with the thing.' },
+				{ part: 'verb', qst: 'slü', eng: 'to use, to employ (not of a person)' },
 				{ part: 'verb', qtw: 'n̋an', eng: 'to drive or otherwise direct the movement of a vehicle or an animal of transport' },
 				{ part: 'verb', qtw: 'noai᷈', eng: 'to put or place in a container or location' },
 				{ part: 'verb', qtw: 'čui̇̄', eng: 'to tell, to send a message' },
@@ -3363,6 +3413,7 @@
 				{ part: 'verb', qtw: 'twa\'', eng: 'to speak, to say, to state; to declare', etym: 'In the sense of "to declare", it is ditransitive: the thing that the declaration concerns is the indirect object, and the statement being declared of it is the direct object.' },
 				{ part: 'verb', qtw: 'tya\'', eng: 'to shout', etym: 'Semi-onomatopoeically derived from "twa\'"' },
 				{ part: 'verb', qtw: 'tan', eng: 'to buy' },
+				{ part: 'verb', qtw: 'clūd̃', eng: 'to request' },
 				{ part: 'verb', qtw: '\'en̏', eng: 'to anoint', etym: 'Possibly from Proto-Into-European' },
 				{ part: 'verb', qtw: '\'waip', eng: 'messiah, christ', etym: 'From "\'en̏ nye̠p (mü̠f) wwaiw", a calque' },
 				{ part: 'verb', qtw: 'K̃e̠sus', eng: 'Jesus', etym: 'From Spanish' },
@@ -3423,7 +3474,7 @@
 				{ part: 'verb', qtw: 'yay', eng: 'to hurt', etym: 'Onomatopoeia for screaming, as with "\'a\'"' },
 				{ part: 'verb', qtw: 'dun', eng: 'to drop' },
 				{ part: 'verb', qtw: 'walk', eng: 'to choose, to decide' },
-				{ part: 'verb', qtw: 'ḱay', eng: 'to represent, to stand for, to indicate' },
+				{ part: 'verb', qtw: 'ḱay', eng: 'to represent, to stand for, to indicate, to correspond to, to match' },
 				{ part: 'verb', qtw: 'cyen', eng: 'to pour' },
 				{ part: 'verb', qtw: 'kwey', eng: 'to have, to possess; one\'s possession (as in "in my possession"); (by extension of the latter sense) possession/possessions (as in "all of my possessions")' },
 				{ part: 'verb', qtw: 'kwak', eng: 'to be made of, to be composed of', etym: 'From "kwey ček twai"' },
@@ -3449,9 +3500,9 @@
 				{ part: 'verb', qtw: 'nem', eng: 'to want, to desire' },
 				{ part: 'verb', qtw: 'fwaên', eng: 'to really like, to love', etym: 'From "fwá\' jen"' },
 				{ part: 'verb', qtw: 'kya\'', eng: 'to stick out, to extend (something outward), to protrude' },
-				{ part: 'verb', qtw: 'g̃on', eng: 'to hate, to see as an enemy' },
+				{ part: 'verb', qtw: 'g̃on', eng: 'to hate; to see as an enemy' },
 				{ part: 'verb', qtw: 'dun̋', eng: 'f**k, d**k [down]', extra: 'Vulgar', censor: true, etym: 'From "dun̏ g̋ot"' },
-				{ part: 'postposition', qtw: 'gu̇n', eng: 'on' },
+				{ part: 'postposition', qtw: 'gu̇n', eng: 'on, atop' },
 				{ part: 'postposition', qtw: '\'om', eng: 'versus, against, in opposition to, in conflict with' },
 				{ part: 'postposition', qtw: 'kew', eng: 'below, but not touching/not continuous' },
 				{ part: 'postposition', qtw: 'tun', eng: 'below and touching/continuous' },
@@ -3467,13 +3518,14 @@
 				{ part: 'postposition', qtw: 'mwëp', eng: 'on the edge of, at the boundary of', etym: 'Blend of "mwen" and "yop"', extra: 'If someone is standing in the door frame of a house, "mwëp" can be used. If someone is floating in water, partly above the surface, "mwëp" can be used. If someone is in the fading stages of a feeling, "mwëp" can be used. If something is borderline inappropriate, "mwëp" can also be used. "mwëp" can be used for other edges, such as the edge of a cliff.' },
 				{ part: 'noun, postposition', qtw: '\'oi', eng: 'the bottom or lower part of' },
 				{ part: 'noun, postposition', qtw: 'euf', eng: 'the top or upper part of' },
-				{ part: 'postposition', qtw: 'g̋ay', eng: 'into, through, towards' },
-				{ part: 'postposition', qtw: 'g̋e', eng: 'to, towards, at (as in "looked at"), for (the purpose of)', etym: 'Cognate of "k̋ey"' },
+				{ part: 'postposition', qtw: 'g̋ay', eng: 'into', extra: 'Also used for the "to" in "forced to"' },
+				{ part: 'postposition', qtw: 'lye', eng: 'through, across' },
+				{ part: 'postposition', qtw: 'g̋e', eng: 'to (towards), at (as in "looked at"), for (the purpose of)', etym: 'Cognate of "k̋ey"' },
 				{ part: 'postposition', qtw: 'wëy', eng: 'with, having', etym: 'Cognate of "kwey"', extra: 'Can be chained to express having more than one thing' },
 				{ part: 'postposition', qtw: 'yëy', eng: 'with, alongside', etym: 'Related to "yey"', extra: 'Can be chained to express being alongside more than one thing, but "yey" may also be used for this purpose.' },
 				{ part: 'postposition', qtw: 'yak', eng: '(coming) from (non-locative), because of' },
 				{ part: 'postposition', qtw: 'ko', eng: 'from, originating from' },
-				{ part: 'postposition', qtw: 'puet', eng: 'of, concerning, about', extra: 'Cannot be used to indicate composition' },
+				{ part: 'postposition', qtw: 'puet', eng: 'of, concerning, about, for', extra: 'Cannot be used to indicate composition' },
 				{ part: 'postposition', qtw: 'twai', eng: 'of, from', extra: 'Used to indicate composition' },
 				{ part: 'conjunction, postposition', qtw: 'yey', eng: 'and, as well as, also, plus', extra: 'Even though the sense of "plus" could operate as a postposition, in a mathematical mathematical context (i.e. reading of the plus sign "+"), it is still read between the addends.' },
 				{ part: 'conjunction, postposition', qtw: 'lüë', eng: 'but, however' },
@@ -4583,7 +4635,7 @@
 				{ part: 'noun', qst: 'sếwì', eng: 'moon, month' },
 				{ part: 'noun', qst: 'aniwi', eng: 'day', etym: 'From "anilésếwì"', extra: 'Sissinese does not compress compounds anywhere near as often as Twanthainese does, but very-commonly-used ones sometimes get shortened.' },
 				{ part: 'noun', qst: 'awá', eng: 'world, Earth' },
-				{ part: 'noun', qst: 'háya', eng: 'eye' },
+				{ part: 'noun', qst: 'háya', eng: 'eye (of a human or animal)' },
 				{ part: 'noun', qst: 'saʃ̊iǥê', eng: 'rock, stone' },
 				{ part: 'noun', qst: 'ené', eng: 'flesh' },
 				{ part: 'noun', qst: 'áwawà', eng: 'calendar' },
@@ -4891,7 +4943,7 @@
 			<main class="plain-font" aria-role="paragraph" id="twanthainLore">
 				<section id="description">
 					<h2>Description</h2>
-					<p class="indent">Twanthain (<span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;ពាៈង៑</span>, "<span class="translation">People's State of Wüan</span>"; officially <span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Wwaiy&nbsp;Ḱü̚y&nbsp;Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;វា្វឭយ៑&nbsp;ជឺ៹យ៑&nbsp;ពាៈង៑</span>, "<span class="translation">People's Democratic Republic of Wüan</span>") is an <em>island country in the eastern Philippine Sea</em>, on the <em>West Mariana Ridge</em>.&#8203;&nbsp;&nbsp;&#8203;It has Guam to its east, Japan to its north, the Philippines and Palau to its southeast, and western Micronesia to its south; people <em>disagree on whether Twanthain is part of Southeast Asia or Oceania</em>.&#8203;&nbsp;&nbsp;&#8203;Its <em>capital is Pfewhuang</em> (<span lang="qtw-Latn">F̌eu&nbsp;¦wán̏</span>/<span lang="qtw-Khmr">ផឩ&nbsp;អ្វាង៑</span>, "<span class="translation">River City</span>").&#8203;&nbsp;&nbsp;&#8203;It has <em>one time zone</em>, Twanthainese Standard Time (<span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Ban̏&nbsp;Čiao᷅n̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;ពាៈង៑&nbsp;ឞីឰឧ៱៰ង៑</span>), whose UTC offset is <em>UTC+10 without daylight savings time</em>.&#8203;&nbsp;&nbsp;&#8203;Twanthain's ISO country codes are <code title="ISO 3166-1 alpha-2">TI</code>, <code title="ISO 3166-1 alpha-3">TTN</code>, and <code title="ISO 3166-1 numeric">799</code>; thus its <em><abbr title="country code top-level domain">ccTLD</abbr> is <code>.ti</code></em>.&#8203;&nbsp;&nbsp;&#8203;Its <em>currency is the Twanthainese nak</em> (<span lang="qtw-Latn">nàk</span>/<span lang="qtw-Khmr">ណា៳ក៑</span>), which as of 2024 exchanges at a rate of <em>≈83Ň to 1 US dollar</em>.&#8203;&nbsp;&nbsp;&#8203;It has two symbols: <em>Ň</em> (a Latin letter N with a caron/háček), and <span>កា</span>‌<span style="display: inline-block; position: relative; left: -8px; top: -2px;">̌</span> (the Khmer-script syllable "<span title="na">កា</span>" with a caron); this latter symbol is not supported by Unicode and likely to display improperly, and as a result is falling out of use.&#8203;&nbsp;&nbsp;&#8203;The nak's currency codes are <code title="ISO 4217 alphabetical code">TIN</code> and <code title="ISO 4217 numeric code">797</code>.&#8203;&nbsp;&nbsp;&#8203;The nation has a total area of <em><span id="landAreaKm2">104,476</span> square kilometers</em>.&#8203;&nbsp;&nbsp;&#8203;Twanthain has a <em>population of <span id="population"><noscript>3,572,250</noscript></span></em>, and a population density of about <em><span id="populationDensity"><noscript>34.19</noscript></span> people per square kilometer</em>.&#8203;&nbsp;&nbsp;&#8203;Its fertility rate is <em>4.73 births per woman</em><!--not because there's a lot of death, but because they f*** like rabbits-->, and its <em>population growth rate is <span id="populationGrowthRate">8.451%</span></em>. Twanthain has a <abbr title="gross domestic product (a measure of the size of a nation's economy)">GDP</abbr> of <span id="gdp"><noscript>278.6 billion</noscript></span>, and a <abbr title="GDP divided by population (&quot;capita&quot;, from the Latin for &quot;head&quot;, just means &quot;person&quot; here)">GDP per capita</abbr> of <span id="gdpPerCapita">$77,996</span>.</p>
+					<p class="indent">Twanthain (<span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;ពាៈង៑</span>, "<span class="translation">People's State of Wüan</span>"; officially <span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Wwaiy&nbsp;Ḱü̚y&nbsp;Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;វា្វឭយ៑&nbsp;ជឺ៹យ៑&nbsp;ពាៈង៑</span>, "<span class="translation">State of the People's Democratic Republic of Wüan</span>") is an <em>island country in the eastern Philippine Sea</em>, on the <em>West Mariana Ridge</em>.&#8203;&nbsp;&nbsp;&#8203;It has Guam to its east, Japan to its north, the Philippines and Palau to its southeast, and western Micronesia to its south; people <em>disagree on whether Twanthain is part of Southeast Asia or Oceania</em>.&#8203;&nbsp;&nbsp;&#8203;Its <em>capital is Pfewhuang</em> (<span lang="qtw-Latn">F̌eu&nbsp;¦wán̏</span>/<span lang="qtw-Khmr">ផឩ&nbsp;អ្វាង៑</span>, "<span class="translation">River City</span>").&#8203;&nbsp;&nbsp;&#8203;It has <em>one time zone</em>, Twanthainese Standard Time (<span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Ban̏&nbsp;Čiao᷅n̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;ពាៈង៑&nbsp;ឞីឰឧ៱៰ង៑</span>), whose UTC offset is <em>UTC+10 without daylight savings time</em>.&#8203;&nbsp;&nbsp;&#8203;Twanthain's ISO country codes are <code title="ISO 3166-1 alpha-2">TI</code>, <code title="ISO 3166-1 alpha-3">TTN</code>, and <code title="ISO 3166-1 numeric">799</code>; thus its <em><abbr title="country code top-level domain">ccTLD</abbr> is <code>.ti</code></em>.&#8203;&nbsp;&nbsp;&#8203;Its <em>currency is the Twanthainese nak</em> (<span lang="qtw-Latn">nàk</span>/<span lang="qtw-Khmr">ណា៳ក៑</span>), which as of 2024 exchanges at a rate of <em>≈83Ň to 1 US dollar</em>.&#8203;&nbsp;&nbsp;&#8203;It has two symbols: <em>Ň</em> (a Latin letter N with a caron/háček), and <span>កា</span>‌<span style="display: inline-block; position: relative; left: -8px; top: -2px;">̌</span> (the Khmer-script syllable "<span title="na">កា</span>" with a caron); this latter symbol is not supported by Unicode and likely to display improperly, and as a result is falling out of use.&#8203;&nbsp;&nbsp;&#8203;The nak's currency codes are <code title="ISO 4217 alphabetical code">TIN</code> and <code title="ISO 4217 numeric code">797</code>.&#8203;&nbsp;&nbsp;&#8203;The nation has a total area of <em><span id="landAreaKm2">104,476</span> square kilometers</em>.&#8203;&nbsp;&nbsp;&#8203;Twanthain has a <em>population of <span id="population"><noscript>3,572,250</noscript></span></em>, and a population density of about <em><span id="populationDensity"><noscript>34.19</noscript></span> people per square kilometer</em>.&#8203;&nbsp;&nbsp;&#8203;Its fertility rate is <em>4.73 births per woman</em><!--not because there's a lot of death, but because they f*** like rabbits-->, and its <em>population growth rate is <span id="populationGrowthRate">8.451%</span></em>. Twanthain has a <abbr title="gross domestic product (a measure of the size of a nation's economy)">GDP</abbr> of <span id="gdp"><noscript>278.6 billion</noscript></span>, and a <abbr title="GDP divided by population (&quot;capita&quot;, from the Latin for &quot;head&quot;, just means &quot;person&quot; here)">GDP per capita</abbr> of <span id="gdpPerCapita">$77,996</span>.&#8203;&nbsp;&nbsp;&#8203;Its official color is <span style="background-color: #E529DE; color: black;">#E529DE</span>, named by the country as <span style="background-color: #E529DE; color: black;">Purple Magenta</span> and derived from the official colors of its provinces.</p>
 					<script>
 						illions = ["thousand","million","billion","trillion","quadrillion","quintillion","sextillion","septillion","octillion","nonillion","decillion","undecillion"];
 						var area = 104476;
@@ -5060,10 +5112,11 @@
 						<span class="info-pair indent">Population density: <span class="province-population-density">6.35</span> people per square kilometer</span><br/>
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #BAE0EF; color: black;">#BAE0EF</span></span><br/></li> <!--the sky from the mountaintop-->
 
-						<li id="nuitmuifkaingbwam"><em class="anglicized-name">Nuitmuifkaingbwam</em><br/>
-						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Nüť Mü̠f Kai̠n̏ Bwam</span> (<span class="translation">Red Village Province</span>)</span></span><br/>
+						<li id="nuitmuifkaingbwam"><em class="anglicized-name translation">Red Village Province</em><br/>
+						<span class="info-pair indent">Name: <span lang="qtw-Latn">Nüť Mü̠f Kai̠n̏ Bwam</span></span><br/>
 						<span class="info-pair indent">Type: Province</span><br/>
 						<span class="info-pair indent">Population: <span class="province-population"><noscript>472,762</noscript></span></span><br/>
+						<span class="info-pair indent">Capital: <span class="translation">Red Village</span> (<span lang="qtw-Latn">Nüť Mü̠f Kai̠n̏</span>)</span><br/>
 						<span class="info-pair indent">Area: <span class="province-area">4,976</span> <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span><br/>
 						<span class="info-pair indent">Population density: <span class="province-population-density">95.01</span> people per square kilometer</span><br/>
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #E2372B; color: white;">#E2372B</span></span><br/></li> <!--red (duh)-->
@@ -5083,7 +5136,7 @@
 						<span class="info-pair indent">Capital: N/A (it is the city itself)</span><br/>
 						<span class="info-pair indent">Area: <span class="province-area">1,336</span> <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span><br/>
 						<span class="info-pair indent">Population density: <span class="province-population-density">434.48</span> people per square kilometer</span><br/>
-						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #B7002D; color: white;">#B7002D</span></span><br/></li> <!--a ruby deposit-->
+						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #B70035; color: white;">#B70035</span></span><br/></li> <!--a ruby deposit-->
 
 						<li id="jeybwam"><em class="anglicized-name">Jeybwam</em><br/>
 						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Jék̋ Bwam</span> (<span class="translation">Jék̋ Province</span>; the final 〈k̋〉 is pronounced as if it were a 〈y〉)</span></span><br/>
@@ -5280,7 +5333,7 @@
 							<li>Yoy N̏leydi B́ëlam Ut̃mań built the initial air separator unit in 1901, which was eventually accompanied by more air separators which gradually formed the large complex. A prominent scientist in his life, he is highly regarded for this.</li>
 							<li>During the Japanese occupation period, the complex was the site of a battle involving Twanthainese military personnel and civilians against the Japanese army. Liquid gases were thrown at Imperial Japanese troops, and dumped on the floor to cause asphyxiation and internal frostbite. In addition, oxygen gas was used as an oxidizer in incendiary weapons. The battle still caused millions of dollars in damage to the plant.</li>
 						</ul></li> <!--and liquid nitrogen was thrown at Imperial Japanese troops' faces-->
-						<li>Dezmi Bwimkyo Ongliu Lheu City is Twanthain's second most prominent tourist destination, seeing about 400,000 tourists per year; it is beaten out by the capital, Pfewhuang, with its 550,000 tourists. The city's tourism slogan is "DBO: Delighful, Beautiful, Outstanding", and its official color is <span style="color: #FF0;">#FF0000</span>, named by the city as <span style="color: #FF0;">"Neon Yellow"</span>.</li>
+						<li>Dezmi Bwimkyo Ongliu Lheu City is Twanthain's second most prominent tourist destination, seeing about 400,000 tourists per year; it is beaten out by the capital, Pfewhuang, with its 550,000 tourists. The city's tourism slogan is "DBO: Delighful, Beautiful, Outstanding", and its official color is <span style="color: #F7FF0F;">#F7FF0F</span>, named by the city as <span style="color: #F7FF0F;">"Neon Yellow"</span>.</li>
 						<li>Pop culture from the Philippines, Indonesia, Taiwan, Korea, and Cambodia is very popular in Twanthain.</li>
 					</ul></div>
 				</section>
