@@ -225,6 +225,10 @@
 			abbr {
 				text-decoration: 1px white dotted underline !important;
 			}
+			
+			.merged-out {
+				background-color: #333;
+			}
 
 			abbr:hover::after {
 				content: ' (' attr(title) ')';
@@ -333,6 +337,7 @@
 
 			#twanthain [lang="qtw-Khmr"] {
 				color: #bfdf6f;
+				display: none;
 			}
 
 			#twanthain [lang="qst-Latn"] {
@@ -365,7 +370,7 @@
 				font-size: 100%;
 			}
 
-			.phoneme {
+			.phoneme, .phonemes td {
 				color: #d5d5ff;
 			}
 
@@ -377,7 +382,7 @@
 				opacity: 0.9;
 			}
 
-			.grapheme {
+			.grapheme, .graphemes td {
 				color: #ffcece;
 			}
 		</style>
@@ -619,7 +624,7 @@
 	</head>
 	<body style="font-size: 110%;">
 		<h1>Twanthain and Twanthainese</h1>
-		<span id="version" title="Version 2.0 is designated as a division point due to massive changes to the phonology and corresponding breaking changes to the orthography, and significant changes to the lexicon.  Version 3.0 is where I add a bunch of lore and another phoneme.  Version 3.1 involves adding articles and a major phonotactical change. Version 4.0 is where I add FAAAAAAAR too many tones. (the hell begins). Version 4.1 sees a rhotic and post-alveolar plosives added. 4.2 is where I fxck with the grammar. Version 4.3 has a bunch of undisclosed changes and 2 new phonemes.">Version 4.3</span>
+		<span id="version" title="Version 2.0 is designated as a division point due to massive changes to the phonology and corresponding breaking changes to the orthography, and significant changes to the lexicon.  Version 3.0 is where I add a bunch of lore and another phoneme.  Version 3.1 involves adding articles and a major phonotactical change.  Version 4.0 is where I add FAAAAAAAR too many tones (the hell begins).  Version 4.1 sees a rhotic and post-alveolar plosives added.  4.2 is where I fxck with the grammar.  Version 4.3 has a bunch of undisclosed changes and 2 new phonemes.  Version 5.0 has too many phonemes.">Version 5.0</span>
 		<p class="alert">Twanthainese is a conlang I just made up for fun.&#8203;&nbsp;&nbsp;&#8203;This page is a <em>work in progress</em>, under construction; features of this conlang may radically and massively change at any time without prior notice.</p><br/>
 		<p class="advisory">This page uses the American convention for numbers.&#8203;&nbsp;&nbsp;&#8203;Unless otherwise noted, a dot "." is the decimal separator, and a comma "," is the thousands separator; and -illion numbers are in the short scale.</p><br/>
 		<div aria-role="paragraph" class="advisory">Base-19 (Enneadecimal) numbers on this page are conveyed with an ad-hoc extension of the <a href="https://en.wikipedia.org/wiki/Hexadecimal#Verbal_and_digital_representations">Magnuson system</a> (the man's name is spelled very inconsistently<!-- to the point where you'd think it was a romanized Arabic name-->).<ol>
@@ -643,6 +648,9 @@
 					<h3>Initials:</h3>
 					<main>
 						<div id="qtwInitialCounter"><span id="qtwInitialsCount">&nbsp;</span></div>
+						<div id="qtwTableKey">
+							<span style="display: inline-block; padding: 2px; border: 1px solid white;" class="merged-out">Involved in a shift or merger</span>
+						</div>
 						<table class="plain-font" id="qtwInitialsTable">
 							<tbody>
 								<tr>
@@ -679,8 +687,8 @@
 									<th>Plain</th>
 									<td><span class="phoneme">/p/</span> <span class="grapheme">〈p〉</span></td>
 									<td><span class="phoneme">/b/</span> <span class="grapheme">〈b〉</span></td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
+									<td class="merged-out">&nbsp;</td>
+									<td class="merged-out">&nbsp;</td>
 									<td><span class="phoneme">/t̪͆/</span> <span class="grapheme">〈ť〉</span></td>
 									<td><span class="phoneme">/d̪͆/</span> <span class="grapheme">〈ď〉</span></td>
 									<td><span class="phoneme">/t/</span> <span class="grapheme">〈t〉</span></td>
@@ -691,13 +699,13 @@
 									<td><span class="phoneme">/ɟ/</span> <span class="grapheme">〈g̋〉</span></td>
 									<td><span class="phoneme">/k/</span> <span class="grapheme">〈k〉</span></td>
 									<td><span class="phoneme">/g/</span> <span class="grapheme">〈g〉</span></td>
-									<td>&nbsp;</td>
+									<td><span class="phoneme">/ʰʔ/</span> <span class="grapheme">〈q〉</span></td>
 								</tr>
 								<tr>
 									<!--Plosive-->
 									<th>Aspirated</th>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
+									<td class="merged-out">&nbsp;</td>
+									<td class="merged-out">&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td><span class="phoneme">/t̪͆ʰ~θ/</span> <span class="grapheme">〈ť̰〉</span></td>
@@ -707,10 +715,10 @@
 									<td><span class="phoneme">/t̠ʰ/</span> <span class="grapheme">〈t̰̀〉</span></td>
 									<td><span class="phoneme">/d̠ʱ/</span> <span class="grapheme">〈d̰̀〉</span></td>
 									<td><span class="phoneme">/cʰ~c͡ç/</span> <span class="grapheme">〈k̰̋〉</span></td>
-									<td>&nbsp;</td>
+									<td class="merged-out">&nbsp;</td>
 									<td><span class="phoneme">/kʰ~k͡x/</span> <span class="grapheme">〈k̃〉</span></td>
 									<td><span class="phoneme">/gʱ/</span> <span class="grapheme">〈g̃〉</span></td>
-									<td>&nbsp;</td>
+									<td><span class="phoneme">/ʰʔʰ~ʰʔ͡h/</span> <span class="grapheme">〈q̃〉</span></td>
 								</tr>
 								<tr>
 									<!--Plosive-->
@@ -734,8 +742,8 @@
 								<tr>
 									<!--Plosive-->
 									<th><small style="font-size: 80%;">Palatalized aspirated</small></th>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
+									<td class="merged-out">&nbsp;</td>
+									<td class="merged-out">&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td><span class="phoneme">/t̪͆ʲʰ/</span> <span class="grapheme">〈ť̰́〉</span></td>
@@ -769,7 +777,7 @@
 									<td>&nbsp;</td>
 								</tr>
 								<tr>
-									<th colspan="2">Rhotic</th>
+									<th colspan="2">Flap</th>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
@@ -787,21 +795,41 @@
 									<td>&nbsp;</td>
 								</tr>
 								<tr>
-									<th colspan="2">Fricative</th>
+									<th rowspan="2">Fricative</th>
+									<th>Plain</th>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
 									<td><span class="phoneme">/ɸ~f/</span> <span class="grapheme">〈f〉</span></td>
+									<td><span class="phoneme">/v/</span> <span class="grapheme">〈v〉</span></td>
+									<td><span class="phoneme">/θ/</span> <span class="grapheme">〈þ〉</span></td>
+									<td><span class="phoneme">/ð/</span> <span class="grapheme">〈ð〉</span></td>
+									<td><span class="phoneme">/s/</span> <span class="grapheme">〈s〉</span></td>
+									<td><span class="phoneme">/z/</span> <span class="grapheme">〈z〉</span></td>
+									<td><span class="phoneme">/ʃ/</span> <span class="grapheme">〈s̀〉</span></td>
+									<td><span class="phoneme">/ʒ/</span> <span class="grapheme">〈z̀〉</span></td>
+									<td><span class="phoneme">/ç/</span> <span class="grapheme">〈x̋〉</span></td>
+									<td><span class="phoneme">/ʝ/</span> <span class="grapheme">〈ɣ̋〉</span></td>
+									<td><span class="phoneme">/x/</span> <span class="grapheme">〈x〉</span></td>
+									<td><span class="phoneme">/ɣ/</span> <span class="grapheme">〈ɣ〉</span></td>
+									<td><span class="phoneme">/h/</span> <span class="grapheme">〈h〉</span></td>
+								</tr>
+								<tr>
+									<!--Fricative-->
+									<th>Palatalized</th>
+									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td><span class="phoneme">/fʲ/</span> <span class="grapheme">〈f́〉</span></td>
-									<td><span class="phoneme">/vʲ/</span> <span class="grapheme">〈v〉</span></td>
+									<td><span class="phoneme">/vʲ/</span> <span class="grapheme">〈v́〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td><span class="phoneme">/s/</span> <span class="grapheme">〈s〉</span></td>
+									<td><span class="phoneme">/sʲ/</span> <span class="grapheme">〈ś〉</span></td>
+									<td><span class="phoneme">/zʲ/</span> <span class="grapheme">〈ź〉</span></td>
+									<td><span class="phoneme">/ɕ/</span> <span class="grapheme">〈ŝ〉</span></td>
+									<td><span class="phoneme">/ʑ/</span> <span class="grapheme">〈ẑ〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
+									<td><span class="phoneme">/x̟/</span> <span class="grapheme">〈x́〉</span></td>
+									<td><span class="phoneme">/ɣ̟/</span> <span class="grapheme">〈ɣ́〉</span></td><!--Ɣ-->
 									<td>&nbsp;</td>
 								</tr>
 								<tr>
@@ -813,14 +841,14 @@
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td><span class="phoneme">/t͡s/</span> <span class="grapheme">〈c〉</span></td>
-									<td><span class="phoneme">/d͡z/</span> <span class="grapheme">〈z〉</span></td>
+									<td><span class="phoneme">/d͡z/</span> <span class="grapheme">〈ž〉</span></td>
 									<td><span class="phoneme">/t̠͡ʃ/</span> <span class="grapheme">〈č〉</span></td>
 									<td><span class="phoneme">/d̠͡ʒ/</span> <span class="grapheme">〈j〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td><span class="phoneme">/ʔ͡h/</span> <span class="grapheme">〈'〉</span></td>
+									<td>&nbsp;</td>
 								</tr>
 								<tr>
 									<th colspan="2">Lateral fricative</th>
@@ -864,17 +892,19 @@
 				</section>
 
 				<!--Shifts, merges, and exceptions:
-					*/bʱ/ merged into /b/
-					*/pʰ/ merged into /ɸ~f/
-					*/pʲʰ/ and */bʲʱ/ became /fʲ/ and /vʲ/
-					*/d̪͆ʲ/ and */d̪͆ʲʱ/ never developed
-					#/t̠ʲ/, #/d̠ʲ/, #/t̠ʲʰ/, and #/d̠ʲʱ/ never developed
-					*/cʰ/ became freely variant with /c͡ç/
-					*/l̠/ became /ɭ/ and then /ɹ~ɻ/
+					*/pʰ/ shifted into /ɸ~f/ and /bʱ/ merged with /b/
+					*/p̪/ and */b̪/ merged into /p̪͡f/ and /b̪͡v/
 					*/ɟʱ/ merged into /j/
+
+					*/cʰ/ became freely variant with /c͡ç/
+
+					*/pʲʰ/ and */bʲʱ/ became /fʲ/ and /vʲ/
+					*/l̠/ became /ɭ/ and then /ɹ~ɻ/
+
+					#/d̪͆ʲ/ and #/d̪͆ʲʱ/ never developed
+					#/ȶ/ and #/ȡ/ never developed
+					#/t̠ʲ/, #/d̠ʲ/, #/t̠ʲʰ/, and #/d̠ʲʱ/ never developed
 					#/cʲ/, #/cʲʰ/, #/ɟʲ/, and #/ɟʲʱ/ never developed (you can't really palatalize a palatal consonant)
-					*/z/ merged into /s/
-					#/v/ merged into /f/
 				-->
 
 				<section id="qtwVowels">
@@ -982,18 +1012,18 @@
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td class="marginal-allophone"><span class="phoneme">(/t̪͆̚/)</span> <span class="grapheme">〈ť/ť́〉</span></td>
-									<td><span class="phoneme">/t̚/</span> <span class="grapheme">〈t/ď/t́/d/d́〉</span></td>
 									<td>&nbsp;</td>
-									<td class="marginal-allophone"><span class="phoneme">(/t̠̚/)</span> <span class="grapheme">〈t̀/d̀〉</span></td>
+									<td><span class="phoneme">/t̚/</span> <span class="grapheme">〈t/ď/t́/d/d́/ť/ť́/t̀/d̀〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td class="marginal-allophone"><span class="phoneme">/k̟̚/</span> <span class="grapheme">〈ḱ/ǵ〉</span></td>
 									<td>&nbsp;</td>
-									<td><span class="phoneme">/k̚/</span> <span class="grapheme">〈k/g〉</span></td>
 									<td>&nbsp;</td>
-									<td><span class="phoneme">/ʔ/</span> <span class="grapheme">〈'〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/k̚/</span> <span class="grapheme">〈k/g/ḱ/ǵ〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ʔ/</span> <span class="grapheme">〈q〉</span></td>
 								</tr>
 								<tr>
 									<!--Plosive-->
@@ -1011,11 +1041,11 @@
 									<td><span class="phoneme">/d̠/</span> <span class="grapheme">〈d̰̀〉</span></td>
 									<td><span class="phoneme">/c/</span> <span class="grapheme">〈k̰̋〉</span></td>
 									<td>&nbsp;</td>
-									<td><span class="phoneme">/k/</span> <span class="grapheme">〈ḱ̰〉</span></td>
-									<td><span class="phoneme">/g/</span> <span class="grapheme">〈g̃́〉</span></td>
+									<td><span class="phoneme">/k̟/</span> <span class="grapheme">〈ḱ̰〉</span></td>
+									<td><span class="phoneme">/g̟/</span> <span class="grapheme">〈g̃́〉</span></td>
 									<td><span class="phoneme">/k/</span> <span class="grapheme">〈k̃〉</span></td>
 									<td><span class="phoneme">/g/</span> <span class="grapheme">〈g̃〉</span></td>
-									<td>&nbsp;</td>
+									<td><span class="phoneme">/ʔʰ/</span> <span class="grapheme">〈q̃〉</span></td>
 								</tr>
 								<tr>
 									<!--Plosive-->
@@ -1035,8 +1065,8 @@
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td><span class="phoneme">/k̟/</span> <span class="grapheme">〈ḱ̰〉</span></td>
-									<td><span class="phoneme">/g̟/</span> <span class="grapheme">〈g̃́〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 								</tr>
 								<tr>
@@ -1063,21 +1093,21 @@
 									<th colspan="3">Fricative</th>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td><span class="phoneme">/f/</span> <span class="grapheme">〈f/f̌/v̌/f́〉</span></td>
-									<td><span class="phoneme">/v/</span> <span class="grapheme">〈v〉</span></td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
+									<td><span class="phoneme">/f/</span> <span class="grapheme">〈f/f́/f̌〉</span></td>
+									<td><span class="phoneme">/v/</span> <span class="grapheme">〈v/v́/v̌〉</span></td>
+									<td><span class="phoneme">/θ/</span> <span class="grapheme">〈þ〉</span></td>
+									<td><span class="phoneme">/ð/</span> <span class="grapheme">〈ð〉</span></td>
 									<td><span class="phoneme">/s/</span> <span class="grapheme">〈s〉</span></td>
+									<td><span class="phoneme">/z~s~<abbr title="Under-fonted extIPA representation of partial devoicing of /z/">z̥᪽</abbr>/</span> <span class="grapheme">〈z〉</span></td>
+									<td><span class="phoneme">/ʃ/</span> <span class="grapheme">〈s̀〉</span></td>
+									<td><span class="phoneme">/ʒ/</span> <span class="grapheme">〈z̀〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
+									<td><span class="phoneme">/ç̟/</span> <span class="grapheme">〈x́〉</span></td>
+									<td><span class="phoneme">/ɣ́~i̯/</span> <span class="grapheme">〈ɣ́〉</span></td>
+									<td><span class="phoneme">/x/</span> <span class="grapheme">〈x〉</span></td>
+									<td><span class="phoneme">/ɣ/</span> <span class="grapheme">〈ɣ〉</span></td>
+									<td><span class="phoneme">/h/</span> <span class="grapheme">〈h〉</span></td>
 								</tr>
 								<tr>
 									<th colspan="3">Affricate</th>
@@ -1088,7 +1118,7 @@
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td><span class="phoneme">/t͡s/</span> <span class="grapheme">〈c〉</span></td>
-									<td><span class="phoneme">/d͡z/</span> <span class="grapheme">〈z〉</span></td>
+									<td><span class="phoneme">/d͡z/</span> <span class="grapheme">〈ž〉</span></td>
 									<td><span class="phoneme">/t̠͡ʃ/</span> <span class="grapheme">〈č〉</span></td>
 									<td><span class="phoneme">/d̠͡ʒ/</span> <span class="grapheme">〈j〉</span></td>
 									<td>&nbsp;</td>
@@ -1112,7 +1142,7 @@
 									<td><span class="phoneme">/ɹ~ɻ/</span> <span class="grapheme">〈l̀/l̰̀〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td><span class="phoneme">/i̯/</span> <span class="grapheme">〈y〉</span></td>
+									<td><span class="phoneme">/i̯/</span> <span class="grapheme">〈y/ǵ/g̋/k̋/x̋/ɣ̋〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
@@ -1135,73 +1165,90 @@
 						<div id="qtwLetterCounter"><span id="qtwLettersCount">&nbsp;</span></div>
 						<table class="plain-font" style="font-size: 68%;" id="qtwLettersTable">
 							<tbody>
-								<tr id="qtwRomanRow">
+								<tr id="qtwRomanRow" class="graphemes">
 									<th style="min-width: 100px;">Roman&nbsp;letter</th>
-									<td rowspan="2">m</td>
-									<td rowspan="2">n</td>
-									<td>ń</td>
-									<td>ǹ</td>
-									<td>n̏</td>
-									<td rowspan="2">p</td>
-									<td>ṕ</td>
-									<td rowspan="2">i</td>
-									<td rowspan="2">f́</td>
+									<td rowspan="2">a</td>
 									<td rowspan="2">b</td>
 									<td>b́</td>
-									<td rowspan="2">v</td>
-									<td>ť</td>
-									<td>u̇</td>
-									<td>ť́</td>
-									<td>ť̰</td>
-
-									<td>ť̰́</td>
+									<td rowspan="2">c</td>
+									<td>č</td>
 									<td>ď</td>
 									<td>ď̰</td>
-									<td rowspan="2">r</td>
-									<td rowspan="2">t</td>
-									<td>t́</td>
-									<td rowspan="2">u</td>
-									<td>t̃</td>
-									<td>t̰́</td>
 									<td rowspan="2">d</td>
 									<td>d́</td>
-									<td>d̃</td>
-									<td rowspan="2">o</td>
-									<td>d̰́</td>
-									<td>t̀</td>
-									<td>t̰̀</td>
 									<td>d̀</td>
+									<td>d̃</td>
+									<td>d̰́</td>
 									<td>d̰̀</td>
-									<td>k̋</td>
-									<td>k̰̋</td>
-									<td>g̋</td>
-									<td rowspan="2">k</td>
-									<td>ë</td>
-									<td>ḱ</td>
-									<td>k̃</td>
-									<td>ḱ̰</td>
-									<td>g</td>
-									<td rowspan="2">ǵ</td>
-									<td rowspan="2">a</td>
-									<td>g̃</td>
-									<td>g̃́</td>
-									<td rowspan="2">w</td>
-									<td rowspan="2">f</td>
-									<td>f̌</td>
-									<td>v̌</td>
 									<td rowspan="2">e</td>
-									<td rowspan="2">l</td>
-									<td>l̃</td>
-									<td>l̀</td>
-									<td>l̰̀</td>
-									<td rowspan="2">s</td>
-									<td rowspan="2">c</td>
-									<td rowspan="2">z</td>
-									<td>ü</td>
-									<td>č</td>
+									<td>ë</td>
+									<td rowspan="2">f</td>
+									<td>f́</td>
+									<td>f̌</td>
+									<td>g̋</td>
+									<td>ǵ</td>
+									<td>ǵ̰</td>
+									<td>g̃</td>
+									<td rowspan="2">g</td>
+									<td rowspan="2">h</td>
+									<td rowspan="2">i</td>
+									<td>u̇</td>
 									<td rowspan="2">j</td>
+									<td>k̋</td>
+									<td>ḱ</td>
+									<td>k̰̋</td>
+									<td>ḱ̰</td>
+									<td>k̃</td>
+									<td rowspan="2">k</td>
+									<td rowspan="2">l</td>
+									<td>l̀</td>
+									<td>l̃</td>
+									<td>l̰̀</td>
+									<td rowspan="2">m</td>
+									<td>ń</td>
+									<td rowspan="2">n</td>
+									<td>ǹ</td>
+									<td>n̏</td>
+									<td rowspan="2">o</td>
+									<td rowspan="2">p</td>
+									<td>ṕ</td>
+									<td rowspan="2">q</td>
+									<td>q̃</td>
+									<td rowspan="2">r</td>
+									<td rowspan="2">s</td>
+									<td>ś</td>
+									<td>ŝ</td>
+									<td>s̀</td>
+									<td>ť</td>
+									<td>ť́</td>
+									<td>ť̰</td>
+									<td>ť̰́</td>
+									<td rowspan="2">t</td>
+									<td>t́</td>
+									<td>t̀</td>
+									<td>t̃</td>
+									<td>t̰́</td>
+									<td>t̰̀</td>
+									<td rowspan="2">u</td>
+									<td>ü</td>
+									<td rowspan="2">v</td>
+									<td>v́</td>
+									<td>v̌</td>
+									<td rowspan="2">w</td>
+									<td>x̋</td>
+									<td>x́</td>
+									<td rowspan="2">x</td>
+									<td>ɣ̋</td>
+									<td>ɣ́</td>
+									<td>ɣ</td>
 									<td rowspan="2">y</td>
-									<td rowspan="2">'</td>
+									<td rowspan="2">z</td>
+									<td>ź</td>
+									<td>ẑ</td>
+									<td>z̀</td>
+									<td>ž</td>
+									<td>þ</td>
+									<td>ð</td>
 									<th>Tone diacritic</th>
 									<td>None / ◌̍</td>
 									<td>◌̠</td>
@@ -1215,47 +1262,64 @@
 									<td>◌᷅</td>
 									<td>◌᷈</td>
 								</tr>
-								<tr>
+								<tr class="graphemes">
 									<th>ASCII</th>
+									<td>by</td>
+									<td>ch</td>
+									<td>hdd</td>
+									<td>hddh</td>
+									<td>dy</td>
+									<td>dr</td>
+									<td>dh</td>
+									<td>dyh</td>
+									<td>drh</td>
+									<td>oe</td>
+									<td>fy</td>
+									<td>pf</td>
+									<td>ygy</td>
+									<td>gy</td>
+									<td>gyh</td>
+									<td>gh</td>
+									<td>iu</td>
+									<td>yky</td>
+									<td>ky</td>
+									<td>ykyh</td>
+									<td>kyh</td>
+									<td>kh</td>
+									<td>lr</td>
+									<td>lh</td>
+									<td>lrh</td>
 									<td>ny</td>
 									<td>nr</td>
 									<td>ng</td>
 									<td>py</td>
-									<td>by</td>
-									<td>ht</td>
-									<td>iu</td>
-									<td>hty</td>
-									<td>hth</td>
-									<td>htyh</td>
-									<td>hd</td>
-									<td>hdh</td>
+									<td>qh</td>
+									<td>sy</td>
+									<td>sry</td>
+									<td>sr</td>
+									<td>htt</td>
+									<td>htty</td>
+									<td>htth</td>
+									<td>httyh</td>
 									<td>ty</td>
+									<td>tr</td>
 									<td>th</td>
 									<td>tyh</td>
-									<td>dy</td>
-									<td>dh</td>
-									<td>dyh</td>
-									<td>tr</td>
 									<td>trh</td>
-									<td>dr</td>
-									<td>drh</td>
-									<td>yky</td>
-									<td>ykyh</td>
-									<td>ygy</td>
-									<td>oe</td>
-									<td>ky</td>
-									<td>kh</td>
-									<td>kyh</td>
-									<td>gy</td>
-									<td>gh</td>
-									<td>gyh</td>
-									<td>pf</td>
-									<td>bv</td>
-									<td>lh</td>
-									<td>lr</td>
-									<td>lrh</td>
 									<td>ui</td>
-									<td>ch</td>
+									<td>vy</td>
+									<td>bv</td>
+									<td>yxy</td>
+									<td>xy</td>
+									<td>yɣy</td>
+									<td>ɣy</td>
+									<td>ɣ</td>
+									<td>zy</td>
+									<td>zry</td>
+									<td>zr</td>
+									<td>dz</td>
+									<td>ht</td>
+									<td>hd</td>
 									<th rowspan="2">Tone number</th>
 									<td rowspan="2">1</td>
 									<td rowspan="2">2</td>
@@ -1269,138 +1333,175 @@
 									<td rowspan="2">10</td>
 									<td rowspan="2">11</td>
 								</tr>
+								<tr class="graphemes">
 									<th>Cyrillic <sup><a id="qtwOrthographyFootnote1Note" href="#qtwOrthographyFootnote1">1</a></sup></th>
-									<td>м</td>
-									<td>н</td>
-									<td>ԩ</td>
-									<td>нꙏ</td>
-									<td>ӈ</td>
-									<td>п</td>
-									<td>пь</td>
-									<td>и</td>
-									<td>фь</td>
+									<td>а</td>
 									<td>б</td>
 									<td>бь</td>
-									<td>в</td>
-									<td>ҭ</td>
+									<td>ц</td>
+									<td>ч</td>
+									<td>д̣</td>
+									<td>д̣ъ</td>
+									<td>д</td>
+									<td>дь</td>
+									<td>дꙏ</td>
+									<td>дъ</td>
+									<td>дьъ</td>
+									<td>дꙏъ</td>
+									<td>е</td>
+									<td>ә</td>
+									<td>ф</td>
+									<td>фь</td>
+									<td>пф</td>
+									<td>ӷ</td>
+									<td>гь</td>
+									<td>гьъ</td>
+									<td>гъ</td>
+									<td>г</td>
+									<td>һ</td>
+									<td>и</td>
 									<td>ы</td>
+									<td>џ</td>
+									<td>ҝ</td>
+									<td>кь</td>
+									<td>ҝъ</td>
+									<td>кьъ</td>
+									<td>къ</td>
+									<td>к</td>
+									<td>л</td>
+									<td>лꙏ</td>
+									<td>лъ</td>
+									<td>лꙏъ</td>
+									<td>м</td>
+									<td>ԩ</td>
+									<td>н</td>
+									<td>нꙏ</td>
+									<td>ӈ</td>
+									<td>о</td>
+									<td>п</td>
+									<td>пь</td>
+									<td>ı</td><!--Palochka "Ӏ" if it was cased. Lowercase ı is used. Lowercase palochka "ӏ" would be used if it was actually lowercase.-->
+									<td>ıъ</td>
+									<td>р</td>
+									<td>с</td>
+									<td>сь</td>
+									<td>щ</td>
+									<td>ш</td>
+									<td>ҭ</td>
 									<td>ҭь</td>
 									<td>ҭъ</td>
 									<td>ҭьъ</td>
-									<td>д̣</td>
-									<td>д̣ъ</td>
-									<td>р</td>
 									<td>т</td>
 									<td>ть</td>
-									<td>у</td>
+									<td>тꙏ</td>
 									<td>тъ</td>
 									<td>тьъ</td>
-									<td>д</td>
-									<td>дь</td>
-									<td>дъ</td>
-									<td>о</td>
-									<td>дьъ</td>
-									<td>тꙏ</td>
-									<td>тꙏь</td>
-									<td>дꙏ</td>
-									<td>дꙏь</td>
-									<td>ҝ</td>
-									<td>ҝъ</td>
-									<td>ӷ</td>
-									<td>к</td>
-									<td>ә</td>
-									<td>кь</td>
-									<td>къ</td>
-									<td>кьъ</td>
-									<td>г</td>
-									<td>гь</td>
-									<td>а</td>
-									<td>гъ</td>
-									<td>гьъ</td>
-									<td>ў</td>
-									<td>ф</td>
-									<td>пф</td>
-									<td>бв</td>
-									<td>е</td>
-									<td>л</td>
-									<td>лъ</td>
-									<td>лꙏ</td>
-									<td>лꙏъ</td>
-									<td>с</td>
-									<td>ц</td>
-									<td>ѕ</td>
+									<td>тꙏъ</td>
+									<td>у</td>
 									<td>ӥ</td>
-									<td>ч</td>
-									<td>џ</td>
-									<td>й</td>
+									<td>в</td>
+									<td>вь</td>
+									<td>бв</td>
+									<td>ў</td>
+									<td>ӿ</td>
+									<td>хь</td>
 									<td>х</td>
+									<td>г̣</td>
+									<td>ҕь</td>
+									<td>ҕ</td>
+									<td>й</td>
+									<td>з</td>
+									<td>зь</td>
+									<td>җ</td>
+									<td>ж</td>
+									<td>ѕ</td>
+									<td>ҫ</td>
+									<td>ҙ</td>
 								</tr>
-								<tr>
-									<th>Khmer <sup><a id="qtwOrthographyFootnote2Note" href="#qtwOrthographyFootnote2">2</a></sup></th>
-									<td>ម</td>
-									<td>ណ</td>
-									<td>ញ</td>
-									<td>ណ៊</td>
-									<td>ង</td>
-									<td>ព</td>
-									<td>ព៉</td>
-									<td>ឭ/ី</td>
-									<td>ភ៉</td>
+								<tr class="graphemes">
+									<th><del>Khmer</del> <sup><a id="qtwOrthographyFootnote2Note" href="#qtwOrthographyFootnote2">2</a></sup></th>
+									<td>ឰ/ា</td>
 									<td>ពៈ</td>
 									<td>ព៉ៈ</td>
-									<td>ភ៉ៈ</td>
-									<td>ទ</td>
+									<td>ឝ</td>
+									<td>ឞ</td>
+									<td>ទៈ</td>
+									<td>ធៈ</td>
+									<td>តៈ</td>
+									<td>ត៉ៈ</td>
+									<td>ត៊ៈ</td>
+									<td>ថៈ</td>
+									<td>ថ៉ៈ</td>
+									<td>ថ៊ៈ</td>
+									<td>ឯ</td>
+									<td>ឥ/ិ</td>
+									<td>ភ</td>
+									<td>ភ៉</td>
+									<td>ផ</td>
+									<td>ជៈ</td>
+									<td>ក៉ៈ</td>
+									<td>ខ៉ៈ</td>
+									<td>ខៈ</td>
+									<td>កៈ</td>
+									<td>ហ</td>
+									<td>ឭ/ី</td>
 									<td>ឪ/ឹ</td>
+									<td>ឞៈ</td>
+									<td>ជ</td>
+									<td>ក៉</td>
+									<td>ឆ</td>
+									<td>ខ៉</td>
+									<td>ខ</td>
+									<td>ក</td>
+									<td>ល</td>
+									<td>ល៊</td>
+									<td>ឡ</td>
+									<td>ឡ៊</td>
+									<td>ម</td>
+									<td>ញ</td>
+									<td>ណ</td>
+									<td>ណ៊</td>
+									<td>ង</td>
+									<td>ឧ/ុ</td>
+									<td>ព</td>
+									<td>ព៉</td>
+									<td>អ</td>
+									<td>ឃ</td>
+									<td>រ</td>
+									<td>ស</td>
+									<td>ស៉</td>
+									<td>ស៌</td>
+									<td>ស៊</td>
+									<td>ទ</td>
 									<td>ទ៉</td>
 									<td>ធ</td>
 									<td>ធ៉</td>
-									<td>ទៈ</td>
-									<td>ធៈ</td>
-									<td>រ</td>
 									<td>ត</td>
 									<td>ត៉</td>
-									<td>ឩ/ូ</td>
+									<td>ត៊</td>
 									<td>ថ</td>
 									<td>ថ៉</td>
-									<td>តៈ</td> <!--ដ-->
-									<td>ត៉ៈ</td>
-									<td>ថៈ</td>
-									<td>ឧ/ុ</td>
-									<td>ថ៉ៈ</td> <!--ឌ-->
-									<td>ត៊</td>
 									<td>ថ៊</td>
-									<td>ត៊ៈ</td>
-									<td>ថ៊ៈ</td>
-									<td>ជ</td>
-									<td>ឆ</td>
-									<td>ជៈ</td>
-									<td>ក</td>
-									<td>ឥ/ិ</td>
-									<td>ជ</td>
-									<td>ខ</td>
-									<td>ឈ</td>
-									<td>កៈ</td>
-									<td>ជៈ</td>
-									<td>ឰ/ា</td>
-									<td>ខៈ</td>
-									<td>ឈៈ</td>
-									<td>វ</td>
-									<td>ភ</td>
-									<td>ផ</td>
-									<td>ផៈ</td>
-									<td>ឯ</td>
-									<td>ល</td>
-									<td>ឡ</td>
-									<td>ល៊</td>
-									<td>ឡ៊</td>
-									<td>ស</td>
-									<td>ឝ</td>
-									<td>ឝៈ</td>
+									<td>ឩ/ូ</td>
 									<td>ឦ/ឺ</td>
-									<td>ឞ</td>
-									<td>ឞៈ</td>
+									<td>ភៈ</td>
+									<td>ភ៉ៈ</td>
+									<td>ផៈ</td>
+									<td>វ</td>
+									<td>ឈ</td>
+									<td>ច៉</td>
+									<td>ច</td>
+									<td>ឈៈ</td>
+									<td>ច៉ៈ</td>
+									<td>ចៈ</td>
 									<td>យ</td>
-									<td>អ</td>
+									<td>សៈ</td>
+									<td>ស៉ៈ</td>
+									<td>ស៌ៈ</td>
+									<td>ស៊ៈ</td>
+									<td>ឝៈ</td>
+									<td>ឌ</td>
+									<td>ឌៈ</td>
 									<th>Khmer tone number</th>
 									<td>៱</td>
 									<td>៲</td>
@@ -1414,72 +1515,90 @@
 									<td>៱៰</td>
 									<td>៱<sup>៱</sup> (៱ˆ)</td>
 								</tr>
-								<tr id="firstSoundRow">
+								<tr id="firstSoundRow" class="phonemes">
 									<th>Initial sound</th>
-									<td rowspan="2">m</td>
-									<td rowspan="2">n̪~n</td>
-									<td rowspan="2">ɲ</td>
-									<td rowspan="2">n̠</td>
-									<td rowspan="2">ŋ</td>
-									<td>p</td>
-									<td>pʲ</td>
-									<td rowspan="2">i</td>
-									<td>fʲ</td>
-									<td>b</td>
-									<td>bʲ</td>
-									<td>vʲ</td>
-									<td>t̪͆</td>
-									<td rowspan="2">ɯ̟~ɨ</td>
-									<td>t̪͆ʲ</td>
-									<td>t̪͆ʰ~θ</td>
-									<td>t̪͆ʲʰ</td>
-									<td>d̪͆</td>
-									<td>d̪͆ʱ~ð</td>
-									<td>ɾ~r</td>
-									<td>t</td>
-									<td>tʲ</td>
-									<td rowspan="2">u</td>
-									<td>tʰ</td>
-									<td>tʲʰ</td>
-									<td>d</td>
-									<td>dʲ</td>
-									<td>dʱ</td>
-									<td rowspan="2">o</td>
-									<td>dʲʱ</td>
-									<td>t̠</td>
-									<td>t̠ʰ</td>
-									<td>d̠</td>
-									<td>d̠ʱ</td>
-									<td>c</td>
-									<td>c͡ç~cʰ</td>
-									<td>ɟ</td>
-									<td>k</td>
-									<td rowspan="2">ə</td>
-									<td>k̟</td>
-									<td>kʰ~k͡x</td>
-									<td>k̟ʰ</td>
-									<td>g</td>
-									<td>g̟</td>
-									<td rowspan="2">ä~a̠</td>
-									<td>gʱ</td>
-									<td>g̟ʱ</td>
-									<td>w~β̞</td>
-									<td>ɸ~f</td>
-									<td>p̪͡f</td>
-									<td>b͡v</td>
-									<td rowspan="2">e</td>
-									<td>l</td>
-									<td>ɬ̆~ɮ̆</td>
-									<td>ɹ~ɻ</td>
-									<td>ɬ̠~ɮ̠~ꞎ~ɭ˔</td>
-									<td rowspan="2">s</td>
-									<td rowspan="2">t͡s</td>
-									<td rowspan="2">d͡z</td>
-									<td rowspan="2">ʏ</td>
-									<td rowspan="2">t̠͡ʃ</td>
-									<td rowspan="2">d̠͡ʒ</td>
-									<td>j</td>
-									<td>ʔ͡h</td>
+									<td rowspan="2"><span>/ä~a̠/</span></td></td>
+									<td><span>/b/</span></td>
+									<td><span>/bʲ/</span></td>
+									<td rowspan="2"><span>/t͡s/</span></td>
+									<td rowspan="2"><span>/t̠͡ʃ/</span></td>
+									<td><span>/d̪͆/</span></td>
+									<td><span>/d̪͆ʱ/</span></td>
+									<td><span>/d/</span></td>
+									<td><span>/dʲ/</span></td>
+									<td><span>/d̠/</span></td>
+									<td><span>/dʱ/</span></td>
+									<td><span>/dʲʱ/</span></td>
+									<td><span>/d̠ʱ/</span></td>
+									<td rowspan="2"><span>/e̞/</span></td></td>
+									<td rowspan="2"><span>/ə/</span></td></td>
+									<td><span>/f~ɸ/</span></td>
+									<td><span>/fʲ/</span></td>
+									<td><span>/p̪͡f/</span></td>
+									<td><span>/ɟ/</span></td>
+									<td><span>/g̟/</span></td>
+									<td><span>/g̟ʱ/</span></td>
+									<td><span>/gʱ/</span></td>
+									<td><span>/g/</span></td>
+									<td rowspan="2"><span>/h/</span></td>
+									<td rowspan="2"><span>/i/</span></td>
+									<td rowspan="2"><span>/ɯ̟~ɨ/</span></td>
+									<td rowspan="2"><span>/d̠͡ʒ/</span></td>
+									<td><span>/c/</span></td>
+									<td><span>/k̟/</span></td>
+									<td><span>/cʰ~c͡ç/</span></td>
+									<td><span>/k̟ʰ/</span></td>
+									<td><span>/kʰ~k͡x/</span></td>
+									<td><span>/k/</span></td>
+									<td><span>/l/</span></td>
+									<td><span>/ɹ~ɻ/</span></td>
+									<td><span>/ɬ~ɮ/</span></td>
+									<td><span>/ɬ̠~ɮ̠~ɭ̊˔ɭ˔/</span></td>
+									<td rowspan="2"><span>/m/</span></td>
+									<td rowspan="2"><span>/ɲ/</span></td>
+									<td rowspan="2"><span>/n̪~n/</span></td>
+									<td rowspan="2"><span>/n̠/</span></td>
+									<td rowspan="2"><span>/ŋ/</span></td>
+									<td rowspan="2"><span>/o̞/</span></td></td>
+									<td><span>/p/</span></td>
+									<td><span>/pʲ/</span></td>
+									<td><span>/ʰʔ/</span></td>
+									<td><span>/ʰʔʰ~ʰʔ͡h/</span></td>
+									<td><span>/ɾ~r/</span></td>
+									<td rowspan="2"><span>/s/</span></td>
+									<td rowspan="2"><span>/sʲ/</span></td>
+									<td rowspan="2"><span>/ɕ/</span></td>
+									<td rowspan="2"><span>/ʃ/</span></td>
+									<td><span>/t̪͆/</span></td>
+									<td><span>/t̪͆ʲ/</span></td>
+									<td><span>/t̪͆ʰ/</span></td>
+									<td><span>/t̪͆ʲʰ/</span></td>
+									<td><span>/t/</span></td>
+									<td><span>/tʲ/</span></td>
+									<td><span>/t̠/</span></td>
+									<td><span>/tʰ/</span></td>
+									<td><span>/tʲʰ/</span></td>
+									<td><span>/t̠ʰ/</span></td>
+									<td rowspan="2"><span>/u/</span></td>
+									<td rowspan="2"><span>/ʏ/</span></td></td>
+									<td><span>/v/</span></td>
+									<td><span>/vʲ/</span></td>
+									<td><span>/b̪͡v/</span></td>
+									<td><span>/w~β̞/</span></td>
+									<td rowspan="2"><span>/ç/</span></td>
+									<td rowspan="2"><span>/x̟/</span></td>
+									<td rowspan="2"><span>/x/</span></td>
+									<td><span>/ʝ/</span></td>
+									<td><span>/ɣ̟/</span></td>
+									<td rowspan="2"><span>/ɣ/</span></td>
+									<td><span>/j/</span></td>
+									<td rowspan="2"><span>/z/</span></td>
+									<td rowspan="2"><span>/zʲ/</span></td>
+									<td rowspan="2"><span>/ʑ/</span></td>
+									<td rowspan="2"><span>/ʒ/</span></td>
+									<td rowspan="2"><span>/d͡z/</span></td>
+									<td rowspan="2"><span>/θ/</span></td>
+									<td rowspan="2"><span>/ð/</span></td>
 									<th rowspan="2">Tone</th>
 									<td rowspan="2">˧</td>
 									<td rowspan="2">˩</td>
@@ -1493,51 +1612,83 @@
 									<td rowspan="2">˥˧</td>
 									<td rowspan="2">˩˧</td>
 								</tr>
-								<tr>
+								<tr class="phonemes">
 									<th>Final sound</th>
-									<td colspan="2">p̚</td>
-									<td>f</td>
-									<td colspan="2">p̚</td>
-									<td>v</td>
-									<td>/t̚/ [t̪͆̚]</td>
-									<td>/t̚/ [t̪͆̚]</td>
-									<td>t̪͆</td>
-									<td>t̪͆ʲ</td>
-									<td>t̚</td>
-									<td>d̪͆</td>
-									<td>l</td>
-									<td colspan="2">t̚</td>
-									<td>t</td>
-									<td>tʲ</td>
-									<td colspan="2">t̚</td>
-									<td>d</td>
-									<td>dʲ</td>
-									<td>/t̚/ [t̠̚]</td>
-									<td>t̠</td>
-									<td>/d̚/ [d̠̚]</td>
-									<td>d̠</td>
-									<td>i̯</td>
-									<td>c</td>
-									<td>i̯</td>
-									<td>k̚</td>
-									<td>/k̚/ [k̟̚]</td>
-									<td>k</td>
-									<td>k̟</td>
-									<td>k̚</td>
-									<td>/k̚/ [k̟̚]</td>
-									<td>g</td>
-									<td>g̟</td>
-									<td>u̯</td>
-									<td colspan="3">f</td>
-									<td colspan="2">l</td>
-									<td colspan="2">/ɹ~ɻ/</td>
-									<td>i̯</td>
-									<td>ʔ</td>
+									<!--Vowel-->
+									<td colspan="2"><span>/p̚/</span></td>
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<td><span>/t̚/</span></td>
+									<td><span>/d̪͆/</span></td>
+									<td colspan="3"><span>/t̚/</span></td>
+									<td><span>/d/</span></td>
+									<td><span>/dʲ/</span></td>
+									<td><span>/d̠/</span></td>
+									<!--Vowel-->
+									<!--Vowel-->
+									<td colspan="3"><span>/f/</span></td>
+									<td colspan="2"><span>/i̯/</span></td>
+									<td><span>/g̟/</span></td>
+									<td><span>/g/</span></td>
+									<td><span>/k̚/</span></td>
+									<!--Unchanged-->
+									<!--Vowel-->
+									<!--Vowel-->
+									<!--Unchanged-->
+									<td><span>/i̯/</span></td>
+									<td><span>/k̚/</span></td>
+									<td><span>/c/</span></td>
+									<td><span>/k̟/</span></td>
+									<td><span>/k/</span></td>
+									<td><span>/k̚/</span></td>
+									<td><span>/l/</span></td>
+									<td><span>/ɹ~ɻ/</span></td>
+									<td><span>/l/</span></td>
+									<td><span>/ɹ~ɻ/</span></td>
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<!--Vowel-->
+									<td colspan="2"><span>/p̚/</span></td>
+									<td><span>/ʔ/</span></td>
+									<td><span>/ʔʰ~ʔ͡h/</span></td>
+									<td><span>/l/</span></td>
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<td colspan="2"><span>/t̚/</span></td>
+									<td><span>/t̪͆/</span></td>
+									<td><span>/t̪͆ʲ/</span></td>
+									<td colspan="3"><span>/t̚/</span></td>
+									<td><span>/t/</span></td>
+									<td><span>/tʲ/</span></td>
+									<td><span>/t̠/</span></td>
+									<!--Vowel-->
+									<!--Vowel-->
+									<td colspan="3"><span>/v/</span></td>
+									<td><span>/u̯/</span></td>
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<td><span>/i̯/</span></td>
+									<td><span>/ɣ̟~i̯/</span></td>
+									<!--Unchanged-->
+									<td><span>/i̯/</span></td>
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<!--Unchanged-->
+									<!--Unchanged-->
 								</tr>
 							</tbody>
 						</table>
-						<p class="plain-font">The capital form of <span aria-hidden="true">' </span><span class="screenreader"> the apostrophe </span>&#8203; &#8203;is <span aria-hidden="true">¦<span class="screenreader"> the broken bar</span>.&#8203;&nbsp;&nbsp;&#8203;Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Ambiguities in the ASCII notation are disambiguated with the dash/hyphen "-" (e.g. "dy-a" (d́a) vs. "d-ya" (dya)).&#8203;&nbsp;&nbsp;&#8203;Polyphthongs carry a single overarching tone, which is marked with a diacritic on the last vowel.&#8203;&nbsp;&nbsp;&#8203;The mid tone is unmarked, but when it becomes necessary to orhographically separate it from an adjacent vowel with its own tone, it is marked with the vertical line ◌̍. The letter "i" keeps its <abbr title="The dot over the lowercase I or J">tittle</abbr> under a tone diacritic (e.g. "i̇̌") unless vertical space limitations necessitate its omission.<br/>
-						<span class="indent" id="qtwOrthographyFootnote1"><sup><a href="#qtwOrthographyFootnote1Note">1</a></sup> <i>The Cyrillic orthography was created by someone on the Internet and intended as a joke/sh**post, and is only used humorously and extremely rarely.</i></span><br/>
+						<p class="plain-font">Polyphthongs are not considered their own letters.&#8203;&nbsp;&nbsp;&#8203;Ambiguities in the ASCII notation are disambiguated with the dash/hyphen "-" (e.g. "dy-a" (d́a) vs. "d-ya" (dya)).&#8203;&nbsp;&nbsp;&#8203;Polyphthongs carry a single overarching tone, which is marked with a diacritic on the last vowel.&#8203;&nbsp;&nbsp;&#8203;The mid tone is unmarked, but when it becomes necessary to orhographically separate it from an adjacent vowel with its own tone, it is marked with the vertical line ◌̍. The letter "i" keeps its <abbr title="The dot over the lowercase I or J">tittle</abbr> under a tone diacritic (e.g. "i̇̌") unless vertical space limitations necessitate its omission.<br/>
+						<span class="indent" id="qtwOrthographyFootnote1"><sup><a href="#qtwOrthographyFootnote1Note">1</a></sup> <i>The Cyrillic orthography was created by someone on the Internet and intended as a joke/sh**post, and is only used humorously and extremely rarely. The palochka Ӏ/ӏ would be used, but as it is visually caseless, the latin I and dotless ı are used as uppercase and lowercase.</i></span><br/>
 						<span class="indent" id="qtwOrthographyFootnote2"><sup><a href="#qtwOrthographyFootnote2Note">2</a></sup> <i>The Khmer orthography uses ◌៑ as a virama, which is used to suppress the vowel in syllable-final consonants.&#8203;&nbsp;&nbsp;&#8203;It also uses the subscript forms ្ល, ្រ, ្វ, and ្យ to represent the medials [l], [r], [w], and [j]. Its inherent vowel is [e], which is unmarked. Western-style punctuation marks are sometimes used, but traditional Khmer punctuation are also used (mainly ។ as a period and ៕ to mark the end of a text).</i></span><br/>
 						</p>
 					</main>
@@ -1828,7 +1979,7 @@
 					<script id="qtwDataTable">
 			qtwSourceData = [
 				{ part: 'adverb, pronoun', qtw: 'lyaw', eng: 'who, (an unknown person)', etym: 'Related to "wwaiw"' },
-				{ part: 'adverb, pronoun', qtw: 'gla\'', eng: 'what, (an unknown thing)', etym: 'Related to "ga̠\'"' },
+				{ part: 'adverb, pronoun', qtw: 'glaq', eng: 'what, (an unknown thing)', etym: 'Related to "ga̠q"' },
 				{ part: 'adverb, pronoun', qtw: 'dlwe', eng: 'how (in terms of manner/means), (an unknown process)' },
 				{ part: 'adverb, pronoun', qtw: 'd̀an', eng: 'how (in terms of state), (an unknown state)' },
 				{ part: 'pronoun', qtw: 'cain', eng: 'I, me', extra: 'Can sometimes be dropped' },
@@ -1877,7 +2028,7 @@
 				{ part: 'noun', qtw: 'plim', eng: 'limestone' },
 				{ part: 'noun', qtw: 'wam', eng: 'andesite' },
 				{ part: 'noun', qtw: 'siop', eng: 'dacite' },
-				{ part: 'noun', qtw: '\'ii̇̄', eng: 'shale' },
+				{ part: 'noun', qtw: 'qii̇̄', eng: 'shale' },
 				{ part: 'noun, adverb, pronoun', qtw: 'lweń', eng: 'reason; why, (an unknown reason)' },
 				{ part: 'noun, verb', qtw: 'bak', eng: 'sand, sediment; to apply sand' },
 				{ part: 'noun', qtw: 'dol', eng: 'beach, sandy shore' },
@@ -1888,7 +2039,7 @@
 				{ part: 'noun', qtw: 'byik', eng: 'quicksand' },
 				{ part: 'noun', qtw: 'ce', eng: 'clay' },
 				{ part: 'noun', qtw: 'čup', eng: 'brick' },
-				{ part: 'noun', qtw: '\'am', eng: 'rock crystal, gem' },
+				{ part: 'noun', qtw: 'qam', eng: 'rock crystal, gem' },
 				{ part: 'noun', qtw: 'd́aa', eng: 'jade' },
 				{ part: 'noun', qtw: 'ton̏', eng: 'amethyst' },
 				{ part: 'noun', qtw: 'laēp', eng: 'pearl' },
@@ -1900,7 +2051,7 @@
 				{ part: 'noun', qtw: 'pu̇i̇᷄', eng: 'zircon', etym: 'From Khmer "ពេជ្រថៃ" as "pu̇k̰̋t̃ai"' },
 				{ part: 'noun, verb', qtw: 'cuec', eng: 'fire; to burn, to be on fire, to ignite/set on fire', extra: 'The chemical reaction, in general' },
 				{ part: 'noun, verb', qtw: 'cwol', eng: 'explosion, to explode' },
-				{ part: 'noun, verb', qtw: 'fwēc', eng: 'fire; to be burning in a large fire, to commit arson', extra: 'In the context of a disaster such as a building or forest fire', etym: 'From "fwá\' cuec"' },
+				{ part: 'noun, verb', qtw: 'fwēc', eng: 'fire; to be burning in a large fire, to commit arson', extra: 'In the context of a disaster such as a building or forest fire', etym: 'From "fwáq cuec"' },
 				{ part: 'noun', qtw: 'cyic', eng: 'lava' },
 				{ part: 'noun', qtw: 'cya᷄p', eng: 'igneous rock', etym: 'From "cyic seāp"' },
 				{ part: 'noun', qtw: 'bea᷄p', eng: 'sedimentary rock', etym: 'From "bak seāp"' },
@@ -1908,7 +2059,7 @@
 				{ part: 'noun, verb', qtw: 'cu̠̇c', eng: 'smoke; to apply smoke, to emit smoke' },
 				{ part: 'noun, verb', qtw: 'f̌en', eng: 'water, to wet with water' },
 				{ part: 'noun, verb', qtw: 'nen', eng: 'wave (especially of the sea), to oscillate or emit waves' },
-				{ part: 'noun', qtw: 'fwaên', eng: 'tsunami, large wave', etym: 'From "fwá\' nen"' },
+				{ part: 'noun', qtw: 'fwaên', eng: 'tsunami, large wave', etym: 'From "fwáq nen"' },
 				{ part: 'noun, verb', qtw: 'f̌ōt', eng: 'steam, to apply steam', etym: 'From "f̌en neuť"' },
 				{ part: 'noun, verb', qtw: 'ťèn', eng: 'rain, to rain', etym: 'From "nwat f̌en"' },
 				{ part: 'noun', qtw: 'f̌wan', eng: 'sea, ocean' },
@@ -1935,7 +2086,7 @@
 				{ part: 'noun', qtw: 'lwu̇d̰́', eng: 'light blue, azure, sky blue' },
 				{ part: 'noun', qtw: 'nwük̰̋', eng: 'purple' },
 				{ part: 'noun', qtw: 'lam', eng: 'glass' },
-				{ part: 'noun', qtw: 'n̏ü\'', eng: 'yellow' },
+				{ part: 'noun', qtw: 'n̏üq', eng: 'yellow' },
 				{ part: 'noun', qtw: 'cük', eng: 'orange (color)' },
 				{ part: 'noun', qtw: 'n̏ik', eng: 'white' },
 				{ part: 'noun', qtw: 'n̏uk', eng: 'black' },
@@ -1960,9 +2111,9 @@
 				{ part: 'noun', qtw: 't̃wëǜn', eng: 'fruit', etym: 'From "t̃wë mü̠f f̌en"' },
 				{ part: 'noun', qtw: 'l̃al', eng: 'cherry' },
 				{ part: 'noun', qtw: 't̃i', eng: 'carrot' },
-				{ part: 'noun', qtw: 'paom', eng: 'apple', etym: 'From Khmer' },
+				{ part: 'noun', qtw: 'paom', eng: 'apple', etym: 'From French "pomme" through Khmer "ប៉ុម"' },
 				{ part: 'noun', qtw: 'cwün', eng: 'orange (fruit)' },
-				{ part: 'noun', qtw: 'fu̇ez', eng: 'strawberry', etym: 'From Haitian Creole' },
+				{ part: 'noun', qtw: 'fu̇ez', eng: 'strawberry', etym: 'From Haitian Creole "frèz"' },
 				{ part: 'noun', qtw: 'uk', eng: 'coconut' },
 				{ part: 'noun', qtw: 'pip', eng: 'grape' },
 				{ part: 'noun', qtw: 'plim', eng: 'crushed grapes', etym: 'From "pip plem"' },
@@ -1973,13 +2124,13 @@
 				{ part: 'noun', qtw: 'n̏uen', eng: '(A form of red wine with extra grape skins added, resulting in a very dark color and extremely bold flavor)', etym: 'From "n̏uk plen", lit. "black wine"' },
 				{ part: 'noun', qtw: 'f̌lyu̇y', eng: 'cream of tartar/potassium bitartrate', etym: 'From "f̌lip du̇y"' },
 				{ part: 'noun', qtw: 'fu̠n̏', eng: 'iron, (historical) meteoric iron', etym: '/pʰ/ (retroactively romanized "p̃") used to exist, but merged into f /f/; this merger has affected the word "fun̏", which was previously "p̃un̏"' },
-				{ part: 'noun', qtw: 'n̏üf', eng: 'rust' },
+				{ part: 'noun', qtw: 'ɣ̋üf', eng: 'rust' },
 				{ part: 'noun', qtw: 'fe̠n̏', eng: 'metal', extra: 'In general', etym: 'Affected by the p̃-f merger. Related to "fu̠n̏".' },
 				{ part: 'noun', qtw: 'pǜn̏', eng: 'steel', etym: 'From "pei mü̠f fu̠n̏"' },
 				{ part: 'noun', qtw: 'čai mü̠f pǜn̏', eng: 'steel cube', etym: 'From "pei mü̠f fu̠n̏"' },
 				{ part: 'noun', qtw: 'tum', eng: 'seashell' },
-				{ part: 'noun', qtw: '\'aiet', eng: 'a machine used for manufacturing', etym: 'From "\'aik ket"' },
-				{ part: 'noun', qtw: '\'aiôn', eng: 'factory', etym: 'From "\'aiet fwaôn"' },
+				{ part: 'noun', qtw: 'qaiet', eng: 'a machine used for manufacturing', etym: 'From "qaik ket"' },
+				{ part: 'noun', qtw: 'qaiôn', eng: 'factory', etym: 'From "qaiet fwaôn"' },
 				{ part: 'noun', qtw: 'mii̇̄p', eng: 'money, (historical) seashell' },
 				{ part: 'noun, verb', qtw: 'yun', eng: 'work, to work' },
 				{ part: 'noun, verb', qtw: 'yuek', eng: 'employment', etym: 'From "yun ček"' },
@@ -1989,7 +2140,7 @@
 				{ part: 'noun', qtw: 'ywôp', eng: 'wage-hour (an hour\'s wages)', etym: 'From "ywel yüôp"' },
 				{ part: 'noun', qtw: 'miùn', eng: 'economy', etym: 'From "mii̇̄p f̌won"' },
 				{ part: 'noun', qtw: 'miǒp', eng: 'economic sector, an industry', etym: 'From "miùn dwop"' },
-				{ part: 'noun', qtw: '\'aiǒp', eng: 'the manufacturing sector, industry (especially the manufacturing industry)', etym: 'From "\'aik miǒp"' },
+				{ part: 'noun', qtw: 'qaiǒp', eng: 'the manufacturing sector, industry (especially the manufacturing industry)', etym: 'From "qaik miǒp"' },
 				{ part: 'noun', qtw: 'ťwaun', eng: 'market (a system of trading for goods), commerce (the trade of goods and, in this context, services)', etym: 'From "ťwaiw yaun"' },
 				{ part: 'noun', qtw: 'wan', eng: 'a straight rod or stick, a long object (regardless of straightness)', extra: 'Usually cylindrical, but can also refer to other shapes (usually squares)' },
 				{ part: 'noun', qtw: 'wak', eng: 'square' },
@@ -2000,7 +2151,7 @@
 				{ part: 'noun', qtw: 'n̏auk', eng: 'signboard, sign', etym: 'From "n̏ap nauk"' },
 				{ part: 'noun', qtw: 'kwauk', eng: 'license plate, number plate', etym: 'From "kwëw ťa n̏auk"' },
 				{ part: 'noun', qtw: 'won', eng: 'circle' },
-				{ part: 'noun', qtw: 'woà\'', eng: 'ring', etym: 'From "won ga̠\'"' },
+				{ part: 'noun', qtw: 'woàq', eng: 'ring', etym: 'From "won ga̠q"' },
 				{ part: 'noun', qtw: 'fu̇᷅n', eng: 'dot', etym: 'from "fu̇̄p won"' },
 				{ part: 'noun', qtw: 'waik', eng: 'cube, rectangular prism' },
 				{ part: 'noun, verb', qtw: 'dep', eng: 'basket, container, bin, chest, (historical) storage hole; to contain, to keep in', extra: 'Not necessarily formal-sounding like the English word' },
@@ -2012,14 +2163,15 @@
 				{ part: 'noun', qtw: 'g̋wim', eng: 'bone' },
 				{ part: 'noun', qtw: 'dek', eng: 'containment', etym: 'From "dep ček"' },
 				{ part: 'noun', qtw: 'piep', eng: 'bowl, plate', etym: 'From "pin̏ dep"' },
+				{ part: 'noun', qtw: 'k̰̋iep', eng: 'cup, drinking glass', etym: 'From "k̰̋ie dep"' },
 				{ part: 'noun', qtw: 'waip', eng: 'box, square bin', etym: 'From "wak dep"' },
 				{ part: 'noun', qtw: 'k̰̋iot', eng: 'bottle', etym: 'From "k̰̋ie nwot"' },
 				{ part: 'noun', qtw: 'dwop', eng: 'part, piece, parts, pieces, element (of a set or thing), elements' },
-				{ part: 'noun', qtw: 'ga̠\'', eng: '[property] thing, that which, (inanimate agentive suffix)', extra: '"mü̠f" is not necessary with "ga̠\'".' },
-				{ part: 'noun', qtw: 'myà\'', eng: 'goods, merchandise', etym: 'From "mii̇̄p ga̠\'"' },
-				{ part: 'noun', qtw: 'myai̇̀f', eng: 'a store, a shop, a marketplace', etym: 'From "myà\' kai̠f"' },
-				{ part: 'noun', qtw: 'yuâ\'', eng: 'a service', etym: 'From "yun myà\'"' },
-				{ part: 'noun', qtw: 'ga', eng: 'group, collection', etym: 'Unrelated to "ga̠\'"' },
+				{ part: 'noun', qtw: 'ga̠q', eng: '[property] thing, that which, (inanimate agentive suffix)', extra: '"mü̠f" is not necessary with "ga̠q".' },
+				{ part: 'noun', qtw: 'myàq', eng: 'goods, merchandise', etym: 'From "mii̇̄p ga̠q"' },
+				{ part: 'noun', qtw: 'myai̇̀f', eng: 'a store, a shop, a marketplace', etym: 'From "myàq kai̠f"' },
+				{ part: 'noun', qtw: 'yuâq', eng: 'a service', etym: 'From "yun myàq"' },
+				{ part: 'noun', qtw: 'ga', eng: 'group, collection', etym: 'Unrelated to "ga̠q"' },
 				{ part: 'noun', qtw: 'leim', eng: 'system, procedure' },
 				{ part: 'noun', qtw: 'vǚm', eng: 'ideology', etym: 'From "vaek mü̠f leim"' },
 				{ part: 'noun', qtw: 't̃yǘm', eng: 'religion', etym: 'From "t̃yëy vǚm"' },
@@ -2047,15 +2199,15 @@
 				{ part: 'noun', qtw: 'l̃aë̌y', eng: "eleven times", etym: 'From "l̃ak̃ dyë̂y"' },
 				{ part: 'noun', qtw: 'goë̌y', eng: "twelve times", etym: 'From "gok̃ dyë̂y"' },
 				{ part: 'noun', qtw: 'ťyain dyë̂y', eng: "thirteen times" },
-				{ part: 'noun', qtw: 'n̏ük', eng: 'paper', etym: 'From "n̏ü\' wak". "n̏ü\'" (yellow) is present because the Twanthainese had access to ancient paper.', extra: 'Despite this, the word remains in use even as modern paper is white. However, "n̏yak", from "n̏ik wak", is gaining popularity in recent times.' },
+				{ part: 'noun', qtw: 'n̏ük', eng: 'paper', etym: 'From "n̏üq wak". "n̏üq" (yellow) is present because the Twanthainese had access to ancient paper.', extra: 'Despite this, the word remains in use even as modern paper is white. However, "n̏yak", from "n̏ik wak", is gaining popularity in recent times.' },
 				{ part: 'noun', qtw: 'miùk', eng: 'banknote, paper money, dollar bill, (metonymically) money', etym: 'From "mii̇̄p n̏ük"' },
 				{ part: 'noun', qtw: 'n̏yak', eng: 'paper (synonym of "n̏ük")' },
-				{ part: 'noun', qtw: 'n̏an', eng: 'picture, image, painting', etym: 'From "n̏ü\' wak nain"' },
+				{ part: 'noun', qtw: 'n̏an', eng: 'picture, image, painting', etym: 'From "n̏üq wak nain"' },
 				{ part: 'noun', qtw: 'kwoan', eng: 'video, movie/motion picture, animation', etym: 'From "kwon n̏an"' },
 				{ part: 'noun', qtw: 'knwoan', eng: 'a frame or a still (of/from a video)', etym: 'From "kwoan n̏an"' },
-				{ part: 'noun', qtw: 'mim', eng: 'meme', etym: 'From English' },
-				{ part: 'noun', qtw: 'logo', eng: 'logo', etym: 'From English' },
-				{ part: 'noun', qtw: 'čat', eng: 'a chat', etym: 'From English' },
+				{ part: 'noun', qtw: 'miim', eng: 'meme', etym: 'From English' },
+				{ part: 'noun', qtw: 'lougou', eng: 'logo', etym: 'From English' },
+				{ part: 'noun', qtw: 'čeat', eng: 'a chat', etym: 'From English' },
 				{ part: 'noun', qtw: 'baip', eng: 'sandbox', etym: 'From "bak waip", a calque of "sand + box"' },
 				{ part: 'noun', qtw: 'n̏aop', eng: 'pixel', etym: 'From "n̏an dwop", a calque of "pictures + element"; however, "piksel" has been slowly gaining popularity' },
 				{ part: 'noun', qtw: 'Baiop', eng: 'Sandboxels', eng_href: 'https://sandboxels.R74n.com/', html_title: 'Not sponsored, I just like the game', etym: 'Calqued portmanteau of "sandbox + pixels" as "baip + n̏aop"' },
@@ -2138,11 +2290,11 @@
 				{ part: 'noun', qtw: 'yon', eng: 'body (especially the human body)' },
 				{ part: 'noun', qtw: 'two', eng: 'leader', etym: 'From "ťwaiw waw"' },
 				{ part: 'noun', qtw: 'fa᷅w', eng: 'child', etym: 'From "fu̇̄p wwaiw"' },
-				{ part: 'noun', qtw: '\'aiw', eng: 'adult, grown-up', etym: 'From "fwai\' wwaiw"' },
+				{ part: 'noun', qtw: 'qaiw', eng: 'adult, grown-up', etym: 'From "fwaiq wwaiw"' },
 				{ part: 'noun', qtw: 'k̰̋yaw', eng: 'boy', etym: 'From "k̰̋in faw"' },
 				{ part: 'noun', qtw: 'jeuw', eng: 'girl', etym: 'From "jet faw"' },
-				{ part: 'noun', qtw: 'k̰̋yaiw', eng: 'man', etym: 'From "k̰̋in \'aiw"' },
-				{ part: 'noun', qtw: '\'eut', eng: 'woman', etym: 'From "jet \'aiw"' },
+				{ part: 'noun', qtw: 'k̰̋yaiw', eng: 'man', etym: 'From "k̰̋in qaiw"' },
+				{ part: 'noun', qtw: 'qeut', eng: 'woman', etym: 'From "jet qaiw"' },
 				{ part: 'noun', qtw: 'mam', eng: 'mother' },
 				{ part: 'noun', qtw: 'maw', eng: 'mommy', extra: 'Intimate/Term of endearment' },
 				{ part: 'noun', qtw: 'bab', eng: 'father', extra: 'Still pronounced as "bap" nowadays' },
@@ -2234,45 +2386,50 @@
 				{ part: 'noun', qtw: 'kwu̇n', eng: 'vehicular road, street', etym: 'From "kwëw tu̇n"' },
 				{ part: 'noun', qtw: 'kau̇᷈n', eng: 'street (road surrounded by houses)', etym: 'From "kai̠f kwu̇n"' },
 				{ part: 'noun', qtw: 'kwu̇ap', eng: 'sidewalk', etym: 'From "kwu̇n kap"' },
-				{ part: 'noun', qtw: 'fwu̇̂n', eng: 'freeway, highway', etym: 'From "fwá\' kwu̇n"' },
-				{ part: 'noun/verb/adjective', qtw: '\'wē', eng: 'health, healthy, to heal' },
+				{ part: 'noun', qtw: 'fwu̇̂n', eng: 'freeway, highway', etym: 'From "fwáq kwu̇n"' },
+				{ part: 'noun/verb/adjective', qtw: 'qwē', eng: 'health, healthy, to heal' },
 				{ part: 'noun, verb', qtw: 'baok', eng: 'welfare, government aid', etym: 'From "bat t̃ok"' },
-				{ part: 'noun, verb', qtw: '\'wiā', eng: 'safety; to keep safe, to safeguard', etym: 'Related to "\'wē"' },
+				{ part: 'noun, verb', qtw: 'qwiā', eng: 'safety; to keep safe, to safeguard', etym: 'Related to "qwē"' },
 				{ part: 'noun, verb', qtw: 'ḱoùn', eng: 'danger (in the uncountable sense), a hazard or dangerous thing (in the countable sense); to endanger, to post a risk to' },
 				{ part: 'noun, verb', qtw: 'fu̇oûn', eng: 'emergency', etym: 'From "fu̇k ḱoùn"' },
 				{ part: 'noun, verb', qtw: 'laim', eng: 'defense, security, protection; to defend, to keep secure, to protect' }, //secure, contain, protect = laim, dep, 'wiā; delay, deny, defend = g̋lyau, dyo᷅t, laim
 				{ part: 'noun', qtw: 'ḱoë᷅y', eng: 'incident (in the negative sense)', etym: 'From "ḱoùn či̇ë᷅y"' },
-				{ part: 'noun/adjective', qtw: '\'ëp', eng: 'accident, accidental' },
-				{ part: 'noun', qtw: '\'wai̇̀f', eng: 'hospital', etym: 'From "\'wē kai̠f"' },
-				{ part: 'noun', qtw: 'wwai̇᷅f', eng: 'doctor', etym: 'From "\'wai̇̀f wwaiw"' },
+				{ part: 'noun/adjective', qtw: 'qëp', eng: 'accident, accidental' },
+				{ part: 'noun', qtw: 'qwai̇̀f', eng: 'hospital', etym: 'From "qwē kai̠f"' },
+				{ part: 'noun', qtw: 'wwai̇᷅f', eng: 'doctor', etym: 'From "qwai̇̀f wwaiw"' },
 				{ part: 'noun', qtw: 'twai̇᷅f', eng: 'psychiatrist', etym: 'From "top wwai̇᷅f"' },
-				{ part: 'noun', qtw: '\'weu᷅p', eng: 'medication', etym: 'From "\'wē bop"' },
-				{ part: 'noun', qtw: 'fweu᷅p', eng: 'pill (including capsules, tablets, caplets, gel capsules, etc.)', etym: 'From "fu̇̄p \'weup dep"' },
-				{ part: 'noun', qtw: '\'wei̇̚f', eng: 'drugstore, pharmacy', etym: 'From "\'weup kai̠f"' },
+				{ part: 'noun', qtw: 'qweu᷅p', eng: 'medication', etym: 'From "qwē bop"' },
+				{ part: 'noun', qtw: 'fweu᷅p', eng: 'pill (including capsules, tablets, caplets, gel capsules, etc.)', etym: 'From "fu̇̄p qweup dep"' },
+				{ part: 'noun', qtw: 'qwei̇̚f', eng: 'drugstore, pharmacy', etym: 'From "qweup kai̠f"' },
 				{ part: 'noun', qtw: 'düek', eng: 'ability', etym: 'From "dün̏ ček"' },
-				{ part: 'noun', qtw: 'düep', eng: 'permission', etym: 'From "düek \'op"' },
+				{ part: 'noun', qtw: 'düep', eng: 'permission', etym: 'From "düek qop"' },
 				{ part: 'noun', qtw: 'bauep', eng: 'visa (permit to enter a given country)', etym: 'From "ban̏ mweń düep"' },
-				{ part: 'noun', qtw: 'baiêz', eng: 'to deport (to send back to one\'s country of origin), deportation', etym: 'From "ban̏ g̋ay dye᷅z"' },
-				{ part: 'noun', qtw: '\'weüep', eng: 'prescription (of a medication)', etym: 'From "\'weup düep"' },
+				{ part: 'noun', qtw: 'baiêz', eng: 'to deport (to send back to oneqs country of origin), deportation', etym: 'From "ban̏ g̋ay dye᷅z"' },
+				{ part: 'noun', qtw: 'qweüep', eng: 'prescription (of a medication)', etym: 'From "qweup düep"' },
 				{ part: 'noun', qtw: 'fwaôn', eng: 'building (especially a large one); facility' },
 				{ part: 'noun', qtw: 'fwaôn̏', eng: 'building complex', etym: 'From "fwaôn ga"' },
 				{ part: 'noun', qtw: 'nwaon', eng: 'skyscraper' },
 				{ part: 'noun', qtw: 'kai̠n̏', eng: 'village' },
-				{ part: 'noun', qtw: 'f̌wai̇̂n̏', eng: 'town', etym: 'From "fwá\' kai̠n̏"'},
-				{ part: 'noun', qtw: '\'wán̏', eng: 'city', etym: 'From "fwá\' f̌wai̇̂n̏"'},
-				{ part: 'noun', qtw: 'dwa᷄n̏', eng: 'capital', etym: 'From "dan \'wán̏"'},
-				{ part: 'noun', qtw: 'fwǎn̏', eng: 'large city, metropolis', etym: 'From "fwá\' \'wán̏"' },
+				{ part: 'noun', qtw: 'f̌wai̇̂n̏', eng: 'town', etym: 'From "fwáq kai̠n̏"'},
+				{ part: 'noun', qtw: 'qwán̏', eng: 'city', etym: 'From "fwáq f̌wai̇̂n̏"'},
+				{ part: 'noun', qtw: 'dwa᷄n̏', eng: 'capital', etym: 'From "dan qwán̏"'},
+				{ part: 'noun', qtw: 'fwǎn̏', eng: 'large city, metropolis', etym: 'From "fwáq qwán̏"' },
 				{ part: 'noun', qtw: 'si̇̌f', eng: 'school', etym: 'From "syek mü̠f kai̠f"' },
 				{ part: 'noun', qtw: 'si̇̌ag̃', eng: 'school district', etym: 'From "si̇̌f ga"' },
-				{ part: 'noun', qtw: 'fwai̇̂f', eng: 'longhouse, apartment building', etym: 'From "fwá\' kai̠f"' },
+				{ part: 'noun', qtw: 'fwai̇̂f', eng: 'longhouse, apartment building', etym: 'From "fwáq kai̠f"' },
 				{ part: 'noun', qtw: 'fwai̇ôn̏', eng: 'apartment complex', etym: 'From "fwai̇̂f fwaôn̏"' },
-				{ part: 'noun', qtw: 'fwâs', eng: 'college, university', etym: 'From "fwá\' sif"' },
+				{ part: 'noun', qtw: 'fwâs', eng: 'college, university', etym: 'From "fwáq sif"' },
 				{ part: 'noun', qtw: 'fwâk', eng: 'collegiate university', etym: 'From "fwâs ga"' },
 				{ part: 'noun', qtw: 'fwaôp', eng: 'constituent college (of a collegiate university)', etym: 'From "fwâk dwop"' },
 				{ part: 'noun, verb', qtw: 'gaek', eng: 'emotion, an emotion, feelings; to feel' },
 				{ part: 'noun, verb', qtw: 'vaek', eng: 'thoughts, a thought, thinking; to think' },
+				{ part: 'adjective', qtw: 'zyaa̠k̰̋', eng: 'factually correct' },
+				{ part: 'adjective', qtw: 'dyàk̰̋', eng: 'factually incorrect', etym: 'From "dyōw zyaa̠k̰̋"' },
+				{ part: 'noun, adjective, adverb', qtw: 'dlwi̇᷅', eng: 'reality, real, really (both "pertaining to reality" and as an intensifier)', etym: 'A similar shift in meaning happened as with the English "really"' },
+				{ part: 'noun, verb, adjective', qtw: 'dlwàk̰̋', eng: 'truth, true, to tell the truth', etym: 'From "dlwi̇᷅ zyaa̠k̰̋"', extra: 'Intransitive as a verb' },
+				{ part: 'noun, verb, adjective', qtw: 'd́wàk̰̋', eng: 'lie, falsehood, untruth, disinformation; untrue, false; lie', etym: 'From "dyōw dlwàk̰̋"', extra: 'Intransitive as a verb' },
 				{ part: 'noun, verb', qtw: 'preām', eng: 'imagination, to imagine' },
-				{ part: 'noun, verb', qtw: 'ť̰aan', eng: 'pretending, to pretend' },
+				{ part: 'noun, verb', qtw: 'ť̰aan', eng: 'fiction, pretending (an instance of pretending); to pretend' },
 				{ part: 'noun, verb', qtw: 'plyām', eng: 'imitation, simulation, emulation, mimicry; to imitate, to simulate, to emulate; to mimic, to act like (something)' },
 				{ part: 'noun, verb', qtw: 't̀wëén', eng: 'copying, cloning, duplication; a copy, a clone, a duplicate; to copy, to clone, to duplicate' },
 				{ part: 'noun', qtw: 'pwak', eng: 'door' },
@@ -2328,13 +2485,13 @@
 				{ part: 'noun', qtw: 'daëj', eng: 'neurology, neurobiology, neuroscience (as they pertain to the brain)', etym: 'From "daëk ju"' },
 				{ part: 'noun', qtw: 'topj', eng: 'psychology', etym: 'From "top ju"' },
 				{ part: 'noun', qtw: 'myij', eng: 'optometry, ophthamology', etym: 'From "myin ju"' },
-				{ part: 'noun', qtw: '\'wej', eng: 'medicine (practice or field of study)', etym: 'From "\'we ju"' },
+				{ part: 'noun', qtw: 'qwej', eng: 'medicine (practice or field of study)', etym: 'From "qwe ju"' },
 				{ part: 'noun', qtw: 'yoj', eng: 'anatomy', etym: 'From "yon ju"' },
 				{ part: 'noun', qtw: 'cyek', eng: 'a cut', etym: 'From "sye ček"' },
 				{ part: 'noun', qtw: 'yoek', eng: 'cut (in a body); laceration; incision', etym: 'From "yon cyek"' },
 				{ part: 'noun', qtw: 'yoej', eng: 'surgery (practice or field of study)', etym: 'From "yoek ju"' },
 				{ part: 'noun', qtw: 'f̌woj', eng: 'fluid mechanics, rheology', etym: 'From "f̌won ju"' },
-				{ part: 'noun', qtw: 'fwaûj', eng: 'macroeconomics', etym: 'From "fwá\' yaun ju"' },
+				{ part: 'noun', qtw: 'fwaûj', eng: 'macroeconomics', etym: 'From "fwáq yaun ju"' },
 				{ part: 'noun', qtw: 'fu̇au᷅j', eng: 'microeconomics', etym: 'From "fu̇̄p yaun ju"' },
 				{ part: 'noun', qtw: 'l̃i̇́n', eng: 'hand' },
 				{ part: 'noun', qtw: 'piol', eng: 'finger' },
@@ -2356,7 +2513,7 @@
 				{ part: 'noun', qtw: 'l̃aio᷅p', eng: '22.5 angular degrees', etym: 'From "l̃aiam yo᷅p"' },
 				{ part: 'noun', qtw: 't̃oao᷅p', eng: '11.25 angular degrees', etym: 'From "t̃oam yo᷅p"' },
 				{ part: 'noun', qtw: 'ťeǒp', eng: '0.3515625 angular degrees', extra: 'From "ťeam ie᷅n̏ io᷅t dwop", referring to 32 divisions of a compass each being split into 32 subdivisions (32 squared, or 1,024)' },
-				{ part: 'noun', qtw: 'k̰̋i̇àn̏', eng: 'mirror, reflector', etym: 'From "k̰̋i̇̄ ga̠\'"' },
+				{ part: 'noun', qtw: 'k̰̋i̇àn̏', eng: 'mirror, reflector', etym: 'From "k̰̋i̇̄ ga̠q"' },
 				{ part: 'noun', qtw: 'k̰̋ao᷅t', eng: 'octant', etym: 'From "k̰̋i̇àn̏ bwon ket"' },
 				{ part: 'noun', qtw: 'nwaop', eng: 'a large branch, especially one connected to the trunk of a tree', etym: 'From "nwaw dwop"' },
 				{ part: 'noun', qtw: 'bap', eng: 'grain of sand', etym: 'From "bak dwop"' },
@@ -2370,7 +2527,7 @@
 				{ part: 'noun', qtw: 't̀ei̇̂p', eng: 'cubit', etym: 'From "t̀ei̇́ jyeo᷅p", lit. "arm unit"', extra: 'Now standardized in Twanthain at 69.3cm' },
 				{ part: 'noun', qtw: 'baôp', eng: 'grain-of-sand unit (a Twanthainese traditional unit of length now standardized at 0.5mm)', etym: 'From "bap jyeo᷅p"' },
 				{ part: 'noun', qtw: 'nwaûp', eng: 'tree unit (a Twanthainese traditional unit of length now standardized at 10.5m)', etym: 'From "nwaw jyeo᷅p"' },
-				{ part: 'noun', qtw: 'fwaûp', eng: 'large tree unit (a Twanthainese traditional unit of length now standardized at 31m)', etym: 'From "fwa\' nwaw jyeo᷅p"' },
+				{ part: 'noun', qtw: 'fwaûp', eng: 'large tree unit (a Twanthainese traditional unit of length now standardized at 31m)', etym: 'From "fwaq nwaw jyeo᷅p"' },
 				{ part: 'noun', qtw: 'nwë̂p', eng: 'horizon unit (a Twanthainese traditional unit of length now standardized at 4.8km)', etym: 'From "nwën̏ jyeo᷅p"' },
 				{ part: 'noun', qtw: 'tnwop', eng: 'mountain horizon unit (a Twanthainese traditional unit of length now standardized at 210km)', etym: 'From "tńwan̏ nwën̏ jyeo᷅p"' },
 				{ part: 'noun', qtw: 'gao᷅p', eng: 'island unit (a Twanthainese traditional unit of length now standardized at 1Mm)', etym: 'From "gan jyeo᷅p"', extra: 'Derived from a measurement of the north-south length of Twanthain\'s main island' },
@@ -2403,28 +2560,28 @@
 				{ part: 'noun', qtw: 'püi̇̌č', eng: 'steel-cubic-cubit (2,662.4 kilograms)', etym: 'From "pǜn̏ t̀ei̇̂č"', extra: 'A heavier unit for really heavy stuff' },
 				{ part: 'noun', qtw: 'f̌ao᷄č', eng: 'water-cubic-large-branch-unit (22,744 kg); a f*** ton', etym: 'From "f̌en nwaôč"', extra: 'A heavier unit for heavier stuff (often massive quantities of water)' },
 				{ part: 'noun', qtw: 'n̏ao᷄č', eng: 'gold-cubic-island-unit (19.32 Yg); a nuclear f*** ton', etym: 'From "n̏wop gao᷅č"', extra: 'An impractically large unit, mostly used as a hyperbole. It was once used to convey mass estimates of celestial bodies. It is equivalent to 0.263 lunar masses.' },
-				{ part: 'noun', qtw: 'k̃loan̏', eng: 'clong (humorous slang for a conlang)', etym: 'From English', extra: '"ខ្លុឰង៑" in the Khmer script' },
+				{ part: 'noun', qtw: 'k̃loaan̏', eng: 'clong (humorous slang for a conlang)', etym: 'From English', extra: '"ខ្លុឰឰង៑" in the Khmer script' },
 				{ part: 'noun', qtw: 'fu̇a᷅p', eng: 'small water-glass unit (a Twanthainese traditional unit of time now standardized at 30.8 s)', etym: 'From "fu̇̄p f̌eam jyeo᷅p"' },
-				{ part: 'noun', qtw: 'fweâp', eng: 'big water-glass unit (a Twanthainese traditional unit of time now standardized at 246.4 s)', etym: 'From "fwá\' f̌eam jyeo᷅p"' },
+				{ part: 'noun', qtw: 'fweâp', eng: 'big water-glass unit (a Twanthainese traditional unit of time now standardized at 246.4 s)', etym: 'From "fwáq f̌eam jyeo᷅p"' },
 				{ part: 'noun', qtw: 'tëek', eng: 'normality, the usual, status quo', etym: 'From "tëi ček"' },
 				{ part: 'noun', qtw: 'myao᷅n', eng: 'agreement, accord, concord; alignment (physical or metaphorical)' },
 				{ part: 'noun', qtw: 'tëao᷅n̏', eng: 'standard', etym: 'From "tëek myao᷅n"' },
 				{ part: 'noun', qtw: 'ťa', eng: 'number, quantity' },
 				{ part: 'noun', qtw: 'gǎ', eng: 'variable', etym: 'From "gau̚f ťa"' },
 				{ part: 'noun', qtw: 'mea', eng: 'constant', etym: 'From "me ťa"' },
-				{ part: 'noun', qtw: 'bwoi̇᷄p', eng: 'gravity', etym: 'From "bwot \'i̇́p"' },
+				{ part: 'noun', qtw: 'bwoi̇᷄p', eng: 'gravity', etym: 'From "bwot qi̇́p"' },
 				{ part: 'noun', qtw: 'bwǒa', eng: 'gravitational constant', etym: 'From "bwoi̇᷄p mü̠f mea"' },
 				{ part: 'noun', qtw: 'woǎn̏', eng: 'radius (of a circle)', etym: 'From "won kwa ian ček"' },
 				{ part: 'noun', qtw: 'kwoǎn̏', eng: 'orbital radius', etym: 'From "wok kwa ian ček"' },
 				{ part: 'noun', qtw: 'bn̏oǎn̏', eng: 'astronomical unit', etym: 'From "bn̏ët kwoǎn̏"' },
 				{ part: 'noun', qtw: 'nwon wauk', eng: 'light-year', etym: 'Calque of English "light-year"' },
-				{ part: 'noun', qtw: 'mi\'', eng: 'sequence', etym: 'From the order of the letters in the Twanthainese alphabet' },
+				{ part: 'noun', qtw: 'miq', eng: 'sequence', etym: 'From the order of the letters in the Twanthainese alphabet' },
 				{ part: 'noun', qtw: 'ťaj', eng: 'arithmetic, mathematics/math/maths', etym: 'From "ťa ju"' },
 				{ part: 'noun', qtw: 'ťaet', eng: 'calculator', etym: 'From "ťaj ket"' },
 				{ part: 'noun', qtw: 'ťu̇᷅j', eng: 'arithmetic', etym: 'From "fu̇̄p ťa ju"' },
-				{ part: 'noun', qtw: 'ťwâj', eng: 'mathematics/math/maths (in general), but can still include arithmetic', etym: 'From "fwá\' ťa ju"' },
+				{ part: 'noun', qtw: 'ťwâj', eng: 'mathematics/math/maths (in general), but can still include arithmetic', etym: 'From "fwáq ťa ju"' },
 				{ part: 'noun', qtw: 'tlaim', eng: 'mathematical operation', etym: 'From "ťa leim"' },
-				{ part: 'noun', qtw: 'tlaim mi\'', eng: 'hyperoperation sequence', etym: 'From "ťa leim"' },
+				{ part: 'noun', qtw: 'tlaim miq', eng: 'hyperoperation sequence', etym: 'From "ťa leim"' },
 				{ part: 'noun', qtw: 'nǚm', eng: 'successor operation', etym: 'From "nai mü̠f tlaim"' },
 				{ part: 'noun', qtw: 'd́ai̇́m', eng: 'addition', etym: 'From "d́ei tlaim"' },
 				{ part: 'noun', qtw: 'čǚm', eng: 'subtraction', etym: 'From "čal mü̠f tlaim"' },
@@ -2434,33 +2591,33 @@
 				{ part: 'noun', qtw: 'čwai̇̂m', eng: 'tetration', etym: 'From "ču̇č člwaim"' },
 				{ part: 'noun', qtw: 'čwu̇᷅m', eng: 'pentation', etym: 'From "ču̇č čwaim"' },
 				{ part: 'noun', qtw: 'čwu̇č', eng: 'hexation', etym: 'From "ču̇č čwu̇m"' },
-				{ part: 'noun', qtw: 'fwu̇́č', eng: 'heptation', etym: 'From "fwá\' čwu̇č"' },
-				{ part: 'noun', qtw: 'fwau̇́č', eng: 'heptation', etym: 'From "fwá\' fwu̇č"' },
-				{ part: 'noun', qtw: 'fwau̇́\'', eng: 'octation', etym: 'From "fwá\' fwau̇č"' },
-				{ part: 'noun', qtw: 'čwau̇̂\'', eng: 'nonation', etym: 'From "ču̇č fwau̇\'"' },
-				{ part: 'noun', qtw: 'čwu̇̂\'', eng: 'decation', etym: 'From "ču̇č čwau̇\'"' },
-				{ part: 'noun', qtw: 'f̌wu̇̂\'', eng: 'undecation', etym: 'From "fwá\' čwu̇\'"' },
+				{ part: 'noun', qtw: 'fwu̇́č', eng: 'heptation', etym: 'From "fwáq čwu̇č"' },
+				{ part: 'noun', qtw: 'fwau̇́č', eng: 'heptation', etym: 'From "fwáq fwu̇č"' },
+				{ part: 'noun', qtw: 'fwau̇́q', eng: 'octation', etym: 'From "fwáq fwau̇č"' },
+				{ part: 'noun', qtw: 'čwau̇̂q', eng: 'nonation', etym: 'From "ču̇č fwau̇q"' },
+				{ part: 'noun', qtw: 'čwu̇̂q', eng: 'decation', etym: 'From "ču̇č čwau̇q"' },
+				{ part: 'noun', qtw: 'f̌wu̇̂q', eng: 'undecation', etym: 'From "fwáq čwu̇q"' },
 				{ part: 'noun', qtw: 'l̃ëam tlaim', eng: 'addition, hyper-1', etym: 'As the first hyperoperation', extra: 'Synonym of "d́aim"' },
 				{ part: 'noun', qtw: 'ťeam tlaim', eng: 'multiplication, hyper-2', extra: 'Synonym of "tlwaim"' },
 				{ part: 'noun', qtw: 'l̃aiam tlaim', eng: 'exponentiation, hyper-3', extra: 'Synonym of "člwaim"' },
 				{ part: 'noun', qtw: 't̃oam tlaim', eng: 'tetration, hyper-4', extra: 'Synonym of "čwaim"' },
 				{ part: 'noun', qtw: 'l̃üam tlaim', eng: 'pentation, hyper-5', extra: 'Synonym of "čwu̇m", and so on' },
-				{ part: 'noun', qtw: 'l̃am tlaim', eng: 'undecation, hyper-11', extra: 'Synonym of "f̌wu̇\'"' },
+				{ part: 'noun', qtw: 'l̃am tlaim', eng: 'undecation, hyper-11', extra: 'Synonym of "f̌wu̇q"' },
 				{ part: 'noun', qtw: 'goam tlaim', eng: 'dodecation, hyper-12' },
 				{ part: 'noun', qtw: 'ťyain ťyam tlaim', eng: 'tredecation, hyper-13' },
 				{ part: 'noun', qtw: 'ťyon ťyam tlaim', eng: 'tetradecation, hyper-14' },
 				{ part: 'noun', qtw: 'ťyüw ťyam tlaim', eng: 'pentadecation, hyper-15' },
 				{ part: 'noun', qtw: 'ťyop ťyam tlaim', eng: 'hexadecation, hyper-16', extra: 'And so on' },
 				{ part: 'noun', qtw: 'gugë̠l ťyam tlaim', eng: 'googol-ation, hyper-E100' },
-				{ part: 'noun', qtw: 'gulplek ťyam tlaim', eng: 'googolplex-ation, hyper-E100#2' },
+				{ part: 'noun', qtw: 'gūlple̠k ťyam tlaim', eng: 'googolplex-ation, hyper-E100#2' },
 				{ part: 'noun', qtw: 'nyit bop', eng: 'coolant, refrigerant' },
 				{ part: 'noun', qtw: 'baën̏', eng: 'national territory' },
 				{ part: 'noun', qtw: 'baëim', eng: 'expansionism (including irredentism)', etym: 'from "baën̏ nai (mü̠f) vǚm"' },
 				{ part: 'noun', qtw: 'baëj', eng: 'geopolitics (field of study)', etym: 'From "baën̏ ju"' },
-				{ part: 'noun', qtw: 'baum', eng: 'constitution', etym: 'From "ban̏ \'op leim"' },
+				{ part: 'noun', qtw: 'baum', eng: 'constitution', etym: 'From "ban̏ qop leim"' },
 				{ part: 'noun', qtw: 'Alabama', eng: 'Alabama', etym: 'A La Ba Ma' },
 				{ part: 'noun', qtw: 'Alabama kwa baum', eng: 'constitution of Alabama' },
-				{ part: 'noun', qtw: 'twêl', eng: 'declaration of independence', etym: 'From "twa\' ček dye᷅l"' },
+				{ part: 'noun', qtw: 'twêl', eng: 'declaration of independence', etym: 'From "twaq ček dye᷅l"' },
 				{ part: 'noun', qtw: 'baǚm', eng: 'nationalism', etym: 'From "ban̏ vǚm"' },
 				{ part: 'noun', qtw: 'bwom', eng: 'racial supremacism, racism', etym: 'From "bwaiw oy vǚm"' },
 				{ part: 'noun', qtw: 't̃oip', eng: 'methane (synonym of "l̃ëam lak")', etym: 'From "t̃oam nit l̃wop", as the fourth substance discovered from the YCASPC' },
@@ -2469,7 +2626,7 @@
 				{ part: 'noun', qtw: 'f̌eiüp', eng: 'liquid krypton', etym: 'From "f̌ey l̃üip"' },
 				{ part: 'noun', qtw: 't̃in̏', eng: 'rutile' },
 				{ part: 'noun', qtw: 'čyop', eng: 'saltpeter', etym: 'From "čyüm bop". The Twanthainese discovered saltpeter from urine.' },
-				{ part: 'noun', qtw: 'f̌yûp', eng: 'sulfuric acid', etym: 'From "čyop su᷅\' f̌en bop".' },
+				{ part: 'noun', qtw: 'f̌yûp', eng: 'sulfuric acid', etym: 'From "čyop su᷅q f̌en bop".' },
 				{ part: 'noun', qtw: 'dyu̇p', eng: 'hydrochloric acid', etym: 'From "du̇y f̌yup bop"' },
 				{ part: 'noun', qtw: 'la', eng: 'caustic soda, lye' },
 				{ part: 'noun', qtw: 'l̃op', eng: 'sodium', etym: 'from "la bop" later blended with "l̃wop" once it was confirmed to be an element' },
@@ -2487,11 +2644,11 @@
 				{ part: 'noun', qtw: 'daet', eng: 'computer (the electronic device)', etym: 'From "daëk ket"' },
 				{ part: 'noun', qtw: 'daü᷈l̀', eng: 'computer network, the Internet', etym: 'From "daet t̃lüü᷈l̀"' },
 				{ part: 'noun', qtw: 'daü᷈u̇n', eng: 'online (on a network such as the Internet)', etym: 'From "daü᷈l̀ gu̇n"' },
-				{ part: 'noun', qtw: 'fwaü᷈l̀', eng: 'the Internet', etym: 'From "fwa\' daü᷈l̀"' },
-				{ part: 'noun', qtw: 'üntë̠rne̠t', eng: 'the Internet', etym: 'From English "internet"' },
+				{ part: 'noun', qtw: 'fwaü᷈l̀', eng: 'the Internet', etym: 'From "fwaq daü᷈l̀"' },
+				{ part: 'noun', qtw: 'üntë̠l̀ne̠t', eng: 'the Internet', etym: 'From English "internet"' },
 				{ part: 'noun', qtw: 'syü̠t', eng: 'a cutting tool (in their various forms)', etym: 'From "sye mü̠f ket"' },
 				{ part: 'noun', qtw: 'syau', eng: 'blade', etym: 'From "sye wa"' },
-				{ part: 'noun', qtw: 'syaun', eng: 'sword', etym: 'From "syau \'an"' },
+				{ part: 'noun', qtw: 'syaun', eng: 'sword', etym: 'From "syau qan"' },
 				{ part: 'noun', qtw: 'myuat', eng: 'a tool that helps you see, -(o)scope, -(o)graph, (historical) telescope', etym: 'From "mi wa ket"' },
 				{ part: 'noun', qtw: 'lna', eng: 'pickaxe', etym: 'From Sumerian (somehow)' },
 				{ part: 'noun', qtw: 'nyiet', eng: 'refrigerator', etym: 'From "k̃aik̋ ket"' },
@@ -2508,11 +2665,11 @@
 				{ part: 'noun', qtw: 'kwëw', eng: 'vehicle, (historical) wheel', extra: 'The historical sense of "wheel" stems from the Twanthainese\'s early development of the wheel.' },
 				{ part: 'noun', qtw: 'wwëw', eng: 'horse', etym: 'From "kwëw wwow"' },
 				{ part: 'noun', qtw: 'kwow', eng: 'carriage', etym: 'From "wwow kwëw"' },
-				{ part: 'noun', qtw: 'fwôw', eng: 'bus', etym: 'From "fwá\' kwow"' },
+				{ part: 'noun', qtw: 'fwôw', eng: 'bus', etym: 'From "fwáq kwow"' },
 				{ part: 'noun', qtw: 'kwow', eng: 'car, automobile' },
 				{ part: 'noun', qtw: 'kwiw', eng: 'aircraft' },
 				{ part: 'noun', qtw: 'son̏', eng: 'string' },
-				{ part: 'noun', qtw: 'soan̏', eng: 'whip', etym: 'From "son̏ \'an"' },
+				{ part: 'noun', qtw: 'soan̏', eng: 'whip', etym: 'From "son̏ qan"' },
 				{ part: 'noun, postposition', qtw: 'dëk', eng: 'center, in the middle of' },
 				{ part: 'noun', qtw: 'kwew', eng: 'watercraft' },
 				{ part: 'noun', qtw: 'nwot kwëw', eng: 'hovercraft' },
@@ -2524,13 +2681,13 @@
 				{ part: 'noun', qtw: 'twop', eng: 'compound (chemistry), composite', etym: 'From "twon bop"' },
 				{ part: 'noun', qtw: 'feop', eng: '(dated) alloy', etym: 'From "fen̏ twop"', extra: 'Rare synonym of "swen̏"' },
 				{ part: 'noun', qtw: 'mweop', eng: 'isomer', etym: 'From "mem bop twop"' },
-				{ part: 'noun', qtw: '\'ay', eng: 'the Sun, a star' },
+				{ part: 'noun', qtw: 'qay', eng: 'the Sun, a star' },
 				{ part: 'noun', qtw: 'l̃wop', eng: 'element', etym: 'From "l̃ën bop"', extra: 'Especially an element in the periodic table' },
 				{ part: 'noun', qtw: 'f̌wey', eng: 'state of matter', etym: 'From "f̌won čey"' },
 				{ part: 'noun', qtw: 'se᷅y', eng: 'solid', etym: 'From "seāp f̌wey"' },
 				{ part: 'noun', qtw: 'f̌ey', eng: 'liquid', etym: 'From "f̌en f̌wey"' },
 				{ part: 'noun', qtw: 'niy', eng: 'gas', etym: 'From "nit f̌wey"' },
-				{ part: 'noun', qtw: '\'wey', eng: 'plasma', etym: 'From "\'ay f̌wey"' },
+				{ part: 'noun', qtw: 'qwey', eng: 'plasma', etym: 'From "qay f̌wey"' },
 				{ part: 'noun', qtw: 'lem', eng: 'paste, gel' },
 				{ part: 'noun', qtw: 'd̰́is', eng: 'borax' },
 				{ part: 'noun', qtw: 'čen', eng: 'dust' },
@@ -2543,31 +2700,31 @@
 				{ part: 'noun', qtw: 'cwit', eng: 'natural gas', etym: 'From "cwol nit"' },
 				{ part: 'noun', qtw: 'fu̇f nit', eng: '(obsolete) carbon dioxide', etym: 'lit. "dead air"' },
 				{ part: 'noun', qtw: 'nef nit', eng: '(obsolete) oxygen', etym: 'lit. "living air"' },
-				{ part: 'noun', qtw: 'f̌eip', eng: 'hydrogen', etym: 'From "f̌en \'ain l̃wop", from a calque of "hydro-" + "-gen"' },
-				{ part: 'noun', qtw: '\'aip', eng: 'helium', etym: 'From "\'ai l̃wop", a calque of "helios" + "-ium"' },
-				{ part: 'noun', qtw: 'lüf', eng: 'lithium', etym: 'From "lüť̰ l̃wop", from English' },
-				{ part: 'noun', qtw: 'bëp', eng: 'beryllium', etym: 'From "bël̀ l̃wop", from English' },
+				{ part: 'noun', qtw: 'f̌eip', eng: 'hydrogen', etym: 'From "f̌en qain l̃wop", from a calque of "hydro-" + "-gen"' },
+				{ part: 'noun', qtw: 'qaip', eng: 'helium', etym: 'From "qai l̃wop", a calque of "helios" + "-ium"' },
+				{ part: 'noun', qtw: 'lǖþ', eng: 'lithium', etym: 'From English' },
+				{ part: 'noun', qtw: 'bë̠l̀', eng: 'beryllium', etym: 'From English' },
 				{ part: 'noun', qtw: 'd̰́ip', eng: 'boron', etym: 'From "d̰́is l̃wop"' },
-				{ part: 'noun', qtw: 'ťip', eng: 'nitrogen', etym: 'From "ťeam nit l̃wop", meaning "second air substance". The origin lies in nitrogen being first isolated by the Twanthainese only in 1901 when they constructed the initial ASU of the Yoy Cryogenic Air Separator Complex in F̌eu ¦wán̏, producing the previously-identified oxygen and a second, then-unidentified substance.' },
+				{ part: 'noun', qtw: 'ťip', eng: 'nitrogen', etym: 'From "ťeam nit l̃wop", meaning "second air substance". The origin lies in nitrogen being first isolated by the Twanthainese only in 1901 when they constructed the initial ASU of the Yoy Cryogenic Air Separator Complex in F̌eu Hwán̏, producing the previously-identified oxygen and a second, then-unidentified substance.' },
 				{ part: 'noun', qtw: 'f̌eiip', eng: 'liquid nitrogen', etym: 'From "f̌ey ťip"' },
 				{ part: 'noun', qtw: 'lwep', eng: 'carbon', etym: 'From "lwe l̃wop"' },
 				{ part: 'noun', qtw: 'në̌p', eng: 'oxygen', etym: 'From "nëť l̃wop", from "nep mü̠f nit l̃wop"' },
 				{ part: 'noun', qtw: 'f̌eië̌p', eng: 'liquid oxygen', etym: 'From "f̌ey në̌p"' },
 				{ part: 'noun', qtw: 'fen', eng: 'fluorite' },
 				{ part: 'noun', qtw: 'fep', eng: 'fluorine', etym: 'From "fen l̃wop"' },
-				{ part: 'noun', qtw: 'n̏üp', eng: 'chlorine', etym: 'From "n̏ü\' l̃wop"' },
+				{ part: 'noun', qtw: 'n̏üp', eng: 'chlorine', etym: 'From "n̏üq l̃wop"' },
 				{ part: 'noun', qtw: 'l̃aiup', eng: 'argon', etym: 'From "l̃aiam nit l̃wop", meaning "third air substance". As with nitrogen, this element was discovered by the Twanthainese through the YCASPC in 1901.' },
 				{ part: 'noun', qtw: 'f̌eiup', eng: 'liquid argon', etym: 'From "f̌ey l̃aiup"' },
 				{ part: 'noun', qtw: 'fün̏', eng: 'copper' },
-				{ part: 'noun', qtw: 'n̏wop', eng: 'gold', etym: 'From "n̏ü\' l̃wop"' },
+				{ part: 'noun', qtw: 'n̏wop', eng: 'gold', etym: 'From "n̏üq l̃wop"' },
 				{ part: 'noun', qtw: 'lwep nëp ťen', eng: 'carbon dioxide' },
 				{ part: 'noun', qtw: 'flwop ťen nëp ťen', eng: 'dioxygen difluoride (FOOF)' },
 				{ part: 'noun', qtw: 'n̏üp flwop l̃ain', eng: 'chlorine trifluoride' },
 				{ part: 'noun', qtw: 'we', eng: 'the Moon, a moon' },
 				{ part: 'noun', qtw: 'Bët Wët', eng: '(poetic) the Moon' },
-				{ part: 'noun', qtw: 'Bën̏ \'ay', eng: 'The Sun' },
+				{ part: 'noun', qtw: 'Bën̏ Qay', eng: 'The Sun' },
 				{ part: 'noun', qtw: 'Bën̏ we', eng: 'The Moon' },
-				{ part: 'noun', qtw: 'nway', eng: 'daytime, day (period of time)', etym: 'From "\'ay nwat"' },
+				{ part: 'noun', qtw: 'nway', eng: 'daytime, day (period of time)', etym: 'From "qay nwat"' },
 				{ part: 'noun', qtw: 'snway', eng: 'today', etym: 'From "sain nway"' },
 				{ part: 'noun', qtw: 'snoi', eng: 'yesterday', etym: 'From "snway noi"' },
 				{ part: 'noun', qtw: 'snwaa᷄', eng: 'tomorrow', etym: 'From "snway waá"' },
@@ -2585,9 +2742,9 @@
 				{ part: 'noun', qtw: 'Bn̏ët', eng: 'The Earth', etym: 'From "Bën̏ Bët"' },
 				{ part: 'noun', qtw: 'Nüw Bët', eng: '(poetic) The Earth, the Blue Marble' },
 				{ part: 'noun', qtw: 'bëk', eng: 'Planetary core', etym: 'From "bët dëk"' },
-				{ part: 'noun', qtw: 'su᷅\'', eng: 'sulfur', etym: 'From "seāp n̏ü\'"' },
-				{ part: 'noun', qtw: 'Su᷅\' Bët', eng: 'Venus', extra: 'None of the planet "stars" were identified as planets by the Twanthainese until after their compositions had already been discovered' },
-				{ part: 'noun', qtw: 'n̏üf Bët', eng: 'Mars' },
+				{ part: 'noun', qtw: 'su᷅q', eng: 'sulfur', etym: 'From "seāp n̏üq"' },
+				{ part: 'noun', qtw: 'Su᷅q Bët', eng: 'Venus', extra: 'None of the planet "stars" were identified as planets by the Twanthainese until after their compositions had already been discovered' },
+				{ part: 'noun', qtw: 'Ɣ̋üf Bët', eng: 'Mars' },
 				{ part: 'noun', qtw: 'myin', eng: 'eye (of a human or animal)' },
 				{ part: 'noun', qtw: 'f̌yiow', eng: 'ear (of a human or animal)' },
 				{ part: 'noun', qtw: 'dan', eng: 'head (of a human or animal)' },
@@ -2612,24 +2769,24 @@
 				{ part: 'noun', qtw: 'nwon ket', eng: 'light fixture' },
 				{ part: 'noun', qtw: 'd̃ep', eng: 'pillar' },
 				{ part: 'noun', qtw: 'ť̰at', eng: 'horizontal pillar, lintel, beam' },
-				{ part: 'noun', qtw: '\'ü̠m', eng: 'opposition', etym: 'From "\'om mü̠f vǚm"' },
-				{ part: 'noun', qtw: '\'eut \'ü̠m', eng: 'misogyny' },
-				{ part: 'noun', qtw: 'k̰̋yaiw \'ü̠m', eng: 'misandry' },
-				{ part: 'noun', qtw: '\'ëy', eng: 'gender' },
+				{ part: 'noun', qtw: 'qü̠m', eng: 'opposition', etym: 'From "qom mü̠f vǚm"' },
+				{ part: 'noun', qtw: 'qeut qü̠m', eng: 'misogyny' },
+				{ part: 'noun', qtw: 'k̰̋yaiw qü̠m', eng: 'misandry' },
+				{ part: 'noun', qtw: 'qëy', eng: 'gender' },
 				{ part: 'noun', qtw: 'k̃ǖbü̠ mi̇̄të̠l', eng: 'kibimeter' },
-				{ part: 'noun', qtw: 'mën̏', eng: 'homosexuality', etym: 'From "mem \'ëy sen̏"' },
-				{ part: 'noun', qtw: 'mën̏ \'ü̠m', eng: 'homophobia' },
-				{ part: 'noun', qtw: '\'yek̰̋', eng: 'sex (biology)' },
-				{ part: 'noun', qtw: '\'yaë', eng: '[the state of being transgender], transgenderness', etym: 'From "\'yek̰̋ dyam \'ëy"' },
-				{ part: 'noun', qtw: '\'yaë \'ü̠m', eng: 'transphobia' },
-				{ part: 'noun', qtw: '\'ëw', eng: 'genderfluidity', etym: 'From "\'ëy gau"' },
-				{ part: 'noun', qtw: 'ťëk', eng: '[the state of being bigender], bigenderness', etym: 'From "ťen \'ëy ček"' },
+				{ part: 'noun', qtw: 'mën̏', eng: 'homosexuality', etym: 'From "mem qëy sen̏"' },
+				{ part: 'noun', qtw: 'mën̏ qü̠m', eng: 'homophobia' },
+				{ part: 'noun', qtw: 'qyek̰̋', eng: 'sex (biology)' },
+				{ part: 'noun', qtw: 'qyaë', eng: '[the state of being transgender], transgenderness', etym: 'From "qyek̰̋ dyam qëy"' },
+				{ part: 'noun', qtw: 'qyaë qü̠m', eng: 'transphobia' },
+				{ part: 'noun', qtw: 'qëw', eng: 'genderfluidity', etym: 'From "qëy gau"' },
+				{ part: 'noun', qtw: 'ťëk', eng: '[the state of being bigender], bigenderness', etym: 'From "ťen qëy ček"' },
 				{ part: 'noun', qtw: 'k̰̋ën̏', eng: 'male homosexuality', etym: 'From "k̰̋in mën̏"' },
 				{ part: 'noun', qtw: 'jën̏', eng: 'female homosexuality, lesbianness', etym: 'From "jet mën̏"' },
-				{ part: 'noun', qtw: 'ťën̏', eng: 'bisexuality', etym: 'From "ťen \'ëy sen̏"' },
-				{ part: 'noun', qtw: 'ťën̏ \'ü̠m', eng: 'biphobia' },
-				{ part: 'noun', qtw: 'l̃ën̏', eng: 'asexuality', etym: 'From "l̃it \'ëy sen̏"' },
-				{ part: 'noun', qtw: 'l̃ën̏ \'ü̠m', eng: 'acephobia' },
+				{ part: 'noun', qtw: 'ťën̏', eng: 'bisexuality', etym: 'From "ťen qëy sen̏"' },
+				{ part: 'noun', qtw: 'ťën̏ qü̠m', eng: 'biphobia' },
+				{ part: 'noun', qtw: 'l̃ën̏', eng: 'asexuality', etym: 'From "l̃it qëy sen̏"' },
+				{ part: 'noun', qtw: 'l̃ën̏ qü̠m', eng: 'acephobia' },
 				{ part: 'noun', qtw: 'ťën̏ (mü̠f) nwon', eng: 'bisexual lighting' },
 				{ part: 'noun', qtw: 'ťal', eng: 'weather, climate' },
 				{ part: 'noun', qtw: 'nwal', eng: 'weather', etym: 'From "nway ťal"' },
@@ -2650,22 +2807,22 @@
 				{ part: 'noun', qtw: 'bauǎ', eng: 'refugee', etym: 'From "ban̏ ḱouǎ"' },
 				{ part: 'noun', qtw: 'baueń', eng: 'asylum (the legal protection for/admission of refugees)', etym: 'From "bauǎ mweń"' },
 				{ part: 'noun', qtw: 'oy', eng: 'power (over something or someone)' },
-				{ part: 'noun', qtw: '\'ën̏', eng: 'physical strength', etym: 'onomatopoeia for grunting while lifting something' },
+				{ part: 'noun', qtw: 'qën̏', eng: 'physical strength', etym: 'onomatopoeia for grunting while lifting something' },
 				{ part: 'noun', qtw: 'd́ǹlyo᷄', eng: 'weight' },
 				{ part: 'noun/adjective', qtw: 'pǹlyo᷄', eng: 'dense, density', etym: 'From "bop d́ǹlyo᷄"' },
 				{ part: 'noun/adjective', qtw: 'dlyo᷄', eng: '[un-dense], sparse; [the opposite of density], sparsity', etym: 'From "dyōw pǹlyo᷄"' },
-				{ part: 'noun/adjective', qtw: 'wa\'', eng: 'strong, strength (ability to resist breakage)', extra: 'Also used metaphorically for emotional fortitude in a similar way to English' },
-				{ part: 'noun/adjective', qtw: '\'at̰́', eng: 'rigid, rigidity (ability to resist deformation)' },
+				{ part: 'noun/adjective', qtw: 'waq', eng: 'strong, strength (ability to resist breakage)', extra: 'Also used metaphorically for emotional fortitude in a similar way to English' },
+				{ part: 'noun/adjective', qtw: 'qat̰́', eng: 'rigid, rigidity (ability to resist deformation)' },
 				{ part: 'noun', qtw: 'bat', eng: 'government', etym: 'From "ban̏ dan"' },
 				{ part: 'noun', qtw: 'blaën̏', eng: 'colony', etym: 'From "lea bat baën̏"' },
 				{ part: 'noun', qtw: 'wak ček', eng: 'choice (not as in option), decision' },
 				{ part: 'noun', qtw: 'kan', eng: 'choice, option' },
 				{ part: 'noun', qtw: 'slét', eng: 'a list, a directory' },
-				{ part: 'noun', qtw: '\'op', eng: 'rule, law' },
-				{ part: 'noun', qtw: 'baup', eng: 'law', etym: 'From "bat \'op"' },
+				{ part: 'noun', qtw: 'qop', eng: 'rule, law' },
+				{ part: 'noun', qtw: 'baup', eng: 'law', etym: 'From "bat qop"' },
 				{ part: 'noun/adjective', qtw: 'dyaùp', eng: 'illegal, unlawful, criminal; crime', etym: 'From "dyōw baup"' },
 				{ part: 'noun/adjective', qtw: 'fu̇aùp', eng: 'misdemeanor', etym: 'From "fu̇̄p dyaùp"', extra: 'Twanthainese law does not have a distinction between misdemeanors and felonies. This word and "fwaûp" are mostly used in the context of the foreign legal systems which do have such a concept.' },
-				{ part: 'noun/adjective', qtw: 'fwaûp', eng: 'felony', etym: 'From "fwá\' dyaùp"', extra: '"' },
+				{ part: 'noun/adjective', qtw: 'fwaûp', eng: 'felony', etym: 'From "fwáq dyaùp"', extra: '"' },
 				{ part: 'noun', qtw: 'bao᷅n', eng: 'contract', etym: 'From "baup myao᷅n"' },
 				{ part: 'noun', qtw: 'bait', eng: 'tax', etym: 'From "bat t́a"' },
 				{ part: 'noun', qtw: 'baud̃', eng: 'department or ministry (of a government), government branch' },
@@ -2723,18 +2880,18 @@
 				{ part: 'noun', qtw: 'ťouam zop', eng: 'octanol' },
 				{ part: 'noun', qtw: 'liam zop', eng: 'nonanol' },
 				{ part: 'noun', qtw: 'ťyeam zop', eng: 'decanol' },
-				{ part: 'noun', qtw: 'klein', eng: 'alkane', etym: 'From English' },
-				{ part: 'noun', qtw: 'l̃ëan', eng: 'methane', etym: 'From "l̃ëam klein"' },
-				{ part: 'noun', qtw: 'ťean', eng: 'ethane', etym: 'From "ťeam klein"' },
-				{ part: 'noun', qtw: 'l̃aen', eng: 'propane', etym: 'From "l̃aiam klein"' },
+				{ part: 'noun', qtw: 'eālkei̠n', eng: 'alkane', etym: 'From English' },
+				{ part: 'noun', qtw: 'l̃ëain', eng: 'methane', etym: 'From "l̃ëam klein"' },
+				{ part: 'noun', qtw: 'ťeain', eng: 'ethane', etym: 'From "ťeam klein"' },
+				{ part: 'noun', qtw: 'l̃aein', eng: 'propane', etym: 'From "l̃aiam klein"' },
 				{ part: 'noun', qtw: 'l̃maen', eng: 'isopropane', etym: 'From "mem l̃aen"' },
-				{ part: 'noun', qtw: 't̃oain', eng: 'butane', etym: 'From "t̃oam klein"' },
-				{ part: 'noun', qtw: 'l̃üan', eng: 'pentane', etym: 'From "l̃üam klein"' },
-				{ part: 'noun', qtw: 'ťoiam klein', eng: 'hexane' },
-				{ part: 'noun', qtw: 'l̃euam klein', eng: 'heptane' },
-				{ part: 'noun', qtw: 'ťouin', eng: 'octane', etym: 'From "ťouam klein"' },
-				{ part: 'noun', qtw: 'liam klein', eng: 'nonane' },
-				{ part: 'noun', qtw: 'ťyeam klein', eng: 'decane' },
+				{ part: 'noun', qtw: 't̃oein', eng: 'butane', etym: 'From "t̃oam klein"' },
+				{ part: 'noun', qtw: 'l̃üain', eng: 'pentane', etym: 'From "l̃üam klein"' },
+				{ part: 'noun', qtw: 'ťoiam eālkei̠n', eng: 'hexane' },
+				{ part: 'noun', qtw: 'l̃euam eālkei̠n', eng: 'heptane' },
+				{ part: 'noun', qtw: 'ťoein', eng: 'octane', etym: 'From "ťouam klein"' },
+				{ part: 'noun', qtw: 'liam eālkei̠n', eng: 'nonane' },
+				{ part: 'noun', qtw: 'ťyeam eālkei̠n', eng: 'decane' },
 				{ part: 'noun', qtw: 'sēk', eng: 'second', etym: 'From English' },
 				{ part: 'noun', qtw: 'mǖn', eng: 'minute', etym: 'From English' },
 				{ part: 'noun', qtw: 'mi̇̄të̠l̀', eng: 'meter', etym: 'From English' },
@@ -2743,7 +2900,7 @@
 				{ part: 'noun', qtw: 'k̃ēlvü̠n', eng: 'kelvin', etym: 'From English' },
 				{ part: 'noun', qtw: 'moūl', eng: 'mole (unit)', etym: 'From English' },
 				{ part: 'noun', qtw: 'k̃a̠ndēlë̠', eng: 'candela', etym: 'From English' },
-				{ part: 'noun', qtw: '\'̄ël̀cë̠', eng: 'hertz', etym: 'From English' },
+				{ part: 'noun', qtw: 'hë̄l̀cë̠', eng: 'hertz', etym: 'From English' },
 				{ part: 'noun', qtw: 'l̀ēidi̠ë̠n', eng: 'radian', etym: 'From English' },
 				{ part: 'noun', qtw: 'së̠tel̀', eng: 'steradian', etym: 'From English, abbreviated from "sëtelēidiën"' },
 				{ part: 'noun', qtw: 'nyūtë̠n', eng: 'newton (unit)', etym: 'From English' },
@@ -2757,7 +2914,7 @@
 				{ part: 'noun', qtw: 'fāl̀ë̠d̃', eng: 'farad', etym: 'From English' },
 				{ part: 'noun', qtw: 'oūm', eng: 'ohm', etym: 'From English' },
 				{ part: 'noun', qtw: 'syi̇̄me̠nz', eng: 'siemens', etym: 'From English' },
-				{ part: 'noun', qtw: '\'ēnl̀i̠', eng: 'henry (unit)', etym: 'From English' },
+				{ part: 'noun', qtw: 'hēnl̀i̠', eng: 'henry (unit)', etym: 'From English' },
 				{ part: 'noun', qtw: 'sēlsi̠ë̠s', eng: 'degree Celsius', etym: 'From English' },
 				{ part: 'noun', qtw: 'lwūme̠n', eng: 'lumen', etym: 'From English' },
 				{ part: 'noun', qtw: 'lë̄ksë̠', eng: 'lux', etym: 'From English' },
@@ -2793,12 +2950,12 @@
 				{ part: 'noun', qtw: 'lu̠ń', eng: 'argument' },
 				{ part: 'noun, verb', qtw: 'čyǖm', eng: 'urine, pee; to urinate, to pee', extra: 'Taboo/discouraged but not outright vulgar', etym: 'Onomatopoeic: sound of a urine stream hitting water' },
 				{ part: 'noun, verb', qtw: 'dwǖp', eng: 'feces, poop; to defecate, to poop', extra: 'Taboo/discouraged but not outright vulgar', etym: 'Onomatopoeic: sound of feces splashing in water' },
-				{ part: 'noun', qtw: 'dwüà\'', eng: 'anus, butthole', extra: 'Taboo/discouraged but not outright vulgar', etym: 'From "dwǖp woà"' },
+				{ part: 'noun', qtw: 'dwüàq', eng: 'anus, butthole', extra: 'Taboo/discouraged but not outright vulgar', etym: 'From "dwǖp woà"' },
 				{ part: 'noun', qtw: 'dwǖan', eng: 'a poo, turd', extra: 'Taboo/Mildly vulgar', etym: 'From "dwǖp wan"' },
 				{ part: 'noun', qtw: 'suk', eng: ['ss','pi'], extra: 'Vulgar', censor: true },
 				{ part: 'noun', qtw: 'kut', eng: ['it','sh'], extra: 'Vulgar', censor: true },
 				{ part: 'noun', qtw: 'kuan', eng: 'turd', extra: 'More vulgar than "dwǖp wan"', etym: 'From "kut wan"' },
-				{ part: 'noun', qtw: 'kuoi', eng: ['shole','as'], censor: true, etym: 'From "kut \'oi"' },
+				{ part: 'noun', qtw: 'kuoi', eng: ['shole','as'], censor: true, etym: 'From "kut qoi"' },
 				{ part: 'noun', qtw: 'dwun̏', eng: ['ss','a'], extra: 'Vulgar', censor: true },
 				{ part: 'noun', qtw: 'mun̏', eng: 'hole' },
 				{ part: 'noun', qtw: 'f̌eun̏', eng: 'well (hole for water)', etym: 'From "f̌en mun̏"' },
@@ -2820,14 +2977,14 @@
 				{ part: 'noun, verb, adjective', qtw: 'fii̇̄n', eng: 'magic, magical, to cast a spell' },
 				{ part: 'noun', qtw: 'mwen̏', eng: 'toilet', etym: 'From "mwel mun̏"' },
 				{ part: 'noun', qtw: 'Së̠kǖbü̠di̠ Mwen̏', eng: 'Skibidi Toilet' },
-				{ part: 'noun, verb, interjection', qtw: '\'wāk̃ t̃u̇u̇̀', eng: 'hawk tuah', etym: 'From English, in turn onomatopoeic' },
-				{ part: 'noun', qtw: '\'an', eng: 'weapon, (historical) a wooden club', etym: 'From "\'a\' wan"' },
+				{ part: 'noun, verb, interjection', qtw: 'hwāk̃ t̃u̇u̇̀', eng: 'hawk tuah', etym: 'From English, in turn onomatopoeic' },
+				{ part: 'noun', qtw: 'qan', eng: 'weapon, (historical) a wooden club', etym: 'From "qaq wan"' },
 				{ part: 'noun', qtw: 'vlyow', eng: 'blood' },
 				{ part: 'noun', qtw: 'weow', eng: 'menstruation, menstrual cycle', etym: 'From "wek vlyow"' },
 				{ part: 'noun', qtw: 'weok', eng: 'menstrual cycle', etym: 'From "weow wok"' },
 				{ part: 'noun', qtw: 'weën', eng: 'menopause', etym: 'From "weow kën"' },
 				{ part: 'noun', qtw: 'fu̇op', eng: 'poison', etym: 'From "fu̇k bop"' },
-				{ part: 'noun', qtw: 'cwon', eng: 'bomb', etym: 'From "cwol \'an"' },
+				{ part: 'noun', qtw: 'cwon', eng: 'bomb', etym: 'From "cwol qan"' },
 				{ part: 'noun', qtw: 'f̌wü', eng: 'arrow', etym: 'Onomatopoeic' },
 				{ part: 'noun', qtw: 'cuec f̌wü', eng: 'ranged incendiary weapon, (historical) burning arrow' },
 				{ part: 'noun', qtw: 'cuec cwot', eng: 'incendiary bomb' },
@@ -2842,7 +2999,7 @@
 				{ part: 'noun', qtw: 'tou̇k', eng: 'death by radiation poisoning', etym: 'From "tok̃ fu̇k"' },
 				{ part: 'noun', qtw: 'toèn̏', eng: 'radioactive metals', extra: 'Especially fissile isotopes', etym: 'From "tok̃ fe̠n̏"' },
 				{ part: 'noun', qtw: 'tn̏ot', eng: 'nuclear reactor', etym: 'From "tn̏ok̃ ket"' },
-				{ part: 'noun', qtw: 'toan', eng: 'nuclear weapon', extra: 'Includes nuclear bombs as well as radiological weapons, including dirty bombs and radiation poisons', etym: 'From "tok̃ \'an"' },
+				{ part: 'noun', qtw: 'toan', eng: 'nuclear weapon', extra: 'Includes nuclear bombs as well as radiological weapons, including dirty bombs and radiation poisons', etym: 'From "tok̃ qan"' },
 				{ part: 'noun', qtw: 'touot', eng: 'nuclear bomb', etym: 'From "tok̃ cwot"' },
 				{ part: 'noun', qtw: 'feun̏', eng: 'war, warfare' },
 				{ part: 'noun', qtw: 'feëw', eng: 'tank (military vehicle)', etym: 'From "feun̏ kwëw"' },
@@ -2853,7 +3010,7 @@
 				{ part: 'noun', qtw: 'pliek', eng: 'apocalypse, armageddon, doomsday, end of the world' },
 				{ part: 'noun', qtw: 'čmoik̃', eng: 'killing, murder', etym: 'From "moik̃ ček"' },
 				{ part: 'noun', qtw: 'fau', eng: 'enemy, foe; a hostile' },
-				{ part: 'noun', qtw: 'fwau\'', eng: 'archenemy, nemesis', etym: 'From "fwa\' fau"' },
+				{ part: 'noun', qtw: 'fwauq', eng: 'archenemy, nemesis', etym: 'From "fwaq fau"' },
 				{ part: 'noun', qtw: 'bwaik̃', eng: 'genocide', etym: 'From "bwaiw čmoik̃"' },
 				{ part: 'noun', qtw: 'du̇y', eng: 'salt' },
 				{ part: 'noun', qtw: 'syew', eng: 'student', etym: 'From "syek wa"' },
@@ -2863,12 +3020,12 @@
 				{ part: 'noun', qtw: 'fun', eng: 'clothing' },
 				{ part: 'noun', qtw: 'yek', eng: 'armor' },
 				{ part: 'noun', qtw: 'dan yek', eng: 'helmet' },
-				{ part: 'noun', qtw: '\'oi fun', eng: 'bottoms (clothing)' },
+				{ part: 'noun', qtw: 'qoi fun', eng: 'bottoms (clothing)' },
 				{ part: 'noun', qtw: 'euf fun', eng: 'tops (clothing)' },
 				{ part: 'noun', qtw: 'min mü̠f fun', eng: 'undergarments' },
-				{ part: 'noun', qtw: 'myoǐn', eng: 'underwear (excluding bras)', etym: 'From "min mü̠f \'oi fun"' },
-				{ part: 'noun', qtw: 'myeǔn', eng: 'bra', etym: 'From "min mü̠f \'oi fun"'	},
-				{ part: 'noun', qtw: 'pancë̠', eng: 'pants', etym: 'From English' },
+				{ part: 'noun', qtw: 'myoǐn', eng: 'underwear (excluding bras)', etym: 'From "min mü̠f qoi fun"' },
+				{ part: 'noun', qtw: 'myeǔn', eng: 'bra', etym: 'From "min mü̠f qoi fun"'	},
+				{ part: 'noun', qtw: 'peāncë̠', eng: 'pants', etym: 'From English' },
 				{ part: 'noun', qtw: 'l̀üz', eng: 'rizz (slang for "charisma")', etym: 'From English' },
 				{ part: 'noun', qtw: 'l̀üz wa', eng: 'rizzler' },
 				{ part: 'noun', qtw: 'gyat', eng: 'gyatt (slang for a big butt)', etym: 'From English' },
@@ -2887,7 +3044,7 @@
 				{ part: 'noun', qtw: 'gwoap', eng: 'written text', etym: 'From "gwop n̏ap"' },
 				{ part: 'noun', qtw: 'gwoük', eng: 'page (of text or images)', etym: 'From "gwoap n̏ük"', extra: 'As the meaning broadened, it also includes pages with or of images' },
 				{ part: 'noun', qtw: 'gwouf', eng: 'header', etym: 'From "gwoük euf"' },
-				{ part: 'noun', qtw: 'gwoi', eng: 'footer', etym: 'From "gwoük \'oi"' },
+				{ part: 'noun', qtw: 'gwoi', eng: 'footer', etym: 'From "gwoük qoi"' },
 				{ part: 'noun', qtw: 'fwaǚk', eng: 'webpage', etym: 'From "fwaü᷈l̀ gwoük"' },
 				{ part: 'noun', qtw: 'fwaut', eng: 'website', etym: 'From "fwaü᷈l̀ put", by analogy with "fwaü᷈l̀ gwoük"' },
 				{ part: 'noun', qtw: 'leop', eng: 'loanword', etym: 'From "lea gwop"' },
@@ -2927,68 +3084,89 @@
 				{ part: 'noun, adjective', qtw: 'jat', eng: 'downwards-leftwards-backwards', etym: 'From "bwot jyan ap"' },
 				{ part: 'noun, adjective', qtw: 'wet', eng: 'downwards-rightwards-forwards', etym: 'From "bwot jyen wey"' },
 				{ part: 'noun, adjective', qtw: 'jwap', eng: 'downwards-rightwards-backwards', etym: 'From "bwot jyen ap"' },
-				{ part: 'noun', qtw: 'im', eng: 'the letter M/m' },
-				{ part: 'noun', qtw: 'u̇n', eng: 'the letter N/n' },
-				{ part: 'noun', qtw: 'iń', eng: 'the letter Ń/ń' },
-				{ part: 'noun', qtw: 'un', eng: 'the letter Ǹ/ǹ' },
-				{ part: 'noun', qtw: 'un̏', eng: 'the letter n̏/n̏' },
-				{ part: 'noun', qtw: 'pe', eng: 'the letter P/p' },
-				{ part: 'noun', qtw: 'ṕe', eng: 'the letter Ṕ/ṕ' },
-				{ part: 'noun', qtw: 'it', eng: 'the letter I/i' },
-				{ part: 'noun', qtw: 'f́e', eng: 'the letter F́/f́' },
-				{ part: 'noun', qtw: 'be', eng: 'the letter B/b' },
-				{ part: 'noun', qtw: 'b́e', eng: 'the letter B́/b́' },
-				{ part: 'noun', qtw: 've', eng: 'the letter V/v' },
-				{ part: 'noun', qtw: 'ťe', eng: 'the letter Ť/ť' },
-				{ part: 'noun', qtw: 'u̇t', eng: 'the letter U̇/u̇' },
-				{ part: 'noun', qtw: 'ť̰e', eng: 'the letter Ť̰/ť̰' },
-				{ part: 'noun', qtw: 'ďe', eng: 'the letter Ď/ď' },
-				{ part: 'noun', qtw: 'ď̰e', eng: 'the letter Ď̰/ď̰' },
-				{ part: 'noun', qtw: 're', eng: 'the letter R/r' },
-				{ part: 'noun', qtw: 'te', eng: 'the letter T/t' },
-				{ part: 'noun', qtw: 't́e', eng: 'the letter T́/t́' },
-				{ part: 'noun', qtw: 'ut', eng: 'the letter U/u' },
-				{ part: 'noun', qtw: 't̃e', eng: 'the letter T̃/t̃' },
-				{ part: 'noun', qtw: 't̰́e', eng: 'the letter T̰́/t̰́' },
-				{ part: 'noun', qtw: 'de', eng: 'the letter D/d' },
-				{ part: 'noun', qtw: 'd́e', eng: 'the letter D́/d́' },
-				{ part: 'noun', qtw: 'd̃e', eng: 'the letter D̃/d̃' },
-				{ part: 'noun', qtw: 'ot', eng: 'the letter O/o' },
-				{ part: 'noun', qtw: 'd̰́e', eng: 'the letter D̰́/d̰́' },
-				{ part: 'noun', qtw: 't̀e', eng: 'the letter T̀/t̀' },
-				{ part: 'noun', qtw: 't̰̀e', eng: 'the letter T̰̀/t̰̀' },
-				{ part: 'noun', qtw: 'd̀e', eng: 'the letter D̀/d̀' },
-				{ part: 'noun', qtw: 'd̰̀e', eng: 'the letter D̰̀/d̰̀' },
-				{ part: 'noun', qtw: 'k̋e', eng: 'the letter K̋/k̋' },
-				{ part: 'noun', qtw: 'k̰̋e', eng: 'the letter K̰̋/k̰̋' },
-				{ part: 'noun', qtw: 'g̋e', eng: 'the letter G̋/g̋' },
-				{ part: 'noun', qtw: 'ke', eng: 'the letter K/k' },
-				{ part: 'noun', qtw: 'ët', eng: 'the letter Ë/ë' },
-				{ part: 'noun', qtw: 'ḱe', eng: 'the letter Ḱ/ḱ' },
-				{ part: 'noun', qtw: 'k̃e', eng: 'the letter K̃/k̃' },
-				{ part: 'noun', qtw: 'ḱ̰e', eng: 'the letter Ḱ̰/ḱ̰' },
-				{ part: 'noun', qtw: 'ge', eng: 'the letter G/g' },
-				{ part: 'noun', qtw: 'ǵe', eng: 'the letter Ǵ/ǵ' },
-				{ part: 'noun', qtw: 'at', eng: 'the letter A/a' },
-				{ part: 'noun', qtw: 'g̃e', eng: 'the letter G̃/g̃' },
-				{ part: 'noun', qtw: 'g̃́e', eng: 'the letter G̃́/g̃́' },
-				{ part: 'noun', qtw: 'we', eng: 'the letter W/w' },
-				{ part: 'noun', qtw: 'fe', eng: 'the letter F/f' },
-				{ part: 'noun', qtw: 'f̌e', eng: 'the letter F̌/f̌' },
-				{ part: 'noun', qtw: 'et', eng: 'the letter E/e' },
-				{ part: 'noun', qtw: 'le', eng: 'the letter L/l' },
-				{ part: 'noun', qtw: 'l̃e', eng: 'the letter L̃/l̃' },
-				{ part: 'noun', qtw: 'l̀e', eng: 'the letter L̀/l̀' },
-				{ part: 'noun', qtw: 'l̰̀e', eng: 'the letter L̰̀/l̰̀' },
-				{ part: 'noun', qtw: 'se', eng: 'the letter S/s' },
-				{ part: 'noun', qtw: 'ce', eng: 'the letter C/c' },
-				{ part: 'noun', qtw: 'ze', eng: 'the letter Z/z' },
-				{ part: 'noun', qtw: 'üt', eng: 'the letter Ü/ü' },
-				{ part: 'noun', qtw: 'če', eng: 'the letter Č/č' },
-				{ part: 'noun', qtw: 'je', eng: 'the letter J/j' },
-				{ part: 'noun', qtw: 'ye', eng: 'the letter Y/y' },
-				{ part: 'noun', qtw: '\'e\'', eng: 'the letter ¦/\'' },
-				{ part: 'noun', qtw: 'im baop', eng: 'M sound' },
+				{ qtw: 'at', eng: 'The letter A/a' },
+				{ qtw: 'be', eng: 'The letter B/b' },
+				{ qtw: 'b́e', eng: 'The letter B́/b́' },
+				{ qtw: 'ce', eng: 'The letter C/c' },
+				{ qtw: 'če', eng: 'The letter Č/č' },
+				{ qtw: 'ďe', eng: 'The letter Ď/ď' },
+				{ qtw: 'ď̰e', eng: 'The letter Ď̰/ď̰' },
+				{ qtw: 'de', eng: 'The letter D/d' },
+				{ qtw: 'd́e', eng: 'The letter D́/d́' },
+				{ qtw: 'd̀e', eng: 'The letter D̀/d̀' },
+				{ qtw: 'd̃e', eng: 'The letter D̃/d̃' },
+				{ qtw: 'd̰́e', eng: 'The letter D̰́/d̰́' },
+				{ qtw: 'd̰̀e', eng: 'The letter D̰̀/d̰̀' },
+				{ qtw: 'et', eng: 'The letter E/e' },
+				{ qtw: 'ët', eng: 'The letter Ë/ë' },
+				{ qtw: 'fe', eng: 'The letter F/f' },
+				{ qtw: 'f́e', eng: 'The letter F́/f́' },
+				{ qtw: 'f̌e', eng: 'The letter F̌/f̌' },
+				{ qtw: 'g̋e', eng: 'The letter G̋/g̋' },
+				{ qtw: 'ǵe', eng: 'The letter Ǵ/ǵ' },
+				{ qtw: 'ǵ̰e', eng: 'The letter Ǵ̰/ǵ̰' },
+				{ qtw: 'g̃e', eng: 'The letter G̃/g̃' },
+				{ qtw: 'ge', eng: 'The letter G/g' },
+				{ qtw: 'he', eng: 'The letter H/h' },
+				{ qtw: 'it', eng: 'The letter I/i' },
+				{ qtw: 'u̇t', eng: 'The letter U̇/u̇' },
+				{ qtw: 'je', eng: 'The letter J/j' },
+				{ qtw: 'k̋e', eng: 'The letter K̋/k̋' },
+				{ qtw: 'ḱe', eng: 'The letter Ḱ/ḱ' },
+				{ qtw: 'k̰̋e', eng: 'The letter K̰̋/k̰̋' },
+				{ qtw: 'ḱ̰e', eng: 'The letter Ḱ̰/ḱ̰' },
+				{ qtw: 'k̃e', eng: 'The letter K̃/k̃' },
+				{ qtw: 'ke', eng: 'The letter K/k' },
+				{ qtw: 'le', eng: 'The letter L/l' },
+				{ qtw: 'l̀e', eng: 'The letter L̀/l̀' },
+				{ qtw: 'l̃e', eng: 'The letter L̃/l̃' },
+				{ qtw: 'l̰̀e', eng: 'The letter L̰̀/l̰̀' },
+				{ qtw: 'em', eng: 'The letter M/m' },
+				{ qtw: 'iń', eng: 'The letter Ń/ń' },
+				{ qtw: 'un', eng: 'The letter N/n' },
+				{ qtw: 'uǹ', eng: 'The letter Ǹ/ǹ' },
+				{ qtw: 'un̏', eng: 'The letter N̏/n̏' },
+				{ qtw: 'ot', eng: 'The letter O/o' },
+				{ qtw: 'pe', eng: 'The letter P/p' },
+				{ qtw: 'ṕe', eng: 'The letter Ṕ/ṕ' },
+				{ qtw: 'qeq', eng: 'The letter Q/q' },
+				{ qtw: 'q̃eq', eng: 'The letter Q̃/q̃' },
+				{ qtw: 're', eng: 'The letter R/r' },
+				{ qtw: 'se', eng: 'The letter S/s' },
+				{ qtw: 'śe', eng: 'The letter Ś/ś' },
+				{ qtw: 'ŝe', eng: 'The letter Ŝ/ŝ' },
+				{ qtw: 's̀e', eng: 'The letter S̀/s̀' },
+				{ qtw: 'ťe', eng: 'The letter Ť/ť' },
+				{ qtw: 'ť́e', eng: 'The letter Ť́/ť́' },
+				{ qtw: 'ť̰e', eng: 'The letter Ť̰/ť̰' },
+				{ qtw: 'ť̰́e', eng: 'The letter Ť̰́/ť̰́' },
+				{ qtw: 'te', eng: 'The letter T/t' },
+				{ qtw: 't́e', eng: 'The letter T́/t́' },
+				{ qtw: 't̀e', eng: 'The letter T̀/t̀' },
+				{ qtw: 't̃e', eng: 'The letter T̃/t̃' },
+				{ qtw: 't̰́e', eng: 'The letter T̰́/t̰́' },
+				{ qtw: 't̰̀e', eng: 'The letter T̰̀/t̰̀' },
+				{ qtw: 'ut', eng: 'The letter U/u' },
+				{ qtw: 'üt', eng: 'The letter Ü/ü' },
+				{ qtw: 've', eng: 'The letter V/v' },
+				{ qtw: 'v́e', eng: 'The letter V́/v́' },
+				{ qtw: 'v̌e', eng: 'The letter V̌/v̌' },
+				{ qtw: 'we', eng: 'The letter W/w' },
+				{ qtw: 'x̋e', eng: 'The letter X̋/x̋' },
+				{ qtw: 'x́e', eng: 'The letter X́/x́' },
+				{ qtw: 'xe', eng: 'The letter X/x' },
+				{ qtw: 'ɣ̋e', eng: 'The letter Ɣ̋/ɣ̋' },
+				{ qtw: 'ɣ́e', eng: 'The letter Ɣ́/ɣ́' },
+				{ qtw: 'ɣe', eng: 'The letter Ɣ/ɣ' },
+				{ qtw: 'ye', eng: 'The letter Y/y' },
+				{ qtw: 'ze', eng: 'The letter Z/z' },
+				{ qtw: 'źe', eng: 'The letter Ź/ź' },
+				{ qtw: 'ẑe', eng: 'The letter Ẑ/ẑ' },
+				{ qtw: 'z̀e', eng: 'The letter Z̀/z̀' },
+				{ qtw: 'že', eng: 'The letter Ž/ž' },
+				{ qtw: 'þe', eng: 'The letter Þ/þ' },
+				{ qtw: 'ðe', eng: 'The letter Ð/ð' },
+				{ part: 'noun', qtw: 'em baop', eng: 'M sound' },
 				{ part: 'noun', qtw: 'dëop', eng: 'mid tone', etym: 'From "dëk gaôp"' },
 				{ part: 'noun', qtw: 'bwao̠p', eng: 'low tone', etym: 'From "bwot gaôp"' },
 				{ part: 'noun', qtw: 'bwoiòp', eng: 'falling tone', etym: 'From "bwoy gaôp"' },
@@ -3000,9 +3178,6 @@
 				{ part: 'noun', qtw: 'bwoi̇̚p', eng: 'low falling tone', etym: 'From "bwot bwoy gaôp"' },
 				{ part: 'noun', qtw: 'n̏wao᷅y', eng: 'high falling tone', etym: 'From "nwen̏ bwoy gaôp"' },
 				{ part: 'noun', qtw: 'bwoe᷈p', eng: 'low rising tone', etym: 'From "bwot nwet gaôp"' },
-				{ part: 'noun', qtw: 'ače', eng: 'the letter H/h', extra: 'The letters H, Q, and X aren\'t used in Twanthainese. However, they have words (which came from the Spanish) to refer to them as necessary.' },
-				{ part: 'noun', qtw: 'ku', eng: 'the letter Q/q' },
-				{ part: 'noun', qtw: 'ekis', eng: 'the letter X/x', etym: 'From Spanish' },
 				{ part: 'noun', qtw: 'dwǒp', eng: 'the diacritic acute (´)', etym: 'from "dwen gǒp"' },
 				{ part: 'noun', qtw: 'ťaw dwǒp', eng: 'the diacritic double acute (˝)' },
 				{ part: 'noun', qtw: 'bweóp', eng: 'the diacritic grave (`)', etym: 'from "b́wen gǒp"' },
@@ -3022,26 +3197,26 @@
 				{ part: 'noun', qtw: 'vilië̄m', eng: '៑ the diacritic viream (in any writing system that has it), the concepts of virama or vowel suppression in general', etym: 'From Khmer' },
 				{ part: 'noun', qtw: 'wǚp', eng: 'name', etym: 'From "wwaiw mü̠f gwop"' },
 				{ part: 'noun', qtw: 'gwot', eng: 'logograph', etym: 'From "gwop dwop"' },
-				{ part: 'noun, verb', qtw: 'gaóp', eng: 'noun, to turn a word into a noun, to become a noun', etym: 'From "ga̠\' gwop"' },
+				{ part: 'noun, verb', qtw: 'gaóp', eng: 'noun, to turn a word into a noun, to become a noun', etym: 'From "ga̠q gwop"' },
 				{ part: 'noun, verb', qtw: 'kwop', eng: 'verb, to turn a word into a verb, to become a verb', etym: 'From "kwon gwop"' },
 				{ part: 'noun, verb', qtw: 'čwop', eng: 'adjective, to turn a word into an adjective, to become an adjective', etym: 'From "čey gwop"' },
 				{ part: 'noun, verb', qtw: 'kwoč', eng: 'adverb, to turn a word into an adverb, to become an adverb', etym: 'From "kwop čwop"' },
 				{ part: 'noun, verb', qtw: 'wép', eng: 'marker (Twanthainese grammar), to turn a word into a marker, to become a marker', etym: 'From "wé gwop"', extra: 'It can also encompass words of similar grammatical categories in other languages, such as particles. By some analyses, the English "\'s" could be considered a "wép".' },
 				{ part: 'noun', qtw: 'kwoi̇́n', eng: 'tense (linguistics); aspect (linguistics)', etym: 'From "kwop či̇̄n", lit. "verb time"' },
-				{ part: 'noun', qtw: 'kaop', eng: 'grammar', etym: 'From "gap \'op", lit. "language rules"' },
+				{ part: 'noun', qtw: 'kaop', eng: 'grammar', etym: 'From "gap qop", lit. "language rules"' },
 				{ part: 'noun', qtw: 'ťaop', eng: 'number word', etym: 'From "ťa gwop"' },
 				{ part: 'noun', qtw: 'ťan̏', eng: 'digit (of a number system)', etym: 'From "ťa n̏aup"' },
 				{ part: 'noun', qtw: 'Ťwaiw gap', eng: 'Twanthainese', etym: 'From "twan ťain wwaiw gap"', extra: '"ទ្វាឭវ៑ កាៈព៑" in the Khmer script.' },
-				{ part: 'noun', qtw: 'twan ťain wwaiw ban̏', eng: '(historical, archaic) Twanthain', extra: 'Still sometimes used for a "ye olde" effect' },
+				{ part: 'noun', qtw: 'twan ťain wwaiw ban̏', eng: '(archaic) Twanthain', extra: 'Still sometimes used for a "ye olde" effect' },
 				{ part: 'noun', qtw: 'cauk̃ gan', eng: '(Often used to refer to the main island of Twanthain)', etym: 'lit. "our island"' },
 				{ part: 'noun', qtw: 'Wüan', eng: 'The main island of Twanthain' },
 				{ part: 'noun', qtw: 'Wüan Ťwaiw Wwaiy Ḱü̚y Ban̏', eng: 'The full official name of Twanthain', etym: 'meaning "State of the People\'s Democratic Republic of Wüan (Wiuan)"', extra: 'Despite the name, Twanthain was never socialist. Despite the formation of the word "ťwuaik", this name is not abbreviated.' },
 				{ part: 'noun', qtw: 'Wüan Ťwaiw Ban̏', eng: 'Twanthain (the country of the Twanthainese)', extra: 'The English name is an Anglicization of "twan ťain [wwaiw ban̏]". Based on the modern orthography, it would be written as "Twanťain" or "Twanhtain"; however, the first English who eventually made contact with the people wrote it as "Twanthain"' },
 				{ part: 'noun', qtw: 'ťwuaik', eng: 'people\'s democratic republic', etym: 'From "ťwaiw wwaiy ḱü̚y"' },
 				{ part: 'noun', qtw: 'ťwuaig̃', eng: 'a country that is a people\'s democratic republic', etym: 'From "ťwuaik ban̏"' },
-				{ part: 'noun', qtw: 'Law Ťwaiw Kwa Wwaiy Ḱü̚y Ban̏', eng: 'Lao People\'s Democratic Republic' },
-				{ part: 'noun', qtw: '\'aik', eng: 'a production, a creation', etym: 'From "\'ain ček"' },
-				{ part: 'noun', qtw: 'kwai̇̌k', eng: 'communism', etym: 'From "kwan mü̠f \'aik"' },
+				{ part: 'noun', qtw: 'Lau Ťwaiw Kwa Wwaiy Ḱü̚y Ban̏', eng: 'Lao People\'s Democratic Republic' },
+				{ part: 'noun', qtw: 'qaik', eng: 'a production, a creation', etym: 'From "qain ček"' },
+				{ part: 'noun', qtw: 'kwai̇̌k', eng: 'communism', etym: 'From "kwan mü̠f qaik"' },
 				{ part: 'noun', qtw: 'ťwü̂m', eng: 'socialism', etym: 'From "ťwaiw vǚm"' },
 				{ part: 'noun', qtw: 'La᷄w ban̏', eng: 'Laos' },
 				{ part: 'noun', qtw: 'La᷄w gap', eng: 'Lao (language)' },
@@ -3049,7 +3224,7 @@
 				{ part: 'noun', qtw: 'Sovyet D́eiek ban̏', eng: 'Soviet Union' },
 				{ part: 'noun', qtw: 'Sovyet Ťwüm Ḱü̚y Mü̠f D́eiek ban̏', eng: 'Union of Soviet Socialist Republics' },
 				{ part: 'noun', qtw: 'Vyët Nam Ťwüm Ḱü̚y ban̏', eng: 'Socialist Republic of Vietnam' },
-				{ part: 'noun', qtw: 'Law ťwaiw', eng: 'Lao people' },
+				{ part: 'noun', qtw: 'Lau ťwaiw', eng: 'Lao people' },
 				{ part: 'noun', qtw: 'Ë̠mēl̀ü̠kë̠ ban̏', eng: 'America (the United States)' },
 				{ part: 'noun', qtw: 'swu̇as Ë̠mēl̀ü̠kë̠ mü̠f D́eiek mü̠f Bwam ban̏', eng: 'the United States of America' },
 				{ part: 'noun', qtw: 'Bl̀ǖtë̠n ban̏', eng: 'Britain' },
@@ -3059,7 +3234,7 @@
 				{ part: 'noun', qtw: 'Pilipinas ťwaiw', eng: 'Filipino people' },
 				{ part: 'noun', qtw: 'Ńihon gap', eng: 'Japanese' },
 				{ part: 'noun', qtw: 'Ńihon ťwaiw', eng: 'Japanese people' },
-				{ part: 'noun', qtw: '¦anguk gap', eng: 'Korean' },
+				{ part: 'noun', qtw: 'Hanguk gap', eng: 'Korean' },
 				{ part: 'noun', qtw: 'Indonesiya gap', eng: 'Indonesian' },
 				{ part: 'noun', qtw: 'Vyët Nam gap', eng: 'Vietnamese' },
 				{ part: 'noun', qtw: 'Espańa ban̏', eng: 'Spain' },
@@ -3084,20 +3259,20 @@
 				{ part: 'noun', qtw: 'Fǔt̃ë̄n̏ Gap', eng: 'Mandarin', etym: 'From Mandarin "普通话"; owing to the p̃-f merger, p̃ is standardly changed to f in loanwords.', extra: 'synonym of "Ču̇n̏ Kwo gap"' },
 				{ part: 'noun', qtw: 'Tai̠wa᷄n gap', eng: 'Taiwanese' },
 				{ part: 'noun', qtw: 'Klōsa gap', eng: 'isiXhosa' },
-				{ part: 'noun', qtw: '¦āusā gap', eng: 'Hausa' },
-				{ part: 'noun', qtw: '¦woi̠san gap', eng: 'Taishanese' },
+				{ part: 'noun', qtw: 'Hāusā gap', eng: 'Hausa' },
+				{ part: 'noun', qtw: 'Hwoi̠san gap', eng: 'Taishanese' },
 				{ part: 'noun', qtw: 'Polsëka gap', eng: 'Polish' },
-				{ part: 'noun', qtw: 'N̏üf Bët ťwaiw', eng: 'Martian (hypothetical species)' },
-				{ part: 'noun', qtw: '¦alasai gap', eng: 'Halacae', eng_href: 'https://R74n.com/halacae/' },
+				{ part: 'noun', qtw: 'Ɣ̋üf Bët ťwaiw', eng: 'Martian (hypothetical species)' },
+				{ part: 'noun', qtw: 'Halasai gap', eng: 'Halacae', eng_href: 'https://R74n.com/halacae/' },
 				{ part: 'noun', qtw: 'Disko̠l̀dë̠ gu̇n Dwop mü̠f', eng: 'Elemental on Discord' },
 				{ part: 'noun', qtw: 'bout', eng: 'underworld', extra: 'A general term for a world or realm below our own', etym: 'From "bët tun bët"' },
 				{ part: 'noun', qtw: 'cwout', eng: 'Hell', etym: 'From "cuec bout"' },
-				{ part: 'noun', qtw: 'fwai̇̂b', eng: 'manly man, chad', etym: 'From "fwá\' k̰̋in bab"' },
-				{ part: 'noun', qtw: 'fwá\' fwai̇̂b', eng: 'gigachad' },
+				{ part: 'noun', qtw: 'fwai̇̂b', eng: 'manly man, chad', etym: 'From "fwáq k̰̋in bab"' },
+				{ part: 'noun', qtw: 'fwáq fwai̇̂b', eng: 'gigachad' },
 				{ part: 'noun', qtw: 'nwën̏', eng: 'horizon', etym: 'From "nwat bën̏"' },
 				{ part: 'noun, adjective', qtw: 'yaù', eng: 'half' },
 				{ part: 'noun, adjective', qtw: 'l̃au', eng: 'third (fraction)' },
-				{ part: 'noun, adjective', qtw: 'ui̇́\'', eng: 'fourth (fraction), quarter (fraction)' },
+				{ part: 'noun, adjective', qtw: 'ui̇́q', eng: 'fourth (fraction), quarter (fraction)' },
 				{ part: 'noun, adjective', qtw: 'l̃üu', eng: 'fifth (fraction)' },
 				{ part: 'noun, adjective', qtw: 'ťu', eng: 'sixth (fraction)' },
 				{ part: 'noun, adjective', qtw: 'l̃u', eng: 'seventh (fraction)' },
@@ -3110,7 +3285,7 @@
 				{ part: 'marker', qtw: 'u', eng: 'numeric inverse marker (turns a number into its reciprocal)' },
 				{ part: 'noun, adjective', qtw: 'twon', eng: 'multiple, some (an unspecified quantity)' },
 				{ part: 'noun', qtw: 'twan', eng: 'a plurality (group of many entities), many (as used in "the many are smarter than the few"), (historical) many (adjective)' },
-				{ part: 'adjective', qtw: 'twain', eng: 'many, repeatedly/excessively', etym: 'From "twan ťain". It postdates "ťwain". As it is derived from "twan ťain", it does not need "ťain".' },
+				{ part: 'adjective', qtw: 'twain', eng: 'many, repeatedly/excessively', etym: 'From "twan ťain". It postdates "ťwain".' },
 				{ part: 'noun, adjective, verb', qtw: 'l̃it', eng: 'zero, no (quantifier), (nulluple), none, to zero out/set to zero' },
 				{ part: 'noun, verb', qtw: 'l̃ën', eng: 'one, single' },
 				{ part: 'noun, adjective, verb', qtw: 'ťen', eng: 'two, double, to double' },
@@ -3242,65 +3417,65 @@
 				{ part: 'noun, adjective, verb', eng: 'myriad', qtw: 't̃won̏' },
 				{ part: 'noun, adjective, verb', eng: 'lakh', qtw: 't̃un' },
 				{ part: 'noun, adjective, verb', eng: 'million', qtw: 'k̃euk' },
-				{ part: 'noun, adjective, verb', eng: 'crore', qtw: 'fu\'' },
+				{ part: 'noun, adjective, verb', eng: 'crore', qtw: 'fuq' },
 				{ part: 'noun, adjective, verb', eng: 'myllion', qtw: 'füt̃' },
 				{ part: 'noun, adjective, verb', eng: '1e9', qtw: 'zun' },
 				{ part: 'noun, adjective, verb', eng: '1e10', qtw: 'zwap' },
-				{ part: 'noun, adjective, verb', eng: '1e11', qtw: '\'ak' },
-				{ part: 'noun, adjective, verb', eng: '1e12', qtw: '\'wës' },
+				{ part: 'noun, adjective, verb', eng: '1e11', qtw: 'qak' },
+				{ part: 'noun, adjective, verb', eng: '1e12', qtw: 'qwës' },
 				{ part: 'noun, adjective, verb', eng: '1e13', qtw: 'yu' },
 				{ part: 'noun, adjective, verb', eng: '1e14', qtw: 'lil' },
 				{ part: 'noun, adjective, verb', eng: '1e15', qtw: 'cip' },
 				{ part: 'noun, adjective, verb', eng: '1e16', qtw: 'can', etym: 'From "ťyek̃ ťain can"' },
 				{ part: 'noun, adjective, verb', eng: '1e17', qtw: 'ťin', etym: 'From "ťyek̃ ťain can", changed slightly on coinage to distinguish from other numbers' },
-				{ part: 'noun, adjective, verb', eng: '1e18', qtw: 'fwait', etym: 'From "fwá\' ťan", changed slightly as above' },
+				{ part: 'noun, adjective, verb', eng: '1e18', qtw: 'fwait', etym: 'From "fwáq ťan", changed slightly as above' },
 				{ part: 'noun, adjective, verb', eng: '1e19', qtw: 'ťyan', etym: 'From "ťyek̃ ťain fwan", changed as above' },
 				{ part: 'noun, adjective, verb', eng: '1e20', qtw: 'k̃wen', etym: 'From "ťwak̃ ťain fwan", "' },
 				{ part: 'noun, adjective, verb', eng: '1e21', qtw: 'n̏wap', etym: 'From "twan̏ ťain fwan", "' },
 				{ part: 'noun, adjective, verb', eng: '1e22', qtw: 'ťwëp', etym: 'From "t̃won̏ ťain fwan", "' },
 				{ part: 'noun, adjective, verb', eng: '1e23', qtw: 'tu̇m', etym: 'From "t̃un ťain fwan", "' },
 				{ part: 'noun, adjective, verb', eng: '1e24', qtw: 'gyüm', etym: 'From "k̃euk ťain fwan", "' },
-				{ part: 'noun, adjective, verb', eng: '1e100, googol', qtw: 'gugë̠l', etym: 'From English' },
-				{ part: 'noun, adjective, verb', eng: 'E100#2, googolplex', qtw: 'gulplek', etym: 'From English, abbreviated from "gugë̠lpleksë"' },
-				{ part: 'noun, adjective, verb', eng: 'E100#3, googolduplex', qtw: 'ťeam gulplek', etym: 'lit. "second googolplex"' },
-				{ part: 'noun, adjective, verb', eng: 'E100#4, googoltriplex', qtw: 'l̃aiam gulplek', etym: 'lit. "third googolplex"' },
-				{ part: 'noun, adjective, verb', eng: 'E100#5, googolquadriplex', qtw: 't̃oam gulplek', etym: 'lit. "fourth googolplex"' },
-				{ part: 'noun, adjective, verb', eng: 'E100#6, googolquintiplex, googolquinplex', qtw: 'l̃üam gulplek' },
-				{ part: 'noun, adjective, verb', eng: 'E100#7, googolsextiplex', qtw: 'ťoiam gulplek' },
-				{ part: 'noun, adjective, verb', eng: 'E100#8, googolseptiplex', qtw: 'l̃euam gulplek' },
-				{ part: 'noun, adjective, verb', eng: 'E100#9, googoloctiplex', qtw: 'ťouam gulplek' },
-				{ part: 'noun, adjective, verb', eng: 'E100#10, googolnonaplex, googolnoniplex', qtw: 'liam gulplek' },
-				{ part: 'noun, adjective, verb', eng: 'E100#11, googoldeciplex', qtw: 'ťyeam gulplek' },
-				{ part: 'noun, adjective, verb', eng: 'E100#12, googolundeciplex', qtw: 'l̃am gulplek' },
-				{ part: 'noun, adjective, verb', eng: 'E100#13, googolduodeciplex', qtw: 'goam gulplek' },
-				{ part: 'noun, adjective, verb', eng: 'E100#14, googoltredeciplex', qtw: 'ťyain ťyam gulplek' },
-				{ part: 'noun, adjective, verb', eng: 'E100#15, googolquattuordeciplex', qtw: 'ťyon ťyam gulplek' },
-				{ part: 'noun, adjective, verb', eng: 'E100#16, googolquindeciplex', qtw: 'ťyüw ťyam gulplek', extra: 'As above, one can figure out this pattern.' },
-				{ part: 'noun, adjective, verb', eng: 'E100#101, googolcentiplex, grangolplex', qtw: 'ťwak̃ ťyam gulplek' },
-				{ part: 'noun, adjective, verb', eng: 'E100#1,001, googolmilliplex', qtw: 'twan̏ ťyam gulplek' },
-				{ part: 'noun, adjective, verb', eng: 'E100#10,001, googolmyriaplex', qtw: 't̃won̏ ťyam gulplek' },
-				{ part: 'noun, adjective, verb', eng: 'E100#(E100), googolstack, googol(googol)plex', qtw: 'gugë̠l ťyam gulplek', etym: 'lit. "googolth googolplex"' },
-				{ part: 'noun, adjective, verb', eng: 'E100#(E100#2), googol(googolplex)plex', qtw: 'gulplek ťyam gulplek', etym: 'lit. "googolplex-th googolplex"' },
-				{ part: 'noun, adjective, verb', eng: '(Synonym of "gulplek ťyam gulplek")', qtw: 'ťeam bui ček gulplek', etym: 'lit. "second depth googolplex"' },
-				{ part: 'noun, adjective, verb', eng: 'E100#(E100#3), googol(googolduplex)plex', qtw: 'ťeam gulplek ťyam gulplek', etym: 'lit. "second googolplex-th googolplex"' },
-				{ part: 'noun, adjective, verb', eng: 'E100#(E100#4), googol(googoltriplex)plex', qtw: 'l̃aiam gulplek ťyam gulplek', etym: 'lit. "third googolplex-th googolplex"' },
-				{ part: 'noun, adjective, verb', eng: 'E100#(E100#5), googol(googolquadriplex)plex', qtw: 't̃oam gulplek ťyam gulplek', etym: 'lit. "fourth googolplex-th googolplex"' },
-				{ part: 'noun, adjective, verb', eng: 'E100#(E100#(E100#2)), googol(googol(googolplex)plex)plex', qtw: 'gulplek ťyam gulplek ťyam gulplek', etym: 'lit. "googolplex-th googolplex-th googolplex"' },
-				{ part: 'noun, adjective, verb', eng: '(Synonym of "gulplek ťyam gulplek ťyam gulplek")', qtw: 'l̃aiam bui ček gulplek', etym: 'lit. "third depth googolplex"' },
-				{ part: 'noun, adjective, verb', eng: 'googol(googol(googol(googolplex)plex)plex)plex', qtw: 't̃oam bui ček gulplek', etym: 'lit. "fourth depth googolplex"' },
-				{ part: 'noun, adjective, verb', eng: 'googolgoogol...plexplex (5 "googol"s and "plex"es)', qtw: 'l̃üam bui ček gulplek', etym: 'lit. "fifth depth googolplex"' },
-				{ part: 'noun, adjective, verb', eng: 'googolgoogol...plexplex (6 "googol"s and "plex"es)', qtw: 'ťoiam bui ček gulplek', etym: 'lit. "sixth depth googolplex"' },
-				{ part: 'noun, adjective, verb', eng: 'googolgoogol...plexplex (a googolplex "googol"s and "plex"es)', qtw: 'gulplek ťyam bui ček gulplek', etym: 'lit. "googolplex-th depth googolplex"' },
-				{ part: 'noun, adjective, verb', eng: '(Synonym of "gulplek ťyam bui ček gulplek")', qtw: 'l̃ëam ťeam bui ček gulplek', etym: 'lit. "first second-depth googolplex"' },
-				{ part: 'noun, adjective, verb', eng: 'googolgoogol...plexplex ((l̃ëam ťeam bui ček gulplek) "googol"s and "plex"es)', qtw: 'ťeam ťeam bui ček gulplek', etym: 'lit. "second second-depth googolplex"' },
-				{ part: 'noun, adjective, verb', eng: 'googolgoogol...plexplex ((ťeam ťeam bui ček gulplek) "googol"s and "plex"es)', qtw: 'l̃aiam ťeam bui ček gulplek', etym: 'lit. "third second-depth googolplex"' },
-				{ part: 'noun, adjective, verb', eng: '(A number I don\'t know how to denote, which must be figured out by extending out the above pattern)', qtw: 'gulplek ťyam ťeam bui ček gulplek', etym: 'lit. "googolplex-th second-depth googolplex"' },
+				{ part: 'noun, adjective, verb', eng: '1e100, googol', qtw: 'gūgë̠l', etym: 'From English' },
+				{ part: 'noun, adjective, verb', eng: 'E100#2, googolplex', qtw: 'gūlple̠k', etym: 'From English, abbreviated from "gugë̠lpleksë"' },
+				{ part: 'noun, adjective, verb', eng: 'E100#3, googolduplex', qtw: 'ťeam gūlple̠k', etym: 'lit. "second googolplex"' },
+				{ part: 'noun, adjective, verb', eng: 'E100#4, googoltriplex', qtw: 'l̃aiam gūlple̠k', etym: 'lit. "third googolplex"' },
+				{ part: 'noun, adjective, verb', eng: 'E100#5, googolquadriplex', qtw: 't̃oam gūlple̠k', etym: 'lit. "fourth googolplex"' },
+				{ part: 'noun, adjective, verb', eng: 'E100#6, googolquintiplex, googolquinplex', qtw: 'l̃üam gūlple̠k' },
+				{ part: 'noun, adjective, verb', eng: 'E100#7, googolsextiplex', qtw: 'ťoiam gūlple̠k' },
+				{ part: 'noun, adjective, verb', eng: 'E100#8, googolseptiplex', qtw: 'l̃euam gūlple̠k' },
+				{ part: 'noun, adjective, verb', eng: 'E100#9, googoloctiplex', qtw: 'ťouam gūlple̠k' },
+				{ part: 'noun, adjective, verb', eng: 'E100#10, googolnonaplex, googolnoniplex', qtw: 'liam gūlple̠k' },
+				{ part: 'noun, adjective, verb', eng: 'E100#11, googoldeciplex', qtw: 'ťyeam gūlple̠k' },
+				{ part: 'noun, adjective, verb', eng: 'E100#12, googolundeciplex', qtw: 'l̃am gūlple̠k' },
+				{ part: 'noun, adjective, verb', eng: 'E100#13, googolduodeciplex', qtw: 'goam gūlple̠k' },
+				{ part: 'noun, adjective, verb', eng: 'E100#14, googoltredeciplex', qtw: 'ťyain ťyam gūlple̠k' },
+				{ part: 'noun, adjective, verb', eng: 'E100#15, googolquattuordeciplex', qtw: 'ťyon ťyam gūlple̠k' },
+				{ part: 'noun, adjective, verb', eng: 'E100#16, googolquindeciplex', qtw: 'ťyüw ťyam gūlple̠k', extra: 'As above, one can figure out this pattern.' },
+				{ part: 'noun, adjective, verb', eng: 'E100#101, googolcentiplex, grangolplex', qtw: 'ťwak̃ ťyam gūlple̠k' },
+				{ part: 'noun, adjective, verb', eng: 'E100#1,001, googolmilliplex', qtw: 'twan̏ ťyam gūlple̠k' },
+				{ part: 'noun, adjective, verb', eng: 'E100#10,001, googolmyriaplex', qtw: 't̃won̏ ťyam gūlple̠k' },
+				{ part: 'noun, adjective, verb', eng: 'E100#(E100), googolstack, googol(googol)plex', qtw: 'gugë̠l ťyam gūlple̠k', etym: 'lit. "googolth googolplex"' },
+				{ part: 'noun, adjective, verb', eng: 'E100#(E100#2), googol(googolplex)plex', qtw: 'gūlple̠k ťyam gūlple̠k', etym: 'lit. "googolplex-th googolplex"' },
+				{ part: 'noun, adjective, verb', eng: '(Synonym of "gūlple̠k ťyam gūlple̠k")', qtw: 'ťeam bui ček gūlple̠k', etym: 'lit. "second depth googolplex"' },
+				{ part: 'noun, adjective, verb', eng: 'E100#(E100#3), googol(googolduplex)plex', qtw: 'ťeam gūlple̠k ťyam gūlple̠k', etym: 'lit. "second googolplex-th googolplex"' },
+				{ part: 'noun, adjective, verb', eng: 'E100#(E100#4), googol(googoltriplex)plex', qtw: 'l̃aiam gūlple̠k ťyam gūlple̠k', etym: 'lit. "third googolplex-th googolplex"' },
+				{ part: 'noun, adjective, verb', eng: 'E100#(E100#5), googol(googolquadriplex)plex', qtw: 't̃oam gūlple̠k ťyam gūlple̠k', etym: 'lit. "fourth googolplex-th googolplex"' },
+				{ part: 'noun, adjective, verb', eng: 'E100#(E100#(E100#2)), googol(googol(googolplex)plex)plex', qtw: 'gūlple̠k ťyam gūlple̠k ťyam gūlple̠k', etym: 'lit. "googolplex-th googolplex-th googolplex"' },
+				{ part: 'noun, adjective, verb', eng: '(Synonym of "gūlple̠k ťyam gūlple̠k ťyam gūlple̠k")', qtw: 'l̃aiam bui ček gūlple̠k', etym: 'lit. "third depth googolplex"' },
+				{ part: 'noun, adjective, verb', eng: 'googol(googol(googol(googolplex)plex)plex)plex', qtw: 't̃oam bui ček gūlple̠k', etym: 'lit. "fourth depth googolplex"' },
+				{ part: 'noun, adjective, verb', eng: 'googolgoogol...plexplex (5 "googol"s and "plex"es)', qtw: 'l̃üam bui ček gūlple̠k', etym: 'lit. "fifth depth googolplex"' },
+				{ part: 'noun, adjective, verb', eng: 'googolgoogol...plexplex (6 "googol"s and "plex"es)', qtw: 'ťoiam bui ček gūlple̠k', etym: 'lit. "sixth depth googolplex"' },
+				{ part: 'noun, adjective, verb', eng: 'googolgoogol...plexplex (a googolplex "googol"s and "plex"es)', qtw: 'gūlple̠k ťyam bui ček gūlple̠k', etym: 'lit. "googolplex-th depth googolplex"' },
+				{ part: 'noun, adjective, verb', eng: '(Synonym of "gūlple̠k ťyam bui ček gūlple̠k")', qtw: 'l̃ëam ťeam bui ček gūlple̠k', etym: 'lit. "first second-depth googolplex"' },
+				{ part: 'noun, adjective, verb', eng: 'googolgoogol...plexplex ((l̃ëam ťeam bui ček gūlple̠k) "googol"s and "plex"es)', qtw: 'ťeam ťeam bui ček gūlple̠k', etym: 'lit. "second second-depth googolplex"' },
+				{ part: 'noun, adjective, verb', eng: 'googolgoogol...plexplex ((ťeam ťeam bui ček gūlple̠k) "googol"s and "plex"es)', qtw: 'l̃aiam ťeam bui ček gūlple̠k', etym: 'lit. "third second-depth googolplex"' },
+				{ part: 'noun, adjective, verb', eng: '(A number I don\'t know how to denote, which must be figured out by extending out the above pattern)', qtw: 'gūlple̠k ťyam ťeam bui ček gūlple̠k', etym: 'lit. "googolplex-th second-depth googolplex"' },
 				{ part: 'noun, adjective', eng: 'infinity, infinite', qtw: 'fwo' },
 				{ part: 'noun, adjective', eng: 'finite', qtw: 'dyuò', etym: 'From "dyōw fwo"' },
 				{ part: 'adjective', qtw: 'naǜf', eng: 'grown (of a quantity), increased, enlarged, expanded, lengthened, widened, heightened, deepened (of a hole, deep body, absence, or deficit)', etym: 'From "nai mü̠f"' },
 				{ part: 'adjective', qtw: 'naof', eng: 'deepened (of a hole, deep body, absence, or deficit)', etym: 'From "naot mü̠f"' },
-				{ part: 'adjective', qtw: 'fwá\'', eng: 'big, highly/severely/very, (intensifier)', etym: 'Affected by the p̃-f merger' },
-				{ part: 'adjective', qtw: 'fyo\'', eng: '(angry intensifier), f***ing', etym: 'Related to "fwá\'", and affected by the same merger' },
+				{ part: 'adjective', qtw: 'fwáq', eng: 'big, highly/severely/very, (intensifier)', etym: 'Affected by the p̃-f merger' },
+				{ part: 'adjective', qtw: 'fyoq', eng: '(angry intensifier), f***ing', etym: 'Related to "fwáq", and affected by the same merger' },
 				{ part: 'adjective', qtw: 'fu̇̄p', eng: 'small, slightly, (opposite of an intensifier)' },
 				{ part: 'adjective', qtw: 'fu̇́p', eng: 'very small, tiny, microscopic', etym: 'From "fwá fu̇̄p"' },
 				{ part: 'noun, adjective', qtw: 'da', eng: 'all, every, everything' },
@@ -3315,15 +3490,15 @@
 				{ part: 'adjective', qtw: 'baik', eng: 'dry, thirsty' },
 				{ part: 'adjective', qtw: 'nwëü̚f', eng: 'avian (of or relating to birds)', etym: 'From "nwëw mü̠f"' },
 				{ part: 'adjective', qtw: 't̰́eē', eng: 'safe' },
-				{ part: 'adjective', qtw: 'sës', eng: 'sus', etym: 'From English' },
-				{ part: 'adjective', qtw: 'sës mü̠f', eng: 'sussy', etym: 'Calque of "sus" + "-y"' },
+				{ part: 'adjective', qtw: 'së̄s', eng: 'sus', etym: 'From English' },
+				{ part: 'adjective', qtw: 'së̄s mü̠f', eng: 'sussy', etym: 'Calque of "sus" + "-y"' },
 				{ part: 'adjective', qtw: 'caiǜf', eng: 'hot (temperature)', etym: 'From "cai̇̄c mü̠f"' },
 				{ part: 'adjective', qtw: 'wye', eng: 'arbitrary' },
 				{ part: 'adjective', qtw: 'lea', eng: 'foreign' },
 				{ part: 'adjective', qtw: 'gau̚f', eng: 'changing, variable; inconsistent', etym: 'From "gau mü̠f"' },
 				{ part: 'adjective', qtw: 'me', eng: 'fixed, unmoving, unchangeable' },
 				{ part: 'adjective', qtw: 'naoi', eng: 'rare' },
-				{ part: 'adjective', qtw: '\'ap', eng: 'sudden' },
+				{ part: 'adjective', qtw: 'qap', eng: 'sudden' },
 				{ part: 'adjective', qtw: 'tëi', eng: 'usual, normal, general (as in generally)' },
 				{ part: 'adjective', qtw: 'yul', eng: 'unpredictable, random' },
 				{ part: 'adjective', qtw: 'dwün̏ mü̠f', eng: 'federal (of or relating to a federation\'s central government)' },
@@ -3335,7 +3510,7 @@
 				{ part: 'adjective', qtw: 'ian', eng: 'far from, distant, periphery' },
 				{ part: 'adjective', qtw: 'nwel', eng: 'long, wide', etym: 'Related to "nwën̏"' },
 				{ part: 'adjective', qtw: 'yep', eng: 'cute, pretty' },
-				{ part: 'adjective', qtw: '\'an̏', eng: 'tired', etym: 'Onomatopoeia for sighing' },
+				{ part: 'adjective', qtw: 'qan̏', eng: 'tired', etym: 'Onomatopoeia for sighing' },
 				{ part: 'adjective', qtw: 'mem', eng: 'the same, equal' },
 				{ part: 'adjective', qtw: 'dyam', eng: 'different, not the same, unequal' },
 				{ part: 'adjective', qtw: 'sai', eng: 'reflective' },
@@ -3344,9 +3519,9 @@
 				{ part: 'adjective', qtw: 'd̰́n̏loǎ', eng: 'exact' },
 				{ part: 'adjective', qtw: 't̰́uë̚', eng: 'content, pleased, satisfied' },
 				{ part: 'adjective', qtw: 'dë̄n', eng: '(transiently) sad' },
-				{ part: 'adjective', qtw: '\'ën', eng: 'melancholic, depressed' },
+				{ part: 'adjective', qtw: 'qën', eng: 'melancholic, depressed' },
 				{ part: 'adjective', qtw: 'nun', eng: 'scared, anxious' },
-				{ part: 'adjective', qtw: 'fwau᷈n', eng: 'dreading (in a state of dread); horrified, terrified', etym: 'From "fwá\' nun"' },
+				{ part: 'adjective', qtw: 'fwau᷈n', eng: 'dreading (in a state of dread); horrified, terrified', etym: 'From "fwáq nun"' },
 				{ part: 'adjective', qtw: 't̃un̏', eng: 'heavy' },
 				{ part: 'adjective', qtw: 'wal', eng: 'useless' },
 				{ part: 'adjective', qtw: 'syë́n', eng: 'effective, good (for)' },
@@ -3387,8 +3562,8 @@
 				{ part: 'noun, verb', qtw: 'frāt', eng: 'loud or large fart', extra: 'Likely onomatopoeic and likely to have previously been *"p̃rāt"' },
 				{ part: 'noun, verb', qtw: 'brnwāj', eng: 'wet fart, shart', extra: 'Likely onomatopoeic and likely to have previously been *"b̃rnwāj"' },
 				{ part: 'noun, verb', qtw: 'syek', eng: 'education, to learn' },
-				{ part: 'noun, verb', qtw: '\'ei', eng: 'physical force (especially for compulsion of a person); to physically force, to compel (even without physical force), to apply physical force to (especially high force)', extra: 'The direct object is the person being compelled and the indirect object is the action' },
-				{ part: 'noun, verb', qtw: '\'ǚt', eng: 'forced labor, slavery; to enslave', etym: 'From "\'ǚn"' },
+				{ part: 'noun, verb', qtw: 'qei', eng: 'physical force (especially for compulsion of a person); to physically force, to compel (even without physical force), to apply physical force to (especially high force)', extra: 'The direct object is the person being compelled and the indirect object is the action' },
+				{ part: 'noun, verb', qtw: 'qǚt', eng: 'forced labor, slavery; to enslave', etym: 'From "qǚn"' },
 				{ part: 'noun, verb', qtw: 'mye', eng: 'end, completion, conclusion, termination (of a contract); to complete, to end, to finish, to conclude, to terminate (of a contract)' },
 				{ part: 'noun, verb', qtw: 'dye᷅l', eng: 'independence, self-sufficiency; to be independent, to be self-sufficient', etym: 'From "dyōw d́el"' },
 				{ part: 'noun, verb', qtw: 'swej', eng: 'mixture, blend; to mix, to stir', extra: 'In the sense of "stir", synonymous with "woy"' },
@@ -3413,7 +3588,7 @@
 				{ part: 'noun, verb', qtw: 'bo', eng: 'a wish, a hope; to wish, to hope for' },
 				{ part: 'noun, verb', qtw: 'waǹ', eng: 'choice, selection, decision; to choose, to select, to decide' },
 				{ part: 'noun, verb', qtw: 'dwin', eng: 'to punish, a punishment' },
-				{ part: 'noun, verb', qtw: '\'oin', eng: 'a fine, to fine', etym: 'From "\'op dwin"' },
+				{ part: 'noun, verb', qtw: 'qoin', eng: 'a fine, to fine', etym: 'From "qop dwin"' },
 				{ part: 'verb, interjection', qtw: 'cë̂p', eng: 'Welcome!, to welcome, to be welcomed', etym: 'From "cu̇k̃ së́j ček [cain] bo, lit. "[I] wish for your wellness" or more idiomatically "I wish you well"' },
 				{ part: 'noun, verb', qtw: 't̃ok', eng: 'help, aid; to help, to aid' },
 				{ part: 'noun, verb', qst: 'dyo᷅iw', eng: 'a banned person, a persona non grata; to ban', etym: 'From "dyo᷅t wwaiw"' },
@@ -3424,13 +3599,13 @@
 				{ part: 'verb', qtw: 'sye', eng: 'to cut' },
 				{ part: 'verb', qtw: 'slêń', eng: 'to sign up for/to something, to register for/to something', etym: 'From "slét mweń"' },
 				{ part: 'verb', qtw: 'ńwok', eng: 'a vote, to vote' },
-				{ part: 'verb', qtw: '\'weüot', eng: 'to prescribe (a medication)', etym: 'From "\'weüep g̋ot"' },
+				{ part: 'verb', qtw: 'qweüot', eng: 'to prescribe (a medication)', etym: 'From "qweüep g̋ot"' },
 				{ part: 'verb', qtw: 'len', eng: 'to sell' },
 				{ part: 'verb', qtw: 'myao᷅t', eng: 'to agree', etym: 'From "myao᷅n g̋ot"' },
 				{ part: 'verb', qtw: 'neon', eng: 'to be swept or moved by a wave', etym: 'From "nen kwon"' },
 				{ part: 'verb', qtw: 'nwet', eng: 'to rise, to raise/lift', etym: 'From "nwen̏ g̋ot"', extra: 'If used with a direct object, it usually means raise/lift.' },
 				{ part: 'verb', qtw: 'bwoy', eng: 'to fall, to collapse', etym: 'From "bwot g̋ot"' },
-				{ part: 'verb', qtw: 'bain', eng: 'propose legislation, *lawmake', etym: 'From "baup \'ain"' },
+				{ part: 'verb', qtw: 'bain', eng: 'propose legislation, *lawmake', etym: 'From "baup qain"' },
 				{ part: 'verb', qtw: 'klëi', eng: 'to follow' },
 				{ part: 'verb', qtw: 'cin̏', eng: 'to ride' },
 				{ part: 'verb', qtw: 'jeiot', eng: 'to permit, to allow, to let; to allow through', etym: 'From "jep g̋ot"', extra: 'Can be ditransitive, in which case the direct object is the thing being allowed and the indirect object is the person being given the permission.' },
@@ -3445,52 +3620,52 @@
 				{ part: 'verb', qtw: 'bak min gwué', eng: 'to be in a situation that only seems to get worse', etym: 'Lit. "drown in sand"' },
 				{ part: 'verb', qtw: 'cu̇k̃ dan lei cu̠̇c nwet ček g̋im', eng: 'to resign yourself to a very bad, dangerous, or futile situation; to accept your ill fate', etym: 'Lit. "watch the smoke rise over your head"' },
 				{ part: 'verb', qtw: 'caik̃ dan lei cu̠̇c nwet ček g̋im', eng: '(First-person form of "cu̇k̃ dan lei cu̠̇c nwet ček g̋im")' },
-				{ part: 'verb', qtw: 'f̌wan g̋ay gu̠\'', eng: 'to give up after a long struggle, to succumb', etym: 'Lit. "sink into the sea"' },
+				{ part: 'verb', qtw: 'f̌wan g̋ay gu̠q', eng: 'to give up after a long struggle, to succumb', etym: 'Lit. "sink into the sea"' },
 				{ part: 'verb', qtw: 'cu̇k̃ top bwoy nye̠p', eng: 'to go mad (after a very bad or catastrophic situation), to have a mental breakdown', etym: 'Lit. "your soul collapsed"' },
 				{ part: 'verb', qtw: 'caik̃ top bwoy nye̠p', eng: '(First-peson form of "cu̇k̃ top bwoy")' },
 				{ part: 'verb', qtw: 'nwat g̋ay nean̏', eng: 'to enter an unrecoverable situation, to be doomed', etym: 'Lit. "be swept into the sky"' },
-				{ part: 'verb', qtw: 'twa\'', eng: 'to speak, to say, to state; to declare', etym: 'In the sense of "to declare", it is ditransitive: the thing that the declaration concerns is the indirect object, and the statement being declared of it is the direct object.' },
-				{ part: 'verb', qtw: 'tya\'', eng: 'to shout', etym: 'Semi-onomatopoeically derived from "twa\'"' },
+				{ part: 'verb', qtw: 'twaq', eng: 'to speak, to say, to state; to declare', etym: 'In the sense of "to declare", it is ditransitive: the thing that the declaration concerns is the indirect object, and the statement being declared of it is the direct object.' },
+				{ part: 'verb', qtw: 'tyaq', eng: 'to shout', etym: 'Semi-onomatopoeically derived from "twaq"' },
 				{ part: 'verb', qtw: 'tan', eng: 'to buy' },
 				{ part: 'verb', qtw: 'clūd̃', eng: 'to request' },
-				{ part: 'verb', qtw: '\'en̏', eng: 'to anoint', etym: 'Possibly from Proto-Into-European' },
-				{ part: 'verb', qtw: '\'waip', eng: 'messiah, christ', etym: 'From "\'en̏ nye̠p (mü̠f) wwaiw", a calque' },
-				{ part: 'verb', qtw: 'K̃e̠sus', eng: 'Jesus', etym: 'From Spanish' },
-				{ part: 'verb', qtw: 'Yečwa', eng: 'Jesus', etym: 'From Hebrew' },
-				{ part: 'verb', qtw: 'Jizë̠s', eng: 'Jesus', etym: 'From English' },
+				{ part: 'verb', qtw: 'qen̏', eng: 'to anoint', etym: 'Possibly from Proto-Into-European' },
+				{ part: 'verb', qtw: 'qwaip', eng: 'messiah, christ', etym: 'From "qen̏ nye̠p (mü̠f) wwaiw", a calque' },
+				{ part: 'verb', qtw: 'Xe̠sūs', eng: 'Jesus', etym: 'From Spanish' },
+				{ part: 'verb', qtw: 'Yes̀ūa', eng: 'Jesus', etym: 'From Hebrew' },
+				{ part: 'verb', qtw: 'Ji̇̄zë̠s', eng: 'Jesus', etym: 'From English' },
 				{ part: 'verb', qtw: 'Kristo̠', eng: 'Christ', etym: 'From Spanish' },
-				{ part: 'verb', qtw: 'Kl̀aistë̠', eng: 'Christ', etym: 'From English' },
-				{ part: 'verb', qtw: 'K̃esus Kristo', eng: 'Jesus Christ', etym: 'From Spanish' },
-				{ part: 'verb', qtw: 'Yečwa ¦waip', eng: 'Jesus Christ' },
-				{ part: 'verb', qtw: 'Jizë̠s Kl̀aistë̠', eng: 'Jesus Christ', etym: 'From English' },
-				{ part: 'verb', qtw: '\'Waip T̃yǘm', eng: 'Christianity' },
-				{ part: 'verb', qtw: '\'Waip T̃yǘm kai̠f', eng: '(dated) Christian church' },
-				{ part: 'verb', qtw: 'ǵlēs', eng: 'Christian church', etym: 'From Spanish "iglesia"' },
-				{ part: 'verb', qtw: 'n̏at', eng: 'to post', etym: 'From "n̏ü\' wak g̋ot", lit. "to paper"', extra: '"Originally referred to posting a paper on a tree, pole, or board; now also refers to making a post on an online site or forum.' },
-				{ part: 'verb', qtw: 'la\'', eng: 'to give; to gift' },
+				{ part: 'verb', qtw: 'Kl̀ai̇̄stë̠', eng: 'Christ', etym: 'From English' },
+				{ part: 'verb', qtw: 'Xesus Kristo', eng: 'Jesus Christ', etym: 'From Spanish' },
+				{ part: 'verb', qtw: 'Yes̀ūa Qwaip', eng: 'Jesus Christ' },
+				{ part: 'verb', qtw: 'Ji̇̄zë̠s Kl̀ai̇̄stë̠', eng: 'Jesus Christ', etym: 'From English' },
+				{ part: 'verb', qtw: 'Qwaip T̃yǘm', eng: 'Christianity' },
+				{ part: 'verb', qtw: 'Qwaip T̃yǘm kai̠f', eng: '(dated) Christian church' },
+				{ part: 'verb', qtw: 'ǵlēś', eng: 'Christian church', etym: 'From Spanish "iglesia"' },
+				{ part: 'verb', qtw: 'n̏at', eng: 'to post', etym: 'From "n̏üq wak g̋ot", lit. "to paper"', extra: '"Originally referred to posting a paper on a tree, pole, or board; now also refers to making a post on an online site or forum.' },
+				{ part: 'verb', qtw: 'laq', eng: 'to give; to gift' },
 				{ part: 'verb', qtw: 'ď̰ez', eng: 'to take; to accept (a thing given to you)' },
 				{ part: 'verb', qtw: 'dye᷅z', eng: 'to return something (an item to a person)', etym: 'From "dyōw ď̰ez"', etym: 'The direct object is what is being returned. The indirect object, if present, is what the direct object is being returned to. "dye᷅z" can also be used for people.' },
-				{ part: 'verb', qtw: 'düa\'', eng: 'to enable', etym: 'From "düek la\'"' },
+				{ part: 'verb', qtw: 'düaq', eng: 'to enable', etym: 'From "düek laq"' },
 				{ part: 'verb', qtw: 'dye᷅k', eng: 'inability, disability', etym: 'From "dyōw düek"' },
-				{ part: 'verb', qtw: 'dyüā\'', eng: 'to disable', etym: 'From "dyōw düa\'"' },
+				{ part: 'verb', qtw: 'dyüāq', eng: 'to disable', etym: 'From "dyōw düaq"' },
 				{ part: 'verb', qtw: 't̃a', eng: 'to send' },
 				{ part: 'verb', qtw: 'wel', eng: 'to pay' },
 				{ part: 'verb', qtw: 'mi', eng: 'to see, to witness' },
 				{ part: 'verb', qtw: 'miń', eng: 'to glow, to shine, to emit light' },
 				{ part: 'verb', qtw: 'nin̏', eng: 'to hear, to listen to' },
-				{ part: 'verb', qtw: '\'a᷅', eng: 'to laugh', etym: 'Onomatopoeic' },
-				{ part: 'verb', qtw: 'yu᷅\'', eng: 'to cry', etym: 'Onomatopoeic' },
+				{ part: 'verb', qtw: 'qa᷅', eng: 'to laugh', etym: 'Onomatopoeic' },
+				{ part: 'verb', qtw: 'yu᷅q', eng: 'to cry', etym: 'Onomatopoeic' },
 				{ part: 'verb', qtw: 'n̏aut', eng: 'to write', etym: 'From "n̏aup g̋ot"' },
 				{ part: 'verb', qtw: 'n̏aim', eng: 'to read', etym: 'From "n̏aup g̋im"' },
 				{ part: 'verb', qtw: 'lyā', eng: 'to float' },
-				{ part: 'verb', qtw: 'gu̠\'', eng: 'to sink' },
+				{ part: 'verb', qtw: 'gu̠q', eng: 'to sink' },
 				{ part: 'verb', qtw: 'k̰̋i̇̄', eng: 'to reflect' },
 				{ part: 'verb', qtw: 'to', eng: 'to hold, to grasp, to grab, to carry, (sometimes) to have' },
 				{ part: 'verb', qtw: 'tù', eng: 'to drop, to lose one\'s grip of, to lose possession or locational awareness of' },
 				{ part: 'verb', qtw: 'tuo᷅t', eng: 'to drop', etym: 'From "tù bwot"' },
 				{ part: 'verb', qtw: 'fuń', eng: 'to wear', etym: 'From "fun g̋ot"' },
 				{ part: 'verb', qtw: 'pei', eng: 'to cook' },
-				{ part: 'verb', qtw: '\'i̇́p', eng: 'to pull, to attract, to draw in' },
+				{ part: 'verb', qtw: 'qi̇́p', eng: 'to pull, to attract, to draw in' },
 				{ part: 'verb', qtw: 'nwa̚', eng: 'to push, to repel' },
 				{ part: 'verb', qtw: 'sen̋', eng: 'to love', etym: 'From "sen̏ g̋ot"' },
 				{ part: 'verb', qtw: 'jyè', eng: 'to measure' },
@@ -3511,8 +3686,8 @@
 				{ part: 'verb', qtw: 'nyaw', eng: 'to not exist, to not be' },
 				{ part: 'verb', qtw: 'wen', eng: 'to put or place' },
 				{ part: 'verb', qtw: 'k̋ey', eng: 'to go (to); to approach (intending to reach)' },
-				{ part: 'verb', qtw: '\'a\'', eng: 'to injure or cause physical pain', etym: 'Onomatopoeia for screaming, akin to "ouch"' },
-				{ part: 'verb', qtw: 'yay', eng: 'to hurt', etym: 'Onomatopoeia for screaming, as with "\'a\'"' },
+				{ part: 'verb', qtw: 'qaq', eng: 'to injure or cause physical pain', etym: 'Onomatopoeia for screaming, akin to "ouch"' },
+				{ part: 'verb', qtw: 'yay', eng: 'to hurt', etym: 'Onomatopoeia for screaming, as with "qaq"' },
 				{ part: 'verb', qtw: 'dun', eng: 'to drop' },
 				{ part: 'verb', qtw: 'ḱay', eng: 'to represent, to stand for, to indicate, to correspond to, to match' },
 				{ part: 'verb', qtw: 'cyen', eng: 'to pour' },
@@ -3524,8 +3699,8 @@
 				{ part: 'verb', qtw: 'gwué', eng: 'to drown' },
 				{ part: 'verb', qtw: 'moik̃', eng: 'to kill' },
 				{ part: 'verb', qtw: 'dao᷅k̃', eng: 'to commit s***ide', etym: 'From "dau̇̀p moik̃"' }, //dao᷅k̃ mü̠f vaek (pronounced "dao᷅k̃ mü̠f vaek")
-				{ part: 'verb', qtw: '\'ain', eng: 'to make (a thing), to create, to produce' },
-				{ part: 'verb', qtw: 'kai̇᷈n', eng: 'to build/construct (of a structure)', etym: 'From "kai̠f \'ain"' },
+				{ part: 'verb', qtw: 'qain', eng: 'to make (a thing), to create, to produce' },
+				{ part: 'verb', qtw: 'kai̇᷈n', eng: 'to build/construct (of a structure)', etym: 'From "kai̠f qain"' },
 				{ part: 'verb', qtw: 'tua', eng: 'to know' },
 				{ part: 'verb', qtw: 'kau̇', eng: 'to obtain, to get, to retrieve' },
 				{ part: 'verb', qtw: 'mel', eng: 'to come (towards someone/something)' },
@@ -3537,12 +3712,12 @@
 				{ part: 'verb', qtw: 'čaik̰̋', eng: 'to shock (electrically)' },
 				{ part: 'verb', qtw: 'jen', eng: 'to like' },
 				{ part: 'verb', qtw: 'nem', eng: 'to want, to desire' },
-				{ part: 'verb', qtw: 'fwaên', eng: 'to really like, to love', etym: 'From "fwá\' jen"' },
-				{ part: 'verb', qtw: 'kya\'', eng: 'to stick out, to extend (something outward), to protrude' },
+				{ part: 'verb', qtw: 'fwaên', eng: 'to really like, to love', etym: 'From "fwáq jen"' },
+				{ part: 'verb', qtw: 'kyaq', eng: 'to stick out, to extend (something outward), to protrude' },
 				{ part: 'verb', qtw: 'g̃on', eng: 'to hate; to see as an enemy' },
 				{ part: 'verb', qtw: 'dun̋', eng: 'f**k, d**k [down]', extra: 'Vulgar', censor: true, etym: 'From "dun̏ g̋ot"' },
 				{ part: 'postposition', qtw: 'gu̇n', eng: 'on, atop' },
-				{ part: 'postposition', qtw: '\'om', eng: 'versus, against, in opposition to, in conflict with' },
+				{ part: 'postposition', qtw: 'qom', eng: 'versus, against, in opposition to, in conflict with' },
 				{ part: 'postposition', qtw: 'kew', eng: 'below, but not touching/not continuous' },
 				{ part: 'postposition', qtw: 'tun', eng: 'below and touching/continuous' },
 				{ part: 'postposition', qtw: 'mwen', eng: 'inside a structure or object with an inner boundary (e.g. inside, within)', extra: '"mwen" is not used for being in supernatural realms such as Hell. "mwen"\'s scope includes countries and other entities with perimeters, including fenced areas. "mwen" can be used for open boxes or other containers which are missing a wall, but either "mwen" or "min" can be used for tunnels or other containers which are missing two walls. "mwen" is not used for people\'s possession; instead "min" is used for that. "mwen" is also used for clothes, regardless of holes.' },
@@ -3552,10 +3727,10 @@
 				{ part: 'postposition, adjective', qtw: 'noi', eng: 'before, in front of, (in the spatial or temporal sense); previously' },
 				{ part: 'postposition, adjective', qtw: 'waá', eng: 'after, behind (in the spatial or temporal sense); afterward' },
 				{ part: 'postposition, adjective', qtw: 'lei', eng: 'over (on top of but not touching; the direction of travel that vertically bypasses something), above' },
-				{ part: 'postposition', qtw: '\'ey', eng: 'on, onto' },
+				{ part: 'postposition', qtw: 'qey', eng: 'on, onto' },
 				{ part: 'postposition', qtw: 'yop', eng: 'outside of' },
 				{ part: 'postposition', qtw: 'mwëp', eng: 'on the edge of, at the boundary of', etym: 'Blend of "mwen" and "yop"', extra: 'If someone is standing in the door frame of a house, "mwëp" can be used. If someone is floating in water, partly above the surface, "mwëp" can be used. If someone is in the fading stages of a feeling, "mwëp" can be used. If something is borderline inappropriate, "mwëp" can also be used. "mwëp" can be used for other edges, such as the edge of a cliff.' },
-				{ part: 'noun, postposition', qtw: '\'oi', eng: 'the bottom or lower part of' },
+				{ part: 'noun, postposition', qtw: 'qoi', eng: 'the bottom or lower part of' },
 				{ part: 'noun, postposition', qtw: 'euf', eng: 'the top or upper part of' },
 				{ part: 'postposition', qtw: 'g̋ay', eng: 'into (something described with "mwen")' },
 				{ part: 'postposition', qtw: 'g̋yan', eng: 'into (something described with "min")', extra: 'Also used for the "to" in "forced to", and to denote the direction of a change ("into" as in "turn into a dog")' },
@@ -3572,9 +3747,9 @@
 				{ part: 'conjunction', qtw: 'mut', eng: 'or (inclusive)' },
 				{ part: 'conjunction', qtw: 'mat', eng: 'or (exclusive)' },
 				{ part: 'adverb, other', qtw: 'dyōw', eng: '(negation), not; (sometimes, in compounds) un-', extra: 'When negating something, it precedes the negatee.' },
-				{ part: 'adverb', qtw: '\'ye̠', eng: 'please', extra: 'Makes a request more polite.' },
+				{ part: 'adverb', qtw: 'qye̠', eng: 'please', extra: 'Makes a request more polite.' },
 				{ part: 'adverb', qtw: 'lyo', eng: 'when' },
-				{ part: 'adverb', qtw: 'flá\'', eng: 'more', etym: 'Related to "fwá\'"' },
+				{ part: 'adverb', qtw: 'fláq', eng: 'more', etym: 'Related to "fwáq"' },
 				{ part: 'adverb', qtw: 'fu̇̄s', eng: 'less', etym: 'Related to "fu̇̄p"' },
 				{ part: 'adverb', qtw: 't̃an', eng: 'always' },
 				{ part: 'adverb', qtw: 'dew', eng: 'never', etym: 'Related to "dyōw"' },
@@ -3598,7 +3773,7 @@
 
 				{ part: 'marker', qtw: 'mü̠f', eng: '(Adjectivizer), -al, -ous, -y', extra: 'Also connects non-adjectives to their modificands as adjectives' },
 				{ part: 'marker', qtw: 'wa', eng: '(Agentive suffix), -er, (postpositive morpheme akin to "one who" or "that which")', etym: 'Cognate of "wwaiw"', extra: '"mü̠f" is not necessary with "wa"'},
-				{ part: 'marker', qtw: 'ťain', eng: '-numbered', extra: '(It connects a number word or phrase to its quantificand. In quantities with units, it is not needed to connect the number to the unit, but it is used to connect the unit quantity to something else (e.g. "ťyek̃ k̃ǖbü̠ mi̇̄të̠l ťain woin ček" = "10 kibimeter walk").)' },
+				{ part: 'marker', qtw: 'ťain', eng: '(historical) -numbered', extra: 'It used to connect a number word or phrase to its quantificand. In quantities with units, it was not needed to connect the number to the unit, but was used to connect the unit quantity to something else (e.g. "ťyek̃ k̃ǖbü̠ mi̇̄të̠l ťain woin ček" = "10 kibimeter walk"). It has since fallen out of necessity.' },
 				{ part: 'marker', qtw: 'ťyam', eng: '-th, (Ordinalizer)', etym: 'From "ťain"', extra: '(Like "ťain", but converts a number to its ordinal form (e.g. "two" -> "second"))' },
 				{ part: 'marker', qtw: 'jyai', eng: '(Instrumentality marker), -by, -with (as in "I hit the nail with a hammer"), -using', extra: 'Also akin to the "by" in a passive voice statement or the "of" in the construction "full of"' },
 				{ part: 'marker', qtw: 'dyoi', eng: '(Marks passive voice by attaching to the verb, after TAM markers)' },
@@ -3981,7 +4156,7 @@
 						<li>Ďec (male)</li>
 						<li>Slu̇k (male)</li>
 						<li>Fac (male)</li>
-						<li>¦ef (male)</li>
+						<li>Qef (male)</li>
 						<li>Ťoď̰ (unisex)</li>
 						<li>U̇' (unisex)</li>
 						<li>Lyig (unisex)</li>
@@ -4215,7 +4390,6 @@
 					#/β/ never developed
 					*/β̞/ merged into /w/
 					#/χ/, #/χʷ/, and #/ɴ/ never developed
-					#/t̠/ and #/d̠/ never developed
 				-->
 
 				<section id="qstVowels">
@@ -4983,7 +5157,8 @@
 			<main class="plain-font" aria-role="paragraph" id="twanthainLore">
 				<section id="description">
 					<h2>Description</h2>
-					<p class="indent">Twanthain (<span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;ពាៈង៑</span>, "<span class="translation">People's State of Wüan</span>"; officially <span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Wwaiy&nbsp;Ḱü̚y&nbsp;Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;វា្វឭយ៑&nbsp;ជឺ៹យ៑&nbsp;ពាៈង៑</span>, "<span class="translation">State of the People's Democratic Republic of Wüan</span>") is an <em>island country in the eastern Philippine Sea</em>, on the <em>West Mariana Ridge</em>.&#8203;&nbsp;&nbsp;&#8203;It has Guam to its east, Japan to its north, the Philippines and Palau to its southeast, and western Micronesia to its south; people <em>disagree on whether Twanthain is part of Southeast Asia or Oceania</em>.&#8203;&nbsp;&nbsp;&#8203;Its <em>capital is Pfewhuang</em> (<span lang="qtw-Latn">F̌eu&nbsp;¦wán̏</span>/<span lang="qtw-Khmr">ផឩ&nbsp;អ្វាង៑</span>, "<span class="translation">River City</span>").&#8203;&nbsp;&nbsp;&#8203;It has <em>one time zone</em>, Twanthainese Standard Time (<span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Ban̏&nbsp;Čiao᷅n̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;ពាៈង៑&nbsp;ឞីឰឧ៱៰ង៑</span>), whose UTC offset is <em>UTC+10 without daylight savings time</em>.&#8203;&nbsp;&nbsp;&#8203;Twanthain's ISO country codes are <code title="ISO 3166-1 alpha-2">TI</code>, <code title="ISO 3166-1 alpha-3">TTN</code>, and <code title="ISO 3166-1 numeric">799</code>; thus its <em><abbr title="country code top-level domain">ccTLD</abbr> is <code>.ti</code></em>.&#8203;&nbsp;&nbsp;&#8203;Its <em>currency is the Twanthainese nak</em> (<span lang="qtw-Latn">nàk</span>/<span lang="qtw-Khmr">ណា៳ក៑</span>), which as of 2024 exchanges at a rate of <em>≈83Ň to 1 US dollar</em>.&#8203;&nbsp;&nbsp;&#8203;It has two symbols: <em>Ň</em> (a Latin letter N with a caron/háček), and <span>កា</span>‌<span style="display: inline-block; position: relative; left: -8px; top: -2px;">̌</span> (the Khmer-script syllable "<span title="na">កា</span>" with a caron); this latter symbol is not supported by Unicode and likely to display improperly, and as a result is falling out of use.&#8203;&nbsp;&nbsp;&#8203;The nak's currency codes are <code title="ISO 4217 alphabetical code">TIN</code> and <code title="ISO 4217 numeric code">797</code>.&#8203;&nbsp;&nbsp;&#8203;The nation has a total area of <em><span id="landAreaKm2">104,476</span> square kilometers</em>.&#8203;&nbsp;&nbsp;&#8203;Twanthain has a <em>population of <span id="population"><noscript>3,572,250</noscript></span></em>, and a population density of about <em><span id="populationDensity"><noscript>34.19</noscript></span> people per square kilometer</em>.&#8203;&nbsp;&nbsp;&#8203;Its fertility rate is <em>4.73 births per woman</em><!--not because there's a lot of death, but because they f*** like rabbits-->, and its <em>population growth rate is <span id="populationGrowthRate">8.451%</span></em>. Twanthain has a <abbr title="gross domestic product (a measure of the size of a nation's economy)">GDP</abbr> of <span id="gdp"><noscript>278.6 billion</noscript></span>, and a <abbr title="GDP divided by population (&quot;capita&quot;, from the Latin for &quot;head&quot;, just means &quot;person&quot; here)">GDP per capita</abbr> of <span id="gdpPerCapita">$77,996</span>.&#8203;&nbsp;&nbsp;&#8203;Its official color is <span style="background-color: #E529DE; color: black;">#E529DE</span>, named by the country as <span style="background-color: #E529DE; color: black;">Purple Magenta</span> and derived from the official colors of its provinces.</p>
+					<p class="indent">Twanthain (<span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;ពាៈង៑</span>, "<span class="translation">People's State of Wüan</span>"; officially <span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Wwaiy&nbsp;Ḱü̚y&nbsp;Ban̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;វា្វឭយ៑&nbsp;ក៉ឺ៹យ៑&nbsp;ពាៈង៑</span>, "<span class="translation">State of the People's Democratic Republic of Wüan</span>") is an <em>island country in the eastern Philippine Sea</em>, on the <em>West Mariana Ridge</em>.&#8203;&nbsp;&nbsp;&#8203;It has Guam to its east, Japan to its north, the Philippines and Palau to its southeast, and western Micronesia to its south; people <em>disagree on whether Twanthain is part of Southeast Asia or Oceania</em>.&#8203;&nbsp;&nbsp;&#8203;Its <em>capital is Pfewhuang</em> (<span lang="qtw-Latn">F̌eu&nbsp;Hwán̏</span>/<span lang="qtw-Khmr">
+					ផឩ&nbsp;ហ្វាង៑</span>, "<span class="translation">River City</span>").&#8203;&nbsp;&nbsp;&#8203;It has <em>one time zone</em>, Twanthainese Standard Time (<span lang="qtw-Latn">Wüan&nbsp;Ťwaiw&nbsp;Ban̏&nbsp;Čiao᷅n̏</span>/<span lang="qtw-Khmr">វឺឰណ៑&nbsp;ទ្វាឭវ៑&nbsp;ពាៈង៑&nbsp;ឞីឰឧ៱៰ង៑</span>), whose UTC offset is <em>UTC+10 without daylight savings time</em>.&#8203;&nbsp;&nbsp;&#8203;Twanthain's ISO country codes are <code title="ISO 3166-1 alpha-2">TI</code>, <code title="ISO 3166-1 alpha-3">TTN</code>, and <code title="ISO 3166-1 numeric">799</code>; thus its <em><abbr title="country code top-level domain">ccTLD</abbr> is <code>.ti</code></em>.&#8203;&nbsp;&nbsp;&#8203;Its <em>currency is the Twanthainese nak</em> (<span lang="qtw-Latn">nàk</span>/<span lang="qtw-Khmr">ណា៳ក៑</span>), which as of 2024 exchanges at a rate of <em>≈83Ň to 1 US dollar</em>.&#8203;&nbsp;&nbsp;&#8203;It has two symbols: <em>Ň</em> (a Latin letter N with a caron/háček), and <span>កា</span>‌<span style="display: inline-block; position: relative; left: -8px; top: -2px;">̌</span> (the Khmer-script syllable "<span title="na">កា</span>" with a caron); this latter symbol is not supported by Unicode and likely to display improperly, and as a result is falling out of use.&#8203;&nbsp;&nbsp;&#8203;The nak's currency codes are <code title="ISO 4217 alphabetical code">TIN</code> and <code title="ISO 4217 numeric code">797</code>.&#8203;&nbsp;&nbsp;&#8203;The nation has a total area of <em><span id="landAreaKm2">104,476</span> square kilometers</em>.&#8203;&nbsp;&nbsp;&#8203;Twanthain has a <em>population of <span id="population"><noscript>3,572,250</noscript></span></em>, and a population density of about <em><span id="populationDensity"><noscript>34.19</noscript></span> people per square kilometer</em>.&#8203;&nbsp;&nbsp;&#8203;Its fertility rate is <em>4.73 births per woman</em><!--not because there's a lot of death, but because they f*** like rabbits-->, and its <em>population growth rate is <span id="populationGrowthRate">8.451%</span></em>. Twanthain has a <abbr title="gross domestic product (a measure of the size of a nation's economy)">GDP</abbr> of <span id="gdp"><noscript>278.6 billion</noscript></span>, and a <abbr title="GDP divided by population (&quot;capita&quot;, from the Latin for &quot;head&quot;, just means &quot;person&quot; here)">GDP per capita</abbr> of <span id="gdpPerCapita">$77,996</span>.&#8203;&nbsp;&nbsp;&#8203;Its official color is <span style="background-color: #E529DE; color: black;">#E529DE</span>, named by the country as <span style="background-color: #E529DE; color: black;">Purple Magenta</span> and derived from the official colors of its provinces.</p>
 					<script>
 						illions = ["thousand","million","billion","trillion","quadrillion","quintillion","sextillion","septillion","octillion","nonillion","decillion","undecillion"];
 						var area = 104476;
@@ -5139,7 +5314,7 @@
 						<span class="info-pair indent">Name: <span lang="qtw-Latn">F̌eik Bwam</span> (<span class="translation">Delta Province</span>)</span><br/>
 						<span class="info-pair indent">Type: Province</span><br/>
 						<span class="info-pair indent">Population: <span class="province-population"><noscript>640,580</noscript></span></span><br/>
-						<span class="info-pair indent">Capital: Dezmi Bwimkyo Ongliu Lheu City (Twanthainese: <span lang="qtw-Latn"><span style="opacity: 0.7">F̌eik Bwam mwen </span>Dezmi Bwimḱo On̏lu̇ L̃eu ¦uang</span>, Sissinese: <span lang="qst-Latn">Dézmi Bwímҟo Ón̏lù Léu Wána<span style="opacity: 0.7">, Xíşanì Ánềpuné</span></span>)</span><br/>
+						<span class="info-pair indent">Capital: Dezmi Bwimkyo Ongliu Lheu City (Twanthainese: <span lang="qtw-Latn"><span style="opacity: 0.7">F̌eik Bwam mwen </span>Dezmi Bwimḱo On̏lu̇ L̃eu Quang</span>, Sissinese: <span lang="qst-Latn">Dézmi Bwímҟo Ón̏lù Léu Wána<span style="opacity: 0.7">, Xíşanì Ánềpuné</span></span>)</span><br/>
 						<span class="info-pair indent">Population density: <span class="province-population-density">89.62</span> people per square kilometer</span><br/>
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #53822D; color: white;">#53822D</span></span><br/></li> <!--grass of the delta-->
 
@@ -5147,7 +5322,7 @@
 						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Tńwan̏ Bwam</span> (<span class="translation">Mountain Province</span>)</span></span><br/>
 						<span class="info-pair indent">Type: Province</span><br/>
 						<span class="info-pair indent">Population: <span class="province-population"><noscript>250,881</noscript></span></span><br/>
-						<span class="info-pair indent">Capital: Twawhuang (<span lang="qtw-Latn">Twaw ¦wán̏</span>, <span class="translation">Forest City</span>)</span></span><br/>
+						<span class="info-pair indent">Capital: Twawhuang (<span lang="qtw-Latn">Twaw Hwán̏</span>, <span class="translation">Forest City</span>)</span></span><br/>
 						<span class="info-pair indent">Area: <span class="province-area">39,532</span> <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span><br/>
 						<span class="info-pair indent">Population density: <span class="province-population-density">6.35</span> people per square kilometer</span><br/>
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #BAE0EF; color: black;">#BAE0EF</span></span><br/></li> <!--the sky from the mountaintop-->
@@ -5170,7 +5345,7 @@
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #EAA6D7; color: black;">#EAA6D7</span></span><br/></li> <!--pink flowers-->
 
 						<li id="pfewhuang"><em class="anglicized-name">Pfewhuang</em><br/>
-						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">F̌eu ¦wán̏</span> (<span class="translation">River City</span>)</span></span><br/>
+						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">F̌eu Hwán̏</span> (<span class="translation">River City</span>)</span></span><br/>
 						<span class="info-pair indent">Type: Special provincial-level city</span><br/>
 						<span class="info-pair indent">Population: <span class="province-population"><noscript>580,469</noscript></span></span><br/>
 						<span class="info-pair indent">Capital: N/A (it is the city itself)</span><br/>
@@ -5182,7 +5357,7 @@
 						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Jék̋ Bwam</span> (<span class="translation">Jék̋ Province</span>; the final 〈k̋〉 is pronounced as if it were a 〈y〉)</span></span><br/>
 						<span class="info-pair indent">Type: Province</span><br/>
 						<span class="info-pair indent">Population: <span class="province-population"><noscript>375,910</noscript></span></span><br/>
-						<span class="info-pair indent">Capital: Jey Wiuny Hdik Zeng City (<span lang="qtw-Latn">Jék̋ Wu̇̄ń Ďi̠g Zen̏ ¦wán̏</span>; the final 〈g〉 is pronounced as if it were a 〈k〉)</span></span><br/>
+						<span class="info-pair indent">Capital: Jey Wiuny Hdik Zeng City (<span lang="qtw-Latn">Jék̋ Wu̇̄ń Ďi̠g Zen̏ Hwán̏</span>; the final 〈g〉 is pronounced as if it were a 〈k〉)</span></span><br/>
 						<span class="info-pair indent">Area: <span class="province-area">17,516</span> <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span><br/>
 						<span class="info-pair indent">Population density: <span class="province-population-density">21.46</span> people per square kilometer</span><br/>
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #8251ED; color: white;">#8251ED</span></span><br/></li> <!--jey's girlfriend's favorite color-->
@@ -5191,7 +5366,7 @@
 						<span class="info-pair indent">Name: <span class="info-value"><span lang="qtw-Latn">Cyo᷅n Bwam</span> (<span class="translation">South Province</span>)</span></span><br/>
 						<span class="info-pair indent">Type: Province</span><br/>
 						<span class="info-pair indent">Population: <span class="province-population"><noscript>368,801</noscript></span></span><br/>
-						<span class="info-pair indent">Capital: Tsyonhuang (<span lang="qtw-Latn">Cyo᷅n ¦wán̏</span>, <span class="translation">South City</span>)</span></span><br/>
+						<span class="info-pair indent">Capital: Tsyonhuang (<span lang="qtw-Latn">Cyo᷅n Hwán̏</span>, <span class="translation">South City</span>)</span></span><br/>
 						<span class="info-pair indent">Area: <span class="province-area">11,840</span> <span class="screenreader">square kilometers</span><span aria-hidden="true">km<sup>2</sup></span></span><br/>
 						<span class="info-pair indent">Population density: <span class="province-population-density">31.15</span> people per square kilometer</span><br/>
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #F78018; color: black;">#F78018</span></span><br/></li> <!--the sunset-->
@@ -5368,7 +5543,7 @@
 						<li>Twanthainese culture places a very high value on filial piety. However, their notion of filial piety goes both ways, with parents having to respect their children.</li>
 						<li>Twanthain was occupied by Japan from 1939 to 1945.&#8203;&nbsp;&nbsp;&#8203;The use of Twanthainese and other pre-existing languages was discouraged and restricted, and the cititzens living then were forced to learn Japanese.</li>
 						<li>Twanthain was never socialist, despite what its official name suggests nowadays.</li>
-						<li>The Yoy Cryogenic Air Separator Plant Complex (Yoy Fnwiut Fwaôn̏, abbr. as "YFF" or in colloquial speech as "(su̇l) Yoy Fwaôn̏"/"(the) Yoy Complex"), located in F̌eu ¦wán̏ and named after Yoy N̏leydi B́ëlam Ut̃mań, is the oldest continuously operating (and largest) cryogenic air separator plant in the world, operating since 1901 and currently producing 800 <abbr title="gigagrams">Gg</abbr> of total liquid gas per day, nearly enough to fill the Empire State Building.&#8203;&nbsp;&nbsp;&#8203;Given its date of creation, it also barely beats out Carl von Linde's 1902 C.A.S.U. as the first such commercially viable facility. At its current extent, the Yoy Complex is powered by, among other methods, a large nuclear power plant which cost over US$20 billion to build. It employs 3,000 people. This plant's presence also makes Twanthain a leading supplier of cryogenic gases; notably, it even sells directly to consumers, given that they sign certain waivers and documents concerning proper safety procedures. It is currently operated by Twanthain Cryogenics, a state-owned company.<ul><!--Romanized plant name: Yoy Fnwiut Fwaong7; romanized creator name: Yoy Ngleydi Byoelam Uthmany; source for gas volume: https://en.wikipedia.org/wiki/Liquid_air for density, equation 800 Gg / (0.87 g/cm^3), https://www.wolframalpha.com/input?i=800+Gg+%2F+%280.87+g%2Fcm%5E3%29 -->
+						<li>The Yoy Cryogenic Air Separator Plant Complex (Yoy Fnwiut Fwaôn̏, abbr. as "YFF" or in colloquial speech as "(su̇l) Yoy Fwaôn̏"/"(the) Yoy Complex"), located in F̌eu Hwán̏ and named after Yoy N̏leydi B́ëlam Ut̃mań, is the oldest continuously operating (and largest) cryogenic air separator plant in the world, operating since 1901 and currently producing 800 <abbr title="gigagrams">Gg</abbr> of total liquid gas per day, nearly enough to fill the Empire State Building.&#8203;&nbsp;&nbsp;&#8203;Given its date of creation, it also barely beats out Carl von Linde's 1902 C.A.S.U. as the first such commercially viable facility. At its current extent, the Yoy Complex is powered by, among other methods, a large nuclear power plant which cost over US$20 billion to build. It employs 3,000 people. This plant's presence also makes Twanthain a leading supplier of cryogenic gases; notably, it even sells directly to consumers, given that they sign certain waivers and documents concerning proper safety procedures. It is currently operated by Twanthain Cryogenics, a state-owned company.<ul><!--Romanized plant name: Yoy Fnwiut Fwaong7; romanized creator name: Yoy Ngleydi Byoelam Uthmany; source for gas volume: https://en.wikipedia.org/wiki/Liquid_air for density, equation 800 Gg / (0.87 g/cm^3), https://www.wolframalpha.com/input?i=800+Gg+%2F+%280.87+g%2Fcm%5E3%29 -->
 							<li>The plant is a major point of national pride for the Twanthainese people, and a tourist attraction in itself (and in the same vein, a common destination for school field trips).</li>
 							<li>Yoy N̏leydi B́ëlam Ut̃mań built the initial air separator unit in 1901, which was eventually accompanied by more air separators which gradually formed the large complex. A prominent scientist in his life, he is highly regarded for this.</li>
 							<li>During the Japanese occupation period, the complex was the site of a battle involving Twanthainese military personnel and civilians against the Japanese army. Liquid gases were thrown at Imperial Japanese troops, and dumped on the floor to cause asphyxiation and internal frostbite. In addition, oxygen gas was used as an oxidizer in incendiary weapons. The battle still caused millions of dollars in damage to the plant.</li>
