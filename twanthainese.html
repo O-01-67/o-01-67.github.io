@@ -2072,7 +2072,9 @@
 				{ part: 'noun', qtw: 'bwok', eng: 'sandstorm' },
 				{ part: 'noun', qtw: 'byik', eng: 'quicksand' },
 				{ part: 'noun', qtw: 'cek', eng: 'clay' },
-				{ part: 'noun', qtw: 'čup', eng: 'brick' },
+				{ part: 'noun', qtw: 'twǒt̃', eng: 'an item of pottery' },
+				{ part: 'noun', qtw: 'twǒj', eng: 'pottery', etym: 'From "twǒt̃ ju"' },
+				{ part: 'noun', qtw: 'ťei̇᷅', eng: 'brick' },
 				{ part: 'noun', qtw: 'qam', eng: 'rock crystal, gem' },
 				{ part: 'noun', qtw: 'd́aa', eng: 'jade' },
 				{ part: 'noun', qtw: 'ton̏', eng: 'amethyst' },
@@ -3060,9 +3062,11 @@
 				{ part: 'noun', qtw: 'baow', eng: 'tourist', etym: 'From "ban̏ t̰́ow"' },
 				{ part: 'noun', qtw: 'fun', eng: 'clothing' },
 				{ part: 'noun', qtw: 'yek', eng: 'armor' },
-				{ part: 'noun', qtw: 'dan yek', eng: 'helmet' },
-				{ part: 'noun', qtw: 'qoi fun', eng: 'bottoms (clothing)' },
-				{ part: 'noun', qtw: 'euf fun', eng: 'tops (clothing)' },
+				{ part: 'noun', qtw: 'fun', eng: 'clothing' },
+				{ part: 'noun', qtw: 'daun', eng: 'hat', etym: 'From "dan fun"' },
+				{ part: 'noun', qtw: 'daek', eng: 'helmet', etym: 'From "dan yek"' },
+				{ part: 'noun', qtw: 'qoun', eng: 'bottoms (clothing)', etym: 'From "qoi fun"' },
+				{ part: 'noun', qtw: 'eun', eng: 'tops (clothing)', etym: 'From "euf fun"' },
 				{ part: 'noun', qtw: 'min mü̠f fun', eng: 'undergarments' },
 				{ part: 'noun', qtw: 'myoǐn', eng: 'underwear (excluding bras)', etym: 'From "min mü̠f qoi fun"' },
 				{ part: 'noun', qtw: 'myeǔn', eng: 'bra', etym: 'From "min mü̠f qoi fun"'	},
@@ -3998,11 +4002,11 @@
 								} else {
 									firstMedialDecider = Math.random()
 								}
-								if(firstMedialDecider < 0.25) {
+								if(firstMedialDecider < 0.70) {
 									firstMedialType = 0
-								} else if(firstMedialDecider < 0.75) {
+								} else if(firstMedialDecider < 0.90) {
 									firstMedialType = 1
-								} else if(firstMedialDecider < 0.85) {
+								} else if(firstMedialDecider < 0.95) {
 									firstMedialType = 2
 								} else {
 									firstMedialType = 3 + cf()
