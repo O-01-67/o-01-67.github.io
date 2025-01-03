@@ -639,10 +639,10 @@
 					filteredData = structuredClone(dataSource).filter(function(itemData) {
 						if(Array.isArray(itemData.eng) && itemData.censor) { itemData.eng = itemData.eng.toReversed().join() };
 						if(noDia) {
-							if(!(itemData.qtw)) { return };
+							if(!(itemData[languageCode])) { return };
 							return (
 								(sEng && ((itemData.eng.normalize("NFD") ?? "").toLowerCase()[stringFunction](query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")))) ||
-								(sCon && ((itemData.qtw.normalize("NFD") ?? "").toLowerCase()[stringFunction](query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")))) ||
+								(sCon && ((itemData[languageCode].normalize("NFD") ?? "").toLowerCase()[stringFunction](query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")))) ||
 								(sEty && itemData.etym.normalize("NFD") && (itemData.etym.toLowerCase()[stringFunction](query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")))) ||
 								(sExt && itemData.extra.normalize("NFD") && (itemData.extra.toLowerCase()[stringFunction](query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")))) ||
 								(sPar && itemData.part.normalize("NFD") && (itemData.part.toLowerCase()[stringFunction](query.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""))))
@@ -650,7 +650,7 @@
 						} else {
 							return (
 								(sEng && ((itemData.eng ?? "").toLowerCase()[stringFunction](query.toLowerCase()))) ||
-								(sCon && ((itemData.qtw ?? "").toLowerCase()[stringFunction](query.toLowerCase()))) ||
+								(sCon && ((itemData[languageCode] ?? "").toLowerCase()[stringFunction](query.toLowerCase()))) ||
 								(sEty && itemData.etym && (itemData.etym.toLowerCase()[stringFunction](query.toLowerCase()))) ||
 								(sExt && itemData.extra && (itemData.extra.toLowerCase()[stringFunction](query.toLowerCase()))) ||
 								(sPar && itemData.part && (itemData.part.toLowerCase()[stringFunction](query.toLowerCase())))
@@ -1113,6 +1113,7 @@
 					{ part: 'noun, verb', qtw: 'nait', eng: 'dizzy, to induce dizziness or vertigo' },
 					{ part: 'noun, verb', qtw: 'cai̇̄c', eng: 'heat, to heat' },
 					{ part: 'noun', qtw: 'bën̏', eng: 'ground, earth, land', extra: 'It refers either only to natural ground, or to a large area of ground or the surface of the planet itself (in which case it does include all artificial ground)' },
+					{ part: 'noun', qtw: 'bwëop', eng: 'geographic region', etym: 'From "bën̏ dwop"' /*and so etymologically related to the word for "substance"*/ },
 					{ part: 'noun', qtw: 'gan', eng: 'island' },
 					{ part: 'noun, verb', qtw: 'bün̏', eng: 'dirt, soil; to add dirt' },
 					{ part: 'noun, verb', qtw: 'bon', eng: 'mud, to add mud' },
@@ -2350,41 +2351,44 @@
 					{ part: 'noun', qtw: 'Lau ťwaiw', eng: 'Lao people' },
 					{ part: 'noun', qtw: 'Ë̠mēl̀ü̠kë̠ ban̏', eng: 'America (the United States)' },
 					{ part: 'noun', qtw: 'swu̇as Ë̠mēl̀ü̠kë̠ mü̠f D́eiek mü̠f Bwam ban̏', eng: 'the United States of America' },
-					{ part: 'noun', qtw: 'Bl̀ǖtë̠n ban̏', eng: 'Britain', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Bl̀ǖtë̠n gap', eng: 'English', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Bl̀ǖtë̠n ťwaiw', eng: 'British people', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Pilipinas gap', eng: 'Filipino (language)', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Pilipinas ťwaiw', eng: 'Filipino people', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Ńihon gap', eng: 'Japanese', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Ńihon ťwaiw', eng: 'Japanese people', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Hanguk gap', eng: 'Korean', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Indonesiya gap', eng: 'Indonesian', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Vyët Nam gap', eng: 'Vietnamese', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Espańa ban̏', eng: 'Spain', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Espańa gap', eng: 'Spanish', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Kampuk̋ië ban̏', eng: 'Cambodia', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Kampuk̋ië gap', eng: 'Khmer (language)', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'K̃mae gap', eng: 'Khmer (language)', extra: 'Synonym of "Kampuk̋ië gap"', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'K̃mae n̏ap', eng: 'Khmer script', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Kampuk̋ië n̏ap', eng: 'Khmer script', extra: 'Synonym of "Kampuk̋ië n̏ap"', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Rosiya ban̏', eng: 'Russia', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Rosiya n̏ap', eng: 'Russian alphabet', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Kilil n̏ap', eng: 'Cyrillic script', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Fës gap', eng: 'French', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Fës ban̏', eng: 'France', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Fës ťwaiw', eng: 'French people', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Kilibas gap', eng: 'Gilbertese', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Ťülḱiye gap', eng: 'Turkish', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Euskala gap', eng: 'Basque', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Latčilatči gap', eng: 'Latji-Latji', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Tl̃ün̏oan gap', eng: 'Klingon', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Ču̇̄n̏kwó gap', eng: 'Mandarin', etym: 'From endonym', tags: ["loanword"] },
+					{ part: 'noun', qtw: 'Sisin bwëop', eng: 'Sissin region', etym: 'From endonym', tags: ["loanword","Sissinese"] },
+					{ part: 'noun', qtw: 'Së̠pë̠tyan bwëop', eng: 'Sptyan region', etym: 'From endonym', tags: ["loanword","Sptyanim"] },
+					{ part: 'noun', qtw: 'Sanam bwëop', eng: 'Ssanam region', etym: 'From endonym', tags: ["loanword","Ssanamese"] },
+					{ part: 'noun', qtw: 'Bl̀ǖtë̠n ban̏', eng: 'Britain', etym: 'From endonym', tags: ["loanword","English"] },
+					{ part: 'noun', qtw: 'Bl̀ǖtë̠n gap', eng: 'English', etym: 'From endonym', tags: ["loanword","English"] },
+					{ part: 'noun', qtw: 'Bl̀ǖtë̠n ťwaiw', eng: 'British people', etym: 'From endonym', tags: ["loanword","English"] },
+					{ part: 'noun', qtw: 'Pilipinas gap', eng: 'Filipino (language)', etym: 'From endonym', tags: ["loanword","Tagalog"] },
+					{ part: 'noun', qtw: 'Pilipinas ťwaiw', eng: 'Filipino people', etym: 'From endonym', tags: ["loanword","Tagalog"] },
+					{ part: 'noun', qtw: 'Ńihon gap', eng: 'Japanese', etym: 'From endonym', tags: ["loanword","Japanese"] },
+					{ part: 'noun', qtw: 'Ńihon ťwaiw', eng: 'Japanese people', etym: 'From endonym', tags: ["loanword","Japanese"] },
+					{ part: 'noun', qtw: 'Hanguk gap', eng: 'Korean', etym: 'From endonym', tags: ["loanword","Korean"] },
+					{ part: 'noun', qtw: 'Indonesiya gap', eng: 'Indonesian', etym: 'From endonym', tags: ["loanword","Indonesian"] },
+					{ part: 'noun', qtw: 'Vyët Nam gap', eng: 'Vietnamese', etym: 'From endonym', tags: ["loanword","Vietnamese"] },
+					{ part: 'noun', qtw: 'Espańa ban̏', eng: 'Spain', etym: 'From endonym', tags: ["loanword","Spanish"] },
+					{ part: 'noun', qtw: 'Espańa gap', eng: 'Spanish', etym: 'From endonym', tags: ["loanword","Spanish"] },
+					{ part: 'noun', qtw: 'Kampuk̋ië ban̏', eng: 'Cambodia', etym: 'From endonym', tags: ["loanword","Khmer"] },
+					{ part: 'noun', qtw: 'Kampuk̋ië gap', eng: 'Khmer (language)', etym: 'From endonym', tags: ["loanword","Khmer"] },
+					{ part: 'noun', qtw: 'K̃mae gap', eng: 'Khmer (language)', extra: 'Synonym of "Kampuk̋ië gap"', etym: 'From endonym', tags: ["loanword","Khmer"] },
+					{ part: 'noun', qtw: 'K̃mae n̏ap', eng: 'Khmer script', etym: 'From endonym', tags: ["loanword","Khmer"] },
+					{ part: 'noun', qtw: 'Kampuk̋ië n̏ap', eng: 'Khmer script', extra: 'Synonym of "Kampuk̋ië n̏ap"', etym: 'From endonym', tags: ["loanword","Khmer"] },
+					{ part: 'noun', qtw: 'Rosiya ban̏', eng: 'Russia', etym: 'From endonym', tags: ["loanword","Russian"] },
+					{ part: 'noun', qtw: 'Rosiya n̏ap', eng: 'Russian alphabet', etym: 'From endonym', tags: ["loanword","Russian"] },
+					{ part: 'noun', qtw: 'Kiril n̏ap', eng: 'Cyrillic script', etym: 'From endonym', tags: ["loanword","Russian"] },
+					{ part: 'noun', qtw: 'Fës gap', eng: 'French', etym: 'From endonym', tags: ["loanword","French"] },
+					{ part: 'noun', qtw: 'Fës ban̏', eng: 'France', etym: 'From endonym', tags: ["loanword","French"] },
+					{ part: 'noun', qtw: 'Fës ťwaiw', eng: 'French people', etym: 'From endonym', tags: ["loanword","French"] },
+					{ part: 'noun', qtw: 'Kilibas gap', eng: 'Gilbertese', etym: 'From endonym', tags: ["loanword","Gilbertese"] },
+					{ part: 'noun', qtw: 'Ťülḱiye gap', eng: 'Turkish', etym: 'From endonym', tags: ["loanword","Turkish"] },
+					{ part: 'noun', qtw: 'Euskala gap', eng: 'Basque', etym: 'From endonym', tags: ["loanword","Basque"] },
+					{ part: 'noun', qtw: 'Latčilatči gap', eng: 'Latji-Latji', etym: 'From endonym', tags: ["loanword","Latji-Latji"] },
+					{ part: 'noun', qtw: 'Tl̃ün̏oan gap', eng: 'Klingon', etym: 'From endonym', tags: ["loanword","Klingon"] },
+					{ part: 'noun', qtw: 'Ču̇̄n̏kwó gap', eng: 'Mandarin', etym: 'From endonym', tags: ["loanword","Mandarin"] },
 					{ part: 'noun', qtw: 'Fǔt̃ë̄n̏ Gap', eng: 'Mandarin', etym: 'From Mandarin "普通话"; owing to the p̃-f merger, p̃ is standardly changed to f in loanwords.', extra: 'synonym of "Ču̇n̏ Kwo gap"', tags: ["loanword", "Mandarin"] },
-					{ part: 'noun', qtw: 'Tai̠wa᷄n gap', eng: 'Taiwanese', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Klōsa gap', eng: 'isiXhosa', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Hāusā gap', eng: 'Hausa', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Hwoi̠san gap', eng: 'Taishanese', etym: 'From endonym', tags: ["loanword"] },
-					{ part: 'noun', qtw: 'Polsëka gap', eng: 'Polish', etym: 'From endonym', tags: ["loanword"] },
+					{ part: 'noun', qtw: 'Tai̠wa᷄n gap', eng: 'Taiwanese', etym: 'From endonym', tags: ["loanword","Taiwanese"] },
+					{ part: 'noun', qtw: 'Klōsa gap', eng: 'isiXhosa', etym: 'From endonym', tags: ["loanword","Xhosa"] },
+					{ part: 'noun', qtw: 'Hāusā gap', eng: 'Hausa', etym: 'From endonym', tags: ["loanword","Hausa"] },
+					{ part: 'noun', qtw: 'Hwoi̠san gap', eng: 'Taishanese', etym: 'From endonym', tags: ["loanword","Taishanese"] },
+					{ part: 'noun', qtw: 'Polsëka gap', eng: 'Polish', etym: 'From endonym', tags: ["loanword","Polish"] },
 					{ part: 'noun', qtw: 'Ɣ̋üf Bët ťwaiw', eng: 'Martian (hypothetical species)' },
 					{ part: 'noun', qtw: 'Halasai gap', eng: 'Halacae', eng_href: 'https://R74n.com/halacae/' },
 					{ part: 'noun', qtw: 'Disko̠l̀dë̠ gu̇n Dwop mü̠f', eng: 'Elemental on Discord' },
@@ -2868,7 +2872,7 @@
 					{ part: 'postposition, adjective', qtw: 'waá', eng: 'after, behind (in the spatial or temporal sense), next; afterward' },
 					{ part: 'postposition, adjective', qtw: 'lei', eng: 'over (on top of but not touching; the direction of travel that vertically bypasses something), above' },
 					{ part: 'adjective', qtw: 'leǜf', eng: 'current', etym: 'From "lep mü̠f"', tags: ["blended"]},
-					{ part: 'adjective', qtw: 'noǜf', eng: 'previous', etym: 'From "noi mü̠f"', tags: ["blended"]},
+					{ part: 'adjective', qtw: 'noǜf', eng: 'previous, former', etym: 'From "noi mü̠f"', tags: ["blended"]},
 					{ part: 'adjective', qtw: 'waü̂f', eng: 'next', etym: 'From "waá mü̠f"', tags: ["blended"]},
 					{ part: 'postposition', qtw: 'qey', eng: 'on, onto' },
 					{ part: 'postposition', qtw: 'yop', eng: 'outside of' },
@@ -3017,7 +3021,7 @@
 					{ part: 'noun', qst: 'lasí', eng: 'boat, ship' },
 					{ part: 'noun', qst: 'Sisin', eng: 'The Sissin region of Twanthain' },
 					{ part: 'noun', qst: 'tilin', eng: 'a pebble, a small rock', extra: 'Classification varies depending on the speaker, and may be subject to the sorites paradox, but rocks with a longest measurement less than 4cm are generally considered "tilin".' },
-					{ part: 'noun', qst: 'sêhin̏', eng: 'a large rock', extra: 'Rocks over 10cm in length are generally considered "sêhin̏".' },
+					{ part: 'noun', qst: 'sêhin̏̀', eng: 'a large rock', extra: 'Rocks over 10cm in length are generally considered "sêhin̏̀".' },
 					{ part: 'noun', qst: 'sahesín', eng: 'a huge rock', extra: 'Rocks over 50cm in length are generally considered "sahesín".' },
 					{ part: 'noun', qst: 'sis̏ísim', eng: 'a boulder', extra: 'Rocks at least 1m in length are generally considered "sis̏ísim".' },
 					{ part: 'noun', qst: 'z̏̀osis̏ísim', eng: 'a huge boulder', extra: 'Rocks at least 3m in length are generally considered "z̏̀osis̏ísim".' },
@@ -3058,7 +3062,7 @@
 					{ part: 'noun, adjective', qst: 'ɔ̦óè', eng: 'seven, septuple' },
 					{ part: 'noun, adjective', qst: 's̀ahé', eng: 'eight, octuple' },
 					{ part: 'noun, adjective', qst: 's̏̀íen̊à', eng: 'nine, nonuple' },
-					{ part: 'noun, adjective', qst: 'n̏̊êm', eng: 'ten, decuple' },
+					{ part: 'noun, adjective', qst: 'n̥̏̀êm', eng: 'ten, decuple' },
 					{ part: 'noun, adjective', qst: 'h̊éwe', eng: 'eleven', extra: 'Every number word can also mean "n-uple"' },
 					{ part: 'noun, adjective', qst: 'z̏̊an', eng: 'twelve' },
 					{ part: 'noun, adjective', qst: 'ҟapa', eng: 'thirteen' },
@@ -3067,15 +3071,15 @@
 					{ part: 'noun, adjective', qst: 'ís̏ì', eng: 'sixteen' },
 					{ part: 'noun, adjective', qst: 'sám', eng: 'seventeen' },
 					{ part: 'noun, adjective', qst: 'qoñ', eng: 'eighteen' },
-					{ part: 'noun, adjective', qst: 'ṇáyì', eng: 'nineteen' },
-					{ part: 'noun, adjective', qst: 'ṇáyì s̏is̏ín', eng: 'twenty' },
-					{ part: 'noun, adjective', qst: 'ṇáyì z̏elín', eng: 'twenty-one' },
-					{ part: 'noun, adjective', qst: 'ṇáyì śamé', eng: 'twenty-two' },
-					{ part: 'noun, adjective', qst: 'ṇáyì sánà', eng: 'twenty-three' },
-					{ part: 'noun, adjective', qst: 'ṇáyì n̏̊êm', eng: 'twenty-nine' },
-					{ part: 'noun, adjective', qst: 'ṇáyì qoñ', eng: 'thirty-seven' },
-					{ part: 'noun, adjective', qst: 'z̏elín ṇáyì', eng: 'thirty-eight' },
-					{ part: 'noun, adjective', qst: 's̏̀íen̊à ṇáyì', eng: 'fifty-seven' },
+					{ part: 'noun, adjective', qst: 'ǹáyì', eng: 'nineteen' },
+					{ part: 'noun, adjective', qst: 'ǹáyì s̏is̏ín', eng: 'twenty' },
+					{ part: 'noun, adjective', qst: 'ǹáyì z̏elín', eng: 'twenty-one' },
+					{ part: 'noun, adjective', qst: 'ǹáyì śamé', eng: 'twenty-two' },
+					{ part: 'noun, adjective', qst: 'ǹáyì sánà', eng: 'twenty-three' },
+					{ part: 'noun, adjective', qst: 'ǹáyì n̥̏̀êm', eng: 'twenty-nine' },
+					{ part: 'noun, adjective', qst: 'ǹáyì qoñ', eng: 'thirty-seven' },
+					{ part: 'noun, adjective', qst: 'z̏elín ǹáyì', eng: 'thirty-eight' },
+					{ part: 'noun, adjective', qst: 's̏̀íen̊à ǹáyì', eng: 'fifty-seven' },
 					{ part: 'noun', qst: 'lahá', eng: 'color' },
 					{ part: 'noun', qst: 'sá', eng: 'the sky' },
 					{ part: 'noun', qst: 'sísàs᷈a', eng: 'the ground', etym: 'From "SÍsìm SAs̏̊iǥê S᷈Al"', tags: ["blended"]},
@@ -3088,22 +3092,22 @@
 					{ part: 'noun, adjective', qst: 'és̏̊à', eng: 'white' },
 					{ part: 'noun, adjective', qst: 'suná', eng: 'gray' },
 					{ part: 'noun, adjective', qst: 'míñ', eng: 'green' },
-					{ part: 'noun, adjective', qst: 'ṇáhì', eng: 'blue' },
+					{ part: 'noun, adjective', qst: 'ǹáhì', eng: 'blue' },
 					{ part: 'noun, adjective', qst: 's̏ísiè', eng: 'yellow' },
 					{ part: 'noun, adjective', qst: 'm̊amó', eng: 'purple' },
 					{ part: 'noun, adjective', qst: 'púlì', eng: 'pink, salmon (color), apricot (color)' },
 					{ part: 'noun, adjective', qst: 'mónpulì', eng: 'salmon (color)' },
-					{ part: 'noun, adjective', qst: 'ṇáhìpúlì', eng: 'pink (color)', extra: 'cf. #FF7FFF' },
-					{ part: 'noun, adjective', qst: 'ŧén ṇáyì ŧén', eng: '100', extra: 'As the Sissinese people are used to base 19, "normal" base 10 numbers may seem oddly specific to them. However, as the dominant base 10 has seeped in through close contact with the Twanthainese people outside of the Sissin region, they are more exposed to base 10 numbers and more used to them.', etym: 'Effectively "fifty-five"' },
+					{ part: 'noun, adjective', qst: 'ǹáhìpúlì', eng: 'pink (color)', extra: 'cf. #FF7FFF' },
+					{ part: 'noun, adjective', qst: 'ŧén ǹáyì ŧén', eng: '100', extra: 'As the Sissinese people are used to base 19, "normal" base 10 numbers may seem oddly specific to them. However, as the dominant base 10 has seeped in through close contact with the Twanthainese people outside of the Sissin region, they are more exposed to base 10 numbers and more used to them.', etym: 'Effectively "fifty-five"' },
 					{ part: 'noun, adjective', qst: 's̏ís̏ihề', eng: '361 (19 squared)' },
-					{ part: 'noun, adjective', qst: 'z̏elín s̏ís̏ihề s᷈ése ṇáyì ʒ̊an', eng: '1,000', etym: 'Effectively "two-hundred ernesty-chris"' },
+					{ part: 'noun, adjective', qst: 'z̏elín s̏ís̏ihề s᷈ése ǹáyì ʒ̊an', eng: '1,000', etym: 'Effectively "two-hundred ernesty-chris"' },
 					{ part: 'noun, adjective', qst: 'hasín', eng: '6,859 (19 cubed)' },
-					{ part: 'noun, adjective', qst: 'hasín s̀ahé s̏ís̏ihề ҟapa ṇáyì êǥí', eng: '10,000', etym: 'Effectively "thousand eight-hundred dotty-six"' },
+					{ part: 'noun, adjective', qst: 'hasín s̀ahé s̏ís̏ihề ҟapa ǹáyì êǥí', eng: '10,000', etym: 'Effectively "thousand eight-hundred dotty-six"' },
 					{ part: 'noun, adjective', qst: 's᷈ése hasín h̊éwe s̏ís̏ihề śamé', eng: '100,000', etym: 'Effectively "ernest thousand bet hundred and three"' },
 					{ part: 'noun, adjective', qst: 'tuháwa', eng: '130,321 (19^4)' },
-					{ part: 'noun, adjective', qst: 'ɔ̦óè tuháwa ʒ̊an hasín is̏í s̏ís̏ihề ṇáyì h̊éwe', eng: '1,000,000', etym: 'Effectively "seven myriad chris thousand frost hundred betteen"' },
+					{ part: 'noun, adjective', qst: 'ɔ̦óè tuháwa ʒ̊an hasín is̏í s̏ís̏ihề ǹáyì h̊éwe', eng: '1,000,000', etym: 'Effectively "seven myriad chris thousand frost hundred betteen"' },
 					{ part: 'noun, adjective', qst: 'míwinidè', eng: '2,476,099 (19^5)' },
-					{ part: 'noun, adjective', qst: 'sánà míwinidè ҟapa hasín sám s̏ís̏ihề is̏í ṇáyì is̏í', eng: '10,000,000', etym: 'Effectively "four lakh dot thousand hope hundred frosty-frost"' },
+					{ part: 'noun, adjective', qst: 'sánà míwinidè ҟapa hasín sám s̏ís̏ihề is̏í ǹáyì is̏í', eng: '10,000,000', etym: 'Effectively "four lakh dot thousand hope hundred frosty-frost"' },
 					{ part: 'classifier', qst: 's̏̀úh̊a', eng: 'classifier for rocks, gemstones, and mineral specimens when they are not a powder' },
 					{ part: 'classifier', qst: 'ž̊ili', eng: 'classifier for particles of dust or other powders' },
 					{ part: 'classifier', qst: 'haláê', eng: 'classifier for islands' },
@@ -3129,6 +3133,7 @@
 					{ part: 'affix', qst: '-n̊iñ', eng: '(Adverbializer suffix)' },
 				],
 				qsm: [ //Ssanamese
+					{ qsm: "hiraha", part: "noun", eng: "language" },
 					{ qsm: "danēä", part: "noun", eng: "mid-sized rock", extra: 'One weighing about 2kg' },
 					{ qsm: "daneänul", part: "noun", eng: "land (a section thereof), territory, a region, a territorial or political subdivision", extra: 'Originally "danēänul", as borders were marked with stones' },
 					{ qsm: "danäwalž", part: "noun", eng: "federation", extra: 'Contracted from "daneänullem walžmdanel"', tags: ["blended"] },
@@ -3137,15 +3142,14 @@
 					{ qsm: "gah", part: "adverb", eng: "not; un-, de-", extra: "As an adverb, or as a derivational morpheme (forming words referring to the undoing, unaffectedness, reversal, or removal or something)" },
 					{ qsm: "gałah", part: "preposition", eng: "without", etym: 'From "gah" + "łah"', tags: ["blended"] },
 					{ qsm: "gelnafe", part: "verb", eng: "to fall, to drop, to fall out, to fall into (a state or a hole)", extra: "Or metaphorically, to decrease" },
-					{ qsm: "ł̣enǟ", part: "verb", eng: "to speak, to say, to tell" },
-					{ qsm: "ł̣enäṭan", part: "noun", eng: "representative" },
-					{ qsm: "ł̣enälžnem", part: "noun", eng: "republic", etym: 'Contracted from "ł̣enäṭanlem walžmǵenem"', tags: ["blended"] },
+					{ qsm: "gğź̄z̀ǹźňmut̀", part: "noun", eng: "nightmare", extra: "While English speaks in terms of having nightmares, this language speaks in terms of dreaming nightmares." },
+					{ qsm: "ǵene", part: "noun", eng: "leader, ruler" },
 					{ qsm: "ǵene", part: "noun", eng: "leader, ruler" },
 					{ qsm: "ǵēne", part: "noun", eng: "club (weapon)", etym: 'Related to "ǵene"' },
 					{ qsm: "ǵenelem", part: "noun", eng: "rule, power" },
-					{ qsm: "walžmǵenem", part: "noun", eng: "democracy", etym: 'Contracted from "walsämžm ǵenelem"', tags: ["blended"] },
-					{ qsm: "Wiuanlem Walsänul Walžmǵenemlem Danäwalžlem Ł̣enälžnemlem Walžmdanel", part: "noun", eng: "Official name of Twanthain", etym: 'Wüan P.F.D.R.' },
-					{ qsm: "gğź̄z̀ǹźňmut̀", part: "noun", eng: "nightmare", extra: "While English speaks in terms of having nightmares, this language speaks in terms of dreaming nightmares." },
+					{ qsm: "ł̣enǟ", part: "verb", eng: "to speak, to say, to tell" },
+					{ qsm: "ł̣enäṭan", part: "noun", eng: "representative" },
+					{ qsm: "ł̣enälžnem", part: "noun", eng: "republic", etym: 'Contracted from "ł̣enäṭanlem walžmǵenem"', tags: ["blended"] },
 					{ qsm: "hārai", part: "noun", eng: "the Moon, a moon" },
 					{ qsm: "hä", part: "affix", eng: "(Future tense conjugation for -fe verbs)" },
 					{ qsm: "ḥǟǹ", part: "affix", eng: "Instrumental case suffix", extra: "It marks the thing that the action of the verb was performed with." },
@@ -3161,11 +3165,14 @@
 					{ qsm: "mžm", part: "affix", eng: "Genitive case suffix", extra: "It marks the possessor of a noun. A noun in the genitive behaves like an adjective." },
 					{ qsm: "naeň", part: "noun", eng: "road, street, path, thoroughfare", extra: "May refer to a physical road/path or a metaphorical method/process/procedure" },
 					{ qsm: "naḱi", part: "adjective", eng: "all, every" },
+					{ qsm: "naḱiwalsä", part: "noun", eng: "humanity, humankind, the human race" },
 					{ qsm: "näs̀", part: "affix", eng: "Dative case suffix", extra: "Its meaning varies depending on the verb" },
 					{ qsm: "neň", part: "affix", eng: "(Past tense conjugation for -fe verbs)" },
 					{ qsm: "nul", part: "affix", eng: "(Plural marker)", extra: "It makes a noun or pronoun plural." },
 					{ qsm: "pi", part: "preposition", eng: "on, atop, all over", extra: "An apple is on a table. Juice spills on the table. Light shines on a table. A cat walks on a bridge. An HVAC unit is mounted on a roof." },
-					{ qsm: "Ṣanam walsä", part: "noun", eng: "Ssanamese people" },
+					{ qsm: "Ṣanam", part: "noun", eng: "Ssanam region" },
+					{ qsm: "Ṣanammžm walsä", part: "noun", eng: "Ssanamese people" },
+					{ qsm: "Ṣanammžm hiraha", part: "noun", eng: "Ssanamese language" },
 					{ qsm: "ṭääs", part: "conjunction", eng: "but, however, although" },
 					{ qsm: "ṭarai", part: "verb", eng: "to shine", extra: "-i verb; of light or, by extension, a light source. Can be used metaphorically for an inspiring idea/person/thing, or a positive feeling." },
 					{ qsm: "tseli", part: "noun", eng: "to dream", extra: "Encompasses good and bad dreams" },
@@ -3177,7 +3184,8 @@
 					{ qsm: "walsä", part: "noun", eng: "people (more than one person), a group of people" },
 					{ qsm: "walžmdanel", part: "noun", eng: "nation, country", etym: 'Contracted from "walsämžm daneänul"', tags: ["blended"] },
 					{ qsm: "walžnǵene", part: "noun", eng: "government", etym: 'Contracted from "walžmdanellem ǵenenul"', tags: ["blended"] },
-					{ qsm: "naḱiwalsä", part: "noun", eng: "humanity, humankind, the human race" },
+					{ qsm: "walžmǵenem", part: "noun", eng: "democracy", etym: 'Contracted from "walsämžm ǵenelem"', tags: ["blended"] },
+					{ qsm: "Wiuanlem Walsänul Walžmǵenemlem Danäwalžlem Ł̣enälžnemlem Walžmdanel", part: "noun", eng: "Official name of Twanthain", etym: 'Wüan P.F.D.R.' },
 					{ qsm: "wun", part: "affix", eng: "(Noun-deriving suffix for verbs)", extra: "It usually turns a verb into a noun (not a gerund, though for some verbs there would be no semantic difference). It replaces the -i/-fe ending." },
 					{ qsm: "ya", part: "affix", eng: "(Present tense conjugation for -fe verbs)" }
 				], 
@@ -3194,12 +3202,14 @@
 					{ qpt: 'îstk', ipa: 'ˈistk', part: 'pronoun', eng: 'they, them', extra: 'Third person singular pronoun' },
 					{ qpt: 'îya', ipa: 'ˈi.jᴀ', part: 'pronoun', eng: 'I, me', extra: 'First person singular pronoun' },
 					{ qpt: 'ka', ipa: 'kᴀ', part: 'verb', eng: 'did, was', extra: 'Auxiliary verb marking past tense.' },
+					{ qpt: 'kalînk', ipa: 'kᴀ.ˈlink', part: 'noun', eng: 'language' },
 					{ qpt: 'kîfni', ipa: 'ˈkif.ni', part: 'verb', eng: 'to indicate, to represent', etym: 'Originally a verb meaning "to point to"' },
 					{ qpt: 'kîfniminǎ', ipa: 'ˈkif.ni.mi.ˌnᴀ', part: 'verb', eng: 'representative, indicative' },
 					{ qpt: 'kfnî', ipa: 'ˈkfni', part: 'adjective', eng: 'three', extra: 'Noun or adjective' },
 					{ qpt: 'kîluklam', ipa: 'ˈki.lu.klᴀm', part: 'noun', eng: 'kilogram', extra: 'Acts as an adjective when part of a physical quantity', etym: 'kilogram' },
 					{ qpt: 'kmyâst', ipa: 'ˈkmyᴀst', part: 'adverb', eng: 'strongly, highly, intensely, severely, really', extra: 'Neutral connotation' },
 					{ qpt: 'knang', ipa: 'knᴀŋ', part: 'verb', eng: 'if, should', extra: 'Auxiliary verb marking a conditional mood that functions as in an "if X, then Y" construction' },
+					{ qpt: 'kpalînm̄', ipa: 'kpᴀ.ˈlin.m̩', part: 'noun', eng: 'land, ground' },
 					{ qpt: 'kntâli', ipa: 'ˈkntᴀ.li', part: 'adjective', eng: 'one, single', extra: 'Noun or adjective' },
 					{ qpt: 'ksa', ipa: 'ksᴀ', part: 'affix', eng: 'Dative suffix', extra: 'Marks the indirect object' },
 					{ qpt: 'ngast', ipa: 'ŋᴀst', part: 'affix', eng: 'Dative suffix', extra: 'Marks the indirect object' },
@@ -3236,7 +3246,9 @@
 					{ qpt: 'skâpskn̄t̽minǎ', ipa: 'ˈskᴀps.kn̩t̚.mi.ˌnᴀ', part: 'noun', eng: 'federal (of or relating to a federation or its central government)', etym: 'From "pknîtaskǎs" and "minâ"', tags: ["blended"] },
 					{ qpt: 'skrânta', ipa: 'ˈskrᴀn.tᴀ', part: 'verb', eng: 'to lie, to lie to, to deceive, to disinform, to perjure' },
 					{ qpt: 'skrântask', ipa: 'ˈskrᴀn.tᴀsk', part: 'noun', eng: 'a lie, a lying, deception, perjury', etym: 'From "skranta" and "sk"' },
+					{ qpt: 'Sptyânim kpalînm̄', ipa: 'ˈsptya.nim kpᴀ.ˈlin.m̩', part: 'noun', eng: 'Sptyan region' },
 					{ qpt: 'Sptyânim tnâlitilǎx', ipa: 'ˈsptya.nim ˈtnᴀ.li.ti.ˌlᴀx', part: 'noun', eng: 'Sptyanim people' },
+					{ qpt: 'Sptyânim kalînk', ipa: 'kᴀ.ˈlink', part: 'noun', eng: 'language' },
 					{ qpt: 'Blîtain tnâlitilǎx', ipa: 'ˈbli.ta.in ˈtnᴀ.li.ti.ˌlᴀx', part: 'noun', eng: 'British people' },
 					{ qpt: 'stxîl', ipa: 'ˈstxil', part: 'noun', eng: 'rain' },
 					{ qpt: 'sxûn', ipa: 'ˈsxun', part: 'verb', eng: 'be in, be at', extra: 'To be at a location' },
@@ -4595,19 +4607,14 @@
 								</tr>
 								<tr>
 									<th colspan="3">Plosive</th>
-									<td>p</td>
-									<td>b</td>
+									<td><span class="phoneme">/p/</span> <span class="grapheme">〈p〉</span></td>
+									<td><span class="phoneme">/b/</span> <span class="grapheme">〈b〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>t</td>
-									<td>d</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
+									<td><span class="phoneme">/t/</span> <span class="grapheme">〈t〉</span></td>
+									<td><span class="phoneme">/d/</span> <span class="grapheme">〈d〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
@@ -4615,26 +4622,31 @@
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>ʈ</td>
-									<td>ɖ</td>
-									<td>c</td>
-									<td>ɟ</td>
-									<td>k</td>
-									<td>g</td>
-									<td>q</td>
-									<td>ɢ</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ʈ/</span> <span class="grapheme">〈ŧ〉</span></td>
+									<td><span class="phoneme">/ɖ/</span> <span class="grapheme">〈đ〉</span></td>
+									<td><span class="phoneme">/c/</span> <span class="grapheme">〈ҟ〉</span></td>
+									<td><span class="phoneme">/ɟ/</span> <span class="grapheme">〈ǥ〉</span></td>
+									<td><span class="phoneme">/k/</span> <span class="grapheme">〈k〉</span></td>
+									<td><span class="phoneme">/g/</span> <span class="grapheme">〈g〉</span></td>
+									<td><span class="phoneme">/q/</span> <span class="grapheme">〈q〉</span></td>
+									<td><span class="phoneme">/ɢ/</span> <span class="grapheme">〈ɔ̦〉</span></td>
 								</tr>
 								<tr>
 									<th rowspan="2">Nasal</th>
 									<th colspan="2">Plain</th>
 									<td>&nbsp;</td>
-									<td>m</td>
+									<td><span class="phoneme">/m/</span> <span class="grapheme">〈m〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>n</td>
+									<td><span class="phoneme">/n/</span> <span class="grapheme">〈n〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
@@ -4646,26 +4658,26 @@
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>n̠</td>
+									<td><span class="phoneme">/n̠/</span> <span class="grapheme">〈ǹ〉</span></td>
 									<td>&nbsp;</td>
-									<td>ɳ</td>
+									<td><span class="phoneme">/ɳ/</span> <span class="grapheme">〈n̏〉</span></td>
 									<td>&nbsp;</td>
-									<td>ɲ</td>
+									<td><span class="phoneme">/ɲ/</span> <span class="grapheme">〈ñ〉</span></td>
 									<td>&nbsp;</td>
-									<td>ŋ</td>
+									<td><span class="phoneme">/ŋ/</span> <span class="grapheme">〈n̏̀〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 								</tr>
 								<tr>
 									<th colspan="2">Labial</th>
 									<td>&nbsp;</td>
-									<td>mʷ</td>
+									<td><span class="phoneme">/m/</span> <span class="grapheme">〈m̊〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>nʷ</td>
+									<td><span class="phoneme">/n/</span> <span class="grapheme">〈n̊〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
@@ -4677,13 +4689,13 @@
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>n̠ʷ</td>
+									<td><span class="phoneme">/n̠ʷ/</span> <span class="grapheme">〈ǹ̊〉</span></td>
 									<td>&nbsp;</td>
-									<td>ɳʷ</td>
+									<td><span class="phoneme">/ɳʷ/</span> <span class="grapheme">〈n̏̊〉</span></td>
 									<td>&nbsp;</td>
-									<td>ɲʷ</td>
+									<td><span class="phoneme">/ɲʷ/</span> <span class="grapheme">〈ñ̊〉</span></td>
 									<td>&nbsp;</td>
-									<td>ŋʷ</td>
+									<td><span class="phoneme">/ŋʷ/</span> <span class="grapheme">〈n̥̏̀〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 								</tr>
@@ -4693,62 +4705,62 @@
 									<th>Normal</th>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>s̟</td>
-									<td>z̟</td>
-									<td>s̟ʲ</td>
-									<td>z̟ʲ</td>
-									<td>s</td>
-									<td>z</td>
-									<td>sʲ</td>
-									<td>zʲ</td>
-									<td>s̠</td>
-									<td>z̠</td>
-									<td>ɕ</td>
-									<td>ʑ</td>
-									<td>ɕ̠</td>
-									<td>ʑ̠</td>
-									<td>ʃ̟</td>
-									<td>ʒ̟</td>
-									<td>ʃ</td>
-									<td>ʒ</td>
-									<td>ʂ</td>
-									<td>ʐ</td>
-									<td>ç</td>
-									<td>ʝ</td>
-									<td>x</td>
+									<td><span class="phoneme">/s̟/</span> <span class="grapheme">〈ṡ〉</span></td>
+									<td><span class="phoneme">/z̟/</span> <span class="grapheme">〈ż〉</span></td>
+									<td><span class="phoneme">/s̟ʲ/</span> <span class="grapheme">〈ṡ́〉</span></td>
+									<td><span class="phoneme">/z̟ʲ/</span> <span class="grapheme">〈ż́〉</span></td>
+									<td><span class="phoneme">/s/</span> <span class="grapheme">〈s〉</span></td>
+									<td><span class="phoneme">/z/</span> <span class="grapheme">〈z〉</span></td>
+									<td><span class="phoneme">/sʲ/</span> <span class="grapheme">〈ś〉</span></td>
+									<td><span class="phoneme">/zʲ/</span> <span class="grapheme">〈ź〉</span></td>
+									<td><span class="phoneme">/s̠/</span> <span class="grapheme">〈s̀〉</span></td>
+									<td><span class="phoneme">/z̠/</span> <span class="grapheme">〈z̀〉</span></td>
+									<td><span class="phoneme">/ɕ/</span> <span class="grapheme">〈š〉</span></td>
+									<td><span class="phoneme">/ʑ/</span> <span class="grapheme">〈ž〉</span></td>
+									<td><span class="phoneme">/ɕ̠/</span> <span class="grapheme">〈s᷈〉</span></td>
+									<td><span class="phoneme">/ʑ̠/</span> <span class="grapheme">〈z᷈〉</span></td>
+									<td><span class="phoneme">/ʃ̟/</span> <span class="grapheme">〈s̏̇〉</span></td>
+									<td><span class="phoneme">/ʒ̟/</span> <span class="grapheme">〈z̏̇〉</span></td>
+									<td><span class="phoneme">/ʃ/</span> <span class="grapheme">〈s̏〉</span></td>
+									<td><span class="phoneme">/ʒ/</span> <span class="grapheme">〈z̏〉</span></td>
+									<td><span class="phoneme">/ʂ/</span> <span class="grapheme">〈s̏̀〉</span></td>
+									<td><span class="phoneme">/ʐ/</span> <span class="grapheme">〈z̏̀〉</span></td>
+									<td><span class="phoneme">/ç/</span> <span class="grapheme">〈h́〉</span></td>
+									<td><span class="phoneme">/ʝ/</span> <span class="grapheme">〈ý〉</span></td>
+									<td><span class="phoneme">/x/</span> <span class="grapheme">〈x〉</span></td>
 									<td>&nbsp;</td>
-									<td>χ</td>
+									<td><span class="phoneme">/χ/</span> <span class="grapheme">〈x̀〉</span></td>
 									<td>&nbsp;</td>
 								</tr>
 								<tr>
 									<th>Normal</th>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>s̟͈</td>
-									<td>z̟͈</td>
-									<td>s̟͈ʲ</td>
-									<td>z̟͈ʲ</td>
-									<td>s͈</td>
-									<td>z͈</td>
-									<td>s͈ʲ</td>
-									<td>z͈ʲ</td>
-									<td>s̠͈</td>
-									<td>z̠͈</td>
-									<td>ɕ͈</td>
-									<td>ʑ͈</td>
-									<td>ɕ̠͈</td>
-									<td>ʑ̠͈</td>
-									<td>ʃ̟͈</td>
-									<td>ʒ̟͈</td>
-									<td>ʃ͈</td>
-									<td>ʒ͈</td>
-									<td>ʂ͈</td>
-									<td>ʐ͈</td>
-									<td>ç͈</td>
-									<td>ʝ͈</td>
-									<td>x͈</td>
+									<td><span class="phoneme">/s̟͈/</span> <span class="grapheme">〈ṡ̄〉</span></td>
+									<td><span class="phoneme">/z̟͈/</span> <span class="grapheme">〈ż̄〉</span></td>
+									<td><span class="phoneme">/s̟͈ʲ/</span> <span class="grapheme">〈ṣ᷄〉</span></td>
+									<td><span class="phoneme">/z̟͈ʲ/</span> <span class="grapheme">〈ẓ᷄〉</span></td>
+									<td><span class="phoneme">/s͈/</span> <span class="grapheme">〈s̄〉</span></td>
+									<td><span class="phoneme">/z͈/</span> <span class="grapheme">〈z̄〉</span></td>
+									<td><span class="phoneme">/s͈ʲ/</span> <span class="grapheme">〈s᷄〉</span></td>
+									<td><span class="phoneme">/z͈ʲ/</span> <span class="grapheme">〈z᷄〉</span></td>
+									<td><span class="phoneme">/s̠͈/</span> <span class="grapheme">〈s᷅〉</span></td>
+									<td><span class="phoneme">/z̠͈/</span> <span class="grapheme">〈z᷅〉</span></td>
+									<td><span class="phoneme">/ɕ͈/</span> <span class="grapheme">〈š̄〉</span></td>
+									<td><span class="phoneme">/ʑ͈/</span> <span class="grapheme">〈ž̄〉</span></td>
+									<td><span class="phoneme">/ɕ̠͈/</span> <span class="grapheme">〈s᷈̄〉</span></td>
+									<td><span class="phoneme">/ʑ̠͈/</span> <span class="grapheme">〈z᷈̄〉</span></td>
+									<td><span class="phoneme">/ʃ̟͈/</span> <span class="grapheme">〈ṣ̏̄〉</span></td>
+									<td><span class="phoneme">/ʒ̟͈/</span> <span class="grapheme">〈ẓ̏̄〉</span></td>
+									<td><span class="phoneme">/ʃ͈/</span> <span class="grapheme">〈s̏̄〉</span></td>
+									<td><span class="phoneme">/ʒ͈/</span> <span class="grapheme">〈z̏̄〉</span></td>
+									<td><span class="phoneme">/ʂ͈/</span> <span class="grapheme">〈s̠̏̀〉</span></td>
+									<td><span class="phoneme">/ʐ͈/</span> <span class="grapheme">〈z̠̏̀〉</span></td>
+									<td><span class="phoneme">/ç͈/</span> <span class="grapheme">〈h᷄〉</span></td>
+									<td><span class="phoneme">/ʝ͈/</span> <span class="grapheme">〈y᷄〉</span></td>
+									<td><span class="phoneme">/x͈/</span> <span class="grapheme">〈x̄〉</span></td>
 									<td>&nbsp;</td>
-									<td>χ͈</td>
+									<td><span class="phoneme">/χ͈/</span> <span class="grapheme">〈x᷅〉</span></td>
 									<td>&nbsp;</td>
 								</tr>
 								<tr>
@@ -4756,80 +4768,74 @@
 									<th>Normal</th>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>s̟ʷ</td>
-									<td>z̟ʷ</td>
-									<td>s̟ʲʷ</td>
-									<td>z̟ʲʷ</td>
-									<td>sʷ</td>
-									<td>zʷ</td>
-									<td>sʲʷ</td>
-									<td>zʲʷ</td>
-									<td>s̠ʷ</td>
-									<td>z̠ʷ</td>
-									<td>ɕʷ</td>
-									<td>ʑʷ</td>
-									<td>ɕ̠ʷ</td>
-									<td>ʑ̠ʷ</td>
-									<td>ʃ̟ʷ</td>
-									<td>ʒ̟ʷ</td>
-									<td>ʃʷ</td>
-									<td>ʒʷ</td>
-									<td>ʂʷ</td>
-									<td>ʐʷ</td>
-									<td>çʷ</td>
-									<td>ʝʷ</td>
-									<td>xʷ</td>
+									<td><span class="phoneme">/s̟ʷ/</span> <span class="grapheme">〈ṡ̊〉</span></td>
+									<td><span class="phoneme">/z̟ʷ/</span> <span class="grapheme">〈ż̊〉</span></td>
+									<td><span class="phoneme">/s̟ʲʷ/</span> <span class="grapheme">〈ṡ̥́〉</span></td>
+									<td><span class="phoneme">/z̟ʲʷ/</span> <span class="grapheme">〈ż́〉</span></td>
+									<td><span class="phoneme">/sʷ/</span> <span class="grapheme">〈s̊〉</span></td>
+									<td><span class="phoneme">/zʷ/</span> <span class="grapheme">〈z̊〉</span></td>
+									<td><span class="phoneme">/sʲʷ/</span> <span class="grapheme">〈ś̊〉</span></td>
+									<td><span class="phoneme">/zʲʷ/</span> <span class="grapheme">〈ź̊〉</span></td>
+									<td><span class="phoneme">/s̠ʷ/</span> <span class="grapheme">〈s̀̊〉</span></td>
+									<td><span class="phoneme">/z̠ʷ/</span> <span class="grapheme">〈z̀̊〉</span></td>
+									<td><span class="phoneme">/ɕʷ/</span> <span class="grapheme">〈š̊〉</span></td>
+									<td><span class="phoneme">/ʑʷ/</span> <span class="grapheme">〈ž̊〉</span></td>
+									<td><span class="phoneme">/ɕ̠ʷ/</span> <span class="grapheme">〈s᷈̊〉</span></td>
+									<td><span class="phoneme">/ʑ̠ʷ/</span> <span class="grapheme">〈z᷈̊〉</span></td>
+									<td><span class="phoneme">/ʃ̟ʷ/</span> <span class="grapheme">〈s̥̏̇〉</span></td>
+									<td><span class="phoneme">/ʒ̟ʷ/</span> <span class="grapheme">〈z̥̏̇〉</span></td>
+									<td><span class="phoneme">/ʃʷ/</span> <span class="grapheme">〈s̏̊〉</span></td>
+									<td><span class="phoneme">/ʒʷ/</span> <span class="grapheme">〈z̏̊〉</span></td>
+									<td><span class="phoneme">/ʂʷ/</span> <span class="grapheme">〈s̥̏̀〉</span></td>
+									<td><span class="phoneme">/ʐʷ/</span> <span class="grapheme">〈z̥̏̀〉</span></td>
+									<td><span class="phoneme">/çʷ/</span> <span class="grapheme">〈h̥́〉</span></td>
+									<td><span class="phoneme">/ʝʷ/</span> <span class="grapheme">〈ý̊〉</span></td>
+									<td><span class="phoneme">/xʷ/</span> <span class="grapheme">〈x̊〉</span></td>
 									<td>&nbsp;</td>
-									<td>χʷ</td>
+									<td><span class="phoneme">/χʷ/</span> <span class="grapheme">〈x̀̊〉</span></td>
 									<td>&nbsp;</td>
 								</tr>
 								<tr>
 									<th>Tense</th>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>s̟͈ʷ</td>
-									<td>z̟͈ʷ</td>
-									<td>s̟͈ʲʷ</td>
-									<td>z̟͈ʲʷ</td>
-									<td>s͈ʷ</td>
-									<td>z͈ʷ</td>
-									<td>s͈ʲʷ</td>
-									<td>z͈ʲʷ</td>
-									<td>s̠͈ʷ</td>
-									<td>z̠͈ʷ</td>
-									<td>ɕ͈ʷ</td>
-									<td>ʑ͈ʷ</td>
-									<td>ɕ̠͈ʷ</td>
-									<td>ʑ̠͈ʷ</td>
-									<td>ʃ̟͈ʷ</td>
-									<td>ʒ̟͈ʷ</td>
-									<td>ʃ͈ʷ</td>
-									<td>ʒ͈ʷ</td>
-									<td>ʂ͈ʷ</td>
-									<td>ʐ͈ʷ</td>
-									<td>ç͈ʷ</td>
-									<td>ʝ͈ʷ</td>
-									<td>x͈ʷ</td>
+									<td><span class="phoneme">/s̟͈ʷ/</span> <span class="grapheme">〈ṡ̥̄〉</span></td>
+									<td><span class="phoneme">/z̟͈ʷ/</span> <span class="grapheme">〈ż̥̄〉</span></td>
+									<td><span class="phoneme">/s̟͈ʲʷ/</span> <span class="grapheme">〈s̤᷄〉</span></td>
+									<td><span class="phoneme">/z̟͈ʲʷ/</span> <span class="grapheme">〈z̤᷄〉</span></td>
+									<td><span class="phoneme">/s͈ʷ/</span> <span class="grapheme">〈s̄̊〉</span></td>
+									<td><span class="phoneme">/z͈ʷ/</span> <span class="grapheme">〈z̄̊〉</span></td>
+									<td><span class="phoneme">/s͈ʲʷ/</span> <span class="grapheme">〈s̥᷄〉</span></td>
+									<td><span class="phoneme">/z͈ʲʷ/</span> <span class="grapheme">〈z̥᷄〉</span></td>
+									<td><span class="phoneme">/s̠͈ʷ/</span> <span class="grapheme">〈s̥᷅〉</span></td>
+									<td><span class="phoneme">/z̠͈ʷ/</span> <span class="grapheme">〈z̥᷅〉</span></td>
+									<td><span class="phoneme">/ɕ͈ʷ/</span> <span class="grapheme">〈š̥̄〉</span></td>
+									<td><span class="phoneme">/ʑ͈ʷ/</span> <span class="grapheme">〈ž̥̄〉</span></td>
+									<td><span class="phoneme">/ɕ̠͈ʷ/</span> <span class="grapheme">〈s̥᷈̄〉</span></td>
+									<td><span class="phoneme">/ʑ̠͈ʷ/</span> <span class="grapheme">〈z̥᷈̄〉</span></td>
+									<td><span class="phoneme">/ʃ̟͈ʷ/</span> <span class="grapheme">〈s̤̏̄〉</span></td>
+									<td><span class="phoneme">/ʒ̟͈ʷ/</span> <span class="grapheme">〈z̤̏̄〉</span></td>
+									<td><span class="phoneme">/ʃ͈ʷ/</span> <span class="grapheme">〈s̥̏̄〉</span></td>
+									<td><span class="phoneme">/ʒ͈ʷ/</span> <span class="grapheme">〈z̥̏̄〉</span></td>
+									<td><span class="phoneme">/ʂ͈ʷ/</span> <span class="grapheme">〈s̜̏̀〉</span></td>
+									<td><span class="phoneme">/ʐ͈ʷ/</span> <span class="grapheme">〈z̜̏̀〉</span></td>
+									<td><span class="phoneme">/ç͈ʷ/</span> <span class="grapheme">〈h̥᷄〉</span></td>
+									<td><span class="phoneme">/ʝ͈ʷ/</span> <span class="grapheme">〈y᷄̊〉</span></td>
+									<td><span class="phoneme">/x͈ʷ/</span> <span class="grapheme">〈x̄̊〉</span></td>
 									<td>&nbsp;</td>
-									<td>χ͈ʷ</td>
+									<td><span class="phoneme">/χ͈ʷ/</span> <span class="grapheme">〈x̥᷅〉</span></td>
 									<td>&nbsp;</td>
 								</tr>
 								<tr>
 									<th colspan="3">Approximant</th>
 									<td>&nbsp;</td>
-									<td>w</td>
+									<td><span class="phoneme">/w/</span> <span class="grapheme">〈w〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>l</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
+									<td><span class="phoneme">/l/</span> <span class="grapheme">〈l〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
@@ -4839,7 +4845,13 @@
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>j</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/j/</span> <span class="grapheme">〈y〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
@@ -4875,27 +4887,27 @@
 								</tr>
 								<tr>
 									<th>Close</th>
-									<td>i</td>
-									<td>u</td>
+									<td><span class="phoneme">/i/</span> <span class="grapheme">〈i〉</span></td>
+									<td><span class="phoneme">/u/</span> <span class="grapheme">〈u〉</span></td>
 								</tr>
 								<tr>
 									<th>Close-mid</th>
-									<td>e</td>
+									<td><span class="phoneme">/e/</span> <span class="grapheme">〈e〉</span></td>
 									<td>&nbsp;</td>
 								</tr>
 								<tr>
 									<th>Mid</th>
 									<td>&nbsp;</td>
-									<td>o̞~o</td>
+									<td><span class="phoneme">/o̞~o/</span> <span class="grapheme">〈o〉</span></td>
 								</tr>
 								<tr>
 									<th>Open-mid</th>
-									<td>ɛ</td>
+									<td><span class="phoneme">/ɛ/</span> <span class="grapheme">〈ê〉</span></td>
 									<td>&nbsp;</td>
 								</tr>
 								<tr>
 									<th>Open</th>
-									<td>a</td>
+									<td><span class="phoneme">/a/</span> <span class="grapheme">〈a〉</span></td>
 									<td>&nbsp;</td>
 								</tr>
 							</tbody>
@@ -4944,7 +4956,7 @@
 						<div id="qstLetterCounter"><span id="qstLettersCount">&nbsp;</span></div>
 						<table class="plain-font" style="font-size: 68%;" id="qstLettersTable">
 							<tbody>
-								<tr id="qstRomanRow">
+								<tr id="qstRomanRow" class="graphemes">
 									<th style="min-width: 100px;">Roman&nbsp;letter</th>
 									<td rowspan="2">p</td>
 									<td rowspan="2">b</td>
@@ -4963,21 +4975,21 @@
 									<td>ż</td>
 									<td>ż̄</td>
 									<td>ṡ́</td>
-									<td>ṣ̄́</td>
+									<td>ṣ᷄</td>
 									<td>ż́</td>
-									<td>ẓ̄́</td>
+									<td>ẓ᷄</td>
 									<td rowspan="2">s</td>
 									<td>s̄</td>
 									<td rowspan="2">z</td>
 									<td>z̄</td>
 									<td>ś</td>
-									<td>s̄́</td>
+									<td>s᷄</td>
 									<td>ź</td>
-									<td>z̄́</td>
+									<td>z᷄</td>
 									<td>s̀</td>
-									<td>s̀̄</td>
+									<td>s᷅</td>
 									<td>z̀</td>
-									<td>z̀̄</td>
+									<td>z᷅</td>
 									<td>š</td>
 									<td>š̄</td>
 									<td>ž</td>
@@ -4999,33 +5011,33 @@
 									<td>z̏̀</td>
 									<td>z̠̏̀</td>
 									<td>h́</td>
-									<td>h́̄</td>
+									<td>h᷄</td>
 									<td>ý</td>
-									<td>ý̄</td>
+									<td>y᷄</td>
 									<td>x</td>
 									<td>x̄</td>
 									<td>x̀</td>
-									<td>x̀̄</td>
+									<td>x᷅</td>
 									<td>ṡ̊</td>
 									<td>ṡ̥̄</td>
 									<td>ż̊</td>
 									<td>ż̥̄</td>
 									<td>ṡ̥́</td>
-									<td>s̤̄́</td>
+									<td>s̤᷄</td>
 									<td>ż́</td>
-									<td>z̤̄́</td>
+									<td>z̤᷄</td>
 									<td>s̊</td>
 									<td>s̄̊</td>
 									<td>z̊</td>
 									<td>z̄̊</td>
 									<td>ś̊</td>
-									<td>s̥̄́</td>
+									<td>s̥᷄</td>
 									<td>ź̊</td>
-									<td>z̥̄́</td>
+									<td>z̥᷄</td>
 									<td>s̀̊</td>
-									<td>s̥̀̄</td>
+									<td>s̥᷅</td>
 									<td>z̀̊</td>
-									<td>z̥̀̄</td>
+									<td>z̥᷅</td>
 									<td>š̊</td>
 									<td>š̥̄</td>
 									<td>ž̊</td>
@@ -5047,25 +5059,25 @@
 									<td>z̥̏̀</td>
 									<td>z̜̏̀</td>
 									<td>h̥́</td>
-									<td>h̥́̄</td>
+									<td>h̥᷄</td>
 									<td>ý̊</td>
-									<td>ý̄˳</td>
+									<td>y᷄̊</td>
 									<td>x̊</td>
 									<td>x̄̊</td>
 									<td>x̀̊</td>
-									<td>x̥̀̄</td>
+									<td>x̥᷅</td>
 									<td rowspan="2">m</td>
 									<td rowspan="2">n</td>
-									<td>ṇ</td>
-									<td>ṇ̇</td>
-									<td>ñ</td>
+									<td>ǹ</td>
 									<td>n̏</td>
+									<td>ñ</td>
+									<td>n̏̀</td>
 									<td>m̊</td>
 									<td>n̊</td>
-									<td>ṇ̊</td>
-									<td>ṇ̇̊</td>
-									<td>ñ̊</td>
+									<td>ǹ̊</td>
 									<td>n̏̊</td>
+									<td>ñ̊</td>
+									<td>n̥̏̀</td>
 									<td rowspan="2">w</td>
 									<td rowspan="2">l</td>
 									<td rowspan="2">y</td>
@@ -5079,7 +5091,7 @@
 									<td>◌́</td>
 									<td>◌̀</td>
 								</tr>
-								<tr>
+								<tr class="graphemes">
 									<th>ASCII</th>
 									<td>tr</td>
 									<td>dr</td>
@@ -5195,7 +5207,7 @@
 									<td>^</td>
 									<td>_</td>
 								</tr>
-								<tr>
+								<tr class="phonemes">
 									<th>Sound</th>
 									<td>p</td>
 									<td>b</td>
@@ -5550,7 +5562,7 @@
 
 		<section id="sptyanim">
 			<h1 class="subh1">Sptyanim</h1>
-			<p class="plain-font">Sptyanim is a language spoken in the Tnali region of Twanthain, which encompasses southeastern Jeybwam, as well as small parts of far-southern Pfewbwam that lie along the eponymous Dwang River (Dwa᷄n̏ F̌eu, "Capital River").
+			<p class="plain-font">Sptyanim is a language spoken in the Sptyan region of Twanthain, which encompasses southeastern Jeybwam, as well as small parts of far-southern Pfewbwam that lie along the eponymous Dwang River (Dwa᷄n̏ F̌eu, "Capital River").
 			<section id="qptPhonology">
 				<h2>Phonology:</h2>
 				<section id="qptConsonants">
@@ -5577,31 +5589,31 @@
 								</tr>
 								<tr>
 									<th>Plosive</th>
-									<td>p</td>
+									<td><span class="phoneme">/p/</span> <span class="grapheme">〈p〉</span></td>
 									<td>&nbsp;</td>
-									<td>t</td>
+									<td><span class="phoneme">/t/</span> <span class="grapheme">〈t〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>k</td>
+									<td><span class="phoneme">/k/</span> <span class="grapheme">〈k〉</span></td>
 									<td>&nbsp;</td>
 								</tr>
 								<tr>
 									<th>Nasal</th>
-									<td>m</td>
+									<td><span class="phoneme">/m/</span> <span class="grapheme">〈m〉</span></td>
 									<td>&nbsp;</td>
-									<td>n</td>
+									<td><span class="phoneme">/n/</span> <span class="grapheme">〈n〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
-									<td>ŋ</td>
+									<td><span class="phoneme">/ŋ/</span> <span class="grapheme">〈ng〉</span></td>
 								</tr>
 								<tr>
 									<th>Approximant</th>
 									<td>&nbsp;</td>
-									<td>w</td>
+									<td><span class="phoneme">/w/</span> <span class="grapheme">〈w〉</span></td>
 									<td>&nbsp;</td>
-									<td>l~ɹ</td>
-									<td>y</td>
+									<td><span class="phoneme">/l~ɹ/</span> <span class="grapheme">〈l〉</span></td>
+									<td><span class="phoneme">/y/</span> <span class="grapheme">〈j〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 								</tr>
@@ -5627,14 +5639,14 @@
 								</tr>
 								<tr>
 									<th>Close</th>
-									<td>i</td>
+									<td><span class="phoneme">/i/</span> <span class="grapheme">〈i〉</span></td>
 									<td>&nbsp;</td>
-									<td>u</td>
+									<td><span class="phoneme">/u/</span> <span class="grapheme">〈u〉</span></td>
 								</tr>
 								<tr>
 									<th>Open</th>
 									<td>&nbsp;</td>
-									<td>ᴀ</td>
+									<td><span class="phoneme">/ᴀ/</span> <span class="grapheme">〈a〉</span></td>
 									<td>&nbsp;</td>
 								</tr>
 							</tbody>
@@ -5649,7 +5661,7 @@
 						<div id="qptLetterCounter"><span id="qptLettersCount">&nbsp;</span></div>
 						<table class="plain-font" id="qptLettersTable">
 							<tbody>
-								<tr id="qptRomanRow">
+								<tr id="qptRomanRow" class="graphemes">
 									<th style="min-width: 100px;">Primary graph/digraph</th>
 									<td rowspan="2">a</td>
 									<td rowspan="2">f</td>
@@ -5673,7 +5685,7 @@
 									<td>◌̄</td>
 									<td>ľ</td>
 								</tr>
-								<tr>
+								<tr class="graphemes">
 									<th>ASCII-only variant</th>
 									<td>^</td>
 									<td>v</td>
@@ -5681,7 +5693,7 @@
 									<td>(Double letter)</td>
 									<td>lh</td>
 								</tr>
-								<tr>
+								<tr class="phonemes">
 									<th>Sound</th>
 									<td>ᴀ</td>
 									<td>f</td>
