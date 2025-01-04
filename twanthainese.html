@@ -378,6 +378,22 @@
 				opacity: 0.8;
 			}
 
+			td.loaneme, div[id$="Key"] span.loaneme {
+				background-color: #171917;
+			}
+			
+			.loaneme .phoneme, td.loaneme.phoneme {
+				color: #b5f5ff;
+			}
+			
+			td.loaneme span.phoneme, td.loaneme span.grapheme {
+				opacity: 0.9;
+			}
+
+			.loaneme .grapheme, td.loaneme.grapheme {
+				color: #dfeece;
+			}
+
 			.marginal-allophone .grapheme {
 				opacity: 0.9;
 			}
@@ -497,7 +513,7 @@
 							newTbody.appendChild(newTr);
 								var tdConlang = document.createElement("td");
 								newTr.appendChild(tdConlang);
-									var term = data[i][languageCode];
+									var term = data[i][languageCode] ?? "";
 									if(term) {
 										tdConlang.innerText = term ?? "";
 										tdConlang.setAttribute("id",`${languageCode}-${term}`);
@@ -505,6 +521,8 @@
 											multiwordTerms[languageCode] ??= [];
 											multiwordTerms[languageCode].push(term)
 										}
+									} else {
+										console.error(data[i]);
 									};
 									if(data[i].qtw == fragmentValue) {
 										tdConlang.scrollIntoView?.()
@@ -739,10 +757,10 @@
 				var abbrevs = document.getElementById("qtwAbbreviations");
 				var warning = document.getElementById("errorWarning");
 
-				var ___ = ["qsm","qpt"];
+				//var ___ = ["qsm","qpt"];
 				for(var langCode in languageNames) {
 					//While QSM and QST aren't implemented
-					if(___.indexOf(langCode) > -1) { continue };
+					//if(___.indexOf(langCode) > -1) { continue };
 					var langName = languageNames[langCode];
 					var searchOptions = [
 						langCode + "SearchQuery",
@@ -1043,6 +1061,7 @@
 				try {
 					doTable(langs.qtw,"Twanthainese","qtw","qtwWordlist");
 					doTable(langs.qst,"Sissinese","qst","qstWordlist");
+					doTable(langs.qsm,"Ssanamese","qsm","qsmWordlist");
 					doTable(langs.qpt,"Sptyanim","qpt","qptWordlist");
 					abbrevs.classList.remove("dnone");
 					hideCode()
@@ -1054,7 +1073,7 @@
 		</script>
 		<h1>Twanthain and its languages</h1>
 		<span id="version" title="0.7: Added the other languages and long-since-forgotten sh*t">Version 0.7</span>
-		<p class="warning">This page is going through major upheaval and many aspects are unfinished.</p><br/>
+		<p class="warning">This page is going through major upheaval. Many aspects are likely to be unfinished, incorrect, or inconsistent.</p><br/>
 		<p class="alert">The conlangs and lore here are made up just for fun.&#8203;&nbsp;&nbsp;&#8203;This page is a <em>work in progress</em>, under construction; the information on it may radically and massively change at any time without prior notice.</p><br/>
 		<p class="advisory">This page uses the American convention for numbers.&#8203;&nbsp;&nbsp;&#8203;Unless otherwise noted, a dot "." is the decimal separator, and a comma "," is the thousands separator; and -illion numbers are in the short scale.</p><br/>
 		<p class="advisory">This page uses <span class="plain-font" style="font-size: 80%;">〈ᴀ〉</span> in its phonetic notation to represent the open central unrounded vowel, and <span class="plain-font" style="font-size: 80%;">〈a〉</span> to represent the open front unrounded vowel.</p><br/>
@@ -2986,7 +3005,7 @@
 					{ part: 'noun', qst: 's̏ín', eng: 'water' },
 					{ part: 'noun', qst: 'z̏̀os̏ín', eng: 'lake' },
 					{ part: 'noun', qst: 'sesê', eng: 'sea, ocean' },
-					{ part: 'noun', qst: 's᷈al', eng: 'sand' },
+					{ part: 'noun', qst: 's᷈an', eng: 'sand' },
 					{ part: 'noun', qst: 'ҟilepé', eng: 'island' },
 					{ part: 'noun', qst: 'kísè', eng: 'river, stream' },
 					{ part: 'noun', qst: 'xíśanì', eng: 'river delta' },
@@ -3001,8 +3020,10 @@
 					{ part: 'noun', qst: 'milê', eng: 'breadfruit' },
 					{ part: 'noun', qst: 'milí', eng: 'orchid' },
 					{ part: 'noun', qst: 'ílè', eng: 'bougainvillea (flower)' },
-					{ part: 'noun', qst: 's᷈ál', eng: 'light' },
+					{ part: 'noun', qst: 's᷈án', eng: 'light' },
 					{ part: 'noun', qst: 'síz̏à', eng: 'human, person' },
+					{ part: 'noun', qst: 'síz̏àdi ', eng: 'people' },
+					{ part: 'noun', qst: 'siz̏̊ínpuè', eng: 'democracy', etym: 'From "síz̏àdis̊in punsíès̏̊e"' },
 					{ part: 'noun', qst: 'đaҟen', eng: 'tree' },
 					{ part: 'noun', qst: 'áwa', eng: 'time' },
 					{ part: 'noun', qst: 'anilé', eng: 'the sun' },
@@ -3013,14 +3034,16 @@
 					{ part: 'noun', qst: 'sas̏̊iǥê', eng: 'rock, stone' },
 					{ part: 'noun', qst: 'ilawí', eng: 'flesh' },
 					{ part: 'noun', qst: 'ené', eng: 'parent' },
+					{ part: 'noun', qst: 'ǥamíè', eng: 'head' },
+					{ part: 'noun', qst: 'ҟitáse', eng: 'hand' },
 					{ part: 'noun', qst: 'áwawà', eng: 'calendar' },
 					{ part: 'noun', qst: 'yas̏̀émi', eng: 'top, peak' },
 					{ part: 'noun', qst: 'susé', eng: 'amethyst' },
 					{ part: 'noun', qst: 'áyaku', eng: 'gold' },
 					{ part: 'noun', qst: 'seni', eng: 'metal, (historical) meteoric iron' },
 					{ part: 'noun', qst: 'áwawì', eng: 'month', etym: 'From "áwawàsếwì"' },
-					{ part: 'noun', qst: 'pune', eng: 'stick, twig' },
-					{ part: 'noun', qst: 'miléh́i', eng: 'stick, twig' },
+					{ part: 'noun', qst: 'pune', eng: 'stick, twig, leafless branch' },
+					{ part: 'noun', qst: 'miléh́i', eng: 'leafy branch' },
 					{ part: 'noun', qst: 'lasí', eng: 'boat, ship' },
 					{ part: 'noun', qst: 'Sisin', eng: 'The Sissin region of Twanthain' },
 					{ part: 'noun', qst: 'tilin', eng: 'a pebble, a small rock', extra: 'Classification varies depending on the speaker, and may be subject to the sorites paradox, but rocks with a longest measurement less than 4cm are generally considered "tilin".' },
@@ -3030,11 +3053,15 @@
 					{ part: 'noun', qst: 'z̏̀osis̏ísim', eng: 'a huge boulder', extra: 'Rocks at least 3m in length are generally considered "z̏̀osis̏ísim".' },
 					{ part: 'noun', qst: 'ánề', eng: 'country, nation' },
 					{ part: 'noun', qst: 'puné', eng: 'village, hamlet, small settlement' },
+					{ part: 'noun', qst: 's̤᷄empuné', eng: 'federation, confederation', etym: 'From "s̤᷄en̊ puné"' },
+					{ part: 'noun', qst: 'punsímiè', eng: 'ruler (leader)', etym: 'From "punésís̏i ǥamíè", lit. "village\'s head"', tags: ["blended"] },
+					{ part: 'noun', qst: 'punmís̏̊eҟi', eng: 'republic', etym: 'From "punsímiès̏̊e ҟitáse", lit. "ruler[-related] hand"', tags: ["blended"] },
+					{ part: 'noun', qst: 'punsíès̏̊e', eng: 'rule, power', etym: 'From "punsímiès̏̊e", lit. "rulerness"' },
 					{ part: 'noun', qst: 'z̏̀opuné', eng: 'a large village' },
 					{ part: 'noun', qst: 'twélì', eng: 'house, home, dwelling' },
 					{ part: 'noun', qst: 'z̏̀otwélì', eng: 'mansion' },
 					{ part: 'verb', qst: 'z̏̀osusumiñ', eng: 'a long walk' },
-					{ part: 'verb', qst: 'nékàlix', eng: 'to go, to move (through space, or metaphorically through time)' },
+					{ part: 'verb', qst: 'nékàlixe', eng: 'to go, to move (through space, or metaphorically through time)' },
 					{ part: 'noun', qst: 'wána', eng: 'town, city' },
 					{ part: 'noun', qst: 'z̏̀owána', eng: 'big city, metropolis' },
 					{ part: 'noun', qst: 'ánềpuné', eng: 'state, province, prefecture, oblast, voivodeship, department, first-level administrative division' },
@@ -3103,6 +3130,7 @@
 					{ part: 'noun, adjective', qst: 'púlì', eng: 'pink, salmon (color), apricot (color)' },
 					{ part: 'noun, adjective', qst: 'mónpulì', eng: 'salmon (color)' },
 					{ part: 'noun, adjective', qst: 'ǹáhìpúlì', eng: 'pink (color)', extra: 'cf. #FF7FFF' },
+					{ part: 'adjective', qst: 's̤᷄en̊', eng: 'many' },
 					{ part: 'noun, adjective', qst: 'ŧén ǹáyì ŧén', eng: '100', extra: 'As the Sissinese people are used to base 19, "normal" base 10 numbers may seem oddly specific to them. However, as the dominant base 10 has seeped in through close contact with the Twanthainese people outside of the Sissin region, they are more exposed to base 10 numbers and more used to them.', etym: 'Effectively "fifty-five"' },
 					{ part: 'noun, adjective', qst: 's̏ís̏ihề', eng: '361 (19 squared)' },
 					{ part: 'noun, adjective', qst: 'z̏elín s̏ís̏ihề s᷈ése ǹáyì ʒ̊an', eng: '1,000', etym: 'Effectively "two-hundred ernesty-chris"' },
@@ -3129,13 +3157,14 @@
 					{ part: 'affix', qst: '-di', eng: '(Makes a noun plural)' },
 					{ part: 'affix', qst: '-míe', eng: '(Nominative case suffix)', extra: 'Marks the subject of a sentence. Usually omitted, but can be included for emphasis.' },
 					{ part: 'affix', qst: '-đin', eng: '(Accusative case suffix)', extra: 'Marks the direct object of a verb' },
-					{ part: 'affix', qst: '-sís̏i', eng: '(Possessive case suffix)' extra: 'Marks the possessor of a noun. A thing in this case usually acts as an adjective.' },
-					{ part: 'affix', qst: '-s̊il', eng: '(Genitive case suffix)', extra: 'Does not mark possession, but rather indicates a noun or adjective as a state of being or composition. This case would be used to say that something is blue-ᴀᴅᴊᴢ, something is blue (is the color blue itself), that someone is stupid, or that someone is stupid-ɴᴍᴢ (is the concept of stupidity itself—or, by metaphor, an embodiment of stupidity itself i.e. really stupid). A thing in this case usually acts as an adjective.' },
+					{ part: 'affix', qst: '-sís̏i', eng: '(Possessive case suffix)', extra: 'Marks the owner, possessor, creator, or user "A" of a noun "B" ("Yekaterina\'s (A) oven (B)"); or the noun "A" that "B" is a part of ("the chandelier\'s (A) candles (B)"). A thing in this case usually acts as an adjective.' },
+					{ part: 'affix', qst: '-s̊in', eng: '(Genitive case suffix 1)', extra: 'Does not mark possession, but rather indicates a noun or adjective as a state of being or composition. This case would be used to say that something is blue-ᴀᴅᴊᴢ, something is blue (is the color blue itself), that someone is stupid, or that someone is stupid-ɴᴍᴢ (is the concept of stupidity itself—or, by metaphor, an embodiment of stupidity itself i.e. really stupid). A thing in this case usually acts as an adjective.' },
+					{ part: 'affix', qst: '-z̏esin', eng: '(Genitive case suffix 2)', extra: 'Marks certain types of affiliation (i.e. the sort of "possession" in the phrases "our country", "my neighborhood", or "Joe\'s class period").' },
 					{ part: 'affix', qst: '-hen', eng: '(Dative case suffix)', extra: 'Marks the indirect object of a verbs' },
 					{ part: 'affix', qst: '-s̄am', eng: '(Instrumental case suffix)', extra: 'Marks a noun as the means by which something was done' },
 					{ part: 'affix', qst: '-mih́', eng: '(Causative case suffix)', extra: 'Marks the cause of the verb. A thing in this case usually acts as an adverb.' },
 					{ part: 'affix', qst: '-ṣ̏̄a', eng: '(Causofinal-benefactive case suffix)', extra: 'Marks the purpose of a verb or the person that it is intended for. A thing in this case usually acts as an adverb.'},
-					{ part: 'affix', qst: '-śês', eng: '(Inessive-temporal case suffix)', extra: 'Marks the in, inside, at (of a time)
+					{ part: 'affix', qst: '-śên', eng: '(Inessive-temporal case suffix)', extra: 'Marks the in, inside, at (of a time)' },
 					{ part: 'affix', qst: '-sení', eng: '(Ablative case suffix)', extra: 'Really has an ablative, elative, delative, initiative, or egressive function; it marks the start of an action in space or time; the thing that something is moving from/off of/out of, the starting point of an action, or the time that something has started.' },
 					{ part: 'affix', qst: '-tan̏̀', eng: '(Allative case suffix)', extra: 'Really has an allative, terminative, illative, sublative, or limitative function; it marks the end of an action in space or time; the thing that something is moving toward/onto/into, or the time that something will finish or is to be done by.' },
 					{ part: 'affix', qst: '-z̏iyi', eng: '(Pertingent case suffix)', extra: 'Marks an object that something is touching (from any direction)' }, //so also a subessive and superessive
@@ -3146,7 +3175,7 @@
 					{ part: 'affix', qst: '-paśu', eng: '(Verbalizer suffix)' },
 					{ part: 'affix', qst: '-s̏̊e', eng: '(Adjectivizer suffix)' },
 					{ part: 'affix', qst: '-n̊iñ', eng: '(Adverbializer suffix)' },
-					{ part: 'phrase', qst: 'Ҟím Annaṣ̏̄a x̀ówusís̏i miléh́iŧe nékàlixnam nasís̏isís̏i yas̏̀émitan̏̀', eng: 'I went onto the store through your house for Anna', etym: 'Lit. "I Anna-for you-r house-through went store-\'s top-onto"' }
+					{ part: 'phrase', qst: 'Ҟím Annaṣ̏̄a x̀ówusís̏i miléh́iŧe nékàlixenam nasís̏isís̏i yas̏̀émitan̏̀', eng: 'I went onto the store through your house for Anna', etym: 'Lit. "I Anna-for you-r house-through went store-\'s top-onto"' }
 				],
 				qsm: [ //Ssanamese
 					{ qsm: "hiraha", part: "noun", eng: "language" },
@@ -3159,7 +3188,6 @@
 					{ qsm: "gałah", part: "preposition", eng: "without", etym: 'From "gah" + "łah"', tags: ["blended"] },
 					{ qsm: "gelnafe", part: "verb", eng: "to fall, to drop, to fall out, to fall into (a state or a hole)", extra: "Or metaphorically, to decrease" },
 					{ qsm: "gğź̄z̀ǹźňmut̀", part: "noun", eng: "nightmare", extra: "While English speaks in terms of having nightmares, this language speaks in terms of dreaming nightmares." },
-					{ qsm: "ǵene", part: "noun", eng: "leader, ruler" },
 					{ qsm: "ǵene", part: "noun", eng: "leader, ruler" },
 					{ qsm: "ǵēne", part: "noun", eng: "club (weapon)", etym: 'Related to "ǵene"' },
 					{ qsm: "ǵenelem", part: "noun", eng: "rule, power" },
@@ -3201,7 +3229,7 @@
 					{ qsm: "walžmdanel", part: "noun", eng: "nation, country", etym: 'Contracted from "walsämžm daneänul"', tags: ["blended"] },
 					{ qsm: "walžnǵene", part: "noun", eng: "government", etym: 'Contracted from "walžmdanellem ǵenenul"', tags: ["blended"] },
 					{ qsm: "walžmǵenem", part: "noun", eng: "democracy", etym: 'Contracted from "walsämžm ǵenelem"', tags: ["blended"] },
-					{ qsm: "Wiuanlem Walsänul Walžmǵenemlem Danäwalžlem Ł̣enälžnemlem Walžmdanel", part: "noun", eng: "Official name of Twanthain", etym: 'Wüan P.F.D.R.' },
+					{ qsm: "Wiuanlem Walsänul Walžmǵenemlem Danäwalžlem Ł̣enälžnemlem Walžmdanel", part: "noun", eng: "Official name of Twanthain", etym: 'Wüan P.F.D.R. State' },
 					{ qsm: "wun", part: "affix", eng: "(Noun-deriving suffix for verbs)", extra: "It usually turns a verb into a noun (not a gerund, though for some verbs there would be no semantic difference). It replaces the -i/-fe ending." },
 					{ qsm: "ya", part: "affix", eng: "(Present tense conjugation for -fe verbs)" }
 				], 
@@ -5114,14 +5142,14 @@
 									<td>ky</td>
 									<td>gy</td>
 									<td>qg</td>
-									<td>st</td>
-									<td>sst</td>
-									<td>zt</td>
-									<td>zzt</td>
-									<td>sty</td>
-									<td>ssty</td>
-									<td>zty</td>
-									<td>zzty</td>
+									<td>sx</td>
+									<td>ssx</td>
+									<td>zx</td>
+									<td>zzx</td>
+									<td>sxy</td>
+									<td>ssxy</td>
+									<td>zxy</td>
+									<td>zzxy</td>
 									<td>ss</td>
 									<td>zz</td>
 									<td>sy</td>
@@ -5140,10 +5168,10 @@
 									<td>sshyr</td>
 									<td>zhyr</td>
 									<td>zzhyr</td>
-									<td>sht</td>
-									<td>ssht</td>
-									<td>zht</td>
-									<td>zzht</td>
+									<td>shx</td>
+									<td>sshx</td>
+									<td>zhx</td>
+									<td>zzhx</td>
 									<td>sh</td>
 									<td>ssh</td>
 									<td>zh</td>
@@ -5160,14 +5188,14 @@
 									<td>xx</td>
 									<td>qh</td>
 									<td>qqh</td>
-									<td>stw</td>
-									<td>sstw</td>
-									<td>ztw</td>
-									<td>zztw</td>
-									<td>styw</td>
-									<td>sstyw</td>
-									<td>ztyw</td>
-									<td>zztyw</td>
+									<td>sxw</td>
+									<td>ssxw</td>
+									<td>zxw</td>
+									<td>zzxw</td>
+									<td>sxyw</td>
+									<td>ssxyw</td>
+									<td>zxyw</td>
+									<td>zzxyw</td>
 									<td>sw</td>
 									<td>ssw</td>
 									<td>zw</td>
@@ -5188,10 +5216,10 @@
 									<td>sshyrw</td>
 									<td>zhyrw</td>
 									<td>zzhyrw</td>
-									<td>shtw</td>
-									<td>sshtw</td>
-									<td>zhtw</td>
-									<td>zzhtw</td>
+									<td>shxw</td>
+									<td>sshxw</td>
+									<td>zhxw</td>
+									<td>zzhxw</td>
 									<td>shw</td>
 									<td>sshw</td>
 									<td>zhw</td>
@@ -5221,7 +5249,7 @@
 									<td>ae</td>
 									<th>ASCII pitch accent indicator</th>
 									<td>^</td>
-									<td>_</td>
+									<td>h</td>
 								</tr>
 								<tr class="phonemes">
 									<th>Sound</th>
@@ -5576,6 +5604,656 @@
 			</section>
 		</section>
 
+		<section id="ssanamese">
+			<h1 class="subh1">Ssanamese</h1>
+			<p class="plain-font">Ssanamese is a language spoken in the Ssanam region of Twanthain, which encompasses northern and eastern Pelbwam.
+			<section id="qsmPhonology">
+				<h2>Phonology:</h2>
+				<section id="qsmConsonants">
+					<h3>Consonants:</h3>
+					<main>
+						<div id="qsmConsonantCounter"><span id="qsmConsonantsCount">&nbsp;</span></div>
+						<div id="qsmTableKey">
+							<span style="display: inline-block; padding: 2px; border: 1px solid white;" class="loaneme">Loan phoneme (does not appear in native words)</span>
+						</div>
+						<table class="plain-font" id="qsmConsonantsTable">
+							<tbody>
+								<tr>
+									<th rowspan="2" colspan="2">&nbsp;</th>
+									<th colspan="2">Labial</th>
+									<th colspan="2">Interdental</th>
+									<th colspan="2">Alveolar</th>
+									<th colspan="2">Retroflex</th>
+									<th colspan="2">Palatal</th>
+									<th colspan="2">Velar</th>
+									<th>Uvular</th>
+									<th colspan="2">Pharyngeal</th>
+									<th>Glottal</th>
+								</tr>
+								<tr>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+									<th>V'less</th>
+									<th>Voiced</th>
+									<th>V'less</th>
+								</tr>
+								<tr>
+									<th rowspan="2">Plosive</th>
+									<th>Plain</th>
+									<td><span class="phoneme">/p/</span> <span class="grapheme">〈p〉</span></td>
+									<td><span class="phoneme">/b/</span> <span class="grapheme">〈b〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/t/</span> <span class="grapheme">〈t〉</span></td>
+									<td><span class="phoneme">/d/</span> <span class="grapheme">〈d〉</span></td>
+									<td><span class="phoneme">/ʈ/</span> <span class="grapheme">〈t̀〉</span></td>
+									<td><span class="phoneme">/ɖ/</span> <span class="grapheme">〈d̀〉</span></td>
+									<td><span class="phoneme">/c/</span> <span class="grapheme">〈ḱ〉</span></td>
+									<td><span class="phoneme">/ɟ/</span> <span class="grapheme">〈ǵ〉</span></td>
+									<td><span class="phoneme">/k/</span> <span class="grapheme">〈k〉</span></td>
+									<td><span class="phoneme">/g/</span> <span class="grapheme">〈g〉</span></td>
+									<td class="loaneme"><span class="phoneme">/q/</span> <span class="grapheme">〈q〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td class="loaneme"><span class="phoneme">/ʔ/</span> <span class="grapheme">〈Ꞌ/ꞌ〉</span></td>
+								</tr>
+								<tr>
+									<!--Plosive-->
+									<th>Tense</th>
+									<td><span class="phoneme">/p͈/</span> <span class="grapheme">〈ṗ〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/t͈/</span> <span class="grapheme">〈ṭ〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ʈ͈/</span> <span class="grapheme">〈ṭ̀〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/c͈/</span> <span class="grapheme">〈ḳ́〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/k͈/</span> <span class="grapheme">〈ḳ〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<th colspan="2">Nasal</th>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/m/</span> <span class="grapheme">〈m〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/n/</span> <span class="grapheme">〈n〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ɳ/</span> <span class="grapheme">〈ǹ〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ɲ/</span> <span class="grapheme">〈ñ〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ŋ/</span> <span class="grapheme">〈ň〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<th rowspan="2">Fricative</th>
+									<th>Plain</th>
+									<td><span class="phoneme">/ɸ/</span> <span class="grapheme">〈f〉</span></td>
+									<td><span class="phoneme">/β/</span> <span class="grapheme">〈v〉</span></td>
+									<td class="loaneme"><span class="phoneme">/θ/</span> <span class="grapheme">〈t́〉</span></td>
+									<td class="loaneme"><span class="phoneme">/ð/</span> <span class="grapheme">〈d́〉</span></td>
+									<td><span class="phoneme">/s/</span> <span class="grapheme">〈s〉</span></td>
+									<td><span class="phoneme">/z/</span> <span class="grapheme">〈z〉</span></td>
+									<td><span class="phoneme">/ʂ/</span> <span class="grapheme">〈s̀〉</span></td>
+									<td><span class="phoneme">/ʐ/</span> <span class="grapheme">〈z̀〉</span></td>
+									<td><span class="phoneme">/ç/</span> <span class="grapheme">〈h́〉</span></td>
+									<td><span class="phoneme">/ʝ/</span> <span class="grapheme">〈ý〉</span></td>
+									<td><span class="phoneme">/x/</span> <span class="grapheme">〈x〉</span></td>
+									<td><span class="phoneme">/ɣ/</span> <span class="grapheme">〈ğ〉</span></td>
+									<td class="loaneme"><span class="phoneme">/χ/</span> <span class="grapheme">〈x̀〉</span></td>
+									<td class="loaneme"><span class="phoneme">/ħ/</span> <span class="grapheme">〈x̏〉</span></td>
+									<td class="loaneme"><span class="phoneme">/ʕ/</span> <span class="grapheme">〈ğ̏〉</span></td>
+									<td><span class="phoneme">/h/</span> <span class="grapheme">〈h〉</span></td>
+								</tr>
+								<tr>
+									<!--Fricative-->
+									<th>Tense</th>
+									<td><span class="phoneme">/ɸ͈/</span> <span class="grapheme">〈f̣〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/s͈/</span> <span class="grapheme">〈ṣ〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ʂ͈/</span> <span class="grapheme">〈ṣ̀〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ç͈/</span> <span class="grapheme">〈ḥ́〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/x͈/</span> <span class="grapheme">〈x̣〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/h͈/</span> <span class="grapheme">〈ḥ〉</span></td>
+								</tr>
+								<tr>
+									<th rowspan="2">Affricate</th>
+									<th>Plain</th>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/t͡s/</span> <span class="grapheme">〈ts〉</span></td>
+									<td><span class="phoneme">/d͡z/</span> <span class="grapheme">〈dz〉</span></td>
+									<td><span class="phoneme">/ʈ͡ʂ/</span> <span class="grapheme">〈ts̀〉</span></td>
+									<td><span class="phoneme">/ɖ͡ʐ/</span> <span class="grapheme">〈dz̀〉</span></td>
+									<td><span class="phoneme">/c͡ç/</span> <span class="grapheme">〈kh́〉</span></td>
+									<td><span class="phoneme">/ɟ͡ʝ/</span> <span class="grapheme">〈gý〉</span></td>
+									<td><span class="phoneme">/k͡x/</span> <span class="grapheme">〈kx〉</span></td>
+									<td><span class="phoneme">/g͡ɣ/</span> <span class="grapheme">〈gğ〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<!--Affricate-->
+									<th>Tense</th>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/t͡s/</span> <span class="grapheme">〈tṣ〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ʈ͡ʂ/</span> <span class="grapheme">〈tṣ̀〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/c͡ç/</span> <span class="grapheme">〈kḥ́〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/k͡x/</span> <span class="grapheme">〈kx̣〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<th rowspan="2">Lateral fricative</th>
+									<th>Plain</th>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ɬ/</span> <span class="grapheme">〈ł〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<!--Lateral fricative-->
+									<th>Tense</th>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ɬ͈/</span> <span class="grapheme">〈ł̣〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<th colspan="2">Lateral approximant</th>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/l/</span> <span class="grapheme">〈l〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<th colspan="2">Approximant</th>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/w/</span> <span class="grapheme">〈w〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td class="loaneme"><span class="phoneme">/ɹ/</span> <span class="grapheme">〈r̂〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/j/</span> <span class="grapheme">〈y〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<th colspan="2">Flap</th>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ɾ/</span> <span class="grapheme">〈r〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ɽ/</span> <span class="grapheme">〈r̀〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<th colspan="2">Trill</th>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td class="loaneme"><span class="phoneme">/r~ɾ~ɾɾ~θ̠~θ̠ɾ/</span> <span class="grapheme">〈r̄〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</main>
+				</section>
+
+				<!--Shifts, merges, and exceptions:
+					*/ɸ/ became /f/
+				-->
+
+				<section id="qsmVowels">
+					<h3>Vowels</h3>
+					<main>
+						<table class="plain-font">
+							<tbody>
+								<tr>
+									<th rowspan="2">&nbsp;</th>
+									<th rowspan="2">Front</th>
+									<th rowspan="2">Near-front</th>
+									<th rowspan="2">Central</th>
+									<th rowspan="2">Near-back</th>
+									<th colspan="2">Back</th>
+								</tr>
+								<tr>
+									<th>Unrounded</th>
+									<th>Rounded</th>
+								</tr>
+								<tr>
+									<th>Close</th>
+									<td><span class="phoneme">/i/</span> <span class="grapheme">〈i〉</span></td>
+									<td>&nbsp;</td>
+									<td class="loaneme"><span class="phoneme">/ɨ/</span> <span class="grapheme">〈ï〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/u/</span> <span class="grapheme">〈u〉</span></td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<th>Near-close</th>
+									<td>&nbsp;</td>
+									<td class="loaneme"><span class="phoneme">/ɪ/</span> <span class="grapheme">〈ì〉</span></td>
+									<td>&nbsp;</td>
+									<td class="loaneme"><span class="phoneme">/ʊ/</span> <span class="grapheme">〈ù〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<th>Mid</th>
+									<td><span class="phoneme">/e̞/</span> <span class="grapheme">〈e〉</span></td>
+									<td>&nbsp;</td>
+									<td class="loaneme"><span class="phoneme">/ə/</span> <span class="grapheme">〈ë〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/o̞/</span> <span class="grapheme">〈o〉</span></td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<th>Open-mid</th>
+									<td class="loaneme"><span class="phoneme">/ɛ/</span> <span class="grapheme">〈è〉</span></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td class="loaneme"><span class="phoneme">/ʌ/</span> <span class="grapheme">〈ȕ〉</span></td>
+									<td class="loaneme"><span class="phoneme">/ɔ/</span> <span class="grapheme">〈ò〉</span></td>
+								</tr>
+								<tr>
+									<th>Open</th>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ᴀ/</span> <span class="grapheme">〈a〉</span></td>
+									<td>&nbsp;</td>
+									<td><span class="phoneme">/ɑ/</span> <span class="grapheme">〈ä〉</span></td>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<th colspan="7">Syllabic consonant</th>
+								</tr>
+								<tr>
+									<td colspan="3">&nbsp;</td>
+									<td><span class="phoneme">/ʒ̩/</span> <span class="grapheme">〈ź〉</span></td>
+									<td colspan="3">&nbsp;</td>
+								</tr>
+								<tr>
+									<th colspan="7">Other features</th>
+								</tr>
+								<tr>
+									<td colspan="7"><span class="phoneme">/ː/</span> <span class="grapheme">〈◌̄〉</span><br/><span>Goes after all other diacritics</span></td>
+								</tr>
+							</tbody>
+						</table>
+						<p>
+							Stress is determined by phonology.
+							<ol>
+								<li>The first syllable is usually stressed.</li>
+								However, a penultimate syllable that precedes an ultimate syllable with null onset will receive primary stress instead, and the first syllable in such a word <li>will receive secondary stress.</li>
+								Length attracts primary stress instead, but a syllable that would otherwise have had primary stress will have secondary stress. If there are multiple long <li>syllables, the first receives primary stress.</li>
+								<li>Monosyllabic prepositions and monosyllabic grammar words are unstressed.</li>
+							</ol>
+						</p>
+					</main>
+				</section>
+
+				<section id="qsmOrthography">
+					<h2>Orthography</h2>
+					<p>The Ssanamese script is an abugida. Tensed consonants are indicated with dotted versions of their "base" glyphs. Each glyph has a subscript form for codas; subscript forms exist even for glyphs whose consonants cannot be codas. The inherent vowel is /i/. There is a virama. There is a diacritic for a long vowel, which goes above a vowel diacritic if one is present (or above the letter itself for /i/ syllables, whose vowel quality is implied). There is a diacritic-bearing romanization and an ASCII romanization.</p>
+					<main>
+						<div id="qsmLetterCounter"><span id="qsmLettersCount">&nbsp;</span></div>
+						<table class="plain-font" id="qsmLettersTable">
+							<tbody>
+								<tr id="qsmRomanRow" class="graphemes">
+									<th style="min-width: 100px;">Letter</th>
+									<td rowspan="2">a</td>
+									<td>ä</td>
+									<td rowspan="2">b</td>
+									<td rowspan="2">c</td>
+									<td rowspan="2">c̣</td>
+									<td rowspan="2">d</td>
+									<td rowspan="2">dz</td>
+									<td>d̀</td>
+									<td rowspan="2">e</td>
+									<td>ë</td>
+									<td>è</td>
+									<td rowspan="2">f</td>
+									<td>f̣</td>
+									<td rowspan="2">g</td>
+									<td>gğ</td>
+									<td>gý</td>
+									<td>ǵ</td>
+									<td>ğ</td>
+									<td rowspan="2">h</td>
+									<td>h́</td>
+									<td>ḥ́</td>
+									<td>ḥ</td>
+									<td rowspan="2">i</td>
+									<td>ï</td>
+									<td>ì</td>
+									<td rowspan="2">j</td>
+									<td rowspan="2">k</td>
+									<td>kh́</td>
+									<td>kḥ́</td>
+									<td rowspan="2">kx</td>
+									<td>kx̣</td>
+									<td>ḱ</td>
+									<td>ḳ́</td>
+									<td>ḳ</td>
+									<td rowspan="2">l</td>
+									<td>ł</td>
+									<td>ł̣</td>
+									<td rowspan="2">m</td>
+									<td rowspan="2">n</td>
+									<td>ǹ</td>
+									<td>ñ</td>
+									<td>ň</td>
+									<td rowspan="2">o</td>
+									<td>ò</td>
+									<td rowspan="2">p</td>
+									<td>ṗ</td>
+									<td rowspan="2">r</td>
+									<td>r̀</td>
+									<td rowspan="2">s</td>
+									<td>s̀</td>
+									<td>ṣ̀</td>
+									<td>ṣ</td>
+									<td rowspan="2">t</td>
+									<td rowspan="2">ts</td>
+									<td>tṣ</td>
+									<td>t̀</td>
+									<td>ṭ̀</td>
+									<td>ṭ</td>
+									<td rowspan="2">u</td>
+									<td>ù</td>
+									<td>ȕ</td>
+									<td rowspan="2">v</td>
+									<td rowspan="2">w</td>
+									<td rowspan="2">x</td>
+									<td>x̣</td>
+									<td rowspan="2">y</td>
+									<td>ý</td>
+									<td rowspan="2">z</td>
+									<td>z̀</td>
+									<td>ź</td>
+								</tr>
+								<tr class="graphemes">
+									<th>ASCII</th>
+									<td>ah</td>
+									<td>dr</td>
+									<td>oe</td>
+									<td>eh</td>
+									<td>ff</td>
+									<td>ggh</td>
+									<td>gyh</td>
+									<td>gy</td>
+									<td>gh</td>
+									<td>hy</td>
+									<td>hhy</td>
+									<td>hh</td>
+									<td>iu</td>
+									<td>ih</td>
+									<td>khy</td>
+									<td>kkhy</td>
+									<td>kxx</td>
+									<td>ky</td>
+									<td>kky</td>
+									<td>kk</td>
+									<td>lh</td>
+									<td>llh</td>
+									<td>nr</td>
+									<td>ny</td>
+									<td>ng</td>
+									<td>oh</td>
+									<td>pp</td>
+									<td>rr</td>
+									<td>sr</td>
+									<td>ssr</td>
+									<td>ss</td>
+									<td>tts</td>
+									<td>tr</td>
+									<td>ttr</td>
+									<td>tt</td>
+									<td>ue</td>
+									<td>uh</td>
+									<td>xx</td>
+									<td>yh</td>
+									<td>zr</td>
+									<td>zh</td>
+								</tr>
+								<tr class="phonemes">
+									<th>Sound</th>
+									<td>ᴀ</td>
+									<td>ɑ</td>
+									<td>b</td>
+									<td>ʈ͡ʂ</td>
+									<td>ʈ͡ʂ͈</td>
+									<td>d</td>
+									<td>d͡z</td>
+									<td>ɖ</td>
+									<td>e̞</td>
+									<td>ə</td>
+									<td>ɛ</td>
+									<td>ɸ</td>
+									<td>ɸ͈</td>
+									<td>g</td>
+									<td>g͡ɣ</td>
+									<td>ɟ͡ʝ</td>
+									<td>ɟ</td>
+									<td>ɣ</td>
+									<td>h</td>
+									<td>ç</td>
+									<td>ç͈</td>
+									<td>h͈</td>
+									<td>i</td>
+									<td>ɨ</td>
+									<td>ɪ</td>
+									<td>ɖ͡ʐ</td>
+									<td>k</td>
+									<td>c͡ç</td>
+									<td>c͡ç</td>
+									<td>k͡x</td>
+									<td>k͡x</td>
+									<td>c</td>
+									<td>c͈</td>
+									<td>k͈</td>
+									<td>l</td>
+									<td>ɬ</td>
+									<td>ɬ͈</td>
+									<td>m</td>
+									<td>n</td>
+									<td>ɳ</td>
+									<td>ɲ</td>
+									<td>ŋ</td>
+									<td>o̞</td>
+									<td>ɔ</td>
+									<td>p</td>
+									<td>p͈</td>
+									<td>ɾ</td>
+									<td>ɽ</td>
+									<td>s</td>
+									<td>ʂ</td>
+									<td>ʂ͈</td>
+									<td>s͈</td>
+									<td>t</td>
+									<td>t͡s</td>
+									<td>t͡s</td>
+									<td>ʈ</td>
+									<td>ʈ͈</td>
+									<td>t͈</td>
+									<td>u</td>
+									<td>ʊ</td>
+									<td>ʌ</td>
+									<td>β</td>
+									<td>w</td>
+									<td>x</td>
+									<td>x͈</td>
+									<td>j</td>
+									<td>ʝ</td>
+									<td>z</td>
+									<td>ʐ</td>
+									<td>ʒ̩</td>
+								</tr>
+							</tbody>
+						</table>
+					</main>
+				</section>
+
+				<section id="qsmPhonotactics">
+					<h2>Phonotactics:</h2>
+					<main class="plain-font">
+						<p>The syllable structure is (C)V(C). The last (C) may be a fricative (including the lateral fricatives), a plain stop (which becomes unreleased ◌̚), /w/ (which becomes u̯), /j/ (which becomes i̯), /l/, or a nasal.</p>
+					</main>
+				</section>
+			</section>
+
+			<section id="qsmGrammar">
+				<h3>Grammar</h3>
+				<main>
+					<p class="plain-font">
+						Verbs conjugate for tense (of which there are 3: past, present, and future; as in English) and are marked for aspect. There are two verb classes, -<span lang="qsm">i</span> and -<span lang="qsm">fe</span>.&#8203;&nbsp;&nbsp;&#8203;-<span lang="qsm">i</span> class verbs' tense forms are -<span lang="qsm">lu</span> (past), -<span lang="qsm">kʒ̩</span> (present), and -<span lang="qsm">c͈in</span> (future); and -<span lang="qsm">fe</span> class verbs' tense forms are -<span lang="qsm">ne̞ŋ</span> (past), -<span lang="qsm">jᴀ</span> (present), and -<span lang="qsm">hɑ</span> (future).&#8203;&nbsp;&nbsp;&#8203;Aspect is marked with suffixes, which are the same for all verb classes.&#8203;&nbsp;&nbsp;&#8203;The suffix for progressive aspect depends on tense: -<span lang="qsm">g͡ɣᴀ</span> for past, -<span lang="qsm">un</span> for present, and -<span lang="qsm">dil</span> for future progressives.&#8203;&nbsp;&nbsp;&#8203;Mood markers do not depend on tense or verb class; the interrogative mood's suffix is always -<span lang="qsm">ʐi</span> and the imperative mood's is always -<span lang="qsm">s͈e̞h͈</span>.<br/>
+						Verbs in their forms ending with -<span lang="qsm">i</span> or -<span lang="qsm">fe</span> are in the infinitive, and those suffixes are replaced by the tense markers.&#8203;&nbsp;&nbsp;&#8203;Aspect and mood markers append to the verb, in that order after the tense suffix.
+					</p>
+					<p class="plain-font">
+						Adjectives come after their nouns.&#8203;&nbsp;&nbsp;&#8203;There are five cases: nominative, accusative, dative, genitive, and instrumental; each is marked with its own suffix on the noun.&#8203;&nbsp;&nbsp;&#8203;The default word order is SVO.
+					</p>
+				</main>
+			</section>
+
+			<section id="qsmWords">
+				<h3>Word table (<span id="qsmEntryCount" title="This is not indicative of completeness or comprehensiveness, as it includes all words including sequential derivatives, and it does not account for the subjects of all of these words or their usefulness.  It is for advisory purposes only.">Uncounted entries</span>)</h3>
+					<div id="qsmSearch">
+						<h4>Search (Likely to be slow)</h4>
+						<input placeholder="Enter your query (2 characters or longer)" id="qsmSearchQuery" class="plain-font"/><br/>
+						<input type="checkbox" id="qsmIgnoreDiacritics"> <label for="qsmIgnoreDiacritics">Ignore diacritics</label><br/>
+						<!--<input type="checkbox" id="qsmSearchIsRegex"> <label for="qsmSearchIsRegex">Use regex</label>-->
+						<input type="checkbox" id="qsmSearchEnglish" checked> <label for="qsmSearchEnglish">Search English</label>
+						<input type="checkbox" id="qsmSearchSsanamese" checked> <label for="qsmSearchSsanamese">Search Ssanamese</label>
+						<input type="checkbox" id="qsmSearchEtymology"> <label for="qsmSearchEtymology">Search in etymologies</label>
+						<input type="checkbox" id="qsmSearchExtraInfo"> <label for="qsmSearchExtraInfo">Search in extra info</label>
+						<input type="checkbox" id="qsmSearchPartOfSpeech"> <label for="qsmSearchPartOfSpeech">Search in parts of speech</label>
+						<input type="checkbox" id="qsmSearchStart"> <label for="qsmSearchStart">Anchor search to starts of cells</label>
+						<input type="checkbox" id="qsmSearchEnd"> <label for="qsmSearchEnd">Anchor search to ends of cells</label>
+					</div>
+
+				<main id="qsmWordlist">
+				</main>
+			</section>
+
+
+			<section id="ssanameseLore">
+				<h3>Lore</h3>
+				<div id="lore1" class="indent plain-font" aria-role="paragraph">
+					To do.
+				</div>
+			</section>
+		</section>
+
 		<section id="sptyanim">
 			<h1 class="subh1">Sptyanim</h1>
 			<p class="plain-font">Sptyanim is a language spoken in the Sptyan region of Twanthain, which encompasses southeastern Jeybwam, as well as small parts of far-southern Pfewbwam that lie along the eponymous Dwang River (Dwa᷄n̏ F̌eu, "Capital River").
@@ -5629,7 +6307,7 @@
 									<td><span class="phoneme">/w/</span> <span class="grapheme">〈w〉</span></td>
 									<td>&nbsp;</td>
 									<td><span class="phoneme">/l~ɹ/</span> <span class="grapheme">〈l〉</span></td>
-									<td><span class="phoneme">/y/</span> <span class="grapheme">〈j〉</span></td>
+									<td><span class="phoneme">/j/</span> <span class="grapheme">〈y〉</span></td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 								</tr>
@@ -5812,6 +6490,12 @@
 								</ul></li></li>
 							</ul>
 						</li>
+						<li><strong>Sissinese:</strong>
+							<ul>
+								<li>Short: <span lang="qst">Wyuans̏̊e Ánề</span> (ASCII: <span lang="qst">Wyuanshwe A^naeh</span>)</li>
+								<li>Full: <span lang="qst">Wyuans̏̊e Síz̏àdis̊in S̤᷄empunés̏̊e Siz̏̊ínpuès̏̊e Punmís̏̊eҟis̏̊e Ánề</span> (ASCII: <span lang="qst">Wyuanshwe Si^zhahdiswin Ssxywempune^shwe Sizhwi^npuehshwe Punmi^shwekyishwe A^naeh</span>)</li>
+							</ul>
+						</li>
 						<li><strong>Ssanamese:</strong>
 							<ul>
 								<li>Short: <span lang="qsm">Wiuanlem Walžmdanel</span> (ASCII: <span lang="qsm">Wiuanlem Walzhmdanel</span>)</li>
@@ -5859,7 +6543,7 @@
 							growthRate = parseFloat(growthRate.replace(/\.?%$/,""))
 							var growthFactor = 1 + (growthRate / 100);
 							var startDate = 1729105848513; //file's creation date, 20241016151048.513088-240
-							var offset = 0; //1000 * 60 * 60 * 24 * 365 //For testing
+							var offset = 0 * 1000 * 60 * 60 * 24 * 365; //For testing
 							var currentDate = Date.now() + offset;
 							var millisPassed = currentDate - startDate;
 							var startPopulation = 3524245;
@@ -6038,7 +6722,79 @@
 						<span class="info-pair indent">Official color: <span class="info-value" style="background-color: #F78018; color: black;">#F78018</span></span><br/></li> <!--the sunset-->
 					</ul></div>
 
+					<span class="info-pair">Life expectancy: 87.65 years</span><br/>
+					<span class="info-pair">Literacy rate: 98.7%</span><br/>
+					<div class="info-pair">Most spoken languages: <span>(Percentages do not add up to 100% due to multilingualism)</span> <ol class="info-value">
+						<li class="subpair"><span class="sublabel">Twanthainese</span>: <span class="subvalue"><span id="speakers Twanthainese">3,494,056 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Spanish</span>: <span class="subvalue"><span id="speakers Spanish">1,229,404 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Sissinese</span>: <span class="subvalue"><span id="speakers Sissinese">896,949 speakers</span></span></li> <!--DBOL population: 434,002 as of pop. 3,587,518-->
+						<li class="subpair"><span class="sublabel">English</span>: <span class="subvalue"><span id="speakers English">853,147 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Indonesian</span>: <span class="subvalue"><span id="speakers Indonesian">583,501 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Filipino/Tagalog</span>: <span class="subvalue"><span id="speakers Filipino/Tagalog">512,028 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Mandarin</span>: <span class="subvalue"><span id="speakers Mandarin">405,594 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Taiwanese Hokkien</span>: <span class="subvalue"><span id="speakers Taiwanese Hokkien">340,629 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Bisaya/Cebuano</span>: <span class="subvalue"><span id="speakers Bisaya/Cebuano">272,706 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Ssanamese</span>: <span class="subvalue"><span id="speakers Ssanamese">226,304 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Sptyanim</span>: <span class="subvalue"><span id="speakers Sptyanim">144,531 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Japanese</span>: <span class="subvalue"><span id="speakers Japanese">128,874 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">French</span>: <span class="subvalue"><span id="speakers French">28,082 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Korean</span>: <span class="subvalue"><span id="speakers Korean">27,984 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Vietnamese</span>: <span class="subvalue"><span id="speakers Vietnamese">22,053 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Portuguese</span>: <span class="subvalue"><span id="speakers Portuguese">21,543 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Thai</span>: <span class="subvalue"><span id="speakers Thai">20,883 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Khmer</span>: <span class="subvalue"><span id="speakers Khmer">17,987 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Lao</span>: <span class="subvalue"><span id="speakers Lao">7,021 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">German</span>: <span class="subvalue"><span id="speakers German">4,966 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Burmese</span>: <span class="subvalue"><span id="speakers Burmese">4,547 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Malay</span>: <span class="subvalue"><span id="speakers Malay">3,992 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Bengali</span>: <span class="subvalue"><span id="speakers Bengali">3,163 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Chamorro</span>: <span class="subvalue"><span id="speakers Chamorro">1,752 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Tok Pisin</span>: <span class="subvalue"><span id="speakers Tok Pisin">1,400 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Haitian Creole</span>: <span class="subvalue"><span id="speakers Haitian Creole">421 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Toki Pona</span>: <span class="subvalue"><span id="speakers Toki Pona">105 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Uzbek</span>: <span class="subvalue"><span id="speakers Uzbek">42 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Turkish</span>: <span class="subvalue"><span id="speakers Turkish">28 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Polish</span>: <span class="subvalue"><span id="speakers Polish">11 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Serbian</span>: <span class="subvalue"><span id="speakers Serbian">5 speakers</span></span></li>
+						<li class="subpair"><span class="sublabel">Kay(f)bop(t)</span>: <span class="subvalue"><span id="speakers Kay(f)bop(t)">1 speakers</span></span></li>
+					</ol></div><br/>
+
 					<script>
+						languageProportions = {
+							"Twanthainese": 3494056/3587518,
+							"Spanish": 1229404/3587518,
+							"Sissinese": 896949/3587518,
+							"English": 853147/3587518,
+							"Indonesian": 583501/3587518,
+							"Filipino/Tagalog": 512028/3587518,
+							"Mandarin": 405594/3587518,
+							"Taiwanese Hokkien": 340629/3587518,
+							"Bisaya/Cebuano": 272706/3587518,
+							"Ssanamese": 226304/3587518,
+							"Sptyanim": 144531/3587518,
+							"Japanese": 128874/3587518,
+							"French": 28082/3587518,
+							"Korean": 27984/3587518,
+							"Vietnamese": 22053/3587518,
+							"Portuguese": 21543/3587518,
+							"Thai": 20883/3587518,
+							"Khmer": 17987/3587518,
+							"Lao": 7021/3587518,
+							"German": 4966/3587518,
+							"Burmese": 4547/3587518,
+							"Malay": 3992/3529215,
+							"Bengali": 3163/3529215,
+							"Chamorro": 1752/3529215,
+							"Tok Pisin": 1400/3529215,
+							"Haitian Creole": 421/3529215,
+							"Toki Pona": 105/3529215,
+							"Uzbek": 42/3529215,
+							"Turkish": 28/3529215,
+							"Polish": 11/3529215,
+							"Serbian": 5/3529215,
+							"Kay(f)bop(t)": 1/3529215
+						}
+
 						var provinceAreas = {
 							pelbwam: 17156,
 							pfeikbwam: 7148,
@@ -6127,44 +6883,17 @@
 							};
 							popDenText.innerText = pPopDen.toLocaleString("en-US",{maximumFractionDigits:2})
 						}
+						
+						for(var langName in languageProportions) {
+							var destination = document.getElementById("speakers " + langName);
+							console.log(langName);
+							var amount = Math.round(population * languageProportions[langName]);
+							destination.innerText = `${amount.toLocaleString()} speaker${amount == 1 ? "" : "s"}`
+						}
 					</script>
 
-					<span class="info-pair">Life expectancy: 87.65 years</span><br/>
-					<span class="info-pair">Literacy rate: 98.7%</span><br/>
-					<div class="info-pair">Most spoken languages: <span>(Percentages do not add up to 100% due to multilingualism)</span> <ol class="info-value">
-						<li class="subpair"><span class="sublabel">Twanthainese</span>: <span class="subvalue">99.9%</span></li>
-						<li class="subpair"><span class="sublabel">Spanish</span>: <span class="subvalue">29.1%</span></li>
-						<li class="subpair"><span class="sublabel" title="A language of Twanthain, spoken by the Sissin people.">Sissinese</span>: <span class="subvalue">25.4%</span></li> <!--DBOL population: 426,949; total speakers: 896,949 as of pop. 3,529,215-->
-						<li class="subpair"><span class="sublabel">English</span>: <span class="subvalue">24.4%</span></li>
-						<li class="subpair"><span class="sublabel">Indonesian</span>: <span class="subvalue">14.4%</span></li>
-						<li class="subpair"><span class="sublabel">Filipino/Tagalog</span>: <span class="subvalue">13.5%</span></li>
-						<li class="subpair"><span class="sublabel">Mandarin</span>: <span class="subvalue">11.6%</span></li>
-						<li class="subpair"><span class="sublabel">Taiwanese Hokkien</span>: <span class="subvalue">10.6%</span></li>
-						<li class="subpair"><span class="sublabel">Bisaya/Cebuano</span>: <span class="subvalue">7.8%</span></li>
-						<li class="subpair"><span class="sublabel">Japanese</span>: <span class="subvalue">3.6%</span></li>
-						<li class="subpair"><span class="sublabel">French</span>: <span class="subvalue">0.78%</span></li>
-						<li class="subpair"><span class="sublabel">Korean</span>: <span class="subvalue">0.7%</span></li>
-						<li class="subpair"><span class="sublabel">Vietnamese</span>: <span class="subvalue">0.63%</span></li>
-						<li class="subpair"><span class="sublabel">Portuguese</span>: <span class="subvalue">0.6%</span></li>
-						<li class="subpair"><span class="sublabel">Thai</span>: <span class="subvalue">0.58%</span></li>
-						<li class="subpair"><span class="sublabel">Khmer</span>: <span class="subvalue">0.5%</span></li>
-						<li class="subpair"><span class="sublabel">Lao</span>: <span class="subvalue">0.2%</span></li>
-						<li class="subpair"><span class="sublabel">German</span>: <span class="subvalue">0.14%</span></li>
-						<li class="subpair"><span class="sublabel">Burmese</span>: <span class="subvalue">0.13%</span></li>
-						<li class="subpair"><span class="sublabel">Malay</span>: <span class="subvalue">0.11%</span></li>
-						<li class="subpair"><span class="sublabel">Bengali</span>: <span class="subvalue">0.09%</span></li>
-						<li class="subpair"><span class="sublabel">Chamorro</span>: <span class="subvalue">0.05%</span></li>
-						<li class="subpair"><span class="sublabel">Tok Pisin</span>: <span class="subvalue">0.04%</span></li>
-						<li class="subpair"><span class="sublabel">Haitian Creole</span>: <span class="subvalue">0.012%</span></li>
-						<li class="subpair"><span class="sublabel">Toki Pona</span>: <span class="subvalue">0.003%</span></li>
-						<li class="subpair"><span class="sublabel">Uzbek</span>: <span class="subvalue">0.0012%</span></li>
-						<li class="subpair"><span class="sublabel">Turkish</span>: <span class="subvalue">0.0008%</span></li>
-						<li class="subpair"><span class="sublabel">Polish</span>: <span class="subvalue">0.000314%</span></li>
-						<li class="subpair"><span class="sublabel">Serbian</span>: <span class="subvalue">0.000143%</span></li>
-						<li class="subpair"><span class="sublabel">Kay(f)bop(t)</span>: <span class="subvalue">0.0000286%</span></li>
-					</ol></div><br/>
-					<span class="info-pair">National languages: Twanthainese, Sissinese, and Spanish. The difference in status between these and the "working" languages, below, is nil in practice, and it is mostly only a ceremonial distinction.</span><br/>
-					<span class="info-pair">Working languages: <span class="info-value">Twanthainese, Sissinese, Spanish, English, Indonesian, Tagalog, Mandarin, and Taiwanese Hokkien. Twanthain's "working languages" are the usually ones in which official documentation is always provided; the difference between them and the "official" languages is minimal and nebulous, and in a sense these may all be regarded as <i>de facto</i> official languages.</span></span><br/>
+					<span class="info-pair">National languages: Twanthainese, Sissinese, Ssanamese, Sptyanim, and Spanish. The difference in status between these and the "working" languages, below, is nil in practice, and it is mostly only a ceremonial distinction.</span><br/>
+					<span class="info-pair">Working languages: <span class="info-value">The national languages, plus English, Indonesian, Tagalog, Mandarin, Taiwanese Hokkien, and Cebuano. Twanthain's "working languages" are the usually ones in which official documentation is always provided; the difference between them and the "official" languages is minimal and nebulous, and in a sense these may all be regarded as <i>de facto</i> official languages.</span></span><br/>
 					<div class="info-pair">Most practiced religions: <ul class="info-value">
 						<li class="subpair"><span class="sublabel">Christianity</span>: 42.2%: <ol class="subvalue">
 							<li class="subpair"><span class="sublabel">Catholic</span>: <span class="subvalue">98.76% of Christians (41.68% of the total population)</span></li>
@@ -6176,12 +6905,12 @@
 							<li class="subpair"><span class="sublabel">Mahāyāna</span>: <span class="subvalue">0.96% of Buddhists (0.374% of the total population)</span></li>
 							<li class="subpair"><span class="sublabel">Other Buddhist</span>: <span class="subvalue">0.03% of Buddhists (0.012% of the total population)</span></li>
 						</ol></li>
-						<li class="subpair"><span class="sublabel">Indigenous beliefs</span>: <span class="subvalue">15%</span></li>
+						<li class="subpair"><span class="sublabel">Indigenous beliefs</span>: <span class="subvalue">14.6%</span></li>
 						<li class="subpair"><span class="sublabel">No religion</span>: <span class="subvalue">2%</span></li>
-						<li class="subpair"><span class="sublabel">Islam</span>: <span class="subvalue">1.7%: <ol class="subvalue">
-							<li class="subpair"><span class="sublabel">Shāfi'ī Sunni</span>: <span class="subvalue">99.81% of Muslims (1.69677% of the total population)</span></li>
-							<li class="subpair"><span class="sublabel">Ja'farī Shī'a</span>: <span class="subvalue">0.18% of Muslims (0.00306% of the total population)</span></li>
-							<li class="subpair"><span class="sublabel">Other Muslim</span>: <span class="subvalue">0.01% of Muslims (0.00017% of the total population)</span></li>
+						<li class="subpair"><span class="sublabel">Islam</span>: <span class="subvalue">2.1%: <ol class="subvalue">
+							<li class="subpair"><span class="sublabel">Shāfi'ī Sunni</span>: <span class="subvalue">99.81% of Muslims (2.09601% of the total population)</span></li>
+							<li class="subpair"><span class="sublabel">Ja'farī Shī'a</span>: <span class="subvalue">0.18% of Muslims (0.17965% of the total population)</span></li>
+							<li class="subpair"><span class="sublabel">Other Muslim</span>: <span class="subvalue">0.01% of Muslims (0.00998% of the total population)</span></li>
 						</ol></li>
 						<li class="subpair"><span class="sublabel">Other non-indigenous religions</span>: <span class="subvalue">0.13%</span></span>,
 					</ul></div><br/>
